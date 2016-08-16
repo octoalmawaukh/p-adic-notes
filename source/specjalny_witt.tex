@@ -1,0 +1,46 @@
+\section{Wektory Witta}
+Ernst Witt pokazał w 1936 jak zadać strukturę pierścienia na zbiorze nieskończonych ciągów o wyrazach z przemiennego pierścienia $\pierscien$, by z $\pierscien = \mathbb F_p$ otrzymać liczby $p$-adyczne, $\Z_p$.
+
+Dodawanie liczb $p$-adycznych jako szeregów potęgowych sprawia ból przez problemy podczas przenoszenia klasycznych cyfr $\{0, 1, \ldots, p-1\}$.
+Teichmüller proponował, by zastąpić je rozwiązaniami $x^p = x$ w $\Z_p$ (które można opuszczać do $\mathbb F_p$ i podnosić charakterem $\omega \colon \mathbb F_p^\times \to \Z_p^\times$).
+To zmienia elementy $\Z_p$ w nieskończone ciągi o wyrazach z $\omega(\mathbb{F}_p^\times) \cup \{0\}$.
+
+Chociaż z punktu widzenia teorii mnogości, $\Z_p$ to $\prod_\N \mathbb F_p$, zbiory te różnią się jako pierścienie.
+Przypomnijmy, że $\omega$ nie jest addytywny, ale pomimo to $\omega(k) = \omega(i) + \omega(j)$ mod $p$ w $\Z_p$ pociąga $i + j = k$ w $\mathbb F_p$.
+Skrótowo zapisujemy to jako $m \circ \omega = \mathrm{id}_{\mathbb F_p}$, gdzie $m \colon \Z_p \to \Z_p / p \Z_p \cong \mathbb F_p$.
+
+Każdy element $\Z_p$ zapisuje się jako szereg potęgowy od $p$ ze współczynnikami od Teichmüllera.
+Teraz $a_j^p = a_j$ i możemy po drętwych rachunkach (patrz: Wikipedia) dojść do
+\[
+		\sum_{j=0}^m c_j^{p^{m-j}} \cdot p^j \equiv \sum_{j=0}^m (a_j^{p^{m-j}} + b_j^{p^{m-j}}) \cdot p^j \mod p^{m+1}
+\]
+
+To jakoś motywuje nasze postępowanie.
+Ustalmy pierwszą liczbę $p$.
+
+\begin{definicja}
+	Wektor Witta nad przemiennym pierścieniem $\pierscien$ to ciąg z $\pierscien^{\N}$.
+\end{definicja}
+
+\begin{definicja}
+	Wielomian Witta $W_n$ to $\sum_j p^j x_j^{p^{n-j}}$.
+\end{definicja}
+
+\begin{definicja}
+	Ciąg $(W_0, W_1, \ldots)$ to składowa-duch wektora Witta, oznacza zazwyczaj przez $(x^{(0)},x^{(1)},x^{(2)}, \ldots)$
+\end{definicja}
+
+Na zbiorze wektorów (Witta) jest dokładnie jedna struktura pierścienia, tak by suma i produkt były zadane wielomianami o całkowitych współczynnikach (niezależnych od $\pierscien$), zaś każdy wielomian (Witta) był homomorfizmem w $\pierscien$:
+\begin{enumx}
+\item $X^{(i)}+Y^{(i)}=(X+Y)^{(i)}$,
+\item $X^{(i)}Y^{(i)}=(XY)^{(i)}$.
+\end{enumx}
+
+Jeżeli $p$ w $\pierscien$ jest odwracalne, to dostajemy $\pierscien^\N$, dla $\mathbb F_n$ -- liczby $p$-adyczne, zaś dla $\mathbb F(p^n)$ -- nierozgałęzione rozszerzenie stopnia $n$ dla $\Z_p$.
+
+\begin{definicja}
+	Uniwersalny wielomian Witta to $W_n = \sum_{d \mid n} d x_d^{n : d}$.
+\end{definicja}
+
+
+% - niemiecka wiki - Wittvektor

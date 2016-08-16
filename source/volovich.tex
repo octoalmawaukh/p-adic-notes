@@ -1,0 +1,294 @@
+Ten rozdział miał być poświęcony mechanice kwantowej, ale wygląda na to, że jednak nie do końca tak będzie.
+
+\section{Analityczny wstęp}
+Aby zachować zgodność z książką, na której się bazujemy, do końca rozdziału tymczasowo przyjmiemy oznaczenia:
+\begin{align*}
+B_n(a) & = \{x \in \Q_p: |x - a|_p \le p^n\} \\
+S_n(a) & = \{x \in \Q_p: |x - a|_p = p^n\}.
+\end{align*}
+
+\begin{definicja}
+	Ciągły morfizm $\chi \colon \Q_p^+ \to \C$ o obrazie zawartym w jednostkowym okręgu to charakter addytywny.
+\end{definicja}
+
+Łatwo sprawdzić, że funkcja $\exp (2 \pi i \langle\xi x\rangle)$ spełnia warunki tej definicji dla ustalonego $\xi$. 
+Swoją drogą, Rosjanie używają $\{\,\}$ zamiast $\langle \,\rangle$, ale my trzymamy się konwencji Roberta z definicji \ref{cptmetal}.
+Okazuje się, że innych charakterów nie ma!
+
+\begin{fakt}
+	Każdy charakter jest postaci $\chi(x) = \exp(2 \pi i \langle \xi x \rangle_p)$, ,,$\chi_p(\xi x)$'' dla pewnego $\chi \in \Q_p$.
+\end{fakt}
+
+\begin{proof}
+	Niech $\chi$ będzie dowolnym (addytywnym) charakterem. 
+	Wtedy $\chi(0) = 1$, $\chi(nx) = \chi(x)^n$, $n \in \Z$.
+	Zanim zajmiemy się całym ciałem $\Q_p$, przeprowadzimy dochodzenie w sprawie charakterów dla $B_n$.
+
+	Jeżeli $\chi \not \equiv 1$, to istnieje $k \in \Z$, że $\chi(x) \equiv 1$ dla $x \in B_k$.
+	Istotnie, warunki $\chi(0) = 1$, $|\chi(x)| = 1$ i ciągłość $\chi$ na kuli $B_n$ pozwalają wybrać taką gałąź funkcji $\log \chi(x) = i \arg \chi (x)$, która jest ciągła w zerze i $\arg \chi(0) = 0$ oraz $k \in \Z$, takie że $|\arg \chi(x)| < 1$ dla $x \in B_k$.
+	Skoro $nx \in B_k$ dla $x \in B_k$, $n \in \N$, wnioskujemy $|\arg \chi (x)| = |\arg \chi (nx)| / n < 1/n$, mamy więc $\arg \chi (x) = 0$ i stąd już $\chi (x) \equiv 1$ dla $x \in B_k$.
+
+	Zakładamy, że dysk $B_k$ jest maksymalny.
+
+	Pokażemy teraz, że dla każdej całkowitej $r \in (k, n]$ prawdą jest $\chi(p^{-r}) = \exp (2\pi i m p^{k - r})$, gdzie liczba $m$ nie zależy od $r$ i spełnia $1 \le m < p^{n-k}$.
+
+	Mamy $1 = \chi(p^{-k}) = \chi(p^{-r})^q$, $q = p^{n - k}$, dla $r = n$.
+	Jeżeli $k < r < n$, to $\chi(p^{-r}) = \chi(p^{-n})^s = [\exp (2 \pi i m p^{k-n})]^s$, przy czym $s = p^{n - r}$.
+	Niech $\xi = p^k m$, gdzie $p^{-k} \ge |\xi|_p > p^{-n}$.
+	To oznacza, że $\chi(p^{-r}) = \chi_p(p^{-r}\xi)$.
+
+	Niech $x \in B_n \setminus B_k$. Wtedy $\chi(x) = \chi_p(\xi x)$ dla pewnego $\xi$, że $|\xi|_p > p^{-n}$: niech $x = x_0p^{-r} + \ldots + x_{r - k +1} p^{1-k} + x'$, gdzie $x_0 \neq 0$, $x' \in B_k$ dla pewnego $r$, że $k < r \le n$.
+
+	Już udowodnione własności pozwalają nam na
+	\begin{align*}
+		\chi(x) & = \chi(p^{-r})^{x_0} \chi(p^{1-r})^{x_1} \cdot \ldots \cdot \chi(p^{1-k})^{x_{r-k+1}} \chi(x') \\
+		& = \chi_p(x' \xi) \prod_{i = 0}^{r-k +1} \chi_p(p^{i-r} \xi)^{x_i} \\
+		& = \chi_p(x_0p^{-r} \xi + \ldots + x_{r-k+1} p^{1-k} \chi +x' \xi) \\
+		&= \chi_p(\xi x).
+	\end{align*}
+
+	Przypadek $\xi = 0$ jest niemożliwy: wtedy $\chi(x) = \chi_p(0) = 1$ w $B_n$, co przeczy wyborowi liczby $k$.
+	Pokazaliśmy, iż charakter dla dysku $B_n$ jest taki jak trzeba: z $\xi = 0$ lub $|\xi|_p \ge p^{1-n}$.
+
+	Niech $\chi(\xi) \not \equiv 1$ będzie charakterem $\Q_p$.
+	Wtedy w dysku $B_0$ ma przedstawienie $\chi(x) = \chi_p(\xi_0'x)$, gdzie $\xi_0' \in \Q_p$, $|\xi_0'|_p > 1$.
+	Pokażemy, że w dysku $B_1$ mamy coś bardzo podobnego, tzn. $\chi (x) = \chi_p(\xi'_1 x)$, gdzie $\xi_1' = \xi_0' + \xi_0$, $\xi_0 \in \{0, \ldots, p-1\}$.
+
+	Wiemy już, że $B_1 = B_0 \sqcup S_1$.
+	Każdy element $S_1$ ma postać $x = x_0 p^{-1} + x'$, $x_0 \in \{1, \ldots, p-1\}$, $x' \in B_0$.
+	Zatem w $S_1$:
+	\begin{align*}
+		\chi(x) & = \chi(1/p)^{x_0} \chi_p (\xi'_0 x') = \chi(1)^{x_0 : p} \chi_p (\xi_0' x') \\
+		& = \chi_p(\xi_0')^{x_0 : p} \chi_p (\xi_0' x') = \chi_p(\xi_0' x_0 / p) \chi_p(\xi_0 x_0 / p) \\ & \cdot \chi_p(\xi_0' x' + \xi_0 x') = \chi_p((\xi_0' + \xi_0)(x_0 / p + x')) \\
+		& = \chi_p (\xi_1' x)
+	\end{align*}
+	dla pewnego $\xi_0 = 0, 1, \ldots, p-1$.
+
+	Powtarzamy proces w dysku $B_2$ i dostajemy jeszcze lepsze przedstawienie $\chi(x) = \chi_p(\xi_2' x)$, $\xi_2' = \xi_0' + \xi_0 + \xi_1 p$.
+
+	Indukcyjne rozumowanie zapewnia nam istnienie jakiegoś $\xi = \xi_0' + \xi_0 + \xi_1 p + \xi_2 p^2 + \ldots \in \Q_p$.
+\end{proof}
+
+\begin{wniosek}
+	Grupa (addytywna) $\Q_p$ jest izomorficzna z własną grupą charakterów za sprawą odwzorowania $\xi \mapsto \chi_p(\xi x)$.
+\end{wniosek}
+
+Niech $\chi_\infty(x) = \exp(- 2 \pi i x)$.
+
+\begin{fakt}[,,adelizm'']
+	Dla $x \in \Q$, $\prod_{p = 2}^\infty \chi_p(x) = 1$.
+\end{fakt}
+
+\begin{proof}
+	Niech $x = c (p_1^{\alpha_1} \cdot \ldots \cdot p_n^{\alpha_n})^{-1}$, gdzie $p_i$ są pierwsze i nie dzielą $c$.
+	Wtedy mamy $x = m + \sum_{i=1}^{n} c_ip^{-\alpha_i}$ dla pewnej całkowitej $m$.
+	Wynika stąd, że
+	\[
+		\prod_{p < \infty} \chi_p(x) = \prod_{i \le n} \exp \Bigl(2 \pi i \frac{c_i}{p_i^{\alpha_i}} \Bigr) = \exp (2 \pi i x). \qedhere
+	\]
+\end{proof}
+
+\begin{definicja}
+	Multiplikatywny charakter ciała $\Q_p$ jest to ciągły homomorfizm $\Q_p^\times \to \C$. %, analogicznie dla $\Q_p(\varepsilon^{1/2})$ i $S_\varepsilon$.
+\end{definicja}
+
+\begin{fakt}
+	Multiplikatywny charakter $\Q_p$ jest postaci \[\pi(x) = |x|_p^{\alpha - 1} \pi_0(|x|_p x),\] gdzie $\pi_0$ jest charakterem $S_0$, $|\pi_0(x')|_p = 1$ dla $x' \in S_0$, $\alpha \in \C$.
+\end{fakt}
+
+Dowód jest na tyle podobny do tego, który uzasadniał już klasyfikację addytywnych charakterów, że pominiemy go.
+
+Każdy element $x$ ciała $\Q_p (\sqrt{\varepsilon})$ ma postać $z = r \sigma$ lub $ \nu r \sigma$, gdzie $r \in \Q_p$, $\nu \overline \nu$ nie jest kwadratem w $\Q_p$ i $\sigma \overline \sigma = 1$.
+
+\begin{fakt}
+	Niech $\pi_1$ będzie multiplikatywnym charakterem ciała $\Q_p$, zaś $\pi_2$: ,,okręgu'' $C$.
+	Wtedy $\pi^2(\nu) = \pi_1(\nu \overline \nu) \pi_2 (\nu / \overline \nu)$, a także $\pi(r \sigma) = \pi_1(r)\pi_2(\sigma)$ ($\pi(\nu r \sigma) = \pi(\nu)\pi(r\sigma)$) wyznaczają nam w jednoznaczny sposób charaktery dla $\Q_p(\sqrt \varepsilon)$.
+\end{fakt}
+
+Nie do końca wiadomo, czy niżej opisana całka jest istotnie czymś nowym.
+
+Ciało $\Q_p$ jest lokalnie zwartą grupą abelową, więc istnieje na jego addytywnej grupie miara Haara, dodatnia miara $\textrm{d}x$, która jest niezmiennicza na przesunięcia.
+Staje się jedyna po unormowaniu przez $\int \chi(B_0) \,\textrm{d}x = 1$, przy czym $\chi$ oznacza tu indykator, a nie charakter!
+
+Jeżeli  $K \subseteq \Q_p$ jest zwarty, to miara $\textrm{d}x$ definiuje dodatni funkcjonał ciągły na $\mathcal C(K)$ (z normą maksimum), całkę nad tym zbiorem.
+
+\begin{definicja}
+	Funkcję $f \in L^1_{loc}$ nazywamy całkowalną na $\Q_p$, jeśli istnieje granica
+	\[
+		\lim_{N \to \infty} \int_{B_N} \! f(x)\,\textrm{d}x = \sum_{n \in \Z} \int_{S(n)} \!f(x)\,\textrm{d}x.
+	\]
+	Granicę tę nazywamy całką (niewłaściwą).
+\end{definicja}
+
+\begin{fakt}[zamiana zmiennych I]
+$\textrm{d}(xa) = |a|_p \textrm{d}x$ dla $a \in \Q_p^\times$.
+\end{fakt}
+
+\begin{proof}
+	Miara $d(xa)$ jest niezmiennicza na przesunięcia, więc różni się od $d(x)$ tylko czynnikiem $C(a) > 0$.
+	Widać, że jest on charakterem grupy $\Q_p^\times$, przy czym $\pi_0(a') = 1$ i $C(a) = |a|_p^{\alpha - 1}$.
+	Dysk $B_0$ jest unią $B_{-1}(k)$ dla $k = 0$, $1$, \ldots, $p-1$, zbiorów równej miary.
+	Zatem $d(xp) = (dx)/p$ i $C(p) = |p|_p$, $\alpha = 2$.
+\end{proof}
+
+Policzymy teraz kilka całek. %: $\gamma \in \Z$, $\Re \alpha > 0$.
+
+\begin{przyklad}
+	$\int_{X} \! 1 \,\textrm{d}x = p^n$ ($n \in \Z$, $X = B_n$).
+\end{przyklad}
+
+\begin{proof}$\int_X dx = \int_{|y|_p \le 1} d(p^{-n}y) = |p^{-n}|_p = p^n$.
+\end{proof}
+
+Wynika stąd, że ,,okrąg'' ($S_n$) w $\Q_p$ ma dodatnie pole, gdyż jest różnicą dwóch dysków, wbrew temu, czego spodziewać się można po okręgu na prostej rzeczywistej: $\int_{S_n} dx = p^n - p^{n-1}$.
+
+Uogólnieniem powyższej całki jest:
+
+\begin{fakt}
+	Dla odpowiednio regularnych $f$ zachodzi
+	\[
+		\int_{\Q_p} \! f(|x|_p) \,\textrm{d}x = \frac{p-1}{p} \sum_{n \in \Z} f(p^n) p^n.
+	\]
+\end{fakt}
+
+\begin{wniosek}
+	Jeżeli $f (x) = x^{\alpha - 1}$ i $\Re \, \alpha > 0$, to
+	\[
+		\int_{B_0} |x|_p^{\alpha - 1} \, \textrm{d} x = \frac{p-1}{p} \cdot \frac{p^\alpha}{p^\alpha - 1}.
+	\]
+\end{wniosek}
+
+\begin{wniosek}
+	Jeżeli $f = \ln$ (logarytm naturalny), to 
+	\[
+		\int_{B_0} \ln |x|_p \, \textrm{d} x = \frac{\ln p}{1 - p}.
+	\]
+\end{wniosek}
+
+\begin{proof}
+	$- (1 - 1/p)\ln p \sum_{n = 0}^\infty n{p^{-n}} = (1-p)^{-1} \ln p$.
+\end{proof}
+
+\begin{fakt}[zamiana zmiennych II]
+	Jeżeli $\sigma(y)$ to analityczny homeomorfizm między otwarniętymi $K_1$ i $K_2 \subseteq \Q_p$ o niezerowej pochodnej, to dla $f \in \mathcal C(K)$ prawdziwa jest równość
+	\[
+		\int_{K_2} \!f(x)\,\textrm{d}x = \int_{K_1}\! |\sigma'(y)|_p \cdot f(\sigma(y)) \,\textrm{d}y.
+	\]
+\end{fakt}
+
+\begin{proof}
+	Wystarczy sprawdzić poprawność stwierdzenia dla $f$, indykatora zbioru $K_2$, przez pokrycie go małymi i rozłącznymi dyskami w skończonej ilości.
+\end{proof}
+
+\begin{przyklad}
+	Jeżeli $n \in \Z$, to
+	\[
+		\int_{B(n)}\! \chi_p(\xi x) \,\textrm{d}x = p^n \cdot [|\xi|_p \le p^{-n}].
+	\]
+\end{przyklad}
+
+\begin{proof}
+	Dla $|\xi|_p \le p^{-n}$ jest $|\xi x|_p \le 1$ i $\chi_p(\xi x) = 1$, stąd
+	\[
+		\int_{B(n)} \chi_p(\xi x)\,\textrm{d}x = \int_{B(n)} 1 \,\textrm{d}x = p^n.
+	\]
+
+	Jeśli $|\xi|_p \ge p^{1-n}$	, to dla pewnego $y \in S_n$ jest $|\xi y|_p \ge p$, a więc $\chi_p(\xi y) \not \equiv 1$.
+	Zmiana zmiennych $x = t - y$ przekształca lewą całkę do
+	\[
+		\int_{B_n(y)} \chi_p(\xi t - \xi y)\,\textrm{d} t = \chi_p(- \xi y) \int_{B(n)} \chi_p(\xi t) \,\textrm{d} t. \qedhere
+	\]
+\end{proof}
+
+\begin{przyklad}
+	Jeżeli szereg $\sum_{\gamma \ge 0} |f(p^{-\gamma})| p^{-\gamma}$ jest zbieżny, to całka z $f(|x|_p) \chi_p(\xi x)$ nad $\Q_p$ wynosi
+	\[
+		\frac{p-1}{p|\xi|_p} \sum_{\gamma=0}^\infty \frac{f(p^{-\gamma}|\xi|_p^{-1})}{p^\gamma} - \frac{f(p|\xi|_p^{-1})}{|\xi|_p}.
+	\]
+\end{przyklad}
+
+\begin{proof}
+	Wynika to z poprzedniego przykładu i definicji całki (niewłaściwej) po użyciu sztuczki pozwalającej wyznaczyć pole okręgu.
+\end{proof}
+
+\begin{wniosek}
+	Jeśli $f (x) = \ln |x|_p$, to
+	\[
+		\int_{\Q_p} \! \ln |x|_p \chi_p(\xi x) \,\textrm{d}x = \frac{p \ln p}{|\xi|_p (1-p)}.
+	\]
+\end{wniosek}
+
+\begin{wniosek}
+	Jeśli $f (x) = |x|_p^{\alpha - 1}$, $\Re \alpha > 0$, to
+	\[
+		\int_{\Q_p} \! |x|_p^{\alpha - 1} \chi_p(\xi x) \,\textrm{d}x = \frac{1-p^{\alpha-1}}{1- p^{-\alpha}} |\xi|_p^{-\alpha}.
+	\]
+\end{wniosek}
+
+\begin{wniosek}
+	Poprzedni wniosek z $\alpha = 1$, jeśli $\xi \neq 0$.
+\end{wniosek}
+
+\begin{przyklad}
+	Jeśli $f(x) = (|x|_p^2 + m^2)^{-1}$, to
+	\begin{align*}
+		I & = \int_{\Q_p} \!\frac{\chi_p(\xi x)}{|x|_p^2 + m^2} \,\textrm{d}x \\
+		& = \frac{p - 1}{p|\xi|_p} \sum_{n = 0}^\infty \frac{p^{-n}}{p^{-2n}|\xi|_p^{-2} + m^2} - \frac{|\xi|_p^{-1}}{p^2|\xi|_p^{-2} + m^2} \\
+		& = \frac{p - 1}{p|\xi|_p^{-1}} \sum_{n \ge 0} \frac{1}{p^n} \Bigl(\frac{1}{p^{-2n}+m^2|\xi|_p^2}-\frac{1}{p^2+m^2|\xi|_p^2} \Bigr)
+	\end{align*}
+\end{przyklad}
+
+\begin{wniosek}
+	Przy $|\xi|_p$ dążącym do $\infty$ mamy asymptotykę \[\int_{\Q_p} \!\frac{\chi_p(\xi x)}{|x|_p^2 + m^2} \,\textrm{d}x \approx \frac{p^4 + p^3}{p^2 + p + 1} \frac{1}{m^4 |\xi|_p^3}.\]
+\end{wniosek}
+
+\begin{proof}
+	Mniej uciążliwy rachunkowo niż pozornie:
+	\begin{align*}
+		\ldots & = \lim_{|\xi|_p \to \infty} |\xi|_p^3 \int_{\Q_p} \!\frac{\chi_p(\xi x)}{|x|_p^2 + m^2} \,\textrm{d}x = \frac{p-1}{pm^4} \\
+		& \cdot \lim_{|\xi|_p \to \infty} \sum_{n=0}^\infty \frac{p^2-p^{-2n}}{p^n} \Bigl(1-\frac{p^{-2n}}{p^{-2n} + m^2 |\xi|_p^2}\Bigr)\\
+		& = \frac{p-1}{pm^4} \sum_{n=0}^\infty (p^{2-n} - p^{-3n}) \\
+		& = \frac{p-1}{pm^4} \Bigl( \frac{p^2}{1-p^{-1}} - \frac{1}{1-p^{-3}} \Bigr). \qedhere
+	\end{align*}
+\end{proof}
+
+Całka rzeczywista maleje wykładniczno:
+\[
+	\int_{-\infty}^\infty \frac{\exp(-2 \pi i \xi x)}{x^2 + m^2} \,\textrm{d}x = \frac{\pi}{m \exp(2 \pi m |\xi|)}.
+\]
+
+Miara $\textrm{d}x$ z $\Q_p$ przenosi się na przestrzeń produktową $\Q_p^n$.
+Aby zredukować całki wielowymiarowe do duż prostszych w jednym wymiarze, należy użyć twierdzenia Fubiniego.
+
+\begin{twierdzenie}[Fubini]
+	Niech dana będzie taka funkcja $f(x, y)$ dla $x \in \Q_p^n$ i $y \in \Q_p^m$, że całka iterowana
+	\[
+		\int_{\Q_p^n} \!\int_{\Q_p^m} \!|f(x,y)| \,\textrm{d}y \,\textrm{d}x
+	\]
+	istnieje.
+	Wtedy funkcja $f$ jest całkowalna na $\Q_p^{n+m}$, zaś iterowane całki są sobie równe:
+	\[
+		\int_{\Q_p^n} \!\int_{\Q_p^m} \!f(x,y) \,\textrm{d}y \,\textrm{d}x = \int_{\Q_p^m} \!\int_{\Q_p^n} \!f(x,y) \,\textrm{d}x \,\textrm{d}y
+	\]
+	i pokrywają się wartością z całką $f(x, y)$ nad $\Q_p^{n+m}$.
+\end{twierdzenie}
+
+\begin{fakt}[zamiana zmiennych III]
+	Jeśli $x_i(y_1, \ldots, y_n)$ jest homeomorfizmem między otwarto-zwartymi $K_1$ i $K_2 \subseteq \Q_p^n$, którego współrzędne są analityczne i $\det \|\partial x_i / \partial y_k \| \neq 0$, to \[\int_{K_2} f(x) \,\textrm{d}x =  \int_{K_1} \left| \det \frac{\partial x_i}{\partial y_k} \right|_p f(x(y)) \,\textrm{d}y.\]
+\end{fakt}
+
+\begin{fakt}[całka Gaußa]
+	Jeśli $a \neq 0$, to
+	\[
+		\int_{\Q_p} \chi_p(ax^2 + bx)\,\textrm{d} x = \lambda_p(a) |a|_p^{-1/2} \chi_p(-b^2 / 4a),
+	\]
+	gdzie $\sqrt 2 \lambda_2(a) = (1+i) i^{a_1} (-1)^{a_2}$, jeśli $2 \mid v_2(a)$, natomiast $\sqrt{2} \lambda_2(a) = 1 + (-1)^{a_1} i$ w przeciwnym razie.
+
+	Dla $p > 2$, $\lambda_p(a) = 1$ (jeśli $2 \mid v_p(a)$), $(a_0/p)$, jeśli $4 \mid p - 1$ oraz $i (a_0/p)$ w przeciwnym razie.
+\end{fakt}
+
+Sowieci liczą teraz śmieszne całki, gaussowskie oraz różne warianty $\int_X \chi_p (t(x-y)^2) \,\textrm{d}y$.
+
+\begin{fakt}
+	$\lambda_p(a) \lambda_p(b) = \lambda_p(a+b) \lambda_p(1/a+1/b)$.
+\end{fakt}

@@ -1,0 +1,86 @@
+\section{Problem Waringa} % na podstawie pracy Volocha
+Dla $n > 1$ i przemiennego pierścienia z jedynką $\pierscien$ określamy funkcję $g(n, \pierscien)$ jako najmniejszą liczbę $s$, że każdy element $\pierscien$ jest sumą $s$ $n$-tych potęg elementów $\pierscien$ (jeśli istnieje) lub $\infty$ (jeśli nie).
+Problem Waringa polega na oszacowaniu wartości tej funkcji.
+
+\begin{definicja}
+	$W(\cialo)$ to pierścień wektorów Witta nad $\cialo$, czyli (jedyne) zupełne i nierozgałęzione rozszerzenie $\Z_p$ o ciele residuów $\cialo$ algebraicznym nad $\mathbb F_p$.
+\end{definicja}
+
+Mam nadzieję, że definicja ta nie jest na wojnie z sekcją poświęconą wektorom Witta w kalifacie algebry.
+
+Niech $n = p^t d$, gdzie $(p, d) = 1$, $\varepsilon = 1$, $p \neq 2$ albo $\varepsilon, p = 2$.
+Lemat Hensela wystarcza do pokazania
+
+\begin{wniosek}
+Jeśli $a \equiv x_1^n + \ldots + x_s^n$ mod $p^{t + \varepsilon}$, zaś któryś z $x_i \in W(\cialo)$ jest jednością, to $a$ jest sumą pewnych $s$  potęg $n$-tych elementów $W(\cialo)$.
+\end{wniosek}
+
+Przyjmijmy $p \neq 2$.
+Jeśli $a$ jest jednością, to w dowolnym przedstawieniu jako $n$-te potęgi jeden z $x_i$ musi być jednością.
+Zatem jedności w $W(\cialo)$ są sumą co najwyżej $g(n, W_{t+1}(\cialo))$ $n$-tych potęg, gdzie pierścień $W_{t+1}(\cialo) = W(\cialo) / p^{t+1}$ składa się z przyciętych wektorów Witta.
+
+Jeśli $a$ nie jest jednością, to jest nią $a-1$. Wtedy zachodzi nierówność $g(n, W(\cialo)) \le g(n, W_{t+1}(\cialo)) + 1$.
+Oczywistym jest, że $g(n, W(\cialo)) \ge g(n, W_{t+1}(\cialo))$, choć nie musi być tu równości ($\cialo = \mathbb F_p$, $p = 3$, $n = 2$).
+
+Przez $g(n,r,W(\cialo))$ rozumiemy najmniejszą liczbę $s$, dla której istnieją $x_1, \ldots, x_s$ w $W(\cialo)$, że $v(x_1^n + \ldots + x_s^n) = r$.
+Tutaj $v$ była $p$-adyczną waluacją na $W(\cialo)$.
+Oczywistym jest, że $g(n, 0, W(\cialo)) = 1$.
+Jeżeli $n = p^td$, $(p, d) = 1$ i $r \le t$, a przy tym $v(x_1^n + \ldots + x_s^n) = r$, to któryś $x_i$ jest odwracalny: gdyby tak nie było, mielibyśmy $v(\ldots) \ge n \ge p^t > t$.
+To spostrzeżenie jeszcze okaże się przydatne.
+
+Bovey ,,udowodnił'' fakt mocniejszy od poniższego dla $\Z_p$: niestety błędnie.
+My podamy ogólniejsze stwierdzenie.
+
+\begin{lemat}
+	Jeśli $n = p^td$ i $(p, d) = 1$, to 
+	\[
+		g(n, W_{t+1}(\cialo)) \le g(n, \cialo) \sum_{r = 0}^t g(n, r, W(\cialo))
+	\]
+\end{lemat}
+
+\begin{proof}
+	Indukcja względem $t$.
+	Przypadek $t = 0$, jest oczywisty, niech $t > 0$.
+	Jeżeli $a \in W_{t+1}(\cialo)$, to z założenia indukcyjnego wiemy, że istnieją $x_1, \ldots, x_s$ w $W_{t+1}(\cialo)$, gdzie
+	\[
+		s \le g(n, \cialo) \sum_{r = 0}^{t-1} g(n, r, W(\cialo)),
+	\]
+
+	że $x_1^{n/p} + \ldots + x_s^{n/p} = a$.
+	Uwaga: $x^{n/p} \equiv (\sigma x)^n$ mod $p^t$, gdzie $\sigma$ jest odwrotnością automorfizmu Frobeniusa dla $W(\cialo)$.
+	Dostajemy $(\sigma x_1)^n + \ldots + (\sigma x_s)^n = a - bp^t$.
+	Istnieją także $y_1, \ldots, y_u$, że $\sum y_i^n = cp^t$, $u \le g(n, t, W(\cialo))$ i $c$ nie dzieli się przez $p$.
+	Wreszcie istnieją takie $z_1, \ldots, z_v$, że $\sum z_i^n \equiv b/c$ mod $p$ (oraz $v \le g(n,\cialo)$).
+	Wynika stąd, że
+	\begin{align*}
+		\sum (\sigma x_i)^n + \sum y_i^n \sum z_i^n & \equiv a - bp^t + cp^t b/c \\
+		& \equiv a \pmod {p^{t+1}}.
+	\end{align*}
+	Oznacza to, że $a$ jest sumą co najwyżej $s+ uv$ $n$-tych potęg w pierścieniu $W_{t+1}$.
+\end{proof}
+
+\begin{wniosek}
+	Jeżeli $\cialo$ jest algebraicznie domknięte, to zachodzi nawet $g(n, r, W(\cialo)) \le 2r+1$ dla $1 \le r \le t$.
+	Przy tych samych założeniach, $g(n, W(\cialo)) \le (t+1)^2 + 1$.
+\end{wniosek}
+
+\begin{proof}
+	Rozmaitości algebraiczne i Teichmüller :/.
+\end{proof}
+
+\begin{fakt}
+	Jeśli $n = pd$, $(p,q) = 1$ i $q = p \ge 27d^6, 13$ albo też $p \neq q \ge 4d^4$, to $g(n, 1, W(\mathbb F_q)) \le 3$ i $g(n, W(\mathbb F_q)) \le 9$.
+\end{fakt}
+
+Ostrzejsze oszacowania można znaleźć w pracy Volocha \cite{voloch99}, naprawia ona usterki ze wcześniejszej pracy Boveya \cite{bovey76}.
+W pewnych przypadkach znamy dokładne wartości $g(\cdot, \Z_p)$ dla $p \neq 2$: $g((p-1)p^t) = p^{t+1}$, $g(\frac 1 2 (p-1)p^t) = \frac 1 2 (p^{t+1} - 1)$.
+
+\begin{fakt}
+	$g(p, \Z_p) \le 4$, dla $p \le 211$ różnych od $3$, $7$, $11$, $17$, $59$ nawet $g = 3$.
+\end{fakt}
+
+\begin{fakt}
+	$g(p^2, 2, W(\mathbb F_q)) \le 5$ dla $q = p^a \ge p^7$ i dużych $p$.
+\end{fakt}
+
+%\begin{historia}[Witt Ernst]\end{historia}
