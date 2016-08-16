@@ -1,0 +1,77 @@
+%%% Alegreya font, AMS packages
+\usepackage{Alegreya}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+%%% select alternative section titles
+\usepackage{titlesec} 
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}
+{\chaptertitlename\ \thechapter}{0pt}{\Huge}   	
+\titlespacing*{\chapter}{0pt}{-10pt}{0pt}
+
+%%% Flexible and complete interface to document dimensions
+\usepackage[left=1.5cm, top=1.7cm, right=1.5cm, bottom=1.7cm, marginparwidth=0.3in, headsep=.1in]{geometry} 
+\setlength{\parskip}{.1ex plus 0.2ex minus 0.2ex}
+\usepackage{multicol}
+
+%%% customising captions in floating environments
+\usepackage{caption}
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+\usepackage{graphicx}
+\usepackage[usenames, dvipsnames]{xcolor}
+\newcommand{\kolorowo}[1]{{\color{black} \textbf{#1}}}
+
+%%% extensive control of page headers and footers in LATEX2ε
+\usepackage{fancyhdr, lastpage}
+\fancypagestyle{plain}{	
+	\fancyhf{}
+	\fancyfoot[C]{\thepage\ z \pageref{LastPage}}
+	\fancyhead[LE, RO]{\nouppercase{\leftmark}}
+	\fancyhead[LO, RE]{Almawaukh $p$-adyczy na marzec 2016}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{plain}
+
+\begingroup
+	\makeatletter		
+	\@for\theoremstyle:=definition,remark,plain\do{\expandafter\g@addto@macro\csname th@\theoremstyle\endcsname{\addtolength\thm@preskip\parskip}}
+\endgroup	
+
+%\theoremstyle{definition}
+\newcounter{dummy}
+\newtheorem{definicja}[dummy]{Definicja}
+\newtheorem{fakt}[dummy]{Fakt}
+\newtheorem{historia}{Historia}
+\newtheorem{lemat}[dummy]{Lemat}
+\newtheorem{przyklad}[dummy]{Przyk\l{}ad}
+\newtheorem{twierdzenie}{Twierdzenie}
+\newtheorem{wniosek}[dummy]{Wniosek}
+\numberwithin{dummy}{section}
+
+%%% Extensive support for hypertext in LATEX
+\usepackage{hyperref}
+\hypersetup{colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black}
+\relpenalty=10000
+\binoppenalty=10000
+
+%%% sup/inf - wyrównanie granic
+\usepackage{mathtools} 
+\usepackage{pdfpages}
+\newenvironment{enumx}
+	{\begin{enumerate} \setlength{\itemsep}{0pt} \setlength{\parskip}{0pt} \setlength{\parsep}{0pt}}{\end{enumerate}}
+\newenvironment{itemx}
+	{\begin{itemize} \setlength{\itemsep}{0pt} \setlength{\parskip}{0pt} \setlength{\parsep}{0pt}}{\end{itemize}}
+
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\selectlanguage{polish}
+
+\input{source/z-cuts}
