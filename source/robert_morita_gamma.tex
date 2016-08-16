@@ -1,0 +1,244 @@
+\section{Gamma Mority}
+Załóżmy najpierw, że $p \ge 3$.
+Funkcja $n \mapsto n!$ nie przedłuża się w ciągły sposób na $\Z_p$. Gdybyśmy mieli ciągłą $f \colon \Z_p \to \Q_p$, taką że $f(n) = nf(n-1)$ dla całkowitych $n \ge 1$, to taka sama relacja zachodziłaby dla $n \in \Z_p$.
+Zatem
+\[
+	f(n) = n (n-1)(n-2) \cdot \ldots \cdot p^m f(p^m-1)
+\]
+dla całkowitych $n > p^m$, gdzie $p^m$ jest ustaloną potęgą $p$.
+Skoro $f$ jest ciągła na zwartej $\Z_p$, to jest ograniczona, czyli istnieje $C > 0$, że $|f(x)| \le C$ tamże.
+Napisany wyżej rozkład pokazuje, że $|f(n)| \le |p^m| \cdot C$ dla całkowitych $n > p^m$, ale one leżą gęsto w $\Z_p$, zatem $\|f\|_\infty \le |p|^m \cdot C$.
+Liczba $m$ była dowolna, więc musimy mieć $\|f\|_\infty = 0$.
+
+To smutne. Problemy wzięły się stąd, że duże silnie są zbyt podzielne przez potęgi $p$.
+Zdefiniujmy więc \kolorowo{obciętą silnię}, $n!^*$.
+Kluczem do sukcesu jest uogólnienie przystawania Wilsona.
+\[
+	n!^* = \shaprod_{j = 1}^n j \hfill \text{(produkt po } p \nmid j\textrm{)}
+\]
+
+\begin{fakt}
+	Niech $a$ i $v \ge 1$ będą całkowite, wtedy
+	\[
+		\shaprod_{j=a}^{a+p^v-1} j \equiv -1 \pmod {p^v}.
+	\]
+\end{fakt}
+
+\begin{proof}
+	Reprezentantów ilorazu $\Z/p^v \Z$ wyczerpują całkowite $a \le j < a + p^v$.
+	Liczby niepodzielne przez $p$ odpowiadają za odwracalne elementy, tzn. elementy grupy $G = (\Z/p^v\Z)^\times$.
+	Łącząc dowolny element $g \in G$ z odwrotnym, $g^{-1}$, znosimy je wszystkie poza sytuacją, gdy $g^2 = 1$.
+	W pierścieniu $\Z/p^v \Z$ jest tak wtedy i tylko wtedy, gdy $g = \pm 1$ lub $g \pm 1$ są jednocześnie dzielnikami zera.
+	Tak jednak może być tylko wtedy, gdy $p$ dzieli różnicę, $2$, co nie zachodzi nigdy.
+\end{proof}
+
+Fakt ten pociąga dla funkcji $f(n) = (-1)^n \shaprod_{j=1}^{n-1} j$ (gdy $n \ge 2$) relację $f(a) \equiv f(a+mp^v)$ modulo $p^v$.
+Odwzorowanie $a \mapsto f(a) \colon \N \setminus\{0,1\} \to \Z$ jest jednostajnie ciągłe w topologii $p$-adycznej, zatem przedłuża się jednoznacznie do $\Z_p \to \Z_p$.
+
+\begin{definicja}
+	Przedłużenie to $\Gamma_p$, funkcja gamma Mority.
+\end{definicja}
+
+\begin{lemat}
+	$\Gamma_p(\Z_p) \subseteq \Z_p^\times \subset \Z_p$
+\end{lemat}
+
+Jakie  własności ma ta funkcja? Przede wszystkim $\Gamma_p(2) =1$ i $\Gamma_p(3) = -2$.
+Jeśli $n \le p-1$ jest nieparzyste, to $\Gamma_p(n+1) = n!$, jeśli jest parzyste, to $-n!$.
+Z definicji widać, że $\Gamma_p(n) \in \Z_p^\times$ jest dana przez
+\[
+	\Gamma_p(n+1) = \frac{(-1)^{n+1}n!}{\prod_{1 \le kp \le n} kp} = \frac{(-1)^{n+1}n!}{[n/p]! p^{[n/p]}}
+\]
+gdy całkowita $n$ jest większa lub równa $2$.
+Z definicji mamy też, że $\Gamma_p(n+1)$ to $-n \Gamma_p(n)$ (jeśli $p \nmid n$) lub $-\Gamma_p(n)$ (jeśli nie) i (z ciągłości) ogólniej
+\[
+	\Gamma_p(x+1) = \begin{cases}
+		-x \Gamma_p(x) & \text{dla } x \in \Z_p^\times \\
+		-\Gamma_p(x) & \text{dla } x \in p\Z_p
+	\end{cases}
+\]
+
+Dla wygody wprowadzamy pomocniczą $h_p(x)$ równą $-x$ dla $x \in \Z_p^\times$ ($|x|=1$) lub $-1$ (dla $x \in p\Z_p$, $|x|<1$).
+
+\begin{fakt}
+	\label{impuls}
+	Jeśli $p > 2$, to funkcja $\Gamma_p$ jest ciągła.
+	Poza tym,
+	\begin{enumx}
+		\item $\Gamma_p(0) = 1$ i $\Gamma_p(n+1) = (-1)^{n+1}n!$ dla $1 \le n < p$.
+		\item $|\Gamma_p(x)| = 1$
+		\item $|\Gamma_p(x) - \Gamma_p(y)| \le |x-y|$
+		\item $\Gamma_p(x+1) = h_p(x) \Gamma_p(x)$
+		\item $\Gamma_p(x) \Gamma_p(1-x) = (-1)^R(x)$, gdzie $1 \le R(x) \le p$ oraz $R(x) \equiv x \pmod p$.
+	\end{enumx}
+\end{fakt}
+
+\begin{proof}
+Punkt trzeci wynika z przystawania $\Gamma(a + mp^v)$ do $\Gamma(a)$ modulo $p^v$ oraz ciągłości.
+Dla dowodu piątego połóżmy $f(x) = \Gamma_p(x) \cdot \Gamma_p(1-x)$ \dots szczegóły zna Robert.
+\end{proof}
+
+Zwykła funkcja $\Gamma$ spełnia dla $m\ge 2$ tożsamość:
+\[
+	\prod_{j=0}^{m-1} \Gamma \left(z + \frac jm\right) = (2\pi)^{(m-1)/2} m^{1/2-mz} \cdot \Gamma (mz).
+\]
+
+\begin{fakt}[mnożnikowy wzór Gaußa]
+	Niech funkcja $f_m$ będzie określona dla  $m \ge 1$ niepodzielnych przez $p$:
+	\[
+		f_m \colon x \mapsto \prod_{j = 0}^{m - 1} \Gamma_p \left(x + \frac j m \right).
+	\]
+	Niech $s(y) = \frac 1 p (R(y) -y)$, przy czym $1 \le R(y) \le p$ przystaje do $y$ mod $p$.
+	Wtedy
+	\[
+		f_m(x) = \frac{m^{1 + (p-1)s(mx)}}{m^{R(mx)}} \cdot \Gamma_p(mx) \underbrace{\prod_{j=0}^{m-1} \Gamma_p\left(\frac jm\right)}_{\varepsilon_m}.
+	\]
+\end{fakt}
+
+\begin{proof}
+	Policzmy czynnik Gaussa $G_m(x) = f(x)/\Gamma_p(mx)$.
+	\begin{align*}
+	? & = G(x+1/m) = \frac{\prod_{j=1}^m \Gamma_p(x+j/m)}{\Gamma_p(mx+1)} \\
+	& = \frac{1}{h_p(mx)\Gamma_p(mx)} \cdot \frac{\Gamma_p(x+1)}{\Gamma_p(x)} \prod_{j=0}^{m-1} \Gamma(x+j/m)  \\
+	& = \frac{h_p(x)}{h_p(mx)}G(x) = \lambda(x) G(x)
+	\end{align*}
+
+	Lokalnie stały mnożnik $\lambda$ wyznacza kolejne wartości, gdyż $G(1/m)$ to $\lambda(0) G(0)$, $G(2/m)$ to $\lambda(0)\lambda(1/m) G(0)$, i tak dalej.
+	Skoro $m,p$ są względnie pierwsze, to $\prod_{i=0}^{j-1} \lambda(i/m) = (1/m)^u$, gdzie $u$ to ilość względnie pierwszych z $p$ tych $i$, że $0 < i < j$, czyli $j-1 - [(j-1)/p]$.
+	Rozwijając $p$-adycznie $j-1$:
+	\[
+		j = \underbrace{(j-1)_0 + 1}_{R(j)}+ p \left[ \frac{j-1}p\right],
+	\]
+	gdzie $R(j) \equiv j \pmod p$ jest dobre.
+	To dowodzi
+	\[
+		j-1 - \left[\frac{j-1}p \right] = R(j) -1 + (p-1) \left[\frac{j-1}p\right],
+	\]
+	więc $\prod_{i=0}^{j-1} \lambda(i/m) = m^{1-R(j)}(m^{p-1})^{s(j)}$ z $s(j) = \frac 1p (R(j)-j)$, które ciągle przedłuża się do $\Z_p$.
+	Pokazaliśmy, że
+	\begin{align*}
+		G(j/m) & = \prod_{j=0}^{j-1} \lambda(i/m) G(0) \\
+		& = m^{1-R(j)} (m^{p-1})^{s(j)} \cdot G(0),
+	\end{align*}
+	ale tylko dla całkowitych $x = j/m$.
+	Z ciągłości wzór prawdziwy jest dla wszystkich $x \in \Z_p$.
+	(Khm: $\varepsilon_m = G(0)$).
+\end{proof}
+
+\begin{lemat}
+	Mamy równość $\varepsilon_m^4 = 1$, a nawet $\varepsilon_m^2= 1$, chyba że $m$ jest parzyste, zaś $p$ postaci $4k+1$ (wtedy $-1$).
+\end{lemat}
+
+\begin{proof}
+	Gdy $2 \nmid m$, to $\varepsilon_m$ wynosi $\Gamma_p(1/m)\cdot \ldots \cdot \Gamma_p((m-1)/m)$, bo $\Gamma_p(0)= 1$.
+	Pogrupujmy czynniki z ,,$j$'' i ,,$m-j$'' do $\pm 1$; okaże się, że $\varepsilon_m = \pm 1$.
+	Dla parzystego $m$ pozostanie jeden czynnik: $\varepsilon_m = \pm \Gamma_p(1/2)$, więc $\varepsilon_m^2 = \Gamma_p(1/2)^2$.
+	Tę liczbę znamy: jest równa $-1$, wtedy i tylko wtedy gdy $p = 4k+1$.
+\end{proof}
+
+Ciągła funkcja na $\Z_p$ to szereg Mahlera: dla $a_k = (\nabla^k f)(0)$ mamy $f(x) = \sum_{k=0}^\infty a_k (x\mbox{ nad }k)$.
+Współczynniki $a_k$ można związać z wartościami $f$ (jak wcześniej!):
+\[
+	\sum_{k=0}^\infty a_k \frac{x^k}{k!} = \exp (-x) \sum_{n=0}^\infty f(n) \frac{x^n}{n!}.
+\]
+
+\begin{fakt}
+	Niech $\Gamma_p(x+1) = \sum_{k=0}^\infty a_k {x \choose k}$ jako szereg Mahlera.
+	Wtedy jego współczynniki spełniają zależność:
+	\[
+		\sum_{k=0}^\infty (-1)^{k+1} a_k \frac{x^k}{k!}= \frac{1-x^p}{1-x} \exp \left(x + \frac{x^p}p\right).
+	\]
+\end{fakt}
+
+\begin{proof}
+	Obliczymy $\varphi(x)/e^x$, gdzie $\varphi(x)$ jest zadana szeregiem $\sum_{n=0}^\infty \Gamma_p(n+1)x^n/n!$.
+	Sumujemy po warstwach mod $p$:
+	\[
+		\varphi(x) = \sum_{j=0}^{p-1} \sum_{m=0}^\infty \Gamma_p(mp+j+1) \frac{x^{mp+j}}{(mp+j)!}.
+	\]
+	Tutaj możemy zaś (dla $n = mp+j$, $m = [n/p]$) użyć równości $\Gamma_p(n+1) = {(-1)^{n+1}n!}/ ([n/p]! p^{[n/p]})$.
+	Otrzymujemy w ten sposób $\Gamma_p(mp+j+1) = (-1)^{mp+j+1}\cdot (mp+j)! / (m!p^m)$ oraz $- \varphi(x) = \ldots$
+	\[
+		= \sum_{m=0}^\infty \frac{(-x)^{mp}}{p^m m!}  \sum_{j=0}^{p-1} (-x)^j \\
+		= \frac {1- (-x)^p}{1-(-x)} \exp \frac{(-x)^p}{p} \qedhere
+	\]
+\end{proof}
+
+Chcemy rozwinąć $\log \Gamma_p$ w szereg potęgowy.
+Skorzystamy z poniższego wzoru dla całki Volkenborna:
+\[
+	\suma (f')(x) = \int_{\Z_p} [f(x+y) - f(y)] \,\textrm{d}y
+\]
+i funkcji $f(x) = x \iwasawa x - x$ dla $|x| = 1$ (wtedy $f'(x) = \iwasawa x$) i $0$ dla $|x| < 1$ (wtedy $f'(x) = 0$), więc $f'(x) = \iwasawa h_p(x)$.
+Tutaj $\iwasawa$ jest logarytmem Iwasawy: znika na pierwiastkach jedności, więc $\iwasawa(-x) = \iwasawa x$.
+Zatem $f$ jest nieparzysta i całka z niej jest zerem (to ważne).
+\[
+	\nabla \iwasawa \Gamma_p(x) = \iwasawa \Gamma_p(x+1) - \iwasawa \Gamma_p(x) = \iwasawa h_p(x).
+\]
+Ponieważ $\suma \nabla f = f -f(0)$ oraz $\iwasawa \Gamma_p(0) = \iwasawa 1 = 0$, wnioskujemy stąd $\iwasawa \Gamma_p(x) = \suma \iwasawa h_p(x)$.
+Powyższy wzór dla całki Volkenborna z $f' = \iwasawa h_p$ daje
+\begin{align*}
+	\iwasawa \Gamma_p(x) = \int_{\Z_p^\times} [(x+y)\iwasawa(x+y) - (x+y)] \,\textrm{d}y.
+\end{align*}
+
+
+Jak zachowuje się $\iwasawa \Gamma_p$?
+
+\begin{fakt}
+	Dla $x \in p \Z_p$ mamy
+	\begin{align*}
+	\iwasawa \Gamma_p (x) & = \lambda_0 x - \sum_{m =1}^\infty \frac{\lambda_m x^{2m+1}}{2m(2m+1)}, \\
+	\lambda_0 & = \int_{\Z_p^\times} \iwasawa t \,\textrm{d}t \quad \lambda_m = \int_{\Z_p^\times} \frac{\textrm{d}t}{t^{2m}}.
+	\end{align*}
+\end{fakt}
+
+\begin{wniosek}
+	Zachodzi
+	\begin{align*}
+	\frac{\Gamma_p'}{\Gamma_p}(x) & = \int_{\Z_p^\times} \iwasawa (x+t) \,\textrm{d}t \\
+	(\iwasawa \Gamma_p)'' (x) & = \int_{\Z_p^\times} \frac{\textrm{d}t}{x+t}.
+	\end{align*}
+\end{wniosek}
+
+Z Kazandzidisem jeszcze lepiej poznamy $\log \Gamma_p$.
+
+\begin{twierdzenie}[Kazandzidis]
+	Wzór niżej zachodzi dla pierwszych $p \ge 3$, ale jeśli $p = 3$, to zamiast $p^3$ należy wpisać $p^2$.
+	\[
+		{pn \choose pk} \equiv {n \choose k} \pmod {p^3nk(n-k) {n \choose k}\Z_p}
+	\]
+\end{twierdzenie}
+
+\begin{fakt}
+	Funkcja $x \mapsto \log \Gamma_p (px)$ ($\Z_p \to \, ?$) zadana jest przez obcięty szereg o współczynnikach z $p \Z_p$ i
+	\[
+		|f(x + y) - f(x) - f(y)| \le |p^3xy(x+y)|.
+	\]
+\end{fakt}
+
+Pokażemy, że funkcję $\Gamma$ Mority można określić dla $p = 2$.
+
+\begin{fakt}
+	Dla $v \ge 3$, jądro homomorfizmu ,,redukcja modulo $4$'' $(\Z/2^v \Z)^\times \to (\Z / 4 \Z)^\times$ jest cykliczne, generowane przez $5$.
+\end{fakt}
+
+Określmy ciąg: $f(1) = 1$, $f(n) = \shaprod_{j=1}^{n-1} j$ (tutaj $p = 2$).
+Spełnia on między innymi nierówność $|f(m) - f(n)| \le |m-n|$ dla $m,n \ge 1$ i $|m-n| \le 1/8$.
+Dzięki jednostajnej ciągłości $f$ przedłuża się jednoznacznie do $\Z_2 \to 1+2\Z_2$.
+
+Funkcję tę nadal oznaczamy przez $f$.
+
+\begin{definicja}
+	$\Gamma_2 (n) = (-1)^n f(n)$ (to zachowa własności $\Gamma_p$).
+\end{definicja}
+
+Poniższe stwierdzenie pochodzi z książki Koblitza.
+
+\begin{fakt}
+	Niech $a = 2 + \Gamma_5(1/4)^2$, zaś $3b = 1 - 2 \Gamma_7(1/3)^2$.
+	Wtedy $a^2 = -1$ oraz $b^2 = -3$ (choć $\Gamma(1/3)$ jest przestępna!).
+\end{fakt}
+
+\begin{proof}
+	Kohomologia $p$-adyczna.
+\end{proof}

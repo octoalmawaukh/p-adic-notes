@@ -1,0 +1,100 @@
+\section{Przestrzenie skończonego wymiaru}
+Pokażemy, że w pewnym sensie jeżeli przestrzeń wektorowa ma skończony wymiar, to wiemy o niej wszystko, co tylko można wiedzieć.
+
+\begin{fakt}
+	Niech $\liniowa$ będzie p. wektorową nad zupełnym ciałem $\cialo$ z normą, że $\dim_\cialo \liniowa < \infty$.
+	Wszystkie normy na $\liniowa$ są równoważne, a sama $ \liniowa$ jest zupełna ,,z metryką supremum''.
+\end{fakt}
+
+To nie takie proste w dowodzie, więc podzielimy go na kilka części.
+Niechaj $v_1, \dots, v_n$ będzie bazą dla $\liniowa$, $\|\cdot\|_0$ supremum normą, zaś $\|\cdot\|_1$ jakąś inną normą.
+Chcemy pokazać istnienie $C, D$, że $\|v\|_1 \le C \|v\|_0$ oraz $\|v\|_0 \le D \|v\|_1$.
+
+\begin{lemat}
+	Gdy $C = n \max_{1 \le i \le n} \|v_i\|_1$, to $\|v\|_1 \le C \| v \|_0$ dla każdego $v \in V$.
+\end{lemat}
+
+\begin{proof}
+	Ustalmy wektor $v \in V$ i zapiszmy go w bazie:
+	\begin{align*}
+	\|v\|_1 & = \left\| \sum_{k=1}^n a_i v_i \right\|_1 \le  \sum_{k=1}^n \left\| a_i v_i \right\|_1 =  \sum_{k=1}^n |a_i|  \left\|  v_i \right\|_1 \\
+	& \le n \max |a_i| \max \|v_i\|_1 = C \|v\|_0 \qedhere
+	\end{align*}
+\end{proof}
+
+Druga nierówność jest trudniejsza.
+Będziemy indukować po wymiarze $\liniowa$.
+% Trzymajcie się! Oto indukcja po wymiarze $\liniowa$.
+
+\begin{lemat}
+	Dla pewnej stałej $D > 0$ zachodzi $\|v\|_0 \le D \|v\|_1$ dla każdego $v \in \liniowa$, w szczególności: $\liniowa$ jest zupełna z $\|\cdot\|_1$.
+\end{lemat}
+
+\begin{proof}
+	Druga część wynika z pierwszej, która to jest trywialna, gdy $\dim \liniowa =1$.
+	Pokażemy sam krok indukcyjny z $n-1$ do $n$.
+	Załóżmy, że teza jest fałszywa, wtedy iloraz $\|w\|_1 / \|w\|_0$ dla $w \in \liniowa$ jest dowolnie mały.
+	Oznacza to, że dla całkowitej $m$ można znaleźć $w_m \in \liniowa$, żeby $\|w_m\|_1 < \|w_m\|_0/m$.
+
+	Zauważmy, że norma supremum $\|w_m\|_0$ to największy ze współczynników w bazie.
+	Pewien indeks jest największy dla $\infty$-wielu $m$.
+	Możemy założyć, że jest to ostatni indeks.
+	Weźmy ciąg $m_1 <  m_2 < \dots$ ,,tych $m$'' właśnie, zaś przez $\beta_k$ oznaczmy $n$-ty współczynnik $w_{m_k}$.
+	Wektory $\beta_k^{-1} w_{m_k}$ mają dwie ładne własności: ich $n$-ta współrzędna to $1$, więc są postaci $u_k + v_n$, gdzie $u_k$ należy do podprzestrzeni rozpiętej przez $v_1, \dots, v_{n-1}$, $\mathcal W$.
+	Po drugie,
+	\[
+		\|u_k + v_n\| = |\beta_k|^{-1} \|w_{m_k}\|_1 = \frac{\|w_{m_k}\|_1}{\|w_{m_k}\|_0} < \frac 1 {m_k}.
+	\]
+	Dostaliśmy ciąg wektorów $u_k$ takich, że normy $\|u_k + v_n\|_1$ dążą do zera.
+	Oczywiście tworzą ciąg Cauchy'ego (w $\mathcal W$, które jest zupełne), więc istnieje $u \in W$, że $u_k \to u$.
+	Problem w tym, że wtedy $\|u_k + v_n\|_1 \to \|u + v_n\|_1 = 0$, więc $u = -v_n \not \in \mathcal W$.
+\end{proof}
+
+\begin{fakt}
+	Unormowana p. wektorowa $\liniowa$ o skończonym wymiarze nad lokalnie zwartym, zupełnym ciałem $\cialo$ jest lokalnie zwarta (na $\cialo$ jest wartość bezwzględna).
+\end{fakt}
+
+\begin{proof}
+	Weźmy $\mathcal B = \{v \in \liniowa : \|v\| \le 1\}$, zwarte otoczenie zera.
+	Ustalmy bazę $v_i$ dla $\liniowa$.
+	Normą jest supremum.
+	Wektor $v$ postaci $\sum_{k=1}^n a_k v_k$ należy do $\mathcal B$ dokładnie wtedy, gdy $a_k$ należą do domkniętej kuli jednostkowej w $\cialo$.
+	Chcemy pokazać, że $\mathcal B$ jest zupełne (owszem: jest domknięte w zupełnej $\liniowa$) i całkowicie ograniczone.
+	Pokryjmy w $\cialo$ jednostkową kulę $N$ kulami (środki w $c_1, \dots, c_N$, promień $\varepsilon$ ustalony).
+	Kule wokół $n^N$ wektorów w $\liniowa$ o współrzędnych ,,z $c_i$'' o promieniu $\varepsilon$ kryją $\mathcal B$. 
+\end{proof}
+
+Udowodnimy twierdzenie częściowo do powyższego faktu odwrotne (za Robertem, a nie Gouveą).
+
+\begin{fakt}
+	Lokalnie zwarta p. unormowana $\liniowa$ nad $\Q_p$ ma skończony wymiar.
+\end{fakt}
+
+\begin{proof}
+	Ustalmy zwarte otoczenie $\Omega$ dla zera w $\liniowa$ oraz skalar $a \in \Q_p^\times$, taki że $|a| < 1$ (na przykład $a = p$).
+	Unia wszystkich wnętrz przesunięć $x + a \Omega$ dla $x \in \liniowa$ kryje całą przestrzeń.
+	Zbiór $\Omega$ można pokryć skończenie wieloma $a_i + a\Omega$.
+
+	Rozpatrzmy podprzestrzeń $L = \langle a_i \rangle$.
+	Jest izomorfizczna z $\Q_p^d$, a przez to zupełna.
+	Dalej, $L$ jest domknięta, zaś w ilorazie Hausdorffa $V/L$ obraz $A$ zbioru $\Omega$ jest zwartym otoczeniem zera, które spełnia $A \subseteq aA$.
+	Prosta indukcja pokazuje, że dla $n \ge 1$ jest nawet $a^{-n} A \subseteq A$.
+
+	Stąd $A \subseteq V/L \subseteq \bigcup_{n \ge 1} a^{-n} A \subseteq A$ (gdyż $|a^{-n}| \to \infty$), $V/L = 0$ jest zwarty, zaś $V = L$ skończonego wymiaru.
+\end{proof}
+
+Przy użyciu miary Haara można ominąć jedno z założeń (to, że topologia pochodzi od normy), po raz pierwszy pokazał to bodajże Weil.
+
+Być może dowód można nieznacznie skomplikować tak, by był poprawny dla dowolnego ciała ultrametrycznego, nie tylko $\Q_p$.
+Zwartych przestrzeni nad $\Q_p$ zbyt wiele nie ma: każdy niezerowy jej element rozpina prostą, na której norma nie jest ograniczona, więc jedyną (zwartą) jest $\{0\}$.
+
+\begin{wniosek}
+	W lokalnie zwartej p. unormowanej nad $\Q_p$, zbiory zwarte to dokładnie te, które są domknięte i ograniczone.
+\end{wniosek}
+
+\begin{proof}
+	W każdej p. metrycznej zbiory zwarte są domknięte i ograniczone (ze względu na ciągłość metryki).
+
+	Odwrotnie, lokalnie zwarta p. unormowana nad $\Q_p$ ma skończony wymiar, więc możemy założyć bez utraty ogólności, że normą jest supremum.
+	Ale w $\Q_p^n$ ograniczone zbiory leżą w produktach kul z $\Q_p$, a domkniętość pociąga zwartość.
+\end{proof}

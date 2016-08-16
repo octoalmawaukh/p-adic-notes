@@ -1,0 +1,41 @@
+\section{Lokalna stałość} % Krótkie przypomnienie z topologii.
+\begin{definicja}
+	Funkcja $X \to Y$ jest stała lokalnie, jeśli jest ciągła (z dyskretną topologią na $Y$).
+\end{definicja}
+
+Funkcje $X \to \cialo$ (w ciało) tworzą przestrzeń wektorową nad $\cialo$, $\mathcal F(X)$.
+Jeżeli $X$ jest zwarta i ultrametryczna, to lokalnie stałe $X \to \cialo$ stanowią podprzestrzeń $\mathcal F^{lc}(X)$, generowaną przez indykatory otwarniętych kul w $X$.
+
+Przyjrzyjmy się lokalnie stałym funkcjom $f \colon \Z_p \to \grupa$ (w grupę abelową), takim że $|x-y| \le p^{-j}$ pociąga $f(x) = f(y)$ dla ustalonej liczby całkowitej $j \ge 0$.
+Na domkniętych kulach o promieniu $p^{-j}$ są one stałe.
+Ponieważ to są warstwy $p^j\Z_p$ w $\Z_p$, wybrane przez nas funkcje należą do $F_j = \mathcal F(\Z_p/p^j\Z_p)$.
+Tak naprawdę mamy partycję $\Z_p = \coprod_{i < p^j} (i+ p^j\Z_p)$ na kule.
+Indykatory kul $\kula(i, p^{-j})$ dla $0 \le i < p^j$ tworzą bazę $F_j$, która jest p. wektorową skończonego wymiaru.
+Choć zwiększenie $j$ zwiększa $F_j$: $\mathcal F^l(\Z_p, \cialo) = \bigcup_{j \ge 0} F_j$, to bazy dla $F_j$ i $F_{j-1}$ nie mają ze sobą wiele wspólnego.
+
+Van der Put był sprytniejszy w szukaniu baz.
+Zdefiniujmy funkcję $\psi_i = \varphi_{i,j}$ jako indykator $i + p^j\Z_p$, gdy $p^{j-1} \le i < p^j$.
+
+Wartości bezwzględne elementów $\Z_p$ to potęgi $p$, zatem $|x| < 1/i$, wtedy i tylko wtedy gdy $|x| \le p^{-j}$.
+\kolorowo{Długością} liczby całkowitej $i \ge 1$jest liczba $v \ge 1$, że w rozwinięciu $i$ w systemie o podstawie $p$ ,,ostatnia'' cyfra to $i_{v-1} \neq 0$. 
+
+\begin{fakt}[i definicja]
+	Ciąg van der Puta $\{\psi_i\}_{i=0}^{p^j-1}$ jest bazą $F_j$, gdzie $j \ge 1$ i $\psi_i = \varphi_{i, v(i)}$.
+\end{fakt}
+
+Można powiedzieć więcej o takiej bazie. Mianowicie jeżeli $f = \sum_i a_i \psi_i \in F_j$, to $a_0 = f(0)$ i dla każdego $n \ge 1$ zachodzi $a_n = f(n) - f(n_-)$.
+Tutaj przez $n_-$ rozumiemy $n - n_{v-1}p^{v-1}$, liczbę powstałą z $n$ przez wymazanie najstarszej cyfry.
+Zanim przejdziemy do dużego twierdzenia, podsumujmy to, co mamy.
+
+\begin{fakt}
+	Niech $f \colon \Z_p \to \cialo$ będzie lokalnie stałą funkcją.
+	Połóżmy $a_n = f(n) - f(n_-)$ i $a_0 = f(0)$.
+	Wtedy $\|f\| = \sup_i |a_i|$, zaś samą $f$ można zapisać jako skończoną sumę $\sum_i a_i \psi_i$.
+\end{fakt}
+
+Twierdzenie, do którego małymi krokami się zbliżaliśmy, podałoby reprezentację każdej funkcji w zupełne rozszerzenie $\Q_p$, gdyby nie luki wielkie jak kanion.
+
+\begin{twierdzenie}[van der Put]
+	Funkcja $f \colon \Z_p \to \cialo$ niechaj będzie ciągła.
+	Jeśli $a_0 = f(0)$, $a_n = f(n) - f(n_-)$, to ciąg $|a_n|$ dąży do zera, szereg $\sum_i a_i \psi_i$ zbiega jednostajnie do $f$ i $\|f\| = \sup_i |a_i|$.
+\end{twierdzenie}

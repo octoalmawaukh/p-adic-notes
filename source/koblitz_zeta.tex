@@ -1,0 +1,54 @@
+\section{Funkcja $\zeta$ Riemanna}
+Rozpatrzmy zbiór liczb
+\[
+	f(2k) = 2 \cdot \frac{\zeta(2k)}{\pi^{2k}} \cdot (1-p^{2k-1}) \cdot \frac{(2k-1)!}{(-4)^k},
+\]
+gdy $2k$ przebiega wszystkie dodatnie liczby parzyste w tej samej klasie abstrakcji modulo $p-1$.
+Okazuje się, że $f(2k)$  zawsze jest wymierna.
+Co więcej, jeśli dwie wartości $2k$ są $p$-adycznie bliskie, to $f(2k)$ też są bliskie sobie (zakładając, że $2k$ nie dzieli się przez $p-1$).
+Oznacza to, że funkcję $f$ można jednoznacznie przedłużyć do $\Z_p \to \Q_p$.
+
+\begin{lemat}
+	Niech $n = 2k+1 > 0$ będzie liczbą nieparzystą.
+	Wtedy możemy napisać
+	\[
+		\sin (nx) = P_n(\sin x) \,\bullet\,
+		\cos (nx) = Q_{n-1} (\sin x) \cdot \cos x,
+	\]
+	gdzie wielomian $P_n$ ($Q_{n-1}$) ma całkowite współczynniki oraz stopień co najwyżej $n$ ($n-1$).
+\end{lemat}
+
+\begin{proof}
+	Będziemy dowodzić indukcyjnie względem $k$.
+	Lemat trywializuje się dla $k = 0$ ($n = 1$).
+	Załóżmy, że zachodzi dla $k - 1$.
+	Wtedy
+	\begin{align*}
+	\dots & = \sin [(2k+1)x] = \sin [(2k-1)x + 2x] \\
+	& = \sin(2k-1)x \cos 2x + \cos(2k-1)x \sin 2x \\
+	& = P_{2k-1}(\sin x) (1-2\sin^2 x) \\
+	& + \cos x Q_{2k-2} (\sin x) 2 \sin x \cos x.
+	\end{align*}
+	Dowód dla kosinusa jest bardzo podobny.
+\end{proof}
+
+\begin{fakt}\label{sine}
+	Mamy $\pi x \prod_{n \ge 1} (1 + x^2/n^2) = \sinh (\pi x)$, $x \in \R$.
+\end{fakt}
+
+\begin{proof}
+	Podręcznik rzeczywistego analityka.	% Ponieważ $\sum_{n=1}^\infty |\log (1 + {x^2}/{n^2})| \le \sum_{n=1}^\infty {x^2}/{n^2}$, % = {(\pi x)^2}/{6}$ % zbieżność jest oczywista. % Dla $x = 0$ w $\sin nx = P_n (\sin x)$, wyraz wolny w $P_n$ okaże się być zerem. % Dalej, zróżniczkujmy $\sin nx = P_n(\sin x)$: $n \cos nx = P_n'(\sin x) \cos x$. % Wstawienie $x = 0$ daje $n = P_n'(0)$, pierwszy współczynnik. % Zatem % \[ % \frac{\sin nx}{n \sin x} = \widehat{P}_{2k}(\sin x) = \sum_{i = 0}^{2k} a_i \sin^i x \hfill n = 2k+1, % \] % gdzie $a_i$ są wymierne. % Zauważmy, że lewa strona znika dla $x = \pm (\pi /n)$, $\dots$, $\pm (k\pi /n)$. % Ale $2k$ wartości $y = \pm\sin(\pi /n)$, $\dots$, $\pm \sin(k \pi / n)$ to różne liczby, gdzie $\widehat{P}_{2k}(y)$ znika. % Skoro ma stopień $2k$ i wolny wyraz $1$, to musi być: % \[ % \widehat{P}_{2k}(y) = \prod_{r=1}^k \left( 1 - \frac{y}{\sin r \pi / n} \right) \left( 1 + \frac{y}{\sin r \pi / n} \right). % \] % Zatem (w drugiej linii: zastąpmy $x$ przez $\pi x / n$): % \begin{align*} % \frac{\sin nx }{n \sin x} & = \widehat{P}_{2k} (\sin x) = \prod_{r=1}^k \left (1 - \frac{\sin ^2 x}{\sin ^2 r\pi /n} \right) \\ % \frac{\sin \pi x}{n \sin (\pi x/n)} & = \prod_{r=1}^k \left(1 - \frac{\sin^2(\pi x /n)}{\sin^2 (\pi r / n)}\right). % \end{align*} % Po obu stronach przechodzimy do granicy: $n = 2k+1 \to \infty$. % Lewa strona zbiega do $\sin(\pi x)/ \pi x$. % Dla $r$ małego względem $n$, $r$-ty czynnik w produkcie dąży do $1-(x/r)^2$, % zatem produkt dąży do $\prod_{r=1}^\infty (1- (x/r)^2)$. \emph{Sformalizować!} % Spojrzenie na szereg Taylora dla sinusa daje: % \begin{align*} % \prod_{n=1}^\infty \left( 1 -\frac{x^2}{n^2}\right) = \frac{\sin (\pi x)}{\pi x} & = 1 - \frac{\pi^2 x^2}{3!} + \frac{\pi^4x^4}{5!} - \dots \\ % \frac{\sinh (\pi x)}{\pi x} & = 1 + \frac{\pi ^2 x^2}{3!} + \frac{\pi ^4 x^4}{5!} + \dots % \end{align*} % Jeśli wymnożymy nieskończony produkt dla $\sin(\pi x)/\pi x$, to łatwo można zapomnieć, po co to wszystko. % %dostaniemy znak minus dokładnie w tych wyrazach, które mają nieparzyście wiele członów $x^2/n^2$. % %atem zmiana znaku w nieskończonym produkcie zmienia wszystkie $-$ na $+$ po prawej, a to kończy dowód.
+\end{proof}
+
+\begin{fakt}
+	Zachodzi równość \[\zeta(2k) = (-1)^k \pi^{2k} \frac{2^{2k-1}}{(2k-1)!} \left(-\frac{B_{2k}}{2k}\right).\]
+\end{fakt}
+
+\begin{proof}
+	Zlogarytmujmy ,,fakt'' \ref{sine}.
+	Po prawej stronie mamy $\log \sinh (\pi x) = \log(1 - \exp(-2 \pi x)) + \pi x - \log 2$, natomiast po lewej $\log \pi + \log x - \sum_{k \ge 1} (-1)^{k} x^{2k} \zeta(2k) / k$, dla $x \in (0,1)$.
+
+	Różniczkujemy wyraz po wyrazie względem $x$, mnożymy przez $x$ i zamieniamy $x$ na $x/2$:
+	\[\frac{\pi x}{e^{\pi x}- 1} + \frac{\pi x}{2} =  1 + \sum_{k=1}^\infty \frac{(-1)^{k+1} \zeta(2k)}{2^{2k-1}} x^{2k}\]
+	Wystarczy przyrównać współczynniki parzystych potęg $x$.
+\end{proof}

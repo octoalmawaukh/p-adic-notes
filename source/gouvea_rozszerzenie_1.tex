@@ -1,0 +1,57 @@
+\section{Przestrzenie unormowane}
+Przyjmujemy, że mamy jakieś ciało $\cialo$ z wartością bezwzględną, z którą (to ciało $\cialo$) jest zupełne.
+Dla świętego spokoju do listy założeń dopisujemy ,,charakterystyka ciała to zero''.
+Weźmy przestrzeń wektorową $\liniowa$ nad $\cialo$.
+
+\begin{definicja}
+	Norma to funkcja $\|\cdot\| \colon \liniowa \to \R_+$ spełniająca:
+	\begin{enumx}
+	\item $\|v\| = 0$, wtedy i tylko wtedy gdy $v = 0$.
+	\item jeśli $v, w \in \liniowa$, to $\|v+w\| \le \|v\| + \|w\|$.
+	\item jeśli $v \in \liniowa$, $\lambda \in \cialo$, to $\|\lambda v\| = |\lambda| \cdot \|v\|$.
+	\end{enumx}
+\end{definicja}
+
+Nie wprowadzamy pojęcia niearchimedesowej przestrzeni liniowej, gdyż taka definicja byłaby równie skomplikowana co bezużyteczna.
+Każda $\liniowa$ przestrzeń nad niearchimedesowym ciałem $\cialo$ sama taka jest.
+
+\begin{definicja}
+	Dwie normy na jednej przestrzeni są równoważne, gdy istnieją rzeczywiste stałe $C$ i $D$, że $\|v\|_1 \le C\|v\|_2 \le CD \|v\|_1$.
+\end{definicja}
+
+\begin{fakt}
+	Dwie normy są równoważne, wtedy i tylko wtedy gdy zadają tę samą topologię.
+	Wtedy ciągi Cauchy'ego względem nich pokrywają się.
+\end{fakt}
+
+\begin{proof}
+	By pokazać, że równoważne normy zadają taką samą topologię, wystarczy pokazać, że kula otwarta względem jednej normy jest też otwarta względem drugiej.
+	Można ograniczyć się do jednej kuli, bo to wektorowa przestrzeń z normą.
+
+	Dla $x \in \kula = \{x \in \liniowa : \|x\|_1 < 1\}$ przyjmijmy, że $r = \|x\|_1$ i weźmy $R < (1-r) / C$.
+	Zbiór $N = \{y \in \liniowa : \|y-x\|_2 < R\}$, otwarta względem $\|\cdot\|_2$ kula, zawiera się w $\kula$, która (dzięki temu) jest otwarta względem $\|\cdot\|_2$.
+
+	W drugą stronę można zaszaleć.
+	Identyczność $i \colon \liniowa \to \liniowa$ (obie z różnymi normami) oraz odwrotna do niej są ciągłe i liniowe.
+\end{proof}
+
+\begin{fakt}
+	Przestrzeń wektorowa $\liniowa$ nad zupełnym ciałem z normą i bazą $v_1, \ldots, v_m$ jest zupełna (z normą supremum).
+	Ciąg jej wektorów $w_n = \sum_{k=1}^m a_{kn}v_k$ jest Cauchy'ego, wtedy i tylko wtedy gdy takie są ciągi jego współczynników $(a_{kn})$ w ciele $\cialo$.
+\end{fakt}
+
+\begin{proof}
+	Norma to największy ze współczynników ,,bazowych'', zatem $\|w_{n_1} - w_{n_2}\|$ dąży do zera dokładnie wtedy, gdy do zera dążą wszystkie $a_{i n_1} - a_{i n_2}$.
+\end{proof}
+
+\begin{fakt}
+	Weźmy $\liniowa = \Q_p[X]$ i ustalmy rzeczywiste $c > 0$.
+	Wtedy $\|\cdot\|$ jest (multiplikatywną) normą na $\liniowa$, z którą ta jest zupełna.
+	\[
+		\left\|\sum_{k=0}^n a_k X^k \right\| = \max_{0 \le i \le n} |a_i| c^i
+	\]
+\end{fakt}
+
+\begin{proof}
+	,,Ciało $\C_p$''.
+\end{proof}

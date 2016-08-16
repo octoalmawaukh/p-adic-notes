@@ -1,0 +1,74 @@
+\section{Ciągi, różnice, sploty} % 4.1 Funkcje zmiennej całkowitej
+Wielomian $f \in \Q[x]$ może spełniać zależność $f[\N] \subseteq \Z$, nawet gdy nie ma całkowitych współczynników.
+Taki jest na przykład $\frac 1 p (x^p - x)$.
+
+\begin{definicja}
+	$(\findif f) (x) = f(x+1) - f(x)$ określa operator skończonej różnicy.
+\end{definicja}
+
+Elementarne rachunki pokazują, że $\findif (x \mbox{ nad } 0) = 0$ oraz $\findif (x \mbox { nad } i) = (x \mbox{ nad } i-1)$.
+Przypomina to zwykłą pochodną i wielomiany $f_n = x^n / n!$, $f_n' = f_{n-1}$, $f_0' = 0$.
+Analogię ze wzorem Taylora rozwija następujący fakt.
+
+\begin{fakt}
+	Jeśli $f \colon \N \to M$ jest funkcją w grupę abelową (czyli $\Z$-moduł), to istnieje dokładnie jeden ciąg $m_i \in M$, że
+	\[
+		f(x) = \sum_{i \ge 0} m_i {x \choose i} = \sum_{i \ge 0} \frac{\findif^i f(0)}{i!} \cdot (x)_i
+	\]
+\end{fakt}
+
+\begin{proof}
+	Łatwo widać, że $m_k = \findif^k f(0)$ są w porządku.
+	Choć nieskończenie wiele z nich będzie niezerami, to ustalenie $x$ czyni sumę skończoną.
+\end{proof}
+
+Nadmieńmy: $\Delta^k f(0) = \sum_{i \le k} (-1)^{k-i} (k \mbox { nad } i) f(i)$ jest formułą odpowiadającą funkcjom tworzącym:
+\[
+	\sum_{k = 0}^\infty \Delta^k f(0)  \frac{x^k}{k!} = e^{-x} \sum_{n=0}^\infty f(n) \cdot \frac{x^n}{n!}.
+\]
+
+\begin{fakt}
+	$\Z$-moduł $\mathcal L \subseteq \Q[x]$ wszystkich funkcji spełniających warunek $f[\N] \subseteq \Z$ jest wolny, ma bazę złożoną z $(\cdot \mbox{ nad } i)$.
+\end{fakt}
+
+Powinniśmy rozpatrzyć przypadek, gdzie $\Z$-moduł $M$ jest przestrzenią wektorową nad ciałem $\mathbb F_p$.
+
+\begin{lemat} \label{vietoris}
+	Przestrzeń funkcji $\Z \to \mathbb F_p$, których okres to $T = p^t$, ma bazę złożoną z $x \mapsto (x \mbox{ nad } i) \mbox{ mod }p$ dla $0 < i < T$.
+\end{lemat}
+
+\begin{fakt}
+	Każda $p^t$-okresowa funkcja $f \colon \Z \to \mathbb F_p^n$ zapisuje się jednoznacznie jako $f(x) = \sum_{i \le T} (x \mbox{ nad }i) m_i$ dla $m_i \in \mathbb F_p^n$.
+\end{fakt}
+
+Jeżeli $\pierscien$ jest przemiennym pierścieniem, zaś $f, g \colon \N \to \pierscien$ funkcjami, to ich \kolorowo{przesuniętym splotem} jest $(f \convulsion g)(0) = 0$, $(f \convulsion g) (n) = \sum_{i=0}^{n-1} f(i) g(n-i-1)$.
+Iterowaną różnicę splotu opisuje: $\findif^n (f \convulsion g) = f \convulsion \findif^n g + \sum_{k=0}^{n-1} \findif^k f \findif^{n-k-1} g (0)$.
+
+Skoro operator różnicy udaje pochodną, to co może być dobrym kandydatem na całkę?
+Dla każdej funkcji $f \colon \N \to \pierscien$ istnieje jedyna \emph{pierwotna} $F \colon \N \to \pierscien$, że $\findif F = f$, $F(0) = 0$.
+
+\begin{definicja}
+	Operator sumy nieoznaczonej $\suma$ to $f \mapsto 1 \convulsion f$, to znaczy $(\suma f)(0) = 0$ oraz $\left(\suma f \right)(n) = \sum_{i=0}^{n-1} f(i)$.
+\end{definicja}
+
+\begin{przyklad}
+	$\suma (x \mbox{ nad } i) = (x \mbox{ nad } i+1)$.
+\end{przyklad}
+
+Jeżeli przez $P_0 \colon A^\N \to A$ oznaczymy rzut na funkcje stałe ($f \mapsto f(0) \cdot 1$), to będziemy mogli zapisać trzy nowe zależności.
+
+\begin{fakt}
+	$\findif \circ \suma = \operatorname{id}$, 
+	$\suma \circ \findif = \operatorname{id} - P_0$, 
+	$\findif \circ \suma - \suma \circ \findif = P_0$.
+\end{fakt}
+
+Druga tożsamość przepisana do $f(x) = f(0) + \suma \findif f(x)$ daje nam ograniczone rozwinięcie $f$ pierwszego rzędu. 
+Właśnie tak van Hamme uzyskał następujący wynik.
+
+\begin{twierdzenie}[van Hamme]
+	Funkcje $f$ zmiennej całkowitej mogą zostać rozwinięte (dla całkowitego $n \ge 0$) z resztą van Hamme'a, $R_{n+1} f(x) = \findif^{n+1} f \convulsion (x \mbox{ nad } n)$.
+	\[
+		f(x) = f(0) \cdot 1 + R_{n+1} f(x) + \sum_{k=1}^n \findif^k f(0) \cdot {x \choose k}.	
+	\]
+\end{twierdzenie}

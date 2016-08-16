@@ -1,0 +1,243 @@
+\section{Rachunek cienisty}
+Niech ciało $\cialo$ ma charakterystykę $0$.
+Będziemy teraz pracować w $\liniowa = \cialo[x]$.
+Określmy $\liniowa_n = \{f \in \cialo[x] : \deg f \le n\} \le \liniowa$.
+
+\begin{definicja}
+	Translacje to liniowe operatory w $\cialo[x]$ dane wzorem $(\tau_a f)(x) = f(x +a)$.
+\end{definicja}
+
+\begin{definicja} %%% delta operator
+	Operator dorzecza to liniowy endomorfizm $\delta$ dla $\cialo[x]$, który komutuje z translacjami i spełnia $\delta(x) = c \in \cialo^\times$.
+\end{definicja}
+
+\begin{fakt}
+	Operatory dorzecza spełniają $\delta[\cialo] = \{0\}$.
+	Jeśli $f$ jest niestałym wielomianem, to $\deg f - \deg (\delta f) = 1$.
+\end{fakt}
+
+\begin{proof}
+	Mamy $c = \tau_a c = \tau_a \delta x = \delta \tau_a x= \delta(x+a) = c + \delta a$, więc $\delta a = 0$ dla stałych $a \in \cialo$.
+	Pokażemy, że $\deg \delta x^n = n - 1$ dla $n \ge 1$.
+	Niech $\delta x^n = f(x)$. Wtedy
+	\begin{align*}
+		f(x + a) & = \tau_a f(x) = \delta \tau_a (x^n) = \delta (x+a)^n \\
+		 & = \sum (n \mbox{ nad } k) a^k \delta x^{n-k}.
+	\end{align*}
+	Podstawmy w tym wzorze najpierw $x = 0$, a potem $a = x$.
+	Tak otrzymamy $f(x) = \sum (n \mbox { nad } k) \delta(x^{n-k})(0) \cdot x^k$.
+	Widać, że $f$ jest wielomianem stopnia $\le n$, którego współczynnik przy $x^n$ to $\delta(1)(0) = 0$.
+	Kolejny, wiodący, to $n \delta x(0) = nc \neq 0$, gdyż $\cialo$ było charakterystyki zero.
+\end{proof}
+
+\begin{wniosek}
+	Mamy $\delta[\liniowa_n] = \liniowa_{n-1}$.
+\end{wniosek}
+
+Tuż za rogiem czai się cała gromadka operatorów dorzecza.
+
+\begin{przyklad}
+	Operator różniczkowania $\mathfrak D$, ogólniej $\tau_a \mathfrak D$.
+\end{przyklad}
+
+\begin{przyklad}
+	Operator różnicy $\tau_a \findif$ (w szczególności $a = 0$).
+\end{przyklad}
+
+\begin{przyklad}
+	Formalny szereg od $\mathfrak D$ rzędu 1, $\sum_i c_i \mathfrak D^i \in \mathcal K[[\mathfrak D]]$:
+	na przykład $\log 1 + \mathfrak D$, $-1 + \exp \mathfrak D$ albo $\mathfrak D^2 /  (\exp \mathfrak D - 1)$.
+\end{przyklad}
+
+\begin{definicja}
+	Układ podstawowy dla operatora dorzecza $\delta$ to ciąg wielomianów, że $\deg p_n = n$, $\delta p_n = n p_{n-1}$, $p_n(0) = [n = 0]$.
+\end{definicja}
+
+Prosty arguent indukcyjny pokazuje, że jest wyznaczony jednoznacznie.
+Pozwala to na napisanie ,,wzoru Taylora''.
+
+\begin{fakt}
+	Dla operatora dorzecza $\delta$ z ciągiem podstawowym $p_n$ w $\mathcal K[X]$ mamy rozwinięcie dla $f \in \cialo[X]$:
+	\[
+		f(x+y) = \sum_{k=0}^\infty \frac{\delta^k f(x)}{k!} \cdot p_k (y).
+	\]
+\end{fakt}
+
+To pierwsza inkarnacja rachunku ciernistego, z jaką się spotykamy. Jeśli za $f$ wstawimy $p_n$, dostaniemy:
+\[
+	p_n(x+y) = \sum_{k=0}^n {n \choose k} p_k(x) \cdot p_{n-k}(y)% = \mbox{,,}(p(x)+p(y))^n\mbox{''}.
+\]
+
+\begin{definicja}
+	Operator kompozytowy to endomorfizm $\cialo[x]$, który komutuje z translacjami.
+\end{definicja}
+
+\begin{fakt}
+	Operatory kompozytowe wśród endomorfizmów $T$ dla $\cialo[x]$ scharakteryzowane są przez następujęce warunki: $T$ komutuje z translacją jednostkową, każdą, derywacją $\mathfrak D$, operatorami dorzecza; jest formalnym szeregiem potęgowym od $\mathfrak{D}$ lub operatora dorzecza $\delta$ (nad $\cialo$).
+\end{fakt}
+
+Niech $T$ będzie ciągłym endomorfizmem $C(\Z_p,\cialo)$, gdzie $\cialo$ to zupełne rozszerzenie $\Q_p$.
+Jeśli komutuje z translacjami, to nie rusza $\ker \findif^n \subseteq C(\Z_p)$.
+
+\begin{lemat}
+	$\ker \findif^n \subseteq C(\Z_p)$ to wielomiany stopnia $\le n$.
+\end{lemat}
+
+Z trochę większą wiedzą można uogólnić wynik Mahlera tak, jak zrobił to van Hamme.
+Zapiszmy
+\[
+	T = \sum_{n \ge v} \alpha_n \findif^n \in \cialo[[\findif]].
+\]
+
+\begin{fakt}
+	Ciągły endomorfizm $T$ dla $C(\Z_p)$ komutujący z $\findif$ z $T(1) = 0$ i $\|T\| = |\alpha_1| = 1$ indukuje operator dorzecza na $\cialo[x]$ z układem $p_n$: $\deg p_n = n$, $T(p_n) = np_{n-1}$, $p_n(0) = [n = 0]$, a przy tym $\|p_n\| = n!$.
+\end{fakt}
+
+\begin{proof}
+	Po normalizacji układu $q_n = p_n / n!$ chcemy pokazać, że $\|q_n\| = 1$.
+	Być może $T$ też wymaga zmiany na $T/\alpha_1$, ale i tak ostatecznie napiszemy (z $\alpha_1 = 1$):
+	\[
+		1 = \|q_0\| = \|Tq_1\| \le \|q_1\| = \|Tq_2\| \le \cdots.
+	\]
+
+	Z założenia, $T = \findif + \alpha_2 \findif^2 + \cdots = \findif U$, kompozytowy operator $U$ odwraca się ($V = U^{-1}$) i $\|U\| = 1$.
+	Twierdzimy, że istnieje $S$, odwracalny i ciągły operator kompozytowy, $\|S\| = 1$, że $q_n = SV^n (f_n)$, gdzie przez $f_n$ tymczasowo oznaczamy współczynniki dwumianowe nad $n$ ($\findif f_n = f_{n-1}$).
+
+	Niezależnie od $S$ (jeśli jest rzędu $0$), ta definicja prowadzi do wielomianów stopnia $\deg q_n = n$ i $Tq_n = \findif U \circ SV^n (f_n)$, a skoro $UV = 1$ i operatory komutują, $Tq_n = q_{n-1}$.
+
+	Pozostało znaleźć takie $S$, by $q_n(0) = 0$ dla $n \ge 1$.
+	Niech $S = I - \findif V' U$, gdzie $V'$ jest formalną pochodną $V$.
+	Wtedy
+	\begin{align*}
+		SV^n(f_n) & = (I - \findif (V'/V)) \circ V^n (f_n) \\
+		& = (V^n - \findif V^{n-1} V') (f_n).
+	\end{align*}
+
+	Operatory są szeregami formalnymi w $\findif$ i $\findif^k f_n = f_{n-k}$ znika w początku dla $k < n$.
+	Jedyny interesujący człon to w takim razie jednomian zawierający $\findif^n f_n$.
+	Ale jeśli $\varphi(t)$ jest formalnym szeregiem, to współczynnik w $\varphi^n - t \varphi^{n-1} \varphi'$ (czyli $\varphi^n - (t/n)(\varphi^n)'$) przy $t^n$ jest zerem.
+	Wynika stąd, że zerem jest też wyraz wolny $SV^n(f_n)$ i $q_n(0) = 0$.
+
+	Operatory z definicji $S$ miały normy $\le 1$, zatem $\|S\| \le 1$ i $\|q_n\| \le \|S\| \|V^n\| \|f_n\| = 1$.
+\end{proof}
+
+\begin{fakt}
+	Przy założeniach z poprzedniego faktu, każda ciągła funkcja $f$ z $\mathcal C(\Z_p)$ daje się rozwinąć w uogólniony szereg Mahlera z $c_n = (T^n f)(0) \to 0$ i $\|f\| = \sup_{n \ge 0} |c_n|$:
+	$
+		f(x) = \sum_{n} c_nq_n.
+	$
+\end{fakt}
+
+\begin{proof}
+	Przy oznaczeniach z poprzedniego faktu, $T = \findif U$ pociąga $|T^n f(0)| \le \|U^n \findif^n f\| \le \|\findif^n f\| \to 0$ (na mocy tw. Mahlera).
+	Wystarczy ograniczyć się do wielomianów, ogólny przypadek wyniknie z gęstości i ciągłości.
+	Wzór Taylora dla $f$ przybiera postać $f = \sum_{n \ge 0} (T^n f)(0) q_n$.
+	Skoro $\|q_n\| = 1$, to $\|f\| \le \sup |c_n|$.
+	Prawdziwa jest również nierówność w drugą stronę: $|c_n| \le \|T^n f\| \le \|T^n\| \|f\| \le \|T\|^n \|f\| \le \|f\|$.
+\end{proof}
+
+Uogólnione rozwinięcie Mahlera nie jest prawdziwe dla $\mathfrak D$ (różniczkowania): operator ten nie rozszerza się ciągle na całe $C(\Z_p)$.
+Cokolwiek to nie znaczy, wygląda niepokojąco.
+Nawet jeśli $f(x) = \sum_n c_n x^n / n!$ zbiega jednostajnie, zazwyczaj $\|f\|$, $\sup |f(x)|$ nie jest równe $\sup |c_n|$.
+
+Zilustrujemy teraz ważną zasadę, o której to mowa będzie dopiero później.
+
+\begin{przyklad}
+	Ciąg podstawowy dla $\tau_a \mathfrak D$ to $p_n \colon x (x- an)^{n-1}$.
+\end{przyklad}
+
+\begin{lemat}
+	Jeżeli $T = \varphi(\mathfrak D)$ jest kompozytowym operatorem, zaś $M_x$ mnoży przez $x$, to $TM_x - M_xT = \varphi'(D)$.
+\end{lemat}
+
+%$T' = TM_x - M_xT$, pochodna Pincherle, była używana w mechanice kwantowej (z dowolnym wielomianem $f$ zamiast $x$ i $T = \mathfrak D$).
+Pochodna Pincherle, khm.
+
+\begin{fakt}
+	Dla operatora dorzecza $\delta = \mathfrak D\varphi(\mathfrak D)$ (z odwracalnym szeregiem potęgowym $\varphi$) ciągiem podstawowym (wielomianów) jest $p_n = x \varphi(\mathfrak D)^{-n}(x^{n-1})$.
+\end{fakt}
+
+\begin{proof}
+	Skoro $\varphi(\mathfrak D)$ i $\varphi(\mathfrak D)^{-n}$ są odwracalne, $\varphi(\mathfrak D)^{-n}(x^{n-1})$ jest wielomianem stopnia $n - 1$ i $\deg p_n = n$.
+	Oczywiście $p_n(0) = 0$.
+	Pozostało sprawdzić, czy $\delta p_n = n p_{n-1}$.
+
+	Z definicji, $\delta p_n = \mathfrak D \varphi(\mathfrak D) M_x \varphi(\mathfrak D)^{-n}(x^{n-1})$, więc teraz użyjemy lematu.
+	\begin{align*}
+		\ldots & = M_x \varphi(\mathfrak D) ^{-n} (x^{n-1}) \\
+		& = \varphi(\mathfrak D)^{-n} M_x(x^{n-1}) - [\varphi(\mathfrak D)]' (x^{n-1}) \\
+		& = \varphi(\mathfrak D)^{-n}(x^n) + n [\varphi(\mathfrak D)^{-n-1}](x^{n-1}).
+	\end{align*}
+
+	Zatem
+	\begin{align*}
+		\delta p_n & = \mathfrak D \varphi(\mathfrak D) M_x \varphi(\mathfrak D)^{-n} (x^{n-1}) \\
+		& = \mathfrak D \varphi(\mathfrak D)[\varphi(\mathfrak D)^{-n}(x^n) + n [\varphi(\mathfrak D)^{n-1}](x^{n-1})] \\
+		& = \varphi(\mathfrak D)^{1-n}(\mathfrak D x^n) + n \varphi (\mathfrak D)^{-n} (\mathfrak D x^{n-1}) \\
+		& = \varphi(\mathfrak D)^{1-n} (nx^{n-1}) + (n^2-n) \varphi(\mathfrak D)^{-n} (x^{n-2}) \\
+		& = [n \varphi (\mathfrak D)^{1-n} M_x + (n^2-n) \varphi(\mathfrak D)^{-n}](x^{n-2}).
+	\end{align*}
+
+	Teraz lemat wyciągnie $M_x$ z opresji.
+	\begin{align*}
+		\delta p_n & = [M_x n \varphi(\mathfrak D)^{1-n} + (n \varphi(\mathfrak D)^{1-n})' \\
+		& + (n^2-n) \varphi(\mathfrak D)^{-n}](x^{n-2}) \\
+		% & = nM_x \varphi(\mathfrak D)^{-(n-1)}(x^{n-2}) + [-(n^2-n)\varphi (\mathfrak D)^{-n} \\
+		% & + (n^2-n) \varphi(\mathfrak D)^{-n}](x^{n-2}) \\
+		& = n M_x \varphi(\mathfrak D)^{-(n-1)}(x^{n-2}) = n p_{n-1} \qedhere 
+	\end{align*}
+
+\end{proof}
+
+\begin{fakt}[doktryna tłumacza]
+	Układ podstawowy dla operatora dorzecza $\tau_a\delta$ to $p_0 = 1$, $\widehat p_n(x) = x p_n(x-na) / (x-na)$.
+\end{fakt}
+
+\begin{proof}
+	Niech $\delta = \mathfrak D \varphi(\mathfrak D)$, wtedy $\widehat{p}_n = x[\tau_a \varphi(\mathfrak D)]^{-n} (x^{n-1})$ $= x \tau_{-na} \varphi(\mathfrak D)^{-n} (x^{n-1}) = x \tau_{-na}[p_n/x]$.
+\end{proof}
+
+\subsection{Funkcje tworzące}
+Ustalamy raz na zawsze operator dorzecza $\delta$, którego układ podstawowy to $p_k$.
+
+\begin{definicja}
+	Ciąg Sheffera dla $\delta$ to taki ciąg wielomianów $s_n$ stopni $n$, że (od $n = 1$) prawdą jest $\delta s_n = n s_{n-1}$.
+\end{definicja}
+
+Wzór Taylora daje $s_n(x+y) = \sum {n \choose k} p_k(x) s_{n-k}(y)$
+
+\begin{definicja}
+	Ciąg Appella to ciąg Sheffera $p_n$ dla operatora $\mathfrak D$.
+\end{definicja}
+
+\begin{fakt}
+	Endomorfizm $S$ dla $\cialo[x]$ jest odwracalnym operatorem kompozytowym, wtedy i tylko wtedy gdy posyła bazę $(p_n)$ na $(s_n)$.
+\end{fakt}
+
+Ustalmy taki endomorfizm $S$.
+Układ wielomianów $S^{-1}p_n$ ($s_n$) jest ciągiem Sheffera, a my wyznaczymy jego wykładniczą funkcję tworzącą: $F_s(x, z) = \sum_{n \ge 0} s_n(x) z^n/n!$
+
+Niech $\delta = \varphi(\mathfrak D)$, $S = \psi(\mathfrak D)$ będą elementami $\cialo[[\mathfrak D]]$, że $\varphi(0) = 0$, $\varphi'(0), \psi(0) \neq 0$.
+Rozwińmy szereg dla
+\begin{align*}
+	\tau_x S^{-1} & = \sum \tau_x S^{-1} (p_n)(0) \frac{\delta^n}{n!} = \sum S^{-1} (p_n)(x) \frac{\delta^n}{n!} \\
+	& = \sum s_n(x) \frac{\delta^n}{n!} = F_s(x, \delta).
+\end{align*}
+
+Po pierwsze wiemy, że $\tau_x = \sum p_n(x) \delta^n / n! = \sum x^n \mathfrak D^n / n!$, czyli $\exp(x \mathfrak D)$.
+Z drugiej strony, $\tau_x S^{-1}S = F_s(x, \delta) \circ \psi(\mathfrak D)$.
+Te dwa wyrażenia są sobie równe.
+Podstawmy $\mathfrak D = \varphi^{-1} (\delta)$:
+\[
+	F_s(x,z) = \frac{\exp (x \varphi^{-1}(z))}{\psi(\varphi^{-1}(z))}
+\]
+
+Stąd dla $s_n = p_n$ ($S = \operatorname{id}$) mamy $\psi \equiv 1$, a to pozwala nam wygodnie szukać ciągu $p_n$.
+
+\begin{przyklad}
+	Niech $\findif = -1 + \exp \mathfrak D = \varphi(\mathfrak D)$, wtedy
+	\[
+		\exp(x \varphi^{-1}(z)) = \exp(x \log 1+z) = (1+z)^x,
+	\]
+	co ze wzorem Newtona daje $p_n(x) = x \cdot \ldots \cdot (x - n +1)$.
+\end{przyklad}

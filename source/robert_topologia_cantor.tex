@@ -1,0 +1,14 @@
+\section{Zbiór Cantora}
+Zbiór Cantora $C \subseteq [0,1]$ składa się z tych punktów, których rozwinięcia w systemie trójkowym nie zawierają cyfry jeden.
+Mamy ciągłą bijekcję $\psi \colon \Z_2 \to C$, $\sum_i a_i2^i \mapsto \sum_i 2a_i/3^{i+1}$, która dzięki zwartości jest homeomorfizmem.
+Ciekawa jest też funkcja $\varphi \colon \Z_2 \to [0,1]$ zadana przez $\sum_i a_i2^i \mapsto \sum_i a_i/2^{1+i}$.
+Diagram przemienny $\varphi = g \circ \psi$ (funkcja $g$ zszywa krańcowe punkty zbioru Cantora) zachęca nas do rozważenia liniowych modeli $\Z_p$.
+
+\begin{fakt}
+	Funkcje $\psi_b \colon \Z_p \to [0,1]$ określone dla $b > 1$ są ciągłe.
+	Gdy $b > p$, są różnowartościowym homeomorfizmem na obraz.
+	Kiedy $b = p$, $\psi_b$ jest tylko surjekcją.
+	\[
+		\psi_b \colon \sum_{i = 0}^\infty a_i p^i \mapsto \frac {b - 1 }{p-1} \sum_{i = 0}^\infty \frac{a_i}{b^{i+1}}
+	\]
+\end{fakt}

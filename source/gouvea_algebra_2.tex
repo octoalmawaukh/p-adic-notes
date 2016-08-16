@@ -1,0 +1,64 @@
+\section{Logarytm i eksponensa \label{sekcjalog}}
+Zajmijmy się grupą $\Z_p^\times$.
+Lemat Hensela pokazał, że zawiera $(p-1)$-sze pierwiastki z jedynki.
+Dla prostoty ,,$q_2 = 4$ i $q_p = p$''.
+% Eksponensa $p$-adyczna będzie określona dla $x \in q \Z_p$, zaś logarytm dla $x \in 1+ p \Z_p$.
+Podzbiory $U = 1 + p\Z_p$ i $U_1 = 1 + q\Z_p$ są podgrupami $\Z_p^\times$, $U_1 \subset U$. Jeśli $p = 2$, to $U = \Z_p^\times$, jeśli nie, to $U_1 = U$.
+Elementy $U$ nazywa się \kolorowo{jeden-jednościami}.
+Niech $W = (q\Z_p, +)$.
+
+\begin{fakt}
+	Logarytm $p$-adyczny zadaje homomorfizm $U \to \Z_p^+$ oraz izomorfizm $U_1 \to W$ (funkcja odwrotna: eksponensa).
+	Wtedy $U_1 \cong W \cong \Z_p^+$ są beztorsyjne, $\log_p(U) \subseteq p\Z_p$.
+\end{fakt}
+
+\begin{proof}
+	Oczywisty po ustępie \ref{parum}.
+\end{proof}
+
+\begin{wniosek}\label{hostis}
+	Dla każdej pierwszej $p$ mamy $\Z_p^\times \cong V \times U$, gdzie $U \cong \Z_p^+$ to beztorsyjna pro-$p$-grupa, zaś grupa $V \le \Z_p^\times$ składa się z pierwiastków jedności w $\Q_p$ (część torsyjna).
+	Jest cykliczna, rzędu $\varphi(q)$.
+\end{wniosek}
+
+\begin{proof}
+	Łatwo widać, że istnieje poniższy ciąg dokładny (jest to definicja $U$).
+	Chcemy pokazać, że się ,,rozdziela''.
+	\[
+		1 \to U_1 \to \Z_p^\times \stackrel \pi \to  (\Z/q\Z)^\times \to 0.
+	\]
+	Lemat Hensela połączony z twierdzeniem Straßmana mówi, że $\Z_p^\times$ zawiera grupę $V$ pierwiastków jedności, cykliczną i rzędu $\varphi(q)$.
+	Elementy $V$ są różne modulo $q$ (lemat Hensela dla $p > 2$).
+	Jeżeli $\pi(\zeta_1) = \pi(\zeta_2)$, to $\zeta_1 \zeta_2^{-1} = 1 + qx \in U$ dla $x \in \Z_p$, czyli $\zeta_1 = \zeta_2$ mod $q$, a jedyny przypadek, kiedy to jest możliwe, to $\zeta_1 = \zeta_2$.
+
+	Strzałka $\pi$ indukuje izomorfizm $V \cong (\Z/q\Z)^\times$.
+	Reszta jest prosta: dla $u \in \Z_p^\times$ istnieje $\zeta \in V$, takie że $\pi(\zeta) = \pi(u)$, wtedy $u \mapsto (\zeta, u \zeta^{-1})$ uzasadnia $\Z_p^\times \cong V \times U$.
+\end{proof}
+
+\section{Charakter Teichmüllera\label{sekcjateich}}
+Z faktu \ref{hostis} możemy wywnioskować, że dla pierwszej $p \neq 2$ mamy inkluzję $\omega \colon \mathbb F_p^\times \cong V \hookrightarrow \Z_p^\times$; określmy do tego $\omega(0) = 0$.
+Funkcję $\omega$ nazywa się \kolorowo{charakterem Teichmüllera}.
+Czasem tej nazwy używa się dla charakteru Dirichleta, to jest złożenia $\omega$ z redukcją mod $p$: $\Z \to \mathbb F_p \to \Z_p$.
+
+Żeby nie było zbyt łatwo, często przez $\omega$ oznacza się rzut z $\Z_p^\times$ na $V$, by każdy $x\in \Z_p^\times$ zapisywał się jednoznacznie jako $x = \omega(x) \cdot x_1$ z $x_1 \in 1 + q\Z_p$.
+Taka definicja jest sensowna: rozszerzając rzut na $\Z_p$ (do zera na niejednościach) i obcinając do $\Z$, dostaniemy charakter Dirichleta.
+Niech ,,$(x) = x_1$''.
+
+\begin{fakt}
+	Jeżeli $p \neq 2$ i $x \in \Z_p^\times$, to $\omega(x)$ dane jest wzorem
+	\[
+		\omega(x) = \lim_{n \to \infty} x^{p^n}.
+	\]
+\end{fakt}
+
+\begin{proof}
+	Skoro $\omega(x)^{p-1} = 1$, to $\omega(x)^{p^n} = \omega(x)$ dla każdego $n$.
+	Z drugiej strony, $x_1 = 1 + qy$, więc
+	\[
+		(1 + qy)^p = 1 + pqy + q^2 \cdot \mbox{reszta},
+	\]
+	a stąd wynika $x_1^p \in 1 + p^2 \Z_p$.
+	Można to powtórzyć: indukcyjnie pokazuje się, że $x_1^{r} \in 1 + p^{n+1} \Z_p$ i $x_1^r \to 1$ ($r = p^n$).
+\end{proof}
+
+Jeżeli $p = 2$, to część odkryć trzeba poprawić: $\mathbb F_2^\times = \{1\}$.

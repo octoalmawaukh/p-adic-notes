@@ -1,0 +1,75 @@
+\section{Grupy topologiczne}
+Grupa topologiczna to zwykła grupa $\grupa$ z topologią, przy której funkcja $\grupa \times \grupa \to \grupa$, $(x,y) \mapsto xy^{-1}$ jest ciągła.
+
+\begin{fakt}
+	Grupy $(\Z_p, +)$ oraz $(\Z_p^\times, \cdot)$ są topologiczne.
+\end{fakt}
+
+\begin{proof}
+	Istnieje fundamentalny układ otoczeń z podgrup dla $1$ w $\Z_p^\times$: to $1 + p^k \Z_p$.
+	Jeżeli $\alpha, \beta \in \Z_p$, to $(1+p^n\beta)^{-1} = 1 + p^n \beta'$ (tu $\beta' \in \Z_p$), a zatem (dla $a = 1 + p^n \alpha$ i $b = 1 + p^n \beta$) mamy $ab^{-1} = 1 + p^n \gamma$ dla pewnego $\gamma \in \Z_p$.
+	Konsekwencją tego faktu dla $a' \in a(1+p^n\Z_p)$ oraz $b' \in b(1+p^n\Z_p)$ jest
+	\[
+		a'b'^{-1} \in ab^{-1}(1+p^n\Z_p) \hfill n \ge 1
+	\]
+	i $(x,y) \mapsto xy^{-1}$ jest ciągłe.
+	Indeks $1+p\Z_p$ w $\Z_p^\times$ to $p-1$; podgrupa ta jest otwarta (i topologiczna).
+
+	Jeżeli $a' \in a + p^n \Z_p$ i $b' \in b + p^n \Z_p$, to $a' - b'$ należy do $a-b + p^n\Z_p$ dla $n \ge 0$.
+	Innymi słowy, gdy $|x-a|,|y-b| \le |p^n|$, to $|(x-y)-(a-b)| \le p^{-n}$, zatem odejmowanie $x - y$ jest ciągłe w każdym punkcie $(a,b)$.
+\end{proof}
+
+Podamy teraz bez dowodu kilka najważniejszych faktów, które dotyczą grup topologicznych.
+Wszystko można znaleźć w dobrym podręczniku poświęconym tym obiektom.
+
+\begin{fakt}
+	Grupa topologiczna jest metryzowalna, wtedy i tylko wtedy gdy jest Hausdorffa i posiada przeliczalny fundamentalny układ otoczeń elementu neutralnego.
+\end{fakt}
+
+Od metryki można wtedy wymagać, by była niezmiennicza na lewe przesunięcia.
+
+Każdą grupę $\grupa$ można uzupełnić do $\widehat \grupa$: zupełnej, w którą $\grupa$ zanurza się gęsto, że morfizmy $\grupa \to \grupa'$ (w zupełną) pochodzą od złożeń $\grupa \to \widehat \grupa$ i $\widehat \grupa \to \grupa'$ (jednoznacznie).
+
+\begin{fakt}
+	Jeżeli $H \le \grupa$ jest podgrupą grupy topologicznej $G$ oraz zawiera otoczenie elementu neutralnego, to jest otwarnięta w $\grupa$.
+\end{fakt}
+
+Na przykład $p^n\Z_p$ ($n \ge 0$) w addytywnej $\Z_p$ lub $1+p^n \Z_p$ ($n \ge 1$) w multiplikatywnej $1 + p\Z_p$ są otwarnięte.
+
+Gdy przez $\pi \colon \grupa \to \grupa / H$ oznaczymy kanoniczny rzut (tutaj $H \triangleleft \grupa$), to dla otwartego $U \subseteq \grupa$ mamy $\pi^{-1} (\pi U) = \bigcup_{h \in H} Uh$ (również otwarty).
+Zatem rzut jest ciągły i otwarty, lecz nie musi być domknięty.
+
+\begin{fakt}
+	Iloraz $\grupa/H$ jest skończony, $T_2$ $\Leftrightarrow$ $H$ jest domknięta oraz skończonego indeksu $\Rightarrow$ iloraz jest dyskretny $\Leftrightarrow H$ jest otwarta $\Rightarrow$ iloraz jest $T_2$ $\Leftrightarrow H$ domknięta.
+\end{fakt}
+
+Dyskretne podgrupy $\R$ są postaci $a\Z$, więc iloraz $\R$ przez dyskretną (nietrywialną) jest zwarty.
+Niedyskretne podgrupy $\R$ leżą gęsto na prostej.
+
+\begin{fakt}
+	Domknięte podgrupy $\Z_p$ to ideały ($\{0\}$, $p^m \Z_p$).
+\end{fakt}
+
+\begin{proof}
+	Abelowa grupa to $\Z$-moduł.
+	Jeśli grupa $H \le \Z_p$ jest domknięta, to dla $h \in H$ mamy implikację: gdy $\Z H \subseteq H$, to $\Z_p a \subseteq \operatorname{cl} \Z a \subseteq \operatorname{cl} H = H$.
+	Czyli domknięta podgrupa to ideał $\Z_p$ (lub $\Z_p$-modułu).
+\end{proof}
+
+Uwaga!
+Jeżeli $\pierscien$ jest pierścieniem topologicznym, to grupa $\pierscien^*$ elementów odwracalnych nie musi być topologiczna.
+Ale można na niej zadać inną topologię, od włożenia $x \mapsto (x, x^{-1})$ dla $\pierscien^*$ w $\pierscien^2$.
+Wtedy $\pierscien^* \hookrightarrow \pierscien$ jest ciągłe, chociaż być może nie jest homeomorfizmem na obraz.
+Oto przykład.
+
+Niech $H$ będzie zespoloną p. Hilberta z ortonormalną bazą $e_i$.
+Rozpatrzmy ciąg ciągłych operatorów $T_n$ przerzucających $e_i$ na $e_i$ (jeśli $i \neq n$) lub $\frac 1 n e_n$ (jeśli nie).
+Dla każdego $x \in H$, $\|T_n x - x\|^2 \to 0$, więc oraz $T_n \to I$ w silnej topologii na pierścieniu ograniczonych operatorów.
+Ale $T_n^{-1} \not \to I$, bo
+\[
+		x = \sum_{n = 1}^\infty \frac {e_n} n.	
+\]
+
+\begin{fakt} % ćwiczenia, Robert
+	Ciągły morfizm $\Z_p^\times \to \Q_p^\times$ jest postaci $\zeta u \mapsto \zeta^v u^x$ dla $\zeta \in \mu_{p-1}$, $u \in 1 + p \Z_p$, $v \in \Z/(p-1)\Z$ i $x \in \Z_p$.
+\end{fakt}

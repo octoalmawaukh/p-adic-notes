@@ -1,0 +1,15 @@
+\section{Zwarta przestrzeń $\Z_p$}
+Przez liczby $p$-adyczne rozumiemy szeregi formalne $\sum_{i=0}^\infty a_i p^i$, gdzie całkowite współczynniki $a_i$ spełniają $0\le a_i \le p-1$.
+Takie szeregi można utożsamiać z ciągiem $a_i$.
+
+Kartezjański produkt $X_p = \{0, \dots, p-1\}^\N$ ma topologię produktową (czynniki są dyskretne), zatem jest zwarty.
+Jest też całkowicie rozłączny.
+
+Jest całkiem sporo metryk zgodnych z topologią na $X_p$, dla $x = (x_0, x_1, \dots)$ i $y = (y_0, y_1, \dots) \in X_p$ możemy przyjąć
+\[
+	d(x,y) = \sup_{i \ge 0} \frac{\delta(x_i, y_i)}{p^i} = \frac{1}{p^{v_p(x - y)}} \textrm{ czy } \sum_{i = 0}^\infty \frac{\delta(x_i,y_i)}{p^{i+1}},
+\]
+ale nie tylko.
+Wszystkie metryki na zwartej metryzowalnej są jednostajnie równoważne.
+Te dające wierny obraz struktury warstw $\Z_p$: dla każdej $k \in \N$ warstwy $p^k \Z_p$ są izometryczne w $\Z_p$, lubimy.
+Z $p$-adyczą metryką mnożenie jest kontrakcją: $d(px, py) = d(x,y) / p$, zatem ciągłe.

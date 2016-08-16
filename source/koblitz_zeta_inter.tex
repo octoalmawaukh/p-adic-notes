@@ -1,0 +1,63 @@
+\subsection{Interpolacja funkcji $s \mapsto a^s$}
+Zajmiemy się teraz interpolacją funkcji wykładniczej, aby móc później podać dobrą motywację dla osobliwych kroków, które inaczej mogłyby wydać się dziwaczne.
+
+Niech $a = n$ będzie ustaloną liczbą naturalną zanurzoną w $\Q_p$.
+Dla każdej naturalnej $s$, $n^s$ należy do $\Z_p$.
+Liczby naturalne tworzą gęsty zbiór w $\Z_p$, więc można próbować przedłużyć $f(s) = n^s$ (w oparciu o ciągłość), ale napotkamy na problemy.
+
+Niech $m$ będzie dużą potęgą $p$.
+
+Czy $n^s$ i $n^t$ są sobie bliskie dla bliskich $s$ i $t$, przykładowo: $t = s + m$ dla dużego $m$?
+Niekoniecznie.
+Jeżeli $n = p$, $s = 0$, to $|n^s - n^t|_p = |1 - p^{t-s}|_p = 1$, niezależnie od wyboru $m$.
+
+Małe twierdzenie Fermata orzeka, że $n \equiv n^p$ mod $p$ dla $1 < n < p$, co pociąga $n \equiv n^p \equiv \ldots \equiv n^{m}$ mod $p$, a to z kolei implikuje $n^s - n^{s + m} = n^s(1 - n^m) \equiv n^s (1-n)$ mod $p$ i znowu $|n^s - n^t|_p = 1$ niezależnie od $m$.
+
+Na szczęście nie jest aż tak tragicznie.
+Wybierzmy $n$ takie, by przystawało do $1$ modulo $p$, na przykład $n = 1 + kp$.
+Niech $|t - s|_p \le m^{-1}$, czyli $t = s + qm$ dla $q \in \Z$.
+Załóżmy, że $t > s$.
+Zachodzi $|n^s - n^t|_p = |1-n^{t-s}|_p = |1 - (1 + kp)^{qm}|_p$.
+Ale rozwinięcie $(1 + kp)^{qm}$ w 
+\[
+	1 + (qm)kp + \frac{qm(qm - 1)}{2} (kp)^2 + \ldots + (kp)^{qm}
+\]
+pokazuje, że wartość bezwzględną $n^s - n^t$ można szacować z góry przez małą wielkość $|m| / p$.
+
+Okazuje się, że $p$ wcale nie musi dzielić $n - 1$, by $s \mapsto a^s$ była ciągłą funkcją $\Z_p \to \Z_p$.
+Zażądajmy mianowicie, by $s$ i $t$ przystawały modulo $p - 1$ oraz modulo wysoka potęga $p$, zaś $n$ niech nie będzie krotnością $p$.
+
+Dokładniej, ustalmy $s_0 \in \{0, 1, \ldots, p -2\}$.
+Zamiast brać $n^s$ dla naturalnych $s$, ogranicznmy się do tych ($s$), które przystają do $s_0$ modulo $p-1$.
+Teraz $s = s_0 + (p-1)s_1$ dla nieujemnej $s_1$ i badamy $n^{s_0 + (p-1)s_1}$.
+Możemy, gdyż $n^s = n^{s_0} (n^{p-1})^{s_1}$, a przy tym $n^{p-1} \equiv 1$ mod $p$.
+Wracamy do początku z $n^{p-1}$ zamiast $n$, $s_1$ zamiast $s$ (z dodatkowym czynnikiem $n^{s_0}$).
+
+Przejdźmy do funkcji zeta Riemanna dla $s > 1$:
+\[
+	\zeta(s) = \sum_{n = 1}^\infty \frac 1 {n^s}
+\]
+
+Naiwna interpolacja sumy przez interpolację składników nie zadziała, gdyż nawet wyrazy, które można interpolować ($p \nmid n$) tworzą rozbieżny szereg w $\Z_p$.
+Zapomnijmy jednak o tym na chwilę.
+
+Pozbądźmy się wyrazów, którym odpowiadają $n$ podzielne przez $p$.
+\begin{align*}
+\zeta(s) & = \sum_{n \ge 1}^{p \nmid n} \frac 1{n^s} + \sum_{n \ge 1}^{p \mid n} \frac 1{n^s}= \sum_{n \ge 1}^{p \nmid n} \frac 1{n^s} + \sum_{n \ge 1}^{\infty} \frac 1{p^sn^s} \\
+& = \sum_{n \ge 1}^{p \nmid n} \frac{1}{n^s} + \frac{\zeta(s)}{p^s} = \frac{1}{1 - p^{-s}} \sum_{n \ge 1}^{p \nmid n} \frac 1{n^s}.
+\end{align*}
+
+Później zajmiemy się ostatnim członem,
+\[
+	\zeta^*(s) := \sum_{n \ge 1}^{p \nmid n} \frac 1{n^s} = \left ( 1 - p^{-s}\right) \zeta(s).
+\]
+Proces ten zwie się ,,wyjmowaniem $p$-czynnikiem Eulera'', gdyż funkcja $\zeta$ ma słynne przedstawienie jako produkt:
+\[
+	\zeta (s) = \prod_{q \in \mathbb P} \frac{1}{1 - q^{-s}}.
+\]
+
+Na zakończenie zapowiadamy przystawanie
+\[
+	(1 - p^{2k-1})(- B_{2k} / 2k) \equiv (1 - p^{2l-1})(-B_{2l}/2l)
+\]
+modulo $p^{N+1}$ i dobrych $k, l$, które zostało odkryte jeszcze przez Kummera, ale jego ważność dla $p$-adycznego odpowiednika funkcji $\zeta$ Riemanna została dostrzeżona dopiero przez Kubotę i Leopoldta w 1964.

@@ -1,0 +1,171 @@
+
+Przy pomocy szeregów potęgowych można zdefiniować na ich obszarze zbieżności funkcje.
+Dowód poniższego lematu jest analogiczny do przypadku ,,$\R$''.
+
+\begin{lemat}
+	Jeśli szereg potęgowy $f(x) \in \Q_p[[x]]$ jest zbieżny na $D \subseteq \Q_p$, to funcja $f \colon D \to \Q_p$, $x \mapsto f(x)$, jest ciągła.
+\end{lemat}
+
+Niestety, nie istnieje $p$-adyczny odpowiednik analitycznego przedłużania.
+Obszar zbieżności można zwiększyć (dla funkcji $\R \to \R$) przez rozwinięcie w innym miejscu; tutaj ta sztuczka się nie uda.
+
+\begin{fakt}
+	Funkcje od szeregów potęgowych $f$ i $g$ mają ten sam obszar zbieżności, jeśli $f(x) = \sum_n a_n x^n \in \Q_p[[x]]$ istnieje dla $x = x_0$.
+	\[
+		g(x) = \sum_{m \ge 0} \sum_{n \ge m} \underbrace{ C^n_m a_n x_0^{n-m}}_{b_m}\cdot (x-x_0)^m 
+	\]
+\end{fakt}
+
+\begin{proof}
+	Liczby $b_m$ są dobrze określone: dla ustalonego $m$ mamy
+	\[
+		\left|{n \choose m} a_n x_0^{n-m}\right| \le |a_n x_0^{n-m}| = \frac{|a_nx_0^n|}{|x_0|^m} \to 0.
+	\]
+
+	Niech $x$ leży w obszarze zbieżności $f(x)$.
+	Wtedy zachodzi $f(x) = f(x - x_0 + x_0)$, co daje się rozpisać:
+	\[
+		\sum_{n \ge 0} a_n x^n = \sum_{n \ge 0} \sum_{m \le n} a_n  {n \choose m} x_0^{n-m} (x-x_0)^m
+	\]
+	Ostatnia suma wygląda jak częściowa $g(x)$ po przegrupowaniu.
+	Sprawdzimy założenia faktu \ref{caedis}.
+
+	Niech $\beta_{n, m} = 0$ dla $m > n$ i $(n \textrm{ nad } m )a_n x_0^{n-m}(x - x_0)^m$ dla $m \le n$.
+	Trzeba ograniczyć $|a_n x_0^{n-m} (x - x_0)^m| \ge |\beta_{nm}|$.
+
+	Skoro $x, x_0$ leżą w kole zbieżności o jakimś promieniu $R$, to obszar ten zawiera domknięty dysk o promieniu $r$, równym co najmniej $\max \{|x|, |x_0|\}$.
+
+	Z konstrukcji wynika nierówność $|x_0|^{n-m} \le r^{n-m}$ oraz $|x - x_0|^m \le \max \{|x|, |x_0|\}^m \le r^m$.
+	Kluczową obserwacją jest niearchimedesowość ciała.
+
+	Podsumowując, $|\beta_{mn}| \le |a_n| r^n$, co nie zależy od $m$ i daje jednostajną zbieżność.
+\end{proof}
+
+Nasze życie nie jest usłane różami tak bardzo jak w analizie zespolonej.
+Indykator $\Z_p$ w $\Q_p$ jest lokalnie analityczny, jednak czujemy opory przed nazwaniem go analitycznym.
+Te i inne problemy można obejść, lecz wymaga to wiele wysiłku.
+Chodzi tu o podstawy \emph{sztywnej geometrii analitycznej}, której fundamenty wyłożył Tate.
+
+Zamiast tego zajmiemy się innymi, prostszymi rzeczami.
+Zbieżny ciąg nazwiemy \kolorowo{stacjonarnym}, jeśli jest od pewnego miejsca stały.
+Jeśli funkcja jest zadana rozwinięciem w szereg potęgowy, to przedstawienie jest jednoznaczne.
+
+\begin{fakt} \label{fratris}
+	Istnienie niestacjonarnego ciągu $x_m \in \Q_p$ zbieżnego do zera dla formalnych szeregów potęgowych $f, g$, że $f(x_m) = g(x_m)$, pociąga ich równość: $f \equiv g$.
+\end{fakt}
+
+\begin{proof}
+	Bez straty ogólności $x_m \neq 0$.
+	Popatrzmy na różnicę, $h(x) = f(x) - g(x) = \sum_n a_nx^n$.
+	Wiemy, że $h(x_m) = 0$, ale czy $a_n = 0$?
+	Załóżmy, że nie, niech $r$ będzie najmniejszym indeksem, dla którego $a_r \neq 0$, by
+	$h(x) = x^r h_1(x)$.
+	Przy tym $h_1(0) = a_r \neq 0$ i funkcja $h_1$ jest ciągła, więc $h_1(x_m) \to a_r$ gdy $m \to \infty$, w szczególności $h_1(x_m)$ jest niezerem dla dużych $m$.
+Wtedy $h(x_m) = x_m^r h_1(x_m)$ nie jest zerem, sprzeczność.
+\end{proof}
+
+Jeżeli funkcja jest zdefiniowana jako szereg potęgowy, to niech lepiej jej pochodna odpowiada ,,formalnej'' pochodnej dla formalnego szeregu potęgowego.
+
+\begin{fakt} \label{maris}
+	Formalne zróżniczkowanie szeregu nie zmniejsza jego promienia zbieżności, a przy tym pokrywa się z ,,analityczną'' definicją pochodnej (jako granicy ilorazów): $f(x) = \sum_n a_nx^n$.
+	\[
+		f'(x) = \lim_{h \to 0} \frac {f(x+h)-f(x)}h.
+	\]
+\end{fakt}
+
+\begin{proof}
+	Pokażemy najpierw, że granica nie jest bez sensu.
+	Gdy $x = 0$, to każde $h$ z $|h| < R $ jest w porządku. 
+	Jeżeli tak nie jest, to $|h| < |x|$ też nie będzie takie złe.
+
+	Załóżmy, że $f(x)$ zbiega, zatem $a_n x^n \to 0$.
+	Jeżeli $x \neq 0$, to $|na_nx^{n-1}| \le |a_nx^{n-1}| = |a_nx^n|/|x| \to 0$, co wystarcza do zbieżności pochodnej.
+
+	Szereg $f(x)$ zbiega w domkniętej lub otwartej kuli $\mathcal B(0, R )$.
+	W pierwszym przypadku niech $r = R $; w drugim bierzemy dowolne $r$, że $|x| \le r < R $.
+	Możemy do tego założyć, że jeśli $x \neq 0$, to $|h| < |x| \le r$, bo interesują nas tylko $h$ bliskie zera.
+	W przeciwnym razie, $x = 0$ i po prostu $|h| \le r$.
+	Teraz,
+	\begin{align*}
+		f(x+h)                  & = \sum_{n = 0}^\infty a_n \sum_{m = 0}^n {n \choose m} x^{n-m} h^m \\
+		\frac{f(x+h) - f(x)}{h} & = \sum_{n = 1}^\infty \sum_{m = 1}^n a_n {n \choose m} x^{n-m} h^{m-1}.
+		\end{align*}
+	Wiemy dobrze, że $|x|, |h| \le r$, zatem:
+	\[
+		\left| a_n {n \choose m} x^{n-m} h^{m-1} \right| \le |a_n| r^{n-1},
+	\]
+
+	Dzięki $|a_n|R _1^n \to 0$ możemy wywnioskować jednostajną zbieżność względem $h$, co pozwala wzięcie granicy wyraz po wyrazie (to znaczy: $h = 0$).
+\end{proof}
+
+Otrzymany wynik ma ,,efekty uboczne'', gdyż wynika z niego ciekawe twierdzenie o pochodnych.
+Dwie $p$-adyczne funkcje mogą mieć tę samą pochodną i nie różnić się o stałą.
+Szeregi nigdy nas jednak nie zawiodą.
+
+\begin{fakt}
+	Jeśli szeregi potęgowe $f(x)$ oraz $g(x)$ są zbieżne dla $|x| < R $ oraz $f'(x) = g'(x)$ dla $|x| < R $, to istnieje stała $c \in \Q_p$, że $f(x) = g(x) + c$ jako szeregi potęgowe (więc oba mają jeden obszar zbieżności). 
+\end{fakt}
+
+\begin{proof}
+	Jeżeli $f(x) = \sum_{n = 0}^\infty a_n x^n$ i $g(x) = \sum_{n = 0}^\infty b_n x^n$ mają formalne pochodne $f'(x)$ i $g'(x)$, to z faktów \ref{fratris} oraz \ref{maris} wnioskujemy równości $a_n = b_n$ dla $n \ge 1$.
+\end{proof}
+
+\begin{twierdzenie}[Strassman, 1928]
+	Jeżeli niezerowy ciąg $a_n \in \Q_p$ zbiega do zera, to funkcja od szeregu $f(x) = \sum_{n \ge 0} a_n x^n$ ma za dziedzinę co najmniej $\Z_p$, gdzie ma co najwyżej $N$ zer: $N$ to ostatni indeks $n$, dla którego $|a_n|$ jest maksymalne.
+\end{twierdzenie}
+
+\begin{proof}
+	Dla dowodu warto znać $p$-adyczne tw. Weierstraßa o \emph{preparacji}, ale nie trzeba.
+	Indukcja względem $N$.
+	Jeżeli $N = 0$, to $|a_0| > |a_n|$ dla $n \ge 1$, z tego chcemy wywnioskować, że nie ma zer w $\Z_p$
+	Rzeczywiście, nie może być $f(x) = 0$, bo
+	\[
+		|a_0| = |f(x) - a_0| \le \max_{n \ge 1}|a_nx^n| \le \max_{n \ge 1} |a_n| < |a_0|
+	\]
+	prowadzi do sprzeczności.
+	Krok indukcyjny.
+	Jeżeli znaleźliśmy już $N$ i $f(y) = 0$ dla $y \in \Z_p$, możemy wybrać dowolne $x \in \Z_p$.
+	Wtedy
+	\[
+		f(x) = f(x) - f(y) = (x-y) \sum_{n \ge 1} \sum_{m < n} a_n x^m y^{n-1-m}
+	\]
+
+	Lemat \ref{caedis} pozwala na przegrupowanie:
+	\[
+		f(x) = (x - y) \sum_{m \ge 0} b_m x^m \,\bullet\,
+		b_m = \sum_{k \ge 0} a_{m+1+k} y^k
+	\]
+	
+	Widać, że $b_m \to 0$, nawet $|b_m| \le \max_{k \ge 0} |a_{m+k+1}| \le |a_N|$ dla każdego $m$, zatem $|b_{N-1}| = |a_N + a_{N+1} y + \dots| = |a_N|$ i wreszcie dla $m \ge N$ zachodzi
+	\[
+		|b_m| \le \max_{k \ge 0}|a_{m+k+1}| \le \max_{m \ge N+1} |a_m| < |a_N|.
+	\]
+	Liczba z twierdzenia dla $(x-y)^{-1}f(x)$ to $N-1$, koniec.
+\end{proof}
+
+Twierdzenie Strassmana jest pierwszym potężnym o zerach szeregów potęgowych na $\Q_p$.
+Jeśli $f(x) = \sum_n a_n x^n$ nie jest zerem i zbiega na $p^m \Z_p$ dla pewnego $m$, to ma tam skończenie wiele zer (dowód: $g(x) = f(p^mx)$).
+Dwa szeregi zbieżne w $p^m\Z_p$ i pokrywające się dla $\infty$-wielu wartości są sobie równe (dowód: patrz na $f(x) - g(x)$). Niespodzianka!
+
+\begin{fakt} \label{arcis}
+	Okresowa funkcja $p^m \Z_p \to \Q_p$ określona zbieżnym na $p^m \Z_p$ szeregiem potęgowym $\sum_n a_n x^n$ jest stała.
+\end{fakt}
+
+\begin{proof}
+	Niech $t \in p^m\Z_p$ będzie okresem.
+	Szereg $f(x)-f(0)$ ma zera w $n t$ dla $n \in \Z$.
+	To daje nieskończenie wiele zer, więc różnica musi być zerem, czyli $f(x)$ jest stały.
+\end{proof}
+
+To zupełnie nie przypomina przypadku $\R$: sinus i kosinus są okresowe i entiére!
+Powodem jest to, że w $\R$ nie może być tak, że wszystkie wielokrotności okresu leżą w przedziale (ale w $\Q_p$ już tak).
+Chociaż okresowość w $\R$ nie pokrywa się z tą w $\Q_p$, to zera entiére są podobnie rozłożone.
+
+\begin{fakt}
+	Zbieżny na $\Q_p$ szereg potęgowy $f(x) = \sum_n a_n x^n$ ma co najwyżej przeliczalnie wiele zer.
+	Tworzą one ciąg $x_n$ z $|x_n| \to \infty$, jeśli jest ich nieskończenie wiele.
+\end{fakt}
+
+\begin{proof}
+	Liczba zer w każdym ograniczonym dysku $p^m \Z_p$ jest skończona.
+\end{proof}

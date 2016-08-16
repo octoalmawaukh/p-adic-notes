@@ -1,0 +1,215 @@
+\section{Szeregi potęgowe}
+\begin{lemat}
+	Niearchimedesowe ciało zupełne jest lokalnie zwarte, wtedy i tylko wtedy gdy ma dyskretną grupę waluacji i skończone ciało residuów.
+\end{lemat}
+
+\begin{lemat}
+	Niech $f \colon \kulaB[0,1] \to \cialoK$ będzie analityczną funkcją zadaną wzorem $\sum_{n \ge 0} a_nx^n$ w ciało, które nie jest lokalnie zwarte.
+	Wtedy $S := \sup \{|f(x)| : |x| \le 1\} = \max_{n \ge 0} |a_n| =: M$.
+
+	Jeśli waluacja na $\cialoK$ jest gęsta, nierówność $|x| \le 1$ można zastąpić przez $|x| < 1$.
+	Jeśli zaś ciało residuów $\mathfrak K$ nie jest skończone, to mamy
+	$S = \sup\{|f(x)| : |x| = 1\} = \max\{|f(x)| : |x| = 1\}$.
+\end{lemat}
+
+\begin{proof}
+	Szereg potęgowy $\sum_n a_n x^n$ zbiega dla $x = 1$, zatem $a_n$ dąży do zera i $\sup\{|a_n| : n \ge 0\} < \infty$.
+	Z mocnej nierówności trójkąta mamy $\sup\{|f(x)| : |x| \le 1\} \le \max_{n \ge 0} |a_n|$.
+	Dla dowodu drugiej nierówności załóżmy (bez straty ogólności), że $\max_n |a_n| = 1$.
+	Na mocy lematu rozpatrujemy dwa przypadki.
+
+	Przypadek 1: ciało residuów jest nieskończone.
+	Skoro ciąg $a_n$ dąży do zera, funkcja $t \mapsto \sum_n a_nt^n$ jest wielomianem na $\mathfrak K$ i posiada skończenie wiele miejsc zerowych.
+	Istnieje $a \in \cialoK$, które po zanurzeniu w $\mathfrak K$ nie zeruje wielomianu, wtedy też $|\sum_{n \ge 0} a_na^n| = 1$.
+
+	Przypadek 2: grupa $|\cialoK^\times|$ jest gęsta. Wtedy trywialnie mamy $ \sup\{|f(x)| : |x| < 1\} \le S = M = 1$.
+	Potrzebujemy $b$, takiego że $|b| < 1$ i $|f(b)|$ leży blisko $1$.
+	Jeśli $|a_0| = 1$, niech $b = 0$, więc przyjmijmy $N := \min\{j : |a_j| = 1\} > 0$ i $0 < \varepsilon < 1$, że mamy $\max \{|a_j| : 0 \le j < N\} \le 1 - \varepsilon$.
+	
+	Gdy $1 - \varepsilon < |b^N| < 1$, to $|f(b)| \ge 1 - \varepsilon$.
+	Istotnie, mamy wtedy $|\sum_{j=0}^{N-1} a_jb^j| \le \max \{|a_j| : 0 \le j < N\} < |b^N|$, a do tego $|\sum_{j > N} a_jb^j| \le \sup_{j > N} |a_j| \cdot |b^j| \le \sup \le |b|^{N+1} < |b^N|$ oraz $|a_Nb^N| = |b^N|$.
+	Zasada trójkąta równoramiennego mówi, że $|f(b)| = |b^N| > 1 - \varepsilon$, co kończy dowód.
+\end{proof}
+
+\begin{fakt}[reguła maksimum]
+	Niech $f$ będzie analityczną funkcją na $\kulaB(0, r)$ zadaną wzorem $\sum_n a_n x^n$.
+	Jeśli grupa $|\cialoK^\times|$ jest gęsta, to
+	$\sup \{|f(x)| : |x| \le r\} = \max_n |a_n| r^n < \infty$.
+	Zamiast $\le$ można napisać $<$.
+	Jeśli ciało residuów $\mathfrak K$ jest nieskończone, mamy podobnie $\max \{|f(x)| : |x| \le r\} = \max_n |a_n|r^n < \infty$, tym razem znak $\le$ można zastąpić przez $=$.
+ \end{fakt}
+
+ \begin{proof}
+ 	Wybierzmy $a \in \cialoK$, takie że $|a| = r$ i użyjmy lematu wyżej do funkcji $f(ax)$.
+ \end{proof}
+
+\begin{twierdzenie}[Liouville]
+	Ograniczona, analityczna funkcja z ciała, które nie jest lokalnie zwarte, jest stała.
+\end{twierdzenie}
+
+\begin{proof}
+	Niech $f(x) = \sum_n a_nx^n$.
+	Poprzedni fakt pokazuje, że dla każdego $r$ z $|\cialoK^\times|$ jest $\sup_n |a_n| r^n = \sup\{|f(x)| : |x| \le r\}$ (i nie przekracza to $\|f\|$), zatem $a_n = 0$ dla $n \ge 1$.
+\end{proof}
+
+Lokalnej zwartości nie można pominąć.
+Schikhof podaje mało czytelny przykład (dla lokalnie zwartego $\cialoK$) funkcji, która znika w nieskończoności i nie zeruje się w $0$ (strony 125, 126).
+
+
+
+
+
+
+
+
+
+\section{Szeregi Roberta}
+
+
+
+
+
+
+
+
+
+
+\begin{definicja}
+	Rzędem niezerowego szeregu potęgowego jest
+	\[
+		\omega \colon \sum_n a_n x^n \mapsto \min \{n \in \N: a_n \neq 0\}.
+	\]
+\end{definicja}
+
+\begin{definicja}
+	Formalna derywacja $\mathfrak D$ na $A[[X]]$ to addytywna funkcja
+	\[
+		\mathfrak D \left[\sum_{n=0}^\infty a_n x^n \right] = \sum_{n=0}^\infty n a_n x^{n-1}.
+	\]
+\end{definicja}
+
+\begin{fakt}
+	Operator $\mathfrak D$ jest ciągły i $A$-liniowy.
+\end{fakt}
+
+\begin{definicja}
+	Współczynnik wzrostu dla $f$, zbieżnego szeregu potęgowego, to $M_r = \max_n |a_n| r^n$.
+	Promień regularny to takie $r$ z przedziału $[0, r_f)$, że maksimum jest osiągane tylko dla jednego $n$, wtedy $a_n x^n$ jest dominujący.
+	Jeżeli takich indeksów jest kilka, to $r$ jest krytyczny, zaś jednomiany -- rywalizujące.
+\end{definicja}
+
+\begin{fakt}
+	Dla ustalonego $r > 0$, funkcja $f \mapsto M_r(f)$ jest ultra normą multiplikatywną na podprzestrzeni tych szeregów $\sum_n a_n x^n$, dla których mamy zbieżność $|a_n|r^n \to 0$.
+\end{fakt}
+
+\begin{twierdzenie}[Liouville]
+	Jeżeli $f \in \cialoK[[X]]$ ma nieskończony promień zbieżności i $|f(x)| \le C|x|^N$ dla pewnych $C > 0$, $N \in \N$ i wszystkich $x \in \cialoK$, że $|x| \ge c$, to $f$ jest tylko wielomianem stopnia co najwyżej $N$ dla gęstego $|\cialoK^\times|$.
+\end{twierdzenie}
+
+\begin{fakt}[reguła maksimum]
+	Jeśli $r < r_f$ jest krytyczny dla $f \in \C_p[[X]]$, to dla każdego $y \in \C_p$ z $|y| < M_rf$ istnieje $x \in \C_p$, że $f(x) = y$ oraz $|x| = r$.
+\end{fakt}
+
+\begin{fakt}[wymierny rozkład Mittaga-Lefflera]
+	Jeżeli $f = g/h$ (różna od zera funkcja z $\C_p(x)$, że $\deg g < \deg h$) ma bieguny w kuli $\kulaB_r$, to dla każdego $D$ rozłącznego z $\kulaB$ jest
+	\[
+		\|f\|_D \le \|f\|_{\kulaB'} = M_r f,
+	\]
+	z równością (na przykład) dla $D = \kulaB_r(a)$, maksymalnej kuli otwartej w sferze $|x| = r$.
+\end{fakt}
+
+Można pójść o krok dalej i grupować bieguny w skończenie wielu kulach, ale nie chce nam się.
+
+\begin{definicja}
+	$\pierscienR(D)$ to pierścień funkcji wymiernych bez bieguna w $D$, $\pierscienR_0(D)$ jest jego podpierścieniem funkcji kiedyś znikających ($|f(x)| \to 0$ dla $|x| \to \infty$).
+\end{definicja}
+
+\begin{fakt}[rozkład Motzkina]
+	Każda funkcja $f \in \pierscienR(D)^\times$ daje się jednoznacznie rozłożyć jak niżej, gdzie $f_0 \in \pierscienR(\kulaB_{\le r})^\times$, zaś dla $1 \le i \le l$ jest $f_i = (x-b_i)^{m_i} h_i \in \pierscienR(B_i^c)^\times$, $\|h_i - 1\|_{\kulaB_i^c} < 1$ oraz $h_i(x) \to 1$ ($|x| \to \infty$), gdzie $m$ to chyba liczba zer zmniejszona o liczbę biegunów $f$ (?).
+	\[
+		f = f_0 \prod_{i=1}^l f_i,
+	\]
+\end{fakt}
+
+\begin{fakt}
+	Jeżeli $\|f - 1\|_D < 1$, to $f$ ma tyle zer, co biegunów w kulach rozłącznych z $D$.
+\end{fakt}
+
+\begin{fakt}
+	Każda wartość bezwzględna $\psi$ na ciele wymiernych nad $\cialoK$, algebraicznie domkniętym oraz sferycznie zupełnym rozszerzeniu $\Q_p$, funkcji przedłużająca siebie z $\cialoK$ jest postaci $M_{r,a}$ dla $a \in \cialoK$ oraz $r > 0$.
+	\[
+		M_{r,a} \colon \sum_{n=0}^\infty a_n (x-a)^n \mapsto \sup_{n \ge 0} |a_n| r^n.
+	\]
+\end{fakt}
+
+\begin{definicja}
+	Zbiór $D \subseteq \C_p$ o średnicy $\delta > 0$ jest infraspójny, gdy dla każdego $a \in D$ zbiór $\{|x-a| : x \in D\}$ jest gęsty w $[0, \delta]$.
+\end{definicja}
+
+\begin{fakt}
+	Jeżeli kule $\kulaB_i \subseteq \kulaB_{\le 1}$ są rozłączne i ich promienie dążą do zera, to $D$ jest infraspójny: $D = \kulaB_{\le 1} \setminus \coprod_{i \ge 0} \kulaB_i$.
+\end{fakt}
+
+\begin{definicja}
+	Element analityczny jest to jednostajna granica funkcji wymiernych z $\C_p(x)$ (bez zer) z domkniętego $D \subseteq \C_p$ w $\C_p$.
+\end{definicja}
+
+\begin{fakt}
+	Przestrzeń elementów analitycznych na $\kulaB_{\le 1}$ to algebra Tate'a $\C_p\{x\}$.
+\end{fakt}
+
+\begin{twierdzenie}[Amice-Fresnel]
+	Jeżeli promień zbieżności 
+	\[
+		f = \sum_{n \ge 0} a_n x^n \in \C_p[[x]]
+	\]
+	wynosi co najmniej $1$, to $n \mapsto a_n$ przedłuża się do ciągłej funkcji $\Z_p \to \C_p$, wtedy i tylko wtedy gdy $f$ jest obcięciem analitycznego elementu z $H_0((1+ \mathbb M_p)^c)$ (uzupełnienia $\pierscienR_0(\ldots)$?).
+\end{twierdzenie}
+
+\begin{twierdzenie}[Mittag-Leffler]
+	Jeżeli zbiór $D$ jest ograniczony, domknięty, infraspójny z rodziną dziur $\kulaB_i$, to istnieje rozkład w sumę prostą Banacha: $H(D) \to H(\kulaB_D) \widehat{\oplus}_{i \in I} H_0(\kulaB_i^c)$.
+
+	Każda funkcja $f \in H(D)$ zapisuje się jednoznacznie w postaci $f = f_0 + \sum_i f_i$, gdzie $f_i$ to elementy analityczne: $f_0$ na kopertowej kuli dla $D$, $f_k$ na $\kulaB_k^c$, $\|f_i\| = \|f_i\|_{B^c_i} = \|f_i\|_D \to 0$ ($i \to \infty$), $f_i(x) \to 0$ ($x \to \infty$) oraz $\|f\|_D = \max\{\|f_0\|, \sup_i \|f_i\|\}$.
+\end{twierdzenie}
+
+\begin{twierdzenie}[Christol-Robba]
+	Jeżeli współczynniki szeregu formalnego 
+	\[
+		f = \sum_{n \ge 0} a_n x^n \in \C_p[[x]]
+	\]
+	są ograniczone, to $f$ jest analitycznym elementem na $\mathbb M_p$, wtedy i tylko wtedy gdy każdy $\varepsilon > 0$ ma $v$ i $N \ge 0$, że $n \ge N$ pociąga $|a(n+p^v(p^v-1) - a(n)| \le \varepsilon$.
+\end{twierdzenie}
+
+\begin{przyklad}
+	Poniższe szeregi mają ograniczone współczynniki, ale nie są analitycznymi elementami na $\mathbb M_p$: $(1+x)^{1:m}$, kiedy $p$ nie dzieli $m > 1$, $\exp \pi x$ ($|\pi| = r_p$) oraz
+	\[
+		\sum_{n = 0}^\infty x^{p^n}.
+	\]
+\end{przyklad}
+
+\begin{fakt}
+	Funkcja $\Z_p \to \C_p$ ze współczynnikami Mahlera $c_k$ jest obcięciem analitycznego elementu z $\C_p\{x\}$, wtedy i tylko wtedy gdy $|c_k : k!| \to 0$.
+\end{fakt}
+
+\begin{przyklad}
+	Ustalmy $t \in \C_p$ w taki sposób, by $|t| < r_p$.
+	Wtedy $\sum_{k \ge 0} t^k (x \textrm{ nad } k)$ jest obcięciem $\exp (x \log (1+t))$.
+\end{przyklad}
+
+\begin{wniosek}[z przykładu]
+	\begin{align*}
+		\sum_{n \ge 0} \frac{[x \log(1+t)]^n}{n!} & = \sum_{k \ge 0} \frac {t^k}{k!}(x)_k \\
+		& = \sum_{k \ge 0} \frac{t^k}{k!} \sum_{n \le k} (-1)^{k-n} \left[\frac k n\right] x^n,
+	\end{align*}
+	teraz wystarczy przyrównać współczynniki przy $x^n$.
+\end{wniosek}
+
+\begin{twierdzenie}[Motzkin]
+	Niech $\kulaB$ będzie dziurą w domkniętym, ograniczonym oraz infraspójnym zbiorze $D$.
+	Każda funkcja $f$ z $H(D)$ spełniająca $\|f - 1 \|_D < 1$ posiada (jedyną) faktoryzację $f = gf_*$, przy czym $g \in H(D \cup \kulaB)^\times$, $f_* = (x-a)^m h$, $h \in H(\kulaB^c)^\times$, $h(x) \to 1$ (dla $x \to \infty$), $\|h - 1\|_{B^c} < 1$ oraz $m = 0$.
+\end{twierdzenie}
+
+
+Na ten list się tak gotował
+
+Justysia

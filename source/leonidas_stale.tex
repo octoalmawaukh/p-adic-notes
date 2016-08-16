@@ -1,0 +1,56 @@
+\begin{fakt}
+	Funkcje $\exp x$, $\cos x$, $\frac 1x\sin x$, $\frac 1 x \log 1 + x$ są tam, gdzie $\exp x$ jest określona, kwadratami funkcji $p$-adycznych. % Vladimirov, 42/337
+\end{fakt}
+
+\section{Stałe matemagiczne}
+\begin{fakt}
+	W żadnym z ciał $\Q_p$ nie ma stałej Nepera.
+\end{fakt}
+
+\begin{proof}
+Szereg dla $\exp_p(1)$ jest rozbieżny w $\Q_p$, zaś znalezienie pierwiastka dla $\exp_2(4)$ lub $\exp_p(p)$ ($p \ge 3$) wymaga  wyboru (niestety, niekanonicznego).
+\end{proof}
+
+\begin{fakt}
+	Kosinus nie ma zera, sinus ma tylko jedno ($0$), w dodatku nie istnieje takie $t \in \cialo$, że $\sin (x) = \cos (x + t)$.
+\end{fakt}
+
+Nie określimy więc tak odpowiednika $\pi \approx 3,1415926535$.
+Warto zwrócić uwagę na punkt piąty faktu \ref{impuls} dla $x = 1/2$.
+
+\begin{fakt}
+	Zwykła funkcja $\Gamma$ spełnia $\Gamma (z) \Gamma(1-z) = \pi : \sin \pi z$, a stąd $\Gamma (1/2) = \sqrt{\pi}$.
+\end{fakt}
+
+Zatem odpowiednikiem $\pi$ w $\Q_p$ powinna być $\Gamma_p(1/2)^2$, $-1$ (w $\Q_{4k+1}$) lub $1$ (w $\Q_{4k+3}$).
+
+%Funkcja $\Gamma_p$ jest lokalnie analityczna.
+Różniczkując $\Gamma_p(x + 1) = \Gamma_p(x) h_p(x)$ dostaniemy
+\[
+	\frac{\Gamma_p'(x+1)}{\Gamma_p(x+1)} - \frac{\Gamma_p'(x)}{\Gamma_p(x)} = \frac{h_p'(x)}{h_p(x)}.
+\]
+
+Istnieje stała $c$, że dla każdego $x \in \Z_p$ jest
+\[
+	\frac{\Gamma_p'(x)}{\Gamma_p(x)} = c + L_p(x),
+\]
+gdzie $L_p(x)$ to nieoznaczona suma poprzedniej prawej strony.
+Po wstawieniu do wzoru $x = 1$ mamy (dla $m \in \N$):
+\[
+	\frac{\Gamma_p'(m)}{\Gamma_p(m)} = \frac{\Gamma_p'(1)}{\Gamma_p(1)} + \sum_{j < m}' \frac 1 j.
+\]
+
+To przypomina wzór, który jest prawdziwy też dla zwykłej funkcji $\Gamma$ i zachęca do zdefiniowania nowej stałej.
+
+\begin{definicja}
+	Stała ($p$-adyczna) Eulera to $\gamma_p := - \Gamma_p'(0)$.
+\end{definicja}
+
+Schikhof nie wie nic na temat jej (nie)wymierności.
+
+\begin{fakt}
+	$|\gamma_p|_p \le 1$, a w $\Q_p$
+	\[
+		\gamma_p = \lim_{n \to \infty} \frac 1 {p^n} \left[1 - \frac{(-1)^p p^n!}{p^{n-1}! p^{p^n-1}} \right].
+	\]
+\end{fakt}

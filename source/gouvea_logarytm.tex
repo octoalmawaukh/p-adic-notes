@@ -1,0 +1,75 @@
+W analizie nad $\R$ funkcje specjalne można definiować na wiele sposobów, przez rozwinięcia w szereg, równania różniczkowe, całki parametryczne, równania funkcyjne i tak dalej.
+%W $\C_p$ do zdefiniowania logarytmu i eksponensa najlepiej użyć szeregu potęgowego.
+
+Inną metodą jest wzięcie zwykłej funkcji $f$ określonej na $[a, \infty) \subset \R$ o wymiernych wartościach dla całkowitych $n \ge a$ i patrzenie na ciągłą funkcję $\Z_p \to \C_p$ przedłużającą $n \mapsto f(n)$.
+$\Z \cap [a, \infty)$ jest gęste w $\Z_p$, więc nie może być dwóch przedłużeń.
+
+Poszukiwanie $p$-adycznych wariantów funkcji określanych normalnie na podzbiorach $\C$ zaczniemy właśnie od logarytmu i eksponensa.
+
+\section{Logarytm ($\Q_p$)}
+
+\begin{definicja}
+	Logarytm to formalny szereg
+	\[
+		f(x) = \log(1+x) = \sum_{n = 1}^\infty - \frac{(-x)^n}{n}.
+	\]
+\end{definicja}
+
+Logarytm zbiega ,,gorzej'' niż funkcja $\log \colon \R_+ \to \R$.
+
+Wypadałoby znać jego promień zbieżności: współczynniki tutaj nie maleją w normie.
+
+\begin{fakt}
+	Logarytm ma sens dla $x \in 1 + p\Z_p = \kula(1,1)$.
+\end{fakt}
+
+\begin{proof}
+Skoro $0 \le \frac 1 n v_p (n) \le \frac 1 n \log_p n \to 0$ i $|a_n| = p^{v_p(n)}$, to $p^{-0} = 1$ jest szukanym promieniem.
+Łatwo widać, że nie ma dla $|x| = 1$ zbieżności.
+\end{proof}
+
+Mamy nadzieję, że logarytm $p$-adyczny nie zostanie nigdy pomylony ze zwykłym (rzeczywistym) przy podstawie $p$.
+
+By funkcja $\log_p \colon \mathcal B \to \Q_p$ zasługiwała na bycie logarytmem, musi mieć jego własności. Tak rzeczywiście jest.
+
+\begin{fakt}
+	Dla $a, b \in 1+p\Z_p$ jest $\log_p ab = \log_p a + \log_p b$.
+\end{fakt}
+
+\begin{proof}
+	Przyjmijmy $f(x) = \log_p(1+x)$ dla $x \in \Z_p$.
+	Z naszą wiedzą o pochodnych szeregów potęgowych piszemy
+	\[
+		f'(x) = \sum_{n \ge 0} (-1)^nx^n = \frac{1}{1+x}.
+	\]
+	Ustalmy $y \in p\Z_p$ i określmy $g(x) = f(y + (1+y)x)$.
+	Jest to szereg potęgowy zbieżny dla $|x| < 1$.
+	Reguła łańcucha pozwala policzyć pochodną:
+	\begin{align*}
+		g'(x) & = (1+y) f'(y + (1+y)x) = \frac{(1+y)}{1+y + (1+y)x} \\
+		& = \frac{1}{1+x} = f'(x) \Rightarrow g(x) = f(x) + C.
+	\end{align*}
+	%To oznacza, że $g(x), f(x)$ różnią się o stałą.
+	Widać, że $g(0) = f(y)$, zatem $g(x) = f(x) + f(y)$, wystarczy przetłumaczyć to na język logarytmów.
+\end{proof}
+
+Jeśli $p = 2$, to $-1 \in \mathcal B$, a to umożliwia obliczenie $\log_p(-1)$, $0$, co nie powinno szokować.
+
+Lemat Hensela pozwalał określić, dla jakich $m$ istnieją $m$-te pierwiastki jedności w $\Q_p$ pod warunkiem, że $p \nmid m$.
+W $\Q_p$ nie ma takich dla $m = p^n$, co można pokazać w trzech krokach (poza patologicznym przypadkiem $p = 2$ i $n = 1$).
+
+\begin{fakt}
+	Logarytm $p$-adyczny ma dokładnie jedno ($x = 1$ jeśli $p > 2$) lub dwa ($x = \pm 1$ dla $p = 2$) miejsca zerowe.
+\end{fakt}
+
+\begin{proof}
+	Twierdzenie Strassmana dla $\log(1+px)$.
+\end{proof}
+
+\begin{wniosek}
+	Dla $x \in 1 + p\Z_p$ oraz $p \neq 2$ ($p = 2$), które spełnia $x^p = 1$ ($x^4 = 1$), mamy $x = 1$ ($x = \pm 1$) -- zatem $p$-te (czwarte) pierwiastki jedności w $\Q_p$ nie istnieją.
+\end{wniosek}
+
+\begin{wniosek}
+	W $\Q_p$ żyje $\max\{2, p - 1\}$ pierwiastków jedności.
+\end{wniosek}

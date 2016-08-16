@@ -1,0 +1,252 @@
+\section{Konstrukcja uniwersalnego ciała $\Omega_p$}
+Niech $\pierscien$ będzie pierścieniem $\ell^\infty(\Q_p^a)$ ograniczonych ciągów $x = (x_i)$ w $\Q_p^a$ z normą $\|x\| = \sup_i |x_i|$. 
+Ustalmy ultrafiltr $\mathcal U$ na $\N$ zawierający zbiory $[n, \infty)$ ($n$ naturalne).
+Ponieważ każdy ograniczony ciąg liczb rzeczywistych ma granicę pośród $\mathcal U$ (?), kładziemy $\varphi(x) = \lim_{\mathcal U} |x_i| \ge 0$.
+
+Krótkie powtórzenie wiadomości o filtrach znajduje się na końcu sekcji.
+
+\begin{fakt}
+	Zbiór $\mathcal I = \varphi^{-1}(0)$ jest maksymalnym ideałem w $\pierscien$.
+	Ciało $\Omega_p = \pierscien / \mathcal I$ jest rozszerzeniem $\Q_p^a$.
+\end{fakt}
+
+\begin{proof}
+	Pokażemy dla każdego $x \not \in \mathcal I$ odwracalność modulo $\mathcal I$.
+	Granica $r = \varphi(x)$ nie znika dla takiego $x$, więc istnieje zbiór $A \in \mathcal U$, że $r < 2 |x_i| < 4r$ dla $i \in A$.
+	Określamy ciąg $y$ przez $y_i x_i = 1$ dla $i \in A$ i $y_i = 0$ w pozostałych przypadkach.
+
+	Jest on ograniczony: $|y_i| < 2 / r$ dla $i \in A$, więc należy do $\pierscien$.
+	Z konstrukcji wynika, znikanie $1 - x_iy_i = 0$ na $A$, więc $1 - xy \in \mathcal I$.
+	To pokazuje, że $x \mod \mathcal I$ odwraca się w ilorazie $\Omega_p$, więc ten jest ciałem, zaś ideał $\mathcal I \triangleleft \pierscien$ jest maksymalny.
+	Stałe ciągi dają zanurzenie $\Q_p^a \to \Omega_p$.
+\end{proof}
+
+Funkcja $\varphi$ zadaje na $\Omega_p$ wartość bezwzględną.
+Kładziemy $|\alpha| = \varphi(x)$ dla $\alpha = (x \mbox{ mod } \mathcal I)$.
+
+\begin{fakt}
+	Tak zdefiniowana wartość bezwzględna pokrywa się z normą ilorazową dla $\pierscien / \mathcal I$, mianowicie dla $\alpha = (x \mbox { mod } \mathcal I)$ mamy
+	\[
+		|\alpha|_\Omega = \|x \mbox{ mod }\mathcal I\|_{\pierscien / \mathcal I} := \inf_{y \in \mathcal I} \|x - y\|.
+	\]
+\end{fakt}
+
+\begin{proof}
+	Mamy $\lim_{\mathcal U}|z_i| \le \sup |z_i|$ dla każdego $z \in \pierscien$, a zatem
+	$\lim_{\mathcal U} |x_i| = \lim_{\mathcal U}|x_i - y_i| \le \sup |x_i - y_i|$ oraz $|\alpha|_\Omega  \le \|x - y\|$ dla $y \in \mathcal I$, co dowodzi nierówności $|\alpha|_\Omega \le \|\alpha\|_{\pierscien / \mathcal I}$.
+
+	Jeśli $\alpha = x \mbox { mod } \mathcal I$, to dla każdego podzbioru $A \in \mathcal U$ można określić ciąg $y$ wzorem $y_i = x_i \cdot [i \not \in A]$.
+	Wtedy ciąg $y$ leży w ideale $I$ oraz $\|x - y\| = \sup_{i \in A} |x_i|$, a do tego
+	\[
+		\|\alpha\|_{\pierscien  / \mathcal I}  \le {\adjustlimits\inf_{A \in \mathcal U} \sup_{i \in A} |x_i|}
+		 = \limsup |x_i| = |\alpha|_\Omega. \qedhere
+	\]	
+\end{proof}
+
+\begin{fakt}
+	$|\Omega_p^\times| = \R_{> 0}$.
+\end{fakt}
+
+\begin{proof}
+	Wynika to z gęstości $|\Q_p^a|$ w $\R_{\ge 0}$.
+\end{proof}
+
+Ciało $\Omega_p$ ma wiele intrygujących własności.
+
+\begin{fakt}
+	Ciało $\Omega_p$ jest algebraicznie domknięte.
+\end{fakt}
+
+\begin{proof}
+	Ustalmy $f \in \Omega_p[x]$ postaci $x^n + \alpha_{n-1} x^{n-1} + \ldots + \alpha_0$ i rodziny reprezentantów współczynników: $\alpha_k = (a_{ki})_i \mbox{ mod } \mathcal I$.
+	Rozważmy $f_i(x) = x^n + \sum_{k < n} a_{ki} x^i \in \Q_p^a[X]$.
+	Każdy z nich ma naturalnie pierwiastki w $\Q_p^a$.
+	Oznacza to, że produkt (tych pierwiastków) jest równy (co do znaku) $a_{0i}$, więc istnieje taki pierwiastek $\xi_i$, który jest mniejszy od $|a_{0i}|^{1/n}$.
+	Ciąg $\xi$, $(\xi_i)$, jest ograniczony: $\|\xi\| \le \|\alpha_0\|^{1/n}$, $\xi \in \pierscien$, klasa abstrakcji dla $\xi$ zeruje $f$ w $\Omega_p$.
+\end{proof}
+
+Rozważmy zstępujący ciąg kul $\kula[a_n, r_n]$ ($d(a_i, a_n) \le r_n$ dla $i \ge n$) w przestrzeni ultrametrycznej $X$.
+Kiedy $r_n$ dąży do zera, ciąg $a_n$ jest Cauchy'ego i ma granicę (dla zupełnych $X$), zatem przekrój kul jest niepusty.
+
+\begin{definicja}
+	Przestrzeń ultrametryczną, w której nie istnieje ciąg zstępujący domkniętych kul o pustym przekroju, nazywamy sferycznie zupełną.
+\end{definicja}
+
+\begin{fakt}
+	Sferyczna zupełność pociąga zupełność.
+\end{fakt}
+
+\begin{proof}
+	Niech $x_n$ będzie ciągiem Cauchy'ego.
+	Jego granicą jest jedyny element przekroju zstępującego ciągu kul $\kula[x_n, r_n]$; tu $r_n = \sup_{m > n} |x_m -x_n|$ maleje do zera.
+\end{proof}
+
+Odwrotna implikacja jest fałszywa.
+
+\begin{przyklad}
+	$\C_p$ jest zupełne, ale nie sferycznie zupełne.
+\end{przyklad}
+
+\begin{proof}
+	Niech $r_n$ będzie ściśle malejącym ciągiem z $\Gamma = p^\Q$, którego granica nie jest zerem.
+	W kuli $\kula[0, r_0]$ znajdziemy dwie rozłączne kule domknięte o tym samym promieniu $r_1$, $\kula_0$ i $\kula_1$.
+	W każdej z nich dwie następne (o promieniu $r_2$), $\kula_{i0}$, $\kula_{i1}$.
+	Kule o różnych wieloindeksach tej samej długości są rozłączne, gdy przedłużymy indukcyjnie ten proces.
+
+	Kładziemy $\kula_{(i_1, i_2, \ldots)} = \bigcap_{n \ge 1} \kula_{i_1\ldots i_n}$ (po lewej stronie $(i_n)$ jest dowolnym ciągiem binarnym).
+	Tak otrzymane kule są albo puste, albo domknięte, o promieniu $r = \lim_n r_n$.
+	Skoro $r > 0$, to wszystkie są otwarte i parami rozłączne.
+
+	Przestrzeń $\C_p$ jest ośrodkowa, więc tylko przeliczalnie wiele spośród nich może być niepusta.
+\end{proof}
+
+\begin{fakt}
+	Ciało $\Omega_p$ jest (sferycznie) zupełne.
+\end{fakt}
+
+\begin{proof}
+	Ustalmy zstępujący ciąg domkniętych kul $\kula_n[\alpha_n, r_n]$, wtedy $|\alpha_{n+1} - \alpha_n| \le r_n$, zaś ciąg $r_n$ jest malejący (wynika to z ultranierówności).
+
+	Podnieśmy środki $\alpha_n$ do elementów $a_n \in \pierscien$: skoro wartość bezwzględna jest normą ilorazową i $|a_{n+1} - a_n| \le r_n < r_{n-1}$, wybieramy takie $a_{n+1}$, że $\|a_{n+1} - a_n\| < r_{n-1}$.
+	Wtedy prawdą jest także $\|a_k - a_n\| < r_{n-1}$ oraz $|a_{ki} - a_{ni}| <r_{n-1}$ dla $k \ge n$ i $i$-tych składowych.
+	Niech $\xi_i = a_{ii}$.
+	Ciąg $\xi$ leży w $\pierscien$.
+	
+	Oszacowanie $\|\xi - a_n\| \le \sup_{i \ge n} |\xi_i - a_{ni}| \le r_{n-1}$ wynika z należenia przedziałów $[n, \infty)$ do ultrafiltru $\mathcal U$.
+	Wnioskujemy stąd, że dla $x = \xi \mbox{ mod } \mathcal I$, $n > 0$ zachodzą nierówności:
+	\begin{align*}
+		|x - a_n| & \le \|\xi - \alpha_n\| \le r_{n-1} \\
+		|x-a_{n-1}| & \le \max(|x-a_n|, |a_n-a_{n-1}|) \le r_{n-1},
+	\end{align*}
+	czyli $x \in \kula_{n-1}$ jest świadkiem niepustości zbioru $\bigcap_n \kula_n$.
+\end{proof}
+
+Mając $\Omega_p$ możemy określić $\C_p$ inaczej, jako domknięcie $\Q_p^a$ w $\Omega_p$.
+
+\begin{fakt}
+	Ciało $\C_p$ jest ośrodkową przestrzenią metryczną.
+\end{fakt}
+
+\begin{proof}
+	Algebraiczne domknięcie $\Q_p^a$ dla $\Q_p$ jest ośrodkową przestrzenią metryczną, gęstą w $\C_p$.
+	Przeliczalny zbiór $\Q^a$ jest ośrodkiem $\C_p$.
+\end{proof}
+
+\begin{fakt}
+	Z algebraicznego punktu widzenia, $\C \cong \C_p$.
+\end{fakt}
+
+Skąd się biorą takie potwory jak niedomknięte sferycznie przestrzenie?
+Okazuje się, że wcale nie są nie z tego świata.
+
+\begin{fakt}
+	Każda zupełna p. ultrametryczna $X$ z gęstą metryką ma podprzestrzeń, która jest zupełna, ale nie sferycznie.
+\end{fakt}
+
+\begin{proof}
+	Ustalmy ciąg zstępujących kul $\kula_n$, których ciąg średnic dąży do niezera.
+	Wycięcie otwarniętego zbioru $\bigcap_n \kula_n$ z $X$ nie zmienia jej zupełności.
+	W tej podprzestrzeni ,,kule $\kula_i$'' zstępują do zbioru pustego.
+\end{proof}
+
+\begin{fakt}
+	Zupełna przestrzeń z dyskretną metryką (ultra-) jest sferycznie zupełna.
+\end{fakt}
+
+\begin{przyklad}
+	Unormowana przestrzeń skończonego wymiaru nad zupełnym ciałem z dyskretną waluacją (takie są lokalnie zwarte) albo $B(X \to \cialo)$.
+\end{przyklad}
+
+To, że ciało $\C_p$ nie jest sferycznie zupełne, wynika (inaczej) z następującego faktu.
+
+\begin{fakt}
+	Ośrodkowa p. ultrametryczna $X$ z gęstą metryką nie jest zupełna sferycznie.
+\end{fakt}
+
+\begin{proof}
+	Ustalmy ośrodek $\{a_1, a_2, \ldots\}$ dla $X$ oraz l. rzeczywiste $r_0, r_1,  \ldots \in \R$, takie że $r_0 > r_1 > \ldots > r_0 / 2$ i $r_0 = d(a,b)$ dla pewnych $a, b \in X$.
+	Formuła $d(x,y) \le r_1$ rozbija $X$ (przez relację równoważności) na co najmniej dwie kule.
+	Niech $\kula_1$ nie zawiera $a_1$, wtedy $d(\kula_1) = r_1$.
+
+	Metryka na tej kuli też jest gęsta, więc możemy (tak samo) dostać kulę $\kula_2 \subseteq \kula_1$ średnicy $r_2$, która nie zawiera $a_2$, i tak dalej.
+	Gdyby przekrój $\bigcap_n \kula_n$ był niepusty, zawierałby kulę $\kula$ dodatniej średnicy, w której nie leżałby żaden $a_n$.
+	Ale te punkty tworzą ośrodek, sprzeczność.
+\end{proof}
+
+Przypomnijmy że lokalnie zwarte albo zupełne przestrzenie są Baire'a: przeliczalna suma domkniętych zbiorów o pustym wnętrzu ma puste wnętrze.
+Przestrzeń $\Q_p^a$ nie jest Baire'a. %%% TU CZEGOŚ BRAKUJE
+
+\begin{definicja}
+	Filtr to rodzina $\mathcal A$ podzbiorów $X$, która zawiera $X$ (ale nie $\varnothing$) oraz jest zamknięta na dopełnienia i skończone przekroje.
+\end{definicja}
+
+\begin{definicja}
+	Filtr wolny to taki, który pusto się kroi.
+\end{definicja}
+
+\begin{definicja}
+	Rodzina $\mathcal B \subseteq \mathcal A$ jest bazą filtru, gdy każdy $A \in \mathcal A$ zawiera $B \in \mathcal B$.
+\end{definicja}
+
+\begin{lemat}
+	Niech $\mathcal B$ będzie rodziną niepustych podzbiorów $X$, taką że jeśli $A, B \in \mathcal B$, to istnieje $C \in \mathcal B$ zawarty w przekroju $A$ i $B$.
+	Nadzbiory elementów $\mathcal B$ tworzą filtr, którego $\mathcal B$ jest bazą.
+\end{lemat}
+
+Filtr z lematu nazywamy generowanym przez $\mathcal B$.
+
+\begin{lemat}
+	Wolny filtr na nieskończonym $X$ zawiera zbiory o skończonych dopełnieniach.
+\end{lemat}
+
+Zbiory koskończone tworzą tak zwany filtr Frecheta.
+
+\begin{definicja}
+	Ultrafiltr to filtr maksymalny względem inkluzji.
+\end{definicja}
+
+\begin{fakt}
+	Filtr $\mathcal A$ na $X$ jest ultrafiltrem, wtedy i tylko wtedy gdy dla każdego $A \subseteq X$, $A \in \mathcal A$ lub $X \setminus A \in \mathcal A$.
+\end{fakt}
+
+\begin{definicja}
+	Filtr $\mathcal A$ na przestrzeni topologicznej $X$ zbiega do $x \in X$, gdy każde otoczenie $x$ zawiera pewien $A \in \mathcal A$.
+\end{definicja}
+
+\begin{fakt}
+	Każdy ultrafiltr na zwartej przestrzeni zbiega.
+\end{fakt}
+
+\begin{przyklad}
+	Ustalmy ograniczony ciąg liczb rzeczywistych $a_n$ oraz ultrafiltr $\mathcal U$ na $\N$.
+	Wtedy $\inf_n a_n \le \lim_{\mathcal U} a_n \le \sup_n a_n$.
+\end{przyklad}
+
+Wrócimy do $\Omega_p$.
+Przypomnijmy, że jego ciało residuów jest nieskończone, zaś $|\Omega_p^\times| = \R_+$.
+Każdej domkniętej kuli $\kula[a, r]$ zawartej w $\Omega_p$ przypiszemy teraz filtr okrężny $\mathcal F_\kula$ (na $\Omega_p$).
+
+Jeśli $\kula$ jest jednym punktem, za $\mathcal F_\kula$ bierzemy filtr otoczeń generowany przez małe kule wokół $a$, $\kula(a, \varepsilon)$.
+Jeśli jednak $\kula$ ma dodatni promień, generatory to $\kula[a, r + \varepsilon] \setminus \bigcup_{i=1}^n \kula (a_i, r - \varepsilon)$.
+Im mniejszy $\varepsilon > 0$ lub większy $n$, tym mniejsze zbiory; istotnie stanowią one bazę pewnego filtru.
+
+Łatwo widać, że generatory zawierają $x \in \Omega_p$, takie że jest $r < |x-a| < r + \varepsilon$.
+Jednocześnie każdy $b \in \kula$ ma $\delta > 0$, że $\{x : r - \delta < |x - b| <r\}$ leży w pewnym generatorze, skąd natychmiastowo dostajemy lemat:
+
+\begin{lemat}
+	Niech $\kula$ oznacza jakąś kulę o dodatnim promienu $r$, $a \in \kula$.
+	Poniższe zbiory są bazą filtru $\mathcal F_\kula$, gdzie $a_i$ brane są ze sfer $S_r(a) : |x - a| = r$, zaś $0 < \varepsilon < r$.
+	\[
+		\left\{ r-\varepsilon < |x-a| < r+\varepsilon\right\} \setminus \bigcup_{k = 1}^n \kula(a_i, r - \varepsilon)
+	\]
+\end{lemat}
+
+Zastępując $\varepsilon$ czymś mniejszym możemy nawet zakładać, że $i \neq j$ pociąga $|a_i - a_j| = r$.
+
+Powyższe definicje przenoszą się na podzbiory $X \subseteq \Omega_p$.
+Załóżmy, że $X \cap A \neq \varnothing$  dla wszystkich $A \in \mathcal F_\kula$.
+Wtedy $\mathcal F_\kula$ indukuje filtr na $X$, nadal nazywany okrężnym.
+
+\begin{przyklad}[$X=\C_p$]
+	Jeśli domknięta kula $\kula$ w $\Omega_p$ nie tnie $\C_p$, zaś $\delta(\kula) = d(\kula, \C_p)$, to ślad $\mathcal F_\kula$ na $\C_p$ jest okrężnym filtrem bezśrodkowym.
+\end{przyklad}

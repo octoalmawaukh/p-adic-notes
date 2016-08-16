@@ -1,0 +1,121 @@
+\section{Eksponens (Artina-Hassego)}
+Zwykła eksponensa ma promień zbieżności mniejszy niż jeden, ponieważ jej współczynnikom $a_n = 1/n!$ zbyt  szybko rosną mianowniki.
+Zanim to naprawimy, powtórka z teorii liczb.
+
+\begin{lemat}
+	Niech $n$ ma $k$ różnych dzielników pierwszych.
+	Wtedy $\sum_{d \mid n} |\mu(d)| = 2^k$ i $\sum_{d \mid n} \mu (d) = 0$.
+\end{lemat}
+
+\begin{fakt}
+	Dla dowolnej liczby pierwszej $p$ zachodzi
+	\begin{align*}
+		\sum_{n=1}^\infty - \frac{\mu(n)}{n} \log(1-x^n) & = x \\
+		\sum_{n \ge 1}^{p \nmid n}  - \frac{\mu(n)}{n} \log(1-x^n) & = x + \frac{x^p}{p} + \frac{x^{p^2}}{p^2} + \dots
+	\end{align*}
+\end{fakt}
+
+\begin{proof}
+	Ponieważ $\sum_{m=1}^\infty t^m : m = -\log(1-t)$, to
+	\begin{align*}
+		x & = \sum_{m = 1}^\infty \frac{x^m}{m} \sum_{n \mid m} \mu (n) = \sum_{n = 1}^\infty \mu(n) \sum_{m=1}^\infty \frac{x^{nm}}{nm} \\
+		& = \sum_{n = 1}^\infty - \frac{\mu(n)}{n} \log(1-x^n)
+	\end{align*}
+	Podobnie,
+	\begin{align*}
+		\sum_{m = 1}^\infty \frac{x^m}{m} \sum_{n \mid m}^{p \nmid n} \mu (n) & = \sum_{n\ge 1}^{p \nmid n} \mu(n) \sum_{m=1}^\infty \frac{x^{nm}}{nm} \\
+		& = \sum_{n \ge 1}^{p \nmid n} - \frac{\mu(n)}{n} \log(1-x^n).
+	\end{align*}
+	Warunki $n \mid m$ i $p \nmid n$ prowadzą do $n \mid mp^{-v}$, gdzie $v = v_pm$.
+	Pierwsza część lematu sprawia, że stosowna suma znika zawsze z wyjątkiem sytuacji, gdy $m = p^v$.
+\end{proof}
+
+% \begin{wniosek}
+% Tożsamości formalnych szeregów:
+% \begin{enumx}
+% \item $\prod_{n = 1}^\infty (1-x^n)^{-\mu(n)/n} = \exp(x)$ 
+% \item $\prod_{n \ge 1}^{p \nmid n} (1-x^n)^{-\mu(n)/n} = \exp \left( \sum_{k=0}^\infty {x^{p^k}} : {p^k} \right)$.
+% \end{enumx}
+% \end{wniosek}
+
+Nałożenie eksponensa na obie strony drugiej równości jest tak ważne, że otrzymany szereg dostał własną nazwę.
+
+\begin{definicja}
+	Eksponens Artina-Hassego to
+	\[
+		E_p(x) := \exp \Bigl( \sum_{k=0}^\infty \frac{1}{p^k} \cdot x^{p^k}\Bigr).
+	\]
+\end{definicja}
+
+\begin{fakt}
+	Eksponens $E_p$ leży w $1+ x\Z_p[[x]]$, zbiega na $\kula(0, 1)$ i spełnia tam $|E_p(x)| = 1$, $|E_p(x) - 1| = |x|$.
+\end{fakt}
+
+\begin{proof}
+	Dowód lepiej podać później, po twierdzeniu \ref{versuchskaninchen}.
+\end{proof}
+
+\begin{fakt}
+	Promień zbieżności $\exp(x + x^p : p)$ to $r_p^\alpha = r_f < 1$, $\alpha = (2p-1):p^2$, więc $r_p < r_f$ ($r_p$: promień zbieżności $\exp x$).
+\end{fakt}
+
+Podamy teraz inny dowód faktu, że współczynniki szeregu potęgowego Artina-Hassego leżą w $\Z_p$.
+%Niech ciało $\cialo$ będzie charakterystyki $p$.
+%Równość $x^p = x$ charakteryzuje ciało proste $\mathbb F_p$.
+%W pierścieniu $\cialo[x]$, $f(x)^p = f(x^p)$ opisuje wielomiany z $\mathbb F_p[x]$.
+%Dla wielomianu $f$ o całkowitych współczynnikach (??), przystawanie $f(x)^p \equiv_p f(x^p)$ oznacza, że
+%$f(x)^p - f(x^p)$ jest z $p\Z[x]$ i powinniśmy pisać $f(x)^p \equiv f(x^p) \mod {p\Z[x]}$.
+
+To, jak bardzo podniesienie $f(x^p)$ przypomina $f(x)^p$ jest miarą całkowitości współczynników $f$.
+Dokładniej:
+
+\begin{twierdzenie}[Dieudonné, Dwork] 
+	\label{versuchskaninchen}
+	Formalny szereg potęgowy $f(x) \in 1+x \Q_p[[x]]$ ma współczynniki w $\Z_p$, wtedy i tylko wtedy gdy spełniony jest warunek
+	\[
+		\frac{f(x)^p}{f(x^p)} \in 1 + px \Z_p[[x]].
+	\]
+\end{twierdzenie}
+
+\begin{proof}
+	Dowód implikacji $\Rightarrow$: jeżeli $f(x) \in 1 + x \Z_p[[x]]$, to mamy $f(x)^p \equiv f(x^p)$ mod $p$.
+	Oba szeregi leżą w $1+ x \Z_p[[x]]$, $f(x^p)$ jest odwracalny.
+
+	W drugą stronę: napiszmy $f(x) = \sum_{i=0}^\infty a_i x^i$ (gdzie $a_0$  to $1$, $a_i \in \Q_p$) i załóżmy, że
+	\[
+		f(x)^p = f(x^p) \big[1 + p \sum_{i=1}^\infty b_i x^i \big] \hfill b_j \in \Z_p.
+	\]
+	Widać, że $b_1 = a_1 \in \Z_p$.
+	Załóżmy (dla kroku indukcyjnego), że $a_i \in \Z_p$ dla $i < n$ i porównajmy współczynniki przy $x^n$ po obu stronach.
+	Po lewej stronie stoi
+	\[
+		\Big[\sum_{i \le n} a_i x^i \Big]^p = \sum_{i \le n} a_i^p x^{ip} + p (\dots).
+	\]
+	Niezapisane jednomiany to iloczyny $a_{i_1} \dots a_{i_p} x^{\sum i_k}$.
+	Mają dwa różne indeksy $i_k$ (przynajmniej).
+	Wyznaczymy je mod $ \Z_p$, a zatem wszystkie jednomiany bez $a_n$ nie będą grały wielkiej roli: z założenia indukcyjnego mają współczynniki w $\Z_p$.
+	Jedyne interesujące wielomiany z $a_n$ mają pojedynczy czynnik $a_n x^n$ i pozostałe $a_0 = 1$.
+	Zatem po lewej stronie przy $x^n$ stoi $a_i^p$ (jeśli $ip = n$) $+ pa_n + $ rzeczy z $p\Z_p$.
+	Umówmy się, że $a_{n/p} = 0$ dla $p \nmid n$.
+	Po prawej stronie,
+	\[
+		\sum_{i \le n/p} a_i x^{pi} \cdot \Big( 1 + p \sum_{i \le n} b_i x^i\Big),
+	\]
+	współczynnik przy $x^n$ to $a_{n/p}$ + gruz z $p\Z_p$.
+	Ale mamy $n/p < n$, więc założenie indukcyjne  daje $a_{n/p} \in \Z_p$, zatem $a_{n:p}^p \equiv a_{n:p}$ modulo $p\Z_p$, $pa_n \in p\Z_p$ i $a_n \in \Z_p$.
+\end{proof}
+
+\begin{przyklad}
+	Eksponens $E_p$ spełnia równość formalnych szeregów $E_p(x)^p = \exp(px) E_p(x^p)$.
+	Spójrz niżej.
+\end{przyklad}
+
+\begin{fakt}
+	Mamy $e^{px} \in 1 + px \Z_p[[x]]$, a dla nieparzystego $p$ nawet $e^{px} \in 1 + px \Z_p \{x\}$.
+\end{fakt}
+
+\begin{proof}
+	Mamy $v_p(n!) = (n - S_p(n)) : (p-1)$, zatem dla $n \ge 1$ jest $v_p(p^n:n!) \ge n - (n-1):(p-1)\ge 1$.
+	Dla $p = 2$ można określić, kiedy mamy równość: $S_2(n) = 1$, czyli $n = 2^v$.
+	Jeśli $p \ge 3$, to $v_p(p^n:n!) \ge (p-2)(p-1) \cdot n \to \infty$.
+\end{proof}

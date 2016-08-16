@@ -1,0 +1,102 @@
+\section{Wielozbieżność \label{burger}}
+Czy istnieje szereg o wymiernych wyrazach, który jest zbieżny w $\Q_p$ dla wszystkich $p \le \infty$?
+Pytanie to zadali Edward Burger oraz Thomas Struppeck w pracy~\cite{burger96}.
+Okazuje się, że tak:
+\[
+	\sum_{n=0}^\infty n! \rightsquigarrow \sum_{n=0}^\infty \frac{n!}{(n!)^2} \rightsquigarrow \sum_{n=0}^\infty \frac{n!}{(n!)^2+1}.
+\]
+
+Naturalne pytanie o algebraiczność granicy szeregu jest trudne.
+Pomimo to przeprowadzimy teraz konstrukcję, która pozornie stanowi dużo większe wyzwanie: wskażemy szereg zbieżny do liczby wymiernej w każdym z ciał $\Q_p$ (dla $p \le \infty$).
+
+\begin{definicja}
+	$X_m = \{\frac{1+am}{1 + bm} : a, b \in \Z\} \subseteq \Q$ dla $m \ge 2$.
+\end{definicja}
+
+\begin{lemat}[III]
+	Zbiór $X_m$ leży gęsto na prostej $\R$.
+\end{lemat}
+
+\begin{proof}
+	Niech $\varepsilon > 0$, $a/b \in \Q$.
+	Gdy $b^2mn \varepsilon > |a-b|_\infty - b\varepsilon$,
+	$|a/b - (1+amn)/(1+bmn)|_\infty < \varepsilon$.
+\end{proof}
+
+Każdej ze skończenie wielu liczb pierwszych $p \in P$ niech odpowiada $\delta_p \in \Q_p^\times$ równa $\sum_n d_{p, n} p^n$ dla $n \ge l_p$, gdzie cyfra początkowa jest niezerem, a kolejne leżą między $0$ oraz $p-1$.
+Niech $\Upsilon = \prod_p |\delta_p|_p^{-1}$.
+
+\begin{lemat}[IV]
+	Przy tych oznaczeniach istnieje całkowita $M > 0$, że $|\delta_p - M \Upsilon|_p < |\delta_p|_p$ dla wszystkich $p \in P$.
+\end{lemat}
+
+\begin{proof}
+	Dla każdej $p \in P$ definiujemy $\Upsilon_p = \Upsilon |\delta_p|_p = m_p / n_p$, gdzie całkowite $m_p$, $n_p$ są względnie pierwsze z $p$.
+	Rozpatrzmy jednocześnie wszystkie kongruencje $m_p x \equiv n_p d_{p, l_p}$ mod $p$.
+	Chińskie twierdzenie o resztach daje nam jakieś rozwiązanie $M > 0$.
+	Każdemu $p \in P$ odpowiada całkowita $t_p$, że
+	\[
+		\frac{m_p}{n_p} M = d_{p, l_p} + p \frac{t_p}{n_p},
+	\]
+	co pociąga $M \Upsilon = d_{p, l_p} p^{l_p} + p^{1+l_p} \cdot {t_p} / {n_p}$. 
+
+	Skoro $n_p \not\equiv 0$ mod $p$, to pierwszy człon rozwinięcia dla $M \Upsilon$ to $d_{p, l_p}p^{l_p}$, dokładnie taki sam jak dla $\delta_p$. 
+	To kończy dowód.
+	%Wnioskujemy, że $|\lambda_p - M\Upsilon|_p < |p^{l_p}|_p = |\lambda_p|_p$.
+\end{proof}
+
+\begin{wniosek}[V]
+	$|\delta_p - M \Upsilon x|_p < |\delta_p|_p$, jeśli $p \in P$ i $x \in X_p$. 
+\end{wniosek}
+
+\begin{proof}
+	Silna nierówność trójkąta razem z lematem pokazują, że
+	%Jeśli napiszemy $x = a/b$, aby $a \equiv b \equiv 1 \pmod p$, %to $|(a-b)/b|_p = |a-b|_p \le 1/p$.
+	\begin{align*}
+	\dots & = |\delta_p - M \Upsilon x|_p = |\delta_p - M \Upsilon +M \Upsilon - M \Upsilon x|_p \\
+	& \le \max \left\{|\delta_p - M \Upsilon |_p, |M \Upsilon - M \Upsilon x|_p\right\} \\
+	& < \max\left\{|\delta_p|_p, |M \Upsilon|_p |1-x|_p\right\} \\
+	& \le \max\left\{|\delta_p|_p, |\delta_p|_p / p\right\} = |\delta_p|_p,
+	\end{align*}
+	co uzasadnia żądaną nierówność.
+\end{proof}
+
+\begin{twierdzenie}
+	Dane są liczby $x_p \in \Q_p$ dla wszystkich $p \le \infty$.
+	Istnieje szereg $\sum y_n$ o wymiernych wyrazach, $y_n > 0$ dla $n \ge 1$, którego granicą w $\Q_p$ jest $x_p$.
+\end{twierdzenie}
+
+\begin{proof}
+	Definiujemy $y_n$ rekursywnie: $y_0 = [x_\infty -1]$.
+	Niechaj $P_n$ będzie zbiorem pierwszych $n$ liczb pierwszych.
+	Zakładamy, że mamy już $y_0, \dots, y_n$ i spełnione są dla $p \in P_n$:
+	\begin{enumx}
+	\item $y_n \in \Q_+$ dla $n > 0$, $y_0 \in \Q$
+	\item jeśli $S_n := \sum_{k=0}^n y_k$, to $0 < x_\infty - S_n < 2^{1-n}$
+	\item $S_{n-1} = x_p$ albo $|x_p - S_n|_p < |x_p - S_{n-1}|_p$.
+	\end{enumx}
+	
+	Łatwo widać, że założenia są spełnione w kroku bazowym.
+	Dla każdej liczby pierwszej $p \in P_{n+1}$ napiszmy $\delta_p = x_p - S_n$, $P_{n+1}^\delta = \{p \in P_{n+1}: \delta_p \neq 0\}$.
+	Gdy $P^\delta_{n+1} = \varnothing$, to kładziemy $M \Upsilon := 1$.
+	W przeciwnym razie lemat IV daje całkowitą $M > 0$, że $|\delta_p - M \Upsilon|_p < |\delta_p|_p$ dla wszystkich $p \in P^\delta_{n+1}$.
+	Niechaj $\Pi$ będzie produktem pierwszych $n+1$ liczb pierwszych.
+	
+	Lemat III orzeka o istnieniu takiej wymiernej $u \in X_\Pi$, dla której $0 < u < (x_\infty - S_n) / (M\Upsilon)$, a przy tym
+	\[
+		\left|\frac{x_\infty-S_n}{M \Upsilon} - u\right|_\infty < \frac{|S_n - x_\infty|_\infty}{2 M \Upsilon}.
+	\]
+
+	Zauważmy, że $X(\Pi) = \bigcap_p X_p$ (przekrój po $p \in P_{n+1}$).
+	To pozwala $*$-wyciągnąć z wniosku V: $|\delta_p - u M \Upsilon|_p < |\delta_p|_p$.
+	Teraz kładziemy $y_{n+1} := u M \Upsilon$, wszystkie warunki są spełnione.
+
+	Pokażemy, że szereg $\sum_n y_n$ zbiega do $x_p$ w $\Q_p$.
+	Z założenia drugiego wynika, że jest tak dla $p = \infty$.
+	A jeśli $p < \infty$?
+	Wtedy $S_n$ jest monotonicznie rosnącym ciągiem liczb wymiernych, $x_p = S_i$ dla co najwyżej jednego $i$.
+	Razem z $*$-nierównością daje nam to informację, że $0 < |x_p - S_{n+1}|_p < |x_p - S_n|_p$ (dla dużych $n$).
+	Ciąg $|x_p - S_n|$ od pewnego miejsca jest ściśle malejący, więc dąży do zera (gdyż składa się z potęg $p$), zatem sam szereg zbiega w $\Q_p$ do $x_p$.
+\end{proof}
+
+\textbf{Spostrzeżenie}: przez zmianę górnego ograniczenia w IV lemacie (z $|\delta_p|_p$) a także w drugim założeniu (o $2^{1-N}$) uzyskać można szeregi zbieżne dużo szybciej.

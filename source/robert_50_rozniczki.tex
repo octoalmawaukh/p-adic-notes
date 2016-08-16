@@ -1,0 +1,330 @@
+\section{Różniczki i pochodne}
+
+Niech $X \subseteq \cialo$ będzie pozbawiony izolatorów, zaś $\cialo$ stanowi zupełne rozszerzenie $\Q_p$ (jak $\C_p$ lub $\Omega_p$).
+
+\begin{definicja}
+	Funkcja $f \colon X \to \cialo$ jest różniczkowalna w punkcie $a$, gdy istnieje granica
+	\[
+		\lim_{x \to a} \frac{f(x) - f(a)}{x-a} =: f'(a)
+	\]
+\end{definicja}
+
+Równoważnie możemy żądać rozwinięcia rzędu jeden (dla $\phi(x) \to 0$): $f(x) = f(a) + (x-a) f'(a) + (x-a) \phi(x)$.
+
+\begin{przyklad}
+	Niech otwarta kula $\kula_n \subseteq \Z_p$ ma swój środek w $p^n$ i promień $|p^{2n}|$.
+	Funkcja $f \colon \Z_p \to \Z_p$ dana wzorem
+	\[
+		f(x) = \sum_{n=1}^\infty p^{2n} \cdot 1_{x \in \kula_n}
+	\]
+	jest stała na otwartych kulach, zatem lokalnie stała poza zerem.
+	Jej pochodna zeruje się, ale ilorazy różnicowe $[f(y) - f(x)]:(y - x)$ dla $x = p^n$, $y = p^n - p^{2n}$ są stale równe jeden!
+\end{przyklad}
+
+\begin{przyklad}
+	Ciągła funkcja $f \colon \Z_p \to \Q_p$ zadana wzorem
+	\[
+		f(x) = x - \sum_{n \ge 1} p^{2n} \cdot [|x - p^n|_p < p^{-2n}]
+	\]
+	jest różniczkowalna dla wszystkich $x \in \Z_p$ z $f'(x) = 1$; pomimo to $f$ nie jest injekcją, bo $f (p^n) = f(p^n - p^{2n})$.
+\end{przyklad}
+
+\begin{przyklad}
+	Ciągła funkcja $f \colon \Z_p \to \Z_p$ zadana wzorem
+	\[
+		x = \sum_{n=0}^\infty a_n p^n \mapsto f(x) = \sum_{n=0}^\infty a_n p^{2n}
+	\]
+	jest różniczkowalna dla wszystkich $x \in \Z_p$ z $f'(x) = 0$; pomimo to $f$ nie jest lokalnie stała (przez injektywność).
+\end{przyklad}
+
+\begin{przyklad}
+	Niech $x = \sum_{n \ge 0} a_n p^n \in \Z_p$.
+	Jeśli $|x|_p = p^{-m}$, niech $f(x)$ powstaje z $x$ przez przestawienie $a_{2m}$ i $a_{2m+1}$, $f(0) := 0$.
+	Funkcja $f$ jest różniczkowalną bijekcją $\Z_p \to\Z_p$, $f' = 1$, ale w zerze nie jest lokalną izometrią.
+\end{przyklad}
+
+Powyższy przykład można poprawić tak, żeby funkcja $f$ nie była wcale Lipschitza.
+
+\begin{przyklad}
+	Istnieje $\mathcal C^\infty$-bijekcja $\Z_p \to \Z_p$ o pochodnej jeden, która nie jest izometrią.
+\end{przyklad}
+
+
+Klasyczna definicja bycia różniczkowalnym (ciągle) nie jest  więc przystosowana do liczb $p$-adycznych.
+
+\begin{definicja}
+	Funkcja $f \colon X \to \cialo $ jest ściśle różniczkowalna w punkcie $a$ (,,$f \in \mathcal S^1(a)$''), jeśli dla $(x,y) \to (a,a)$ istnieje granica
+	\[
+		\lim_{(x,y)} (\Phi f)(x,y) := \lim_{(x,y)} \frac{f(x)-f(y)}{x-y}
+	\]
+\end{definicja}
+
+Jeżeli pochodna funkcji $f \colon (a,b) \to \R$ istnieje i jest ciągła, to $f$ jest ściśle różniczkowalna w każdym $x \in (a,b)$.
+Nie jest to ultrametryczną prawdą: tu interesujące wyniki wymagają równie interesujących założeń.
+
+\begin{fakt}
+	Niech funkcja $f \colon X \to \cialo$ będzie ściśle różniczkowalna w punkcie $a$ i ma tam niezerową pochodną.
+	Funkcja $f / f'(a)$ obcięta do pewnego otoczenia $V$ dla $a$ jest izometrią.
+\end{fakt}
+
+\begin{proof}
+	Skoro $f \in \mathcal S^1 (a)$, dla każdego $\varepsilon > 0$ istnieje otoczenie $V_\varepsilon$ dla $a$, że
+	$
+		x \in V_\varepsilon, y \in V_\varepsilon$ daje $|\Phi f(x,y) - f'(a)| < \varepsilon.
+	$
+	Weźmy $\varepsilon = |f'(a)|$.
+	Wtedy dla $x, y \in V$ zachodzi $|\Phi f(x,y)| = |f'(a)|$, a to pociąga $|f(x) - f(y)| = |f'(a)| \cdot |x-y|$.
+\end{proof}
+
+Podamy teraz zaskakujące uogólnienie lematu Hensela: funkcja $f-c$ ma zero $x \in \mathcal B$, $f(x) = c$, gdy tylko $|f(b)-c|$ jest małe dla pewnego $b \in \mathcal B$, chociaż $f$ nie musi być wielomianem.
+
+\begin{fakt}
+	Niech funkcja $f$ z otoczenia punktu $a \in \cialo$ będzie ściśle różniczkowalna w $a$, $f'(a) \neq 0$.
+	Wybierzmy otwartą kulę $\mathcal B$, w której leży $a$, że
+	\[
+		\sigma := \sup_{x\neq y \in \mathcal B} \left|\frac{f(x)-f(y)}{x-y} - f'(a)\right| < |f'(a)|.
+	\]
+	Wtedy $f$ przerzuca otwarte kule na otwarte kule: obrazem $\kula(b, \varepsilon)$ jest kula $\kula(f(b), |f'(a)| \varepsilon)$.
+\end{fakt}
+
+\begin{proof}
+	Niech $s = f'(a) \neq 0$.
+	Funkcja $f / s$ jest izometrią, więc $f[\kula(b, \varepsilon)] \subseteq \kula(f(b), |s| \varepsilon)$.
+
+	Dla dowodu drugiej inkluzji wybierzmy $c$ z drugiej kuli: że $|f(b) - c| < |s| \varepsilon$.
+	Pokażemy, że równanie $f(x) = c$ ma pewne rozwiązanie z $|x - b| < \varepsilon$ (funkcja $\varphi(x) = x - (f(x) - c) / s$ ma punkt stały).
+	Zauważmy, że $\varphi[\kula(b, \varepsilon)] \subseteq \kula(b, \varepsilon)$.
+
+	Funkcja $\varphi$ jest kontrakcją ze stałą $\sigma/|s| < 1$ na lewej kuli (domkniętej w zupełnym $\cialo$), zatem ma tam dokładnie jeden punkt stały.
+\end{proof}
+
+Jeżeli funkcja $f$ spełnia któryś z poniższych warunków, to powiemy, że jest \kolorowo{ściśle różniczkowalna} ($f \in \mathcal S^1(X)$).
+
+\begin{fakt}
+	Dla funkcji $f \colon X \to \mathcal K$ te warunki są równoważne:
+	\begin{enumx}
+		\item $f \in \mathcal S^1(a)$ dla $a \in X$.
+		\item funkcja $\Phi f$ przedłuża się ciągle z $X^2 \setminus \triangle_X$ do $X^2$.
+		\item $f$ jest różniczkowalna w $a \in X$, istnieje ciągła funkcja $\alpha$ na $X^2$, która znika na $\triangle_X$ z
+		\[
+			f(y) = f(x) + (y-x) (f'(x) + \alpha(x,y)).
+		\]
+	\end{enumx}
+\end{fakt}
+
+Twierdzenie o przerzucaniu kul staje się wyjątkowo ciekawe dla lokalnie zwartych ciał $\mathcal K$ (skończonych rozszerzeń $\Q_p$).
+Tam mamy klasyczne oznaczenia: $\mathfrak p = \pi \mathcal O$, $\mathcal O/\mathfrak p = \mathbb F_q$.
+
+Jeśli $r \in |\cialo^\times|$, każda kula $\kula[a, r]$ jest rozłączną sumą $q$ otwartych kul $\kula_i$ (o promieniach $r$), czyli domkniętych kul $\kula_i$ (o promieniach $\theta r$ z $\theta = |\pi| < 1$).
+Dowolny zbiór zawierający $q$ różnych punktów $x_i \in \kula[a, r]$, że $i \neq j$ implikuje $|x_i - x_j| \ge r$ zawiera co najwyżej po jednym punkcie z $\kula_i$, zatem dokładnie po jednym.
+
+\begin{fakt} \label{exinferius}
+	Izometria $f$ z $G$, zwartego, otwartego podzbioru $\mathcal K$, w $\mathcal K$, skończone rozszerzenie $\Q_p$, przerzuca kule na kule.
+\end{fakt}
+
+\begin{proof}
+	Jeśli $\kula[a, r] \subseteq G$, to $f[\kula[a, r]] \subseteq \kula[f(a), r]$, pokażemy drugie zawieranie.
+	Rozbijmy $\kula[a, r]$ na mniejsze rozłączne kule o środkach w $a_i$ oraz promieniach $\varepsilon = |\pi|^v r$.
+	Obrazy punktów $x_i = f(a_i)$ tworzą układ $q^v$ punktów spełniający $|x_i - x_j| > \varepsilon$ dla $i \neq j$, zatem obraz $f[\kula[a, r]]$ zawiera punkt z każdej z mniejszych kul rozkładu (czyli kroi wszystkie kule domknięte dodatniego promienia).
+	Wynika stąd, że $f[\kula[a, r]]$ leży gęsto w $\kula[f(a), r]$; jest też zwarty, przez co domknięty.
+\end{proof}
+
+\begin{definicja}
+	Granulat otwarto-zwartego $G \subseteq \cialo$ to skończone rozbicie na domknięte kule tego samego promienia.
+\end{definicja}
+
+Granulaty są porównywalne (kule są rozłączne lub zawarte jedna w drugiej).
+Kula w uboższej jest sumą rozłączną pewnej potęgi $q^v$ kul z bogatszej.
+Zauważmy, że $q^v \equiv 1$ mod $p-1$, więc liczba kul w dwóch granulatach różni się o wielokrotność $p-1$.
+To uzasadnia poprawność takiej definicji:
+
+\begin{definicja}
+	Typ otwarto-zwartego $G \subseteq \cialo$ to $\tau(G)$, liczba kul w dowolnym granulacie modulo $p-1$.
+\end{definicja}
+
+Dopuszczamy rozbicia na kule o różnych promieniach, gdyż $\tau(G \sqcup G') = \tau(G) + \tau(G')$, typ rozłącznej sumy jest addytywny.
+Podsumujmy.
+
+\begin{fakt}
+	Otwarty i zwarty $G \subset \mathcal K$ oraz jego obraz przez ściśle różniczkowalną injekcję $f \colon G \to \mathcal K$ o nieznikającej pochodnej mają ten sam typ.
+\end{fakt}
+
+\begin{proof}
+	Z $f \in \mathcal S^1(a)$ i $f'(a) \neq 0$ wnioskujemy, że punkt $a$ ma otoczenie $V$ w $G$, takie że $f$ przerzuca otwarte kule na kule w $f[V]$.
+\end{proof}
+
+\begin{wniosek}
+	Dla $p > 2$ nie istnieje ściśle różniczkowalna bijekcja $f \colon \Z_p \to \Z_p^\times$, której pochodna nie znika.
+\end{wniosek}
+
+Zajmiemy się teraz funkcjami bardziej różniczkowalnymi.
+Przyjmijmy
+\[
+	\Phi_2 f(x, y, z) = \frac{\Phi f(x,z) - \Phi f(y, z)}{x-y}.
+\]
+
+\begin{definicja}
+	Jeśli dla $(x, y, z) \to (a,a,a)$ istnieje granica $\Phi_2 f(x,y,z)$, to funkcja $f \colon X \to \cialo$ jest dwukrotnie różniczkowalna (ściśle) w puncie $a$, co zapisujemy $f \in \mathcal S^2(a)$.
+\end{definicja}
+
+\begin{fakt}
+	Jeśli $f \in \mathcal S^2(a)$, to $f \in \mathcal S^1(a)$.
+\end{fakt}
+
+\begin{definicja}
+	Funkcję $\Phi_2f$ można przedłużyć ciągle do $X^3$, wtedy i tylko wtedy gdy $f \in \mathcal S^2(a)$ dla każdego $a$.
+\end{definicja}
+
+\begin{fakt}
+	Jeśli $f \in \mathcal S^2$, to $f' \in \mathcal S^1$.
+\end{fakt}
+
+Uwaga: twierdzenie odwrotne nie jest prawdziwe (choćby dla niektórych funkcji z $f' \equiv 0$).
+
+Spróbujemy teraz zróżniczkować szereg Mahlera.
+Ustalmy $f$, ciągłą funkcję na $\Z_p$ oraz $y \in \Z_p$.
+Możemy wtedy rozwinąć: $f(x+y) = \sum_{k \ge 0} c_k(y) (x \mbox { nad } k)$, $c_k(y) = (\nabla^k f)(y)$ dąży do zera.
+
+\begin{fakt}
+	Ciągła funkcja $f$ na $\Z_p$ jest różniczkowalna w $y$, wtedy i tylko wtedy gdy $|(\nabla^k f)(y) / k| \to 0$ dla $k \to \infty$.
+	Wtedy
+	\[
+		f'(y) = - \sum_{k=1}^\infty \frac{(-1)^k }{k} \cdot (\nabla^k f)(y).
+	\]
+\end{fakt}
+
+\begin{proof}
+Bez straty ogólności, $y = 0$, gdyż funkcję $f(x)$ możemy zastąpić przez $f(x+y)$.
+Wtedy $c_0 = f(0)$ i 
+\[
+	\frac{f(x) - f(0)}{x} = \sum_{k=1}^\infty \frac{c_k}{k} {x \choose k} = \sum_{k=1}^\infty \frac{c_k}{k} {x-1 \choose k-1}.
+\]
+
+Jeśli $|c_k/k|$ zbiega do zera, szereg Mahlera zadany przez $g(y) = \sum_{k \ge 1} (y \mbox{ nad } k-1) \cdot {c_k}/{k}$ reprezentuje ciągłą funkcję na $\Z_p$ i w szczególności $f'(0)$ istnieje, jest równe $g(-1)$, czyli $\sum_{k \ge 1} (-1)^{k-1} {c_k}/{k}$.
+
+Odwrotnie, gdy $f'(0)$ istnieje, to funkcja $g$ równa $f'(0)$ w zerze i $(f(x) - f(0)) / x$ poza nim jest ciągła.
+Współczynniki Mahlera dla niej to $\gamma_k = \nabla^k g(0)$ (dążą do zera).
+Zapiszmy więc $g$ jako $\sum_{k \ge 0} \gamma_k (x \mbox{ nad } k)$.
+
+Mamy $x (x \mbox{ nad } k) = (k+1) (x \mbox{ nad } k+1) + k (x \mbox{ nad } k)$ (jak łatwo sprawdzić bezpośrednim rachunkiem), co upoważnia do $f(x) = f(0) + x g(x) = c_0 + \sum_{k \ge 1} k (\gamma_{k-1} + \gamma_k) (x \mbox{ nad } k)$. 
+Z jednoznaczności współczynników Mahlera dla $f$ możemy wywnioskować, że $c_k = k(\gamma_k + \gamma_{k-1})$, więc $c_k / k \to 0$.
+\end{proof}
+
+\begin{fakt}
+	Dla ciągłej funkcji $f(x) = \sum_{k \ge 0} c_k{x \choose k}$ klasy $\mathcal C(\Z_p)$ ograniczoność $k|c_k|$ jest równoważna z lipschitzowskością $f$.
+\end{fakt}
+
+\begin{wniosek}
+	$\|\Phi f\| := \sup_{x \neq y} |\Phi f(x,y)| = \sup_{n \ge 1} \kappa_n |c_n|$ jest skończona, gdzie $\kappa_n$ to największa potęga $p$ nie większa od $n$.
+\end{wniosek}
+
+Wielkość $\|\Phi f\|$ nie jest normą, lecz półnormą, gdyż znika na stałych.
+Aby dostać normę możemy położyć $q_0 = 1$ i napisać $\|f\|_* = \sup(|f(0)|, \|\Phi f\|)$.
+
+\begin{wniosek}
+	Gdy $f$ jest Lipschitza, to $\|f\|_* \le \|\suma f\|_* \le p \|f\|_*$, więc $\suma f$ też jest Lipschitza.
+\end{wniosek}
+
+\begin{wniosek}
+	$(\textrm{Lip}(\Z_p), \|\cdot\|_*)$ oraz $\ell^\infty$ są izomorficzne dzięki $f$.
+	Funkcje $1$ i $\kappa_n(x\textrm{ nad }n)$ odpowiadają ,,kanonicznej bazie'' $\ell^\infty$.
+	\[
+		f \colon \sum_{n=0}^\infty c_n {x \choose n} \mapsto \left( \frac{c_n}{\kappa_n}\right).
+	\]
+\end{wniosek}
+
+\begin{fakt}
+	Ustalmy $f(x) = \sum_{k\ge 0} c_k (x \mbox { nad } k) \in \mathcal C(\Z_p)$. 
+	Ciąg $k^n |c_k|$ dąży do zera, wtedy i tylko wtedy gdy $f$ jest klasy $\mathcal S^n$.
+\end{fakt}
+
+\begin{fakt} %schikhof 177/318
+	Funkcja $\sum_{k\ge 0} c_k (x \mbox { nad } k) \in \mathcal C(\Z_p)$ jest analityczna, wtedy i tylko wtedy gdy $c_n / n!$ dąży do zera.
+\end{fakt}
+
+Następne stwierdzenie jest szokujące.
+
+\begin{przyklad}
+	Suma ($\suma f$) analitycznej funkcji na $\Z_p$ nie musi taka być!
+\end{przyklad}
+
+Podobne charakteryzacje istnieją także w terminach bazy van der Puta.
+Przypomnijmy, $e_0 \equiv 1$, zaś dla $n \ge 1$ funkcja $e_n$ jest indykatorem kuli $\kula(n, 1/n) \subseteq \Z_p$.
+
+Niech $f = \sum_{n \ge 0} a_n e_n \in \mathcal C(\Z_p, \cialo)$.
+
+\begin{fakt}
+	Funkcja $f$ jest $a$-lipschitzowska, wtedy i tylko wtedy gdy $\sup_n |a_n| n^a < \infty$, $a > 0$.
+\end{fakt}
+
+\begin{fakt}
+	Funkcja $f$ jest $a$-lipschitzowska, wtedy i tylko wtedy gdy $\sup_n |a_n| n^a < \infty$.
+	Jeśli $a > 1$, pociąga to zerowanie pochodnej, ale implikacja w drugą stronę jest fałszywa.
+\end{fakt}
+
+\begin{fakt}
+	Funkcja $f$ ma zerową pochodną, wtedy i tylko wtedy gdy $|a_n| n$ (albo $a_n / (n-n_-)$) dąży do zera.
+\end{fakt}
+
+\begin{fakt}
+	Funkcja $f$ ma zerową pochodną i jest $\mathcal C^n$, wtedy i tylko wtedy gdy $|a_m|m^n$ dąży do zera.
+\end{fakt}
+
+Zajmiemy się teraz ratowaniem twierdzenia o wartości średniej, które nie zawsze jest prawdziwe.
+
+\begin{fakt}
+	Niech szereg $f \in \cialo\{x\}$ wyznacza funkcję $f$ na kuli $\kula_[0, 1]$.
+	Ustalmy $h, t \in \cialo$, takie że $|t| \le 1$ i $|h| \le r_p = |p|^{1 / (p-1)}$.
+	Wtedy $|f(t+h) - f(t)| \le |h| \cdot \|f'\|$.
+\end{fakt}
+
+Wynika z niego inne, o punkcie stałym.
+\begin{fakt}
+	Niech $\cialo$ będzie skończonym rozszerzeniem $\Q_p$, zaś $\kula$ jednostkową kulą domkniętą.
+	Ustalmy szereg $f \in \cialo \{x\}$, że $\|f\| \le 1$, $\|f'\| < 1$ oraz $\inf_{x \in \kula} |f(x) - x| \le r_p$.
+	Wtedy $f$ ma punkt stały na kuli $\kula$.
+\end{fakt}
+
+Sekcja 73 książki Schikhofa porusza:
+
+\begin{twierdzenie}[Łuzin]
+	Niech funkcja $f \colon \Z_p \to \Q_p$ posiada pochodną.
+	Wtedy to obrazem zbioru zerowego jest zbiór zerowy, zaś $\{f(x) : f'(x) = 0\}$ jest zerowy.
+\end{twierdzenie}
+
+Istnieje jednak ciągła funkcja $\Z_p \to \Z_p$, obrazem przez którą pewnego zbioru zerowego jest całe $\Z_p$.
+
+\begin{przyklad}
+	Niech $X := \{\sum_{n} a_n p^n : a_1 = a_3 = \ldots = 0\}$, zaś $t(x)$ będzie najmniejszym nieparzystym indeksem $n$, że $a_n \neq 0$.
+	Wtedy dla $g(x) = \sum_{j <t(x)} a_j p^{j:2}$ (suma po parzystych $j$) mamy równość $g[X] = \Z_p$.
+\end{przyklad}
+
+Skończymy na izometriach. % Schikhof 75
+
+\begin{fakt}
+	Jeśli ciało residuów jest nieskończone, to ,,domknięta'' kula jednostkowa i sfera są izometrycznie izomorficzne.
+\end{fakt}
+
+\begin{wniosek}
+	Wtedy istnieje izometria $\cialo \to \cialo$ nie ,,na''.
+\end{wniosek}
+	
+\begin{fakt}
+	Każda izometria $\cialo \to \cialo$ jest ,,na'', wtedy i tylko wtedy gdy $\cialo$ jest sferycznie zupełne i ma skończone ciało residuów.
+\end{fakt}
+
+\begin{fakt}
+	Każda funkcja $1$-Lipschitza z $X \subseteq \cialo$ w ciało $\cialo$ jest $\cialo$-liniową kombinacją dwóch izometrii.
+\end{fakt}
+
+\begin{proof}
+	Jedną z nich jest identyczność.
+\end{proof}
+
+\begin{fakt}
+	Jeśli zbiory $A, B \subseteq \Z_p$ są przeliczalne i gęste, to istnieje izometria $f$ dla $\Z_p$, taka że $f[A] = B$.
+\end{fakt}
+
+\begin{fakt}
+	Ciągły endomorfizm $\C_p$ jest surjektywną izometrią.
+\end{fakt}

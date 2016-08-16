@@ -1,0 +1,131 @@
+\section{Regionalnie czy wszechstronnie?}
+Jednym z wniosków lematu Hensela jest to, że dla wielomianu o współczynnikach całkowitych łatwo sprawdzić, czy ma zera w $\Z_p$ (bo wystarczy szukać ich w $\Z/p\Z$), podobnie w $\R$.
+Istnienie pierwiastka w $\Q$ pociąga ,,to samo'' w każdym $\Q_p$ ($p \le \infty$).
+Trzeba o tym myśleć tak: ciała $p$-adyczne są odpowiednikami ciał rozwinięć Laurenta i dają ,,lokalną'' informację ,,blisko'' $p$.
+Fakt, że pierwiastki przenoszą się z $\Q$ do $\Q_p$ oznacza bowiem, że ,,globalny'' pierwiastek jest też ,,lokalnym'' dla każdego $p$, czyli ,,wszędzie''.
+Ciekawe pytanie brzmi, kiedy można to odwrócić.
+
+\begin{fakt}
+	Liczba $x \in \Q$ jest kwadratem wtedy i tylko wtedy, gdy jest kwadratem w każdym $\Q_p$, $p \le \infty$.
+\end{fakt}
+
+Zbyt niejasne, żeby nazwać twierdzeniem:
+
+\begin{fakt}[reguła lokalno-globalna]
+	Istnienie rozwiązań w $\Q$ (lub ich brak) dla równania diofantycznego można stwierdzić na podstawie istnienia (lub nie) rozwiązań w $\Q_p$.
+\end{fakt}
+
+Niestety, $(x^2 -2)(x^2-17)(x^2-34) = 0$ ma pierwiastki w każdym z $\Q_p$, ale nie w $\Q$. Inny przykład: $x^4 - 17 = 2y^2$. Na szczęście nie wszystko stracone.
+
+\begin{twierdzenie}[Hasse, Minkowski]
+	Forma kwadratowa $F$ nad $\cialo$ (ciałem liczbowym jak $\Q$) reprezentuje nietrywialnie zero w $\cialo$, wtedy i tylko wtedy gdy reprezentuje je w każdym uzupełnieniu $\cialo$.
+\end{twierdzenie}
+
+\begin{proof}
+	Zbyt trudny (przez wyrwy w wiedzy o kwadratowych formach), nawet dla samego $\cialo = \Q$.
+	Można go jednak znaleźć w pierwszej połowie książki Serre'a (\cite{serre73})
+\end{proof}
+
+\begin{historia}[Hasse Helmut]\end{historia}
+\begin{historia}[Minkowski Hermann]\end{historia}
+\color{black}
+
+Ograniczymy się do rozwiązania tylko jednego równania: $ax^2 + by^2 + cz^2 = 0$ dla wymiernych $a, b,c $.
+Poczynimi kilka założeń: $abc \neq 0$ jest bezkwadratowa oraz $a,b,c \in \Z$, gdyż możemy.
+Wynika stąd, że $a,b,c$ są parami względnie pierwsze i różnych znaków (patrz $p= \infty$!).
+
+\begin{fakt}
+	Jeśli liczba pierwsza $p > 2$ nie dzieli $abc$, to istnieją liczby $x_0, y_0, z_0 \in \Z$, że $ax_0^2 + by_0^2 + cz_0^2 = 0$, a przy tym $p$ nie dzieli wszystkich trzech ($x_0, y_0, z_0$).
+\end{fakt}
+
+\begin{proof} %Specjalny przypadek twierdzenia Chevalleya-Warninga.
+	Gdy $x, y, z$ przebiegają przez całkowite od $0$ do $p-1$, to istnieje $p^3$ trójek $(x,y,z)$.
+	Ile z nich pasuje do równania?
+	Brudna sztuczka: $(ax^2+by^2+cx^2)^{p-1}$ jest równe $1$, gdy trójka nie jest rozwiązaniem (i $0$ w przeciwnym przypadku), wynika to z MTF.
+	Liczba nierozwiązań to $\sum_{p^3} (ax^2+by^2+cz^2)^{p-1}$ (ale modulo $p$!).
+	Rozwijamy potęgi i dostajemy sumy postaci $\sum \lambda x^{2i}y^{2k}z^{2l}$ z $2i+2k+2l = 2(p-1)$ i $\lambda \in \Z$.
+	Każda z nich jest zerem modulo $p$: 
+	przynajmniej jedna z $2i, 2k, 2l$ jest mniejsza od $p-1$ (powiedzmy, $2i$).
+	Wtedy nasza suma to
+	\[
+		\sum_{(y,z)} \left(\lambda y^{2k}z^{2l} \sum_{x} x^{2i}\right).
+	\]
+
+	Przywołujemy poniższy lemat.
+	Skoro $p$ dzieli $N$ (liczbę nierozwiązań), to dzieli także $p^3 - N$.
+	Znamy jedno rozwiązanie (trywialne), zatem istnieją inne.
+	Był to specjalny przypadek tw. Chevalleya i Warninga.
+\end{proof}
+
+\begin{lemat}
+	Jeśli $0 \le n \le p-1$, to $p$ dzieli $\sum_{i=0}^{p-1} i^n$.
+\end{lemat}
+
+\begin{proof}
+Wybierzmy takie $y$, że $y^n \not\equiv 1$ mod $p$.
+Wtedy
+\[
+	0 \equiv \sum_{i=0}^{p-1} i^n - \sum_{i=0}^{p-1} (yi)^n = (1-y^n) \sum_{i = 0}^{p-1} i^n \qedhere
+\]
+\end{proof}
+
+Znając rozwiązanie $(x_0,y_0, z_0)$ ,,mod $p$'' wiemy, że $p \nmid x_0$ (bez straty ogólności).
+Znamy rozwiązanie wielomianowego $aX^2 + by_0^2 + cz_0^2 = 0$ modulo $p$, $x_0$.
+Z naszymi założeniami lemat Hensela wskaże $x \in \Z_p$, pierwiastek równania, a także rozwiązanie pierwotnego: $(x, y_0, z_0)$.
+
+To jeszcze nie koniec.
+Załóżmy teraz, że $p = 2$, ale $a,b,c$ są nieparzyste.
+Gdy istnieje rozwiązanie $(x,y,z) \in \Q_2^3$, to możemy założyć, że nie wszystkie leżą w $2\Z_2$ (innymi słowy, $\max\{|x|_2, |y|_2, |z|_2\} =1$).
+Po redukcji mod $2\Z_2$ widzimy, że $y,z$ są jednościami $2$-adycznymi, $x$ dzieli się przez $2$.
+Kwadrat $2$-adycznej jedności leży w $1+4\Z_2$, zaś kwadrat czegoś z $2\Z_2$ leży w $4\Z_2$. Redukując modulo $4\Z_2$ dostajemy więc: $b+ c \equiv 0$ mod $4$.
+Okazuje się, że warunek ten jest nie tylko konieczny, ale też wystarczający.
+
+\begin{lemat}
+	Równanie $aX^2 + bY^2 + cZ^2 = 0$ ma nietrywialne rozwiązanie w $\Q_2$, gdy $2 \nmid abc$ i $4$ dzieli sumę dwóch z $a, b, c$.
+\end{lemat}
+
+\begin{proof}
+	Szukamy początkowego rozwiązania $(x_0, y_0, z_0)$, dla którego $8 \mid ax_0^2 + by_0^2 + cz_0^2$.
+	Jeśli $8 \mid a+b$, to kładziemy $x_0 = 1$, $y_0 = 1$, $z_0= 0$. Jeśli nie, to $z_0 = 2$, $x_0 = y_0 = 1$.
+	Stosujemy lemat Hensela.
+\end{proof}
+
+\begin{lemat}
+	Równanie $aX^2 + bY^2 + cZ^2 = 0$ ma nietrywialne rozwiązanie w $\Q_2$, gdy jedna z $a, b, c$ jest parzysta, zaś suma dwóch lub trzech z nich dzieli się przez 8.
+\end{lemat}
+
+\begin{proof}
+	Załóżmy, że $2$ dzieli tylko $a$ oraz że $ax^2 + by^2 + cz^2 = 0$.
+	Możemy przyjąć, że któraś z $x, y,z$ jest $2$-adyczną jednością, zaś wszystkie leżą w $\Z_2$.
+	Kwadrat $2$-adycznej jedności leży w $1 + 8 \Z_2$, zatem $0 = ax^2 + by^2 + cz^2 \equiv b +c$ (mod $8$), jeśli $x \in 2\Z_2$ (wtedy $y,z$ muszą być $2$-adycznymi jednościami).
+
+	Jeśli $x$ jest $2$-adyczną jednością, to $y, z$ i tak też muszą nimi być, co prowadzi do $a+b+c \equiv 0$ mod $8$.
+	Twierdzenie odwrotne jest prawdziwe na mocy uogólnionego lematu Hensela.
+\end{proof}
+
+\begin{lemat}
+	Jeżeli $p \neq 2$ dzieli $a$, to równanie ma nietrywialne rozwiązanie dokładnie wtedy, gdy $-b/c$ to kwadratowa reszta mod $p$.
+\end{lemat}
+
+\begin{proof}
+	Ponownie, lemat Hensela.
+\end{proof}
+
+\begin{fakt}
+	Niech liczby $a,b,c \in \Z$ będą parami względnie pierwsze, bezkwadratowe.
+	Równanie $ax^2+by^2+cz^2 = 0$ posiada w $\Q$ nietrywialne rozwiązania, wtedy i tylko wtedy gdy:
+	\begin{enumx}
+		\item ($a,b,c$ nie są tego samego znaku)
+		\item każdy nieparzysty dzielnik pierwszy liczby $a$ posiada $r \in \Z$, że $p \mid b+r^2c$, podobnie dla $b$ i $c$
+		\item jeśli $2 \nmid abc$, to $4$ dzieli sumę pewnych dwóch z $a$, $b$, $c$.
+		\item jeśli $2 \mid a$, to $8$ dzieli $b+c$ lub $a+b+c$ (podobnie $b$ i $c$).
+	\end{enumx}
+
+	Pierwszy warunek wynika z pozostałych.
+\end{fakt}
+
+Bezpośredni dowód można znaleźć w rozdziałach 3 -- 5 książki [Cas91].
+Strategią jest użycie trzech warunków, a także ,,geometrii liczb'' Minkowskiego do pokazania, że możliwe jest znalezienie rozwiązania $(x, y, z)$ spełniającego nierówność
+\[
+	|a| x^2 + |b| y^2 + |c| z^2 < 4 |abc|.
+\]

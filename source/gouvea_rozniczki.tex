@@ -1,0 +1,37 @@
+\section{Bezmyślne różniczkowanie}	
+Metryka zadaje ciągłość.
+Niestety, w $\Q_p$ nie można pracować z przedziałami (bo ich nie ma); można jednak definiować funkcje na kulach (otwar...niętych). 
+Upośledzona definicja pozwoli nam udawać, że różniczkujemy, chociaż do przyszłego rozdziału nie będziemy tego potrafić.
+
+\begin{definicja}
+	Niech $U \subseteq \Q_p$ będzie zbiorem otwartym.
+	Funkcja $f \colon U \to \Q_p$ jest ciągła w punkcie $y \in U$, jeśli dla każdego $\varepsilon > 0$ istnieje $\delta > 0$, że ,,$|x-y| < \delta$ pociąga $|f(x) - f(y)| < \varepsilon$''.
+\end{definicja}
+
+%Jeżeli zbiór $U$ jest zwarty, to $f$ jest jednostajnie ciągła (dlaczego?).
+
+Pochodna takiej funkcji to granica ilorazów różnicowych, by zachować analogię z rzeczywistym przypadkiem.
+Użyteczność pochodnej jest jednak ograniczona.
+Wszystko przez fałszywość twierdzenia o wartości średniej w $\Q_p$.
+
+\begin{fakt} [fałszywy]
+	Jeśli funkcja $f$ jest różniczkowalna na $\Q_p$ i ma ciągłą pochodną, zaś $x,y \in \Q_p$, to istnieje taka liczba $z \in \Q_p$ postaci $\lambda x + (1-\lambda)y$ z $|\lambda| \le 1$, że $f(y) - f(x) = f'(z) (y-x)$.
+\end{fakt}
+
+\begin{proof}
+	Niech $f(t) = t^p - t$, $x = 0$, $y = 1$.
+	Nie ma takiego $z_\lambda = 1 - \lambda$ z $\lambda \in \Z_p$, żeby $f'(z_\lambda) = 0$: w takiej stuacji pochodna się odwraca (!) i nie może być zerem.
+\end{proof}
+
+\begin{fakt}
+	Istnieje różniczkowalna funkcja $\Q_p \to \Q_p$ o pochodnej wszędzie równej zero, która nie jest lokalnie stała (,,prawie stała'').
+\end{fakt}
+
+Pewnym wyjaśnieniem tego, skąd biorą się takie funkcje jest poniższy fakt (w $\Q_p$ prawdziwa jest reguła łańcucha). % G114
+
+\begin{fakt}
+	Jeśli pochodna funkcji $f$ wszędzie znika, zaś $g$ jest ciągle różniczkowalna, to pochodne złożeń $f \circ g$, $g \circ f$ są zerem (wszędzie).
+	Funkcje o tej samej pochodnej \emph{nie muszą} różnić się o stałą.
+\end{fakt}
+
+Twierdzenie o wartości średniej uratujemy później, w ślad za Robertem (po delikatnym wzmocnieniu założeń).

@@ -1,0 +1,128 @@
+\section{Cewka}
+Ciała $\R$ i $\Q_p$ połączyć można w interesującą grupę topologiczną, solenoid.
+Przedstawimy jej konstrukcję i własności.
+
+Kanoniczne homomorfizmy $\varphi_n \colon \R/p^{n+1} \Z \to \R/p^n\Z$, $x$ mod $p^{n+1} \Z$ $\mapsto$ $x$ mod $p^n \Z$ (dla $n \ge 0$) tworzą układ rzutowy $(\R/p^n \Z, \varphi_n)_{n \ge 0}$ grup topologicznych.
+
+\begin{definicja}
+	\kolorowo{Solenoid $p$-adyczny} $\mathbb S_p$ to jego rzutowa granica.
+\end{definicja}
+
+$\mathbb S_p$ jest zwartą grupą abelową.
+Mamy kanoniczne rzuty $\psi_n$, $\mathbb S_p \to \R/p^n\Z$, ciągłe homomorfizmy ,,na''. W szczególności, $\psi = \psi_0$ jest ciągłą surjekcją, zaś solenoid: nakryciem okręgu.
+
+To daje krótki ciąg dokładny $0 \to \Z_p \to \mathbb S_p \to \R/\Z \to 0$.
+Okrąg został przedstawiony jako iloraz solenoidu, zaś solenoid jako nakrycie okręgu o włóknie $\Z_p$.
+
+Powszechnie wiadomo, że każdej liczbie całkowitej $m \ge 1$ odpowiada jedyna cykliczna podgrupa rzędu $m$ w okręgu, czyli $m^{-1} \Z/\Z \subseteq \R/\Z$. Prawdą jest też następujące stwierdzenie:
+
+\begin{fakt}
+	Dla każdej całkowitej $m \ge 1$, względnie pierwszej z $p$, solenoid $\mathbb S_p$ zawiera jedyną cykliczną podgrupę $C_m$ rzędu $m$.
+\end{fakt}
+
+\begin{proof}
+	Oznaczmy przez $C_m^n$ cykliczną podgrupę rzędu $m$ w okręgu $\R/p^n \Z$. 
+	Funkcje przejścia $\varphi_n$, $\R/p^{n+1} \Z \to \R/p^n\Z$, mają jądra rzędu $p$ względnie pierwszego z $m$.
+	Indukują więc izomorfizmy $C_m^{n+1} \to C_m^n$.
+	Rzutową granicą tego stałego ciągu jest cykliczna podgrupa $C_m \subseteq \mathbb S_p$.
+	Aby udowodnić jedyność, rozpatrzmy dowolny homomorfizm $\sigma \colon \Z/m\Z \to \mathbb S_p$.
+	Złożenie $\psi_n \circ\sigma$, $\Z/m\Z \to \mathbb S_p \to \R/p^n \Z$, ma obraz w jedynej cyklicznej podgrupie $C_m^n$ okręgu $\R/p^n\Z$.
+	Zatem $\sigma$ ma obraz w $C_m$, a to kończy dowód.
+\end{proof}
+
+Podgrupę można zrzutować na okrąg: $\psi(C_m) = m^{-1} \Z/\Z$ (oczywiście zawarty w $\R/\Z$).
+Skoro $\psi^{-1} (m^{-1}\Z/\Z) \cong C_m \times \Z_p$, $C_m$ jest maksymalną skończoną podgrupą przeciwobrazu ($\psi$).
+
+\begin{fakt}
+	Solenoid $p$-adyczny $\mathbb S_p$ nie ma $p$-torsji.
+\end{fakt}
+
+\begin{proof}
+	Ustalmy morfizm $\sigma \colon \Z / p\Z \to \mathbb S_p$.
+	Wtedy poniższe złożenia są trywialne.
+	\[
+		\varphi_n \circ \psi_{n+1} \circ \sigma \colon \Z/p\Z \to \mathbb S_p\to \R/p^{n+1}\Z \to \R/p^n\Z
+	\]
+	Obraz złożenia $\psi_{n+1} \circ \sigma$ leży w jedynej cyklicznej podgrupie okręgu $\R/p^{n+1} \Z$ rzędu $p$.
+	Podgrupa ta jest jądrem morfizmu $\varphi_n$ oraz $\psi_n \circ \sigma = \varphi_n(\psi_{n+1} \circ \sigma)$.
+	Zatem nie istnieje element rzędu $p^k$, $k \ge 1$, w $\mathbb S_p$.
+\end{proof}
+
+\begin{fakt}
+	Solenoid $p$-adyczny zawiera podgrupę izomorficzną z $\R$ (gęstą), podobnie dla $\Q_p$.
+\end{fakt}
+
+\begin{proof}
+	Projekcje $f_n \colon \R \to \R/p^n\Z$ są zgodne z funkcjami przejścia układu rzutowego, którym zdefiniowaliśmy solenoid ($f_n = \varphi_n \circ f_{n+1}$).
+	Istnieje więc jedyna faktoryzacja $f \colon \R \to \mathbb S_p$.
+	Jeśli $x \neq 0 \in \R$, to gdy $p^n > x$, mamy $f_n(x) \neq 0 \in \R/p^n\Z$, a zatem $f(x) \neq 0 \in \mathbb S_p$.
+	To pokazuje, że homomorfizm $f$ jest injekcją (poza tym, $\bigcap_n \ker f_n = \bigcap_n p^n\Z = \{0\}$).
+	Obraz $f$ jest gęsty: obrazy $f_n$ (które są ,,na'') też są.
+	Rozpatrzmy podgrupy $H_k$, $\psi^{-1}(p^{-k} \Z/\Z) \subset \mathbb S_p$.
+	Mamy $H_0 = \Z_p$, a to jest podgrupa indeksu $p^k$ w $H_k$: $H_k = \varprojlim_n p^{-k}\Z / p^n\Z \cong p^{-k}\Z_p$.
+	Zatem
+	\[
+		\Q_p \cong \psi^{-1}(\Z[1/p] / \Z) = \bigcup \psi^{-1} (p^{-k}\Z/\Z) = \bigcup H_k,
+	\]
+	a to jest podzbiór $\mathbb S_p$.
+	Gęstość tej podgrupy wynika z gęstości wszystkich obrazów
+	$
+		\psi_n (\Q_p) = \Z[1/p] / p^n \Z \subset \R/p^n\Z$.
+\end{proof}
+
+Dzięki temu mamy prosty wniosek:
+
+\begin{fakt}
+	Solenoid jest continuum (zwarty i spójny).
+\end{fakt}
+
+\begin{proof}
+	Wiemy z topologii, że gdy $A \subseteq X$ jest spójny, to każdy $B \subseteq X$, że $A \subseteq B \subseteq \operatorname{cl} A$, też.
+	Weźmy za $A$ podprzestrzeń (spójną) $f(\R) \subseteq \mathbb S_p$, która jest gęsta w solenoidzie.
+\end{proof}
+
+Na zakończenie przedstawimy solenoid jako \emph{linę, która jest bardzo skręcona}.
+Ciąg homomorfizmów ciągłych
+\[
+	f_n \colon \R \times \Q_p \to \R / p^n \Z \colon (t, x) \mapsto t + \sum_{i < n} a_i p^i \pmod{p^n\Z }
+\]
+jest zgodny z układem rzutowym, więc możemy faktoryzować go do $f (t, x) = t + x \colon \R \times \Q_p \to \mathbb S_p$.
+
+\begin{lemat}
+	Jądrem  morfizmu $f$ jest dyskretna podgrupa $\R \times \Q_p$, $\Gamma = \{(a, -a) : a \in \Z[1/p]\} \subseteq \R \times \Q_p$.
+\end{lemat}
+
+\begin{proof}
+	Jeśli $f(t, x) = 0$, to $f_n(t, x) = \psi_n \circ f(t, x) = 0 \in \R/\Z$, a stąd wynika, że $t + \sum_{i < n} a_o p^i \in p^n\Z$ dla $n \ge 1$, czyli $t = -x$.
+	Zawieranie $\Gamma \subseteq \ker f$ jest oczywiste.
+
+	Dla pokazania dyskretności wystarczy wskazać otoczenie zera w produkcie $\R \times \Q_p$, które kroiłoby trywialnie $\Gamma$.
+	Jeśli para $(-a, a)$ leży w otwartym zbiorze $(-1, 1) \times \Z_p$ i $\Gamma$, to $a \in \Z[1/p]$ jest postaci $\sum_{i \ge 0} a_i p^i$.
+
+	Ale $\Z[1/p]$ kroi się z $\Z_p$ do $\Z$, więc $a \in \Z \cap (-1, 1) = \{0\}$ i dowód jest zakończony.
+\end{proof}
+
+\begin{fakt}
+	$\mathbb S_p$ jest izomorficzny (algebraicznie jak i topologicznie) z ilorazem $\R \times \Q_p$ przez $\Gamma$ (przez izomorfizm $f'$).
+\end{fakt}
+
+\begin{proof}
+	Wszystkie funkcje $f_n$ są surjekcjami, zaś obraz granicy $f$ jest gęsty.
+	Ponadto $f(t, x) = f(s, y)$, gdzie $s = t + \langle x \rangle \in \R$ i $y = [x] \in \Z_p$.
+	Pójdźmy o krok dalej, $f(s, y) = f(u, z)$, gdzie $u = s - [s] \in [0, 1)$ i $z = y + [s] \in \Z_p$.
+	To pokazuje, że obraz $f$, $f([0, 1] \times \Z_p)$, jest zwarty, domknięty.
+
+	Stąd wnioskujemy, że $f$ jest ,,na'', zaś $f'$ to bijekcja.
+	Ciągła bijekcja $f'$ między p. zwartymi awansuje do homeomorfizmu: iloraz Hausdorffa ($\Gamma$ jest dyskretna, domknięta) to także obraz zwartego $[0,1] \times \Z_p$.
+\end{proof}
+
+Solenoid to także iloraz topologicznej przestrzeni $[0, 1] \times \Z_p$ przez relację równoważności $(1, x) \simeq (0, x+1)$.
+Wyobraźmy sobie walec $[0,1] \times \Z_p$ i zszyjmy końce skręcając je jednocześnie.
+
+\begin{fakt}
+	Domknięte podgrupy $\mathbb S_p$ to $C_m$, $C_m \times p^k\Z_p$ i $\mathbb S_p$, gdzie $p \nmid m$ i $k \in \Z$.
+\end{fakt}
+
+\begin{fakt}
+	Solenoid jest nierozkładalnym continuum.
+\end{fakt}

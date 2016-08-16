@@ -1,0 +1,77 @@
+\section{Szereg dwumianowy}
+% Gouvea - około strony 123
+Zajmiemy się wreszcie szeregami dwumianowymi (warto się zapoznać z treścią sekcji \ref{sekcjalog} i \ref{sekcjateich}).
+W $\R$ funkcję $(1+x)^\alpha$ można rozwinąć w szereg potęgowy zbieżny dla $|x| < 1$:
+\[
+	(1+x)^\alpha = B(\alpha, x) = \sum_{n = 0}^\infty {\alpha \choose n} x^n.
+\]
+
+Szereg ten jest kandydatem na $p$-adyczny wariant funkcji potęgowej, ciekawszy dla $\alpha \in \Z_p$ niż dla $\alpha \in \Q_p$.
+Ustalmy $\alpha$.
+Co możemy powiedzieć o współczynnikach szeregu $B$?
+
+\begin{fakt}
+	Jeśli $\alpha \in \Z_p$ i $n \ge 0$, to $(\alpha \textrm{ nad } n) \in \Z_p$.
+	Jeżeli do tego $|x| < 1$, to szereg $B(\alpha, x)$ jest zbieżny.
+\end{fakt}
+
+\begin{proof}
+	Dla każdego $n$ rozpatrzmy wielomian
+	\[
+		P_n(x) = \prod_{k = 0}^{n-1} \frac{x - k}{k+1} \in \Q[x].
+	\]
+	Wielomiany określają ciągłe funkcje $\Q_p \to \Q_p$.
+	%Wiemy, że $C^m_n$ dla $m,n \in \Z_+$ jest liczbą całkowitą, zatem dla $\alpha \in \Z_+$ jest $P_n(\alpha) = C_n^\alpha \in \Z$.
+	Wiemy, że dla $\alpha \in \Z_+$ mamy $P_n(\alpha) \in \Z$.
+	Obraz $\Z_+$ przez $P_n$ leży w $\Z$, więc po domknięciu uzyskujemy upragnione  $P_n[\Z_p] \subseteq \Z_p$.
+\end{proof}
+
+Z równości formalnych szeregów potęgowych wynika, że dla $\alpha = a/b \in \Z_{(p)}$ i $|x| < 1$ prawdziwa jest równość między $(1+x)^a$ oraz $(B(a/b, x))^b$, co nadaje sensu definicji:
+
+\begin{definicja}
+	$(1 + x)^{a/b} : = B(a/b, x)$.
+\end{definicja}
+
+Chciałoby się przyjąć dla dowolnej $\alpha \in \Z_p$ oraz $x \in p\Z_p$, że $(1+x)^\alpha = B(\alpha, x)$.
+Problem w tym, że $p$-adyczna funkcja $B(a/b, x)$ nie zachowuje się jak jej rzeczywisty odpowiednik, nawet gdy $x$ jest wymierny i $1+x$ jest $b$-tą potęgą w $\Q$!
+
+\begin{przyklad}[Koblitz]
+	Jeśli $p = 7$, $\alpha = 1/2$, $x = 7/9$, to w $\R$ pierwiastek z $1+x$ jest równy $4/3$, ale w $\Q_7$ nie: $|x| = 1/7$, więc dla $n \ge 1$ jest $|(1/2 \textrm{ nad } n) x^n| \le |x|^n = 7^{-n} < 1$.
+	To pociąga za sobą $(1+ x)^{1/2} \in 1 + 7 \Z_7$, a także $|(1+x)^{1/2} - 1| < 1$, lecz $|4/3 - 1| = 1$, więc to $-4/3$ jest pierwiastkiem z $1+x$.
+\end{przyklad}
+
+Ten sam szereg o wymiernych wyrazach może zbiegać w $\R$ i $\Q_p$, ale mieć różne granice (nawet, jeśli obie są wymierne), ponieważ topologie są znacząco różne.
+Na szczęście wartość $B(\alpha, x)$ nie zależy od wyboru ciała, gdy $x \in \Q$ oraz $\alpha \in \Z$.
+
+Interesujący wynik dotyczący szeregów $p$-adycznych i ich zbieżności przedstawiony jest w sekcji \ref{burger} na podstawie pracy Burgera i Struppecka z 1996 roku.
+
+
+\begin{fakt}
+	Niech $1+x$ będzie kwadratem $\frac ab$, gdzie $a, b > 0$ są względnie pierwsze, zaś $S$ to zbiór tych pierwszych liczb, dla których szereg $B(1/2,x)$ zbiega w $\Q_p$ (lub $\Q_\infty = \R$).
+	\begin{enumx}
+		\item Jeśli $p$ jest nieparzystą pierwszą, to $p \in S$, wtedy i tylko wtedy gdy $p$ dzieli $a+b$ (wtedy $B(1/2,x) = -a/b$) lub $a-b$ ($a/b$).
+		\item Dalej, $2 \in S$, wtedy i tylko wtedy gdy $2 \nmid ab$; granicą w $\Q_2$ jest $a/b$ (gdy $4 \mid a - b$) lub $-a/b$ (jeśli $4 \mid a + b$).
+		\item Wreszcie $\infty \in S$ wtedy i tylko wtedy, gdy $0 < a/b < \sqrt{2}$, suma w $\R$ będzie zawsze równa $a/b$.
+		\item Zbiór $S$ jest zawsze niepusty.
+		Dla $x \in \{8, 16/9, 3, 5/4\}$ ma dokładnie jeden element.
+		\item Dla innych $x$ zawsze znajdą się dwie $p, q \in S$, że suma w $\Q_p$ jest różna od tej w $\Q_p$.
+	\end{enumx}
+\end{fakt}
+
+\begin{proof}
+	Szczególny przypadek twierdzenia Bombieriego.
+\end{proof}
+
+Wygląda na to, że dwa poniższe stwierdzenia pochodzą od samego Koblitza, jednak brakuje im dowodu.
+
+\begin{fakt}
+	Szeregu dwumianowy $B(\alpha, x)$ ma tę samą wartość w ciałach $\Q_p$ i $\R$ (między innymi) dla:
+	\begin{itemx}
+	\item $\alpha = -n \in - \N$ oraz $x = -p / (p+1)$.
+	\item $\alpha = 1/2$ oraz $xm^2 = p^2 + 2mp$, $m > (\sqrt 2 + 1)p$, $p \nmid m$.
+	\end{itemx}
+\end{fakt}
+
+\begin{fakt}
+	Szereg dwumianowy $B(1/2, p/n^2)$ zbiega do różnych, ale wymiernych liczb w $\Q_p$ i $\R$ dla (na przykład) $p = 2n+1 \ge 7$.
+\end{fakt}

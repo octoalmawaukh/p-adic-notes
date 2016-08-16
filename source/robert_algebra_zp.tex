@@ -1,0 +1,42 @@
+\section{Pierścień $\Z_p$}
+\begin{fakt}
+	Pierścień $\Z_p$ nie ma dzielników zera.
+\end{fakt}
+
+\begin{proof}
+	Ustalmy liczby $a, b \in \Z_p$ różne od zera.
+	Wtedy $p$ nie dzieli iloczynu $a_vb_w$, gdzie $v = v_p(a)$, $w = v_p(b)$, ale to jest właśnie pierwszy niezerowy współczynnik w rozwinięciu $ab$, zatem $ab \neq 0$.
+\end{proof}
+
+Niech $\mathbb F_p = \Z / p\Z$. Odwzorowanie $\sum_i a_ip^i \mapsto a_0 \pmod p$ jest homomorfizmem pierścieni, \kolorowo{redukcją modulo $p$}.
+Iloraz jest ciałem, więc jądro $p\Z_p$ jest ideałem maksymalnym w $\Z_p$.
+
+\begin{fakt}
+	Grupa $\Z_p^\times$ składa się z $p$-adycznych liczb całkowitych rzędu zero ($a_0 \neq 0$).
+\end{fakt}
+
+\begin{proof}
+	Jeśli $p$-adyczna l. całkowita odwraca się, to jej redukcja w $\mathbb F_p$ również.
+	Ustalmy więc $x \in \Z_p$ rzędu zero.
+
+	Skoro redukcja $x$ w ciele $\mathbb F_p$ nie jest zerem, to odwraca się i możemy wskazać $0 < y_0 < p$, że $x_0 y_0 =  1+  kp$ dla pewnej liczby $k$.
+	Przyjmijmy, że $x = x_0 + p \alpha$, wtedy $xy_0 = 1 + p \beta$ (gdzie $\beta \in \Z_p$), a taką liczbę łatwo odwrócić, co jakoś kończy rozumowanie.
+	\[
+		(1+p\beta)^{-1} = 1 - \beta p + \beta^2p^2 - \ldots \qedhere
+	\]
+\end{proof}
+
+Pierścień $\Z_p$ ma jeden ideał maksymalny, $p \Z_p = \Z_p \setminus \Z_p^\times$.
+Dokładniej: $\Z_p \setminus \{0\}$ to $\coprod_{k \ge 0} p^k \Z_p^\times$.
+Ideały główne pierścienia $\Z_p$, $p^k \Z_p$, kroją się do $\{0\}$.
+
+\begin{fakt}
+	Pierścień $\Z_p$ jest dziedziną ideałów głównych (nie ma innych ideałów niż wyżej wymienione).
+\end{fakt}
+
+\begin{proof}
+	Ustalmy  niezerowy ideał $I \le \Z_p$ z elementem $x \in I$ o minimalnym rzędzie, $k$.
+	Wtedy $x = p^k u$, gdzie $u$ to jedność i $(p^k) \subseteq I$, gdyż $p^k = u^{-1} x$.
+	Niechaj $y \in I$ będzie rzędu $l \ge k$.
+	Wtedy druga inkluza wynika z $y = p^l u' = p^k p^{l-k} u'$.
+\end{proof}

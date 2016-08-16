@@ -1,0 +1,61 @@
+\section{Algebraiczne spojrzenie na $\|\cdot\|$}
+Niech $\cialo$ będzie ciałem, na którym mamy niearchimedesowską wartość bezwzględną $\|\cdot\|$.
+
+\begin{definicja}
+	Pierścień waluacji $\cialo$ to $\mathcal O = \mathcal B[0,1]$, ideałem zaś jest $\mathfrak p = \kula(0, 1)$.
+\end{definicja}
+
+\begin{fakt}
+	Ideał $\mathfrak p \triangleleft \mathcal O$ jest maksymalny, podpierścień $\mathcal O \le \cialo$ też.
+\end{fakt}
+
+\begin{proof}
+	Pokażemy najpierw nie wprost, że $\mathcal O$ to maksymalny podpierścień.
+	Jeżeli podpierścień $\pierscien$ zawiera element $x$, taki że $|x| > 1$, to sam jest całym ciałem, gdyż $\cialo = \bigcup_{n \ge 1} x^n \mathcal O$.
+
+	Każdy ideał większy od $\mathfrak p$ musi zawierać jedność, a przez to pokrywać się z pierścieniem $\mathcal O$.
+\end{proof}
+
+\begin{definicja}
+	Ciało $\mathfrak K = \mathcal O / \mathfrak P$ to ciało residuów.
+\end{definicja}
+
+Pierścienie, w których ideał maksymalny jest tylko jeden, nazywamy lokalnymi.
+
+\begin{fakt}
+	Dla ciała $\mathcal K = \Q$ i $p$-adycznej wartości bezwzględnej,
+	$\mathcal O = \Z_{(p)}$,
+	$\mathfrak p = p \Z_{(p)}$, zaś
+	$\mathfrak K = \mathbb F_p$ (ciało o $p$ elementach).
+	\[
+		\Z_{(p)} = \left\{ \frac a b \in \Q : p \nmid b\right\}
+	\]
+\end{fakt}
+
+
+\begin{fakt} \label{libresoy}
+	Niech $\cialo$ będzie zupełnym ciałem z ultrametryką.
+	Ustalmy element $\xi \in \mathfrak p$ i reprezentantów $S \subseteq \mathcal O$ (z zerem) dla klas $\mathcal O / \xi \mathcal O$.
+	Każdy $x \in \cialo^*$ jest sumą $\sum_{i \ge m} a_i \xi^i$, gdzie $a_m \neq 0$ oraz ($m \ge 0$ dla $x \in \mathcal O$), więc $\mathcal O$ jest izomorficzne z $\varprojlim \mathcal O / \xi^n \mathcal O$.
+\end{fakt}
+
+\begin{proof}
+	Możemy znaleźć dokładnie jeden $a_0 \in S$, taki że $x - a_0$ leży w $\xi \mathcal O$. 
+	Indukcja daje $x = a_0 + \ldots + a_{n-1} \xi^{n-1} + x_n \xi^n$, gdzie $a_i \in S$, $x_n \in \mathcal O$.
+	Ciąg $x - x_n \xi^n$ jest Cauchy'ego, zaś dla $x \in \cialo$ mamy $|\xi^k x| \le 1$ ($k$: jakieś).
+\end{proof}
+
+Kiedy $\cialo$ nie jest zupełne, izomorfizm z faktu staje się tylko zanurzeniem w uzupełnienie $\mathcal O$.
+
+\begin{fakt} %Robert, strona 135
+	Dla niedyskretnego ciała $\cialo$ z ultrametryką albo $\mathfrak p$ jest główny, albo $\mathfrak p = \mathfrak p^2$ i $\mathcal O$ nie jest noetherowski.
+\end{fakt}
+
+\begin{proof}
+	Z założeń wiemy, że $\Gamma = |\cialo^\times| \neq \{1\}$ i albo $\Gamma \cap (0, 1)$ zawiera element maksymalny $\theta$, albo ciąg zbieżny do jedynki.
+
+	W pierwszym przypadku wybieramy taki $\pi \in \mathfrak p$, że $|\pi| = \theta$, wtedy ideał $\mathfrak p = \pi \mathcal O$ jest główny.
+
+	W drugim, dla każdego $x \in \mathfrak p$ znajdujemy element $y$, że $|x| < |y| < 1$, wtedy $x = y (x/y) \in \mathfrak p^2$ i $\mathfrak p = \mathfrak p^2$.
+	Podgrupa $\Gamma$ leży gęsto w $\R_+$, zaś ideały $B[0, r]$ dla $r \in \Gamma \cap (0,1)$ są parami różne, więc $A$ nie jest noetherowski.
+\end{proof}

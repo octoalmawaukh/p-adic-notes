@@ -1,0 +1,93 @@
+\section{Szeregi potęgowe}
+Będziemy rozważać szeregi potęgowe, $f(x) = \sum_n a_n x^n$.
+Dla $x \in \Q_p$ wyrażenie $f(x)$ ma sens, o ile $|a_n x^n | \to 0$.
+Nie mamy przy tym zamiaru odróżniać $x$ od $X$!
+
+\begin{fakt}
+	Szereg $\sum_n a_n x^n$ zbiega na różnych dyskach, których promień zależy od $R$, odwrotności $\limsup |a_n|^{1:n}$.
+	\begin{enumx}
+	\item jeśli $R = 0$, to $f$ zbiega tylko w $x = 0$.
+	\item jeśli $R = \infty$, to $f$ zbiega wszędzie na $\Q_p$.
+	\item jeśli $R > 0$ i $\lim_{n \to \infty} |a_n| R^n = 0$, to $f$ zbiega dla $|x| \le R$.
+	\item w przeciwnym przypadku $f$ zbiega dokładnie dla $|x| < R$.
+	\end{enumx}
+\end{fakt}
+
+\begin{proof}
+	Wiadomo dobrze, jaki zbiór jest obszarem zbieżności: $\{x \in \Q_p : \lim_{n \to \infty} |a_n x^n| = 0\}$.
+	Oczywiście $f(0)$ jest zbieżny.
+	Jeśli $|x| < R $, to (rzeczywisty) szereg potęgowy $\sum_n |a_n| |x|^n$ jest zbieżny.
+	Jeśli zaś $|x| > R $, to $|a_n| |x|^n$ nie może zbiegać do zera przy $n$ dążącym do nieskończoności: nieskończenie często $|a_n|$ jest blisko $R ^{-n}$, więc $(|x|/R )^n$ może być dowolnie duże.
+	Przypadek $|x| = R $ jest konsekwencją faktu \ref{ingentis}.
+\end{proof}
+
+Szeregi $p$-adyczne szeregi zachowują się porządniej niż ich zespoleni koledzy.
+Tam zbieżność na brzegu dysku $\{|x| = R \}$ jest nieprzewidywalna, tutaj brzegu po prostu nie ma.
+
+Formalne szeregi potęgowe można dodawać i mnożyć.
+
+\begin{fakt}\label{decoris}
+	Jeżeli szeregi potęgowe $f, g$ nad $\Q_p$ zbiegają w punkcie $x$, to $f+g$ oraz $fg$ również -- odpowiednio do $f(x) + g(x)$ i $f(x)g(x)$.
+\end{fakt}
+
+Przyjrzymy się teraz formalnym złożeniom, które (o dziwo) zachowują się zaskakująco często gorzej niż źle.
+Będziemy więc pracować z szeregami: $f(x) = \sum_n a_n x^n$ i $g(x) = \sum_n b_n x^n$, przy czym $b_0 = 0$, by napis $f(g(x))$ miał sens (niezależnie od topologii).
+Przez formalne złożenie rozumiemy
+\[
+	h(x) = (f \circ g)(x) = \sum_{n = 0}^\infty a_n g(x)^n = \sum_{n = 0}^\infty c_n x^n.
+\]
+
+Współczynniki $c_n$ są jawnie opisane przez wielomiany Bella, ale te akurat nie będą dla nas przesadnie przydatne.
+
+\begin{fakt}[złoty] \label{auctoris}
+	Jeśli $g(x)$ zbiega, $f(g(x))$ zbiega i dla każdego $n$ jest $|b_n x^n| \le |g(x)|$, to $h(x)$ też zbiega, do $f(g(x))$.
+\end{fakt}
+
+\begin{proof}
+	Podamy dowód za \cite{hasse80}, książką Hassego (rozdział 17).
+	Niech $g(x)^m = \sum_{n = m}^\infty d_{m, n} x^n$.
+	Pozwala to na napisanie $h(x)$ jawnie: $h(x) = a_0 + \sum_{n = 1}^\infty \sum_{m = 1}^n a_m d_{m, n} x^n$.
+
+	Niestety, ale musimy: $d_{m, n} = \sum_{i_1 + \ldots + i_m = n} \prod_{k = 1}^m b(i_k)$.
+
+	Szereg $g(x)$ jest zbieżny, więc fakt  \ref{decoris} pozwala powiedzieć, że $g(x)^m$ zbiega do $g(x)^m$ (jeden szereg jest formalny, drugi nie!).
+	Co ciekawsze, dla każdego $n$ mamy $|d_{m,n}x^n| \le |g(x)^m|$.
+	Jeżeli $n \ge m$, to nierówność ultrametryczna daje
+	\[
+		|d_{m,n}x^n| \le \max_{\mbox{,,}i\mbox{''}} \prod_{k \le m} |b_{i_k} x^{i_k}| \le \prod_{k \le m} |g(x)| = |g(x)^m|,
+	\]
+	kiedy $i_1 + \ldots + i_m = n$ (dzięki $|b_{ij} x^{ij}| \le |g(x)^m|$).
+	Jeżeli $n < m$, to nie ma czego dowodzić: $d_{m,n}x^n = 0$.
+	Wiemy już, że $g(x)$, $g(x)^m$ oraz $f(g(x))$ zbiegają.
+	Zapiszmy w takim razie
+	\begin{align*}
+	 	f(g(x))	& = a_0 + \sum_{m \ge 1} \sum_{n \ge m} a_m d_{m,n}x^n,\\
+		h(x) & = a_0 + \sum_{n \ge 1} \sum_{m \ge 1} a_md_{m,n} x^n.
+	\end{align*}
+
+	Aby uzasadnić poprawność zamiany kolejności sumowania powołamy się na fakt \ref{caedis} i oszacujemy $a_md_{m,n}x^n$.
+
+	Wiemy przede wszystkim, że $|a_md_{m,n}x^n| \le |a_mg(x)^m|$: prawa strona nie zależy od $n$.
+	Ustalmy $\varepsilon > 0$.
+	Możemy wybrać indeks $N$, taki że $m \ge N$ pociąga $|a_mg(x)^m| < \varepsilon$.
+	To pokazuje, że $a_md_{m,n}x^n \to_m 0$ jednostajnie względem $n$.
+
+	Z drugiej strony, dla każdego $m$ szereg $g(x)^m$ jest zbieżny, zatem jego wyraz ogólny zbiega do zera: $a_m d_{m,n}x^n \to 0$.
+\end{proof}
+
+Leniwi mogą nie sprawdzić założeń i nadepnąć na minę, co świetnie ilustruje poniższy przykład.
+To ciekawe, że zwykła analiza łatwiej radzi sobie z tym problemem: jeśli promieniem zbieżności $f(x)$ jest $R $ i $|g(x)| < R $, to $h(x)$ zbiega do $f(g(x))$.
+
+\begin{przyklad}\label{leniwy}
+	Niech $g(x) = 2x^2 - 2x$ i $h(x) = (f \circ g)(x)$, gdzie $f(x) = \sum_{k \ge 0} \frac{1}{k!} x^k$.
+	Można pokazać, że $f$ zbiega dokładnie na $4 \Z_2$, zaś $g$ wszędzie (gdyż jest wielomianem).
+	Mamy oczywiście $f(g(1)) = 1$.
+	Niech $h(x) = \sum_n a_n x^n$.
+	
+	Jeżeli $n \ge 2$, to $v_2(a_n)$ wynosi co najmniej $1 + n / 4$, czyli $h$ zbiega na $\Z_2$.
+	Niestety, $h(1) \equiv 3 \pmod {4}$ i $h(1) \neq f(g(1))$.
+\end{przyklad}
+
+\begin{fakt}
+	Formalna pochodna (czyli $\sum a_n x^n \mapsto \sum_n na_n x^{n-1}$) współpracuje z dodawaniem, mnożeniem i składaniem: jest operatorem liniowym, prawdziwe są dla niej reguły: Leibniza oraz łańcuchowa.
+\end{fakt}

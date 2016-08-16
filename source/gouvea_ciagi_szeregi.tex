@@ -1,0 +1,179 @@
+\section{Ciągi oraz szeregi}
+W ciele $\Q_p$ marzenia stają się prawdziwe:
+
+\begin{fakt}
+	Ciąg $(x_n)$ o wyrazach w $\Q_p$ jest Cauchy'ego, wtedy i tylko wtedy gdy zachodzi $\lim_{n\to \infty}|x_{n+1} - x_n| = 0$.
+\end{fakt}
+
+\begin{proof}
+	Jeśli $m = n+r > n$, to $|x_m - x_n|$ można oszacować z góry,
+	$\left|\sum_{k = 1}^r x_{n+k} - x_{n+k-1}\right| \le \max_{1 \le k \le r} |x_{n+k}-x_{n+k-1}|$,
+	bo wartość bezwzględna jest niearchimedesowa.
+\end{proof}
+
+Zbieżność absolutna szeregu pociąga jego zbieżność, w ciele liczb $p$-adycznych zachodzi jednak jeszcze mocniejszy fakt.
+
+\begin{fakt} \label{ingentis} %zielony
+	Zbieżność szeregu $\sum_n x_n$ o wyrazie ogólnym z $\Q_p$ jest równoważna zbieżności $x_n$ do $0$.
+	Prawdziwe jest wtedy oszacowanie $|\sum_{n \ge 0} x_n| \le \max_n |x_n|$.
+\end{fakt}
+
+\begin{proof}
+	Implikacja w prawo jest oczywista.
+	Dla dowodu w lewo wynikania wystarczy zauważyć, że wyraz $x_n$ to różnica między dwoma sumami częściowymi i powołać się na poprzedni fakt.
+
+	Nierówność wynika z
+	\[
+		\left|\sum_{n = 0}^{N-1} x_n + \sum_{n = N}^\infty x_n\right| \le \max_{n < N} |x_n| + \left|\sum_{n = N}^\infty x_n\right|,
+	\] gdzie drugi składnik znika w nieskończoności.
+\end{proof}
+
+\begin{wniosek}
+	Szereg z poprzedniego faktu zbiega bezwarunkowo, ale niekoniecznie bezwzględnie.
+\end{wniosek}
+
+\begin{proof}
+	Nałożenie permutacji na wyrazy szeregu nie psuje ich zbieżności do zera.
+
+	Nie każdy szereg zbiega jednak bezwzględnie, wystarczy dodać do siebie $p^k$ sztuk liczby $p^k$ dla $k \ge 0$.
+	Nałożenie normy zmusza do wysumowania $1 + 1 + 1 + \ldots$, ale zwykłą sumą graniczną jest odwrotność $1 - p^2$, żyjąca w każdym $\Q_p$.
+\end{proof}
+
+Aby zająć się podwójnymi sumami, potrzebujemy czegoś więcej niż tylko zbieżność do zera.
+
+\begin{definicja}
+	Jeśli dla każdej dodatniej liczby $\varepsilon$ istnieje całkowita $N$ niezależna od $k$, że $i \ge N$ pociąga $|x_{ik}| < \varepsilon$, to $\lim_{i \to \infty} x_{ik} = 0$ jednostajnie względem $k$.
+\end{definicja}
+
+\begin{lemat} \label{veteris}
+	Załóżmy, że $x_{ik} \in \Q_p$, $\lim_{k \to \infty} x_{ik} = 0$ (dla każdego $i$), $\lim_{i \to \infty} x_{ik} = 0$ jednostajnie względem $k$.
+	Wtedy każdemu $\varepsilon > 0$ odpowiada $N$, że $\max \{i, k\} \ge N$ pociąga $|x_{ik}| < \varepsilon$.
+\end{lemat}
+
+\begin{proof}
+	Ustalmy $\varepsilon$.
+	Drugi warunek zapewnia $N_0$ (zależne tylko od $\varepsilon$), że $|x_{ik}| < \varepsilon$ dla $i \ge N_0$.
+	Pierwszy zaś dla każdego $i$ daje $N_1$, dla którego $k \ge N_1$ pociąga $|x_{ik}| < \varepsilon$.
+	Wystarczy przyjąć $N = \max\{N_0, N_1(0), N_1(1), \ldots, N_1(N_0-1)\}$.
+\end{proof}
+
+\begin{fakt} \label{caedis}
+	Przy założeniach z lematu \ref{veteris} poniższe szeregi zbiegają do tej samej liczby: $\sum_{i = 0}^\infty \sum_{k = 0}^\infty x_{ik} = \sum_{k = 0}^\infty \sum_{i = 0}^\infty x_{ik}$.
+\end{fakt}
+
+\begin{proof}
+	Lemat mówi, że każdemu $\varepsilon > 0$ odpowiada liczba $N$, dla której ,,$\max \{i, k\} \ge N$ pociąga $|x_{ik}| < \varepsilon$''.
+	Skoro ciąg $x_{ik}$ zbiega do zera po ustaleniu jednego z indeksów, to oba szeregi wewnętrzne są zbieżne.
+
+	Dla $i \ge N$ mamy $|\sum_{k \ge 0} x_{ik}| \le \max_k |x_{ik}| < \varepsilon$ na mocy faktu \ref{ingentis}, podobna nierówność prawdziwa jest dla $k \ge N$.
+	
+	Wnioskujemy stąd, że podwójne szeregi także zbiegają, bo
+	\[
+		\lim_{i \to \infty} \sum_{k \ge 0} x_{ik} = \lim_{k \to \infty} \sum_{i \ge 0} x_{ik} = 0.
+	\]
+
+	Pozostało nam uzasadnić, że sumy są sobie równe.
+
+	Pozostańmy przy $N$, $\varepsilon$ wybranych wcześniej.
+	Oznacza to, że $|x_{ik}| < \varepsilon$, gdy $i \ge N$ lub $k \ge N$.
+	Zauważmy, że 
+	\[
+		\Bigl|\sum_{i, k \ge 0} x_{ik} - \sum_{i, k \le N} x_{ik} \Bigr| = 
+		\Bigl|\sum_{i \le N} \sum_{k > N} x_{ik} + \sum_{i > N} \sum_{k \ge 0} x_{ik} \Bigr|.
+	\]
+	Jeśli więc $k \ge N+1$, to $|x_{ik}| < \varepsilon$ dla każdego $i$, zatem pierwszy składnik pod wartością bezwzględną można (ultrametrycznie) oszacować z góry przez $\varepsilon$; podobnie szacuje się drugi składnik. Oczywiście zamiana $i, k$ miejscami nic nie psuje, więc możemy je przestawić i wywnioskować stąd równość sum.
+\end{proof}
+
+\begin{fakt}
+	Załóżmy zbieżność szeregów $\sum_i x_i$, $\sum_i y_i$.
+	Zachodzi wtedy: $\sum_i x_i + y_i = \sum_i x_i + \sum_i y_i$, a także
+	\[
+		\sum_{i = 0}^\infty \sum_{k = 0}^i x_k y_{i-k} = \Bigr[\sum_{i = 0}^\infty x_i\Bigr] \cdot \Bigr[ \sum_{i = 0}^\infty y_i\Bigr].
+	\]
+\end{fakt}
+
+Wyznaczymy teraz wartość kilku szeregów $p$-adycznych.
+Fenomen związany z ich nieoczekiwanymi granicami wyjaśnić się może  po lekturze ostatniego ustępu w tym rozdziale, gdzie przytoczymy zaskakujący wynik Burgera i Struppecka.
+
+\begin{fakt}
+	Jeżeli $k > 0$, to $\sum_{n \ge 0} n^k p^n$ jest wymierne w $\Q_p$.
+\end{fakt}
+
+\begin{proof}
+	Wynika to z równości szeregów formalnych
+	\[
+		\sum_{n = 0}^\infty n^k x^n = \left(x \cdot \partial_x\right)^k \frac{1}{1-x}.
+	\]
+	Szereg stojący po lewej stronie to specjalny przypadek funkcji $\zeta$ Hurwitza-Lercha, ale nam wystarczy wiedza o wielomianach Eulera. Okazuje się (skoro $|p| = 1 / p < 1$), że 
+	\[
+		\sum_{n = 0}^\infty n^k p^n = \sum_{n = 1}^k \left\{\begin{matrix} k \\ n \end{matrix}\right\} \cdot  \frac{p \cdot n!}{(p-1)^{n+1}},
+	\]
+	gdzie $\{\cdot, \cdot\}$ to (nieznakowana) druga licza Stirlinga.
+\end{proof}
+
+Łatwo pokazać jest, że $\sum_{n \ge 0} n \cdot n! = -1$ w każdym z ciał $\Q_p$, gdyż suma ta jest ,,teleskopowa'': $n \cdot n! = (n+1)! - n!$.
+Nieco więcej wysiłku wymaga powtórzenie osiągnięć van Hamme'a, któremu Schikhof przypisuje równości:
+$\sum_{n \ge 1} n^2 (n+1)! = 2$, 
+$\sum_{n \ge 1} n^5 (n+1)! = 26$,
+$\sum_{n \ge 1} 4^{-n-1} \cdot n^2(n+1)! = -1$.
+
+\begin{fakt}
+	Wszystkie one są prawdziwe w $\Q_p$, przy czym ostatnia wymaga $p \neq 2$.
+\end{fakt}
+
+\begin{proof}
+	Ostatnia równość jest fałszywa (u Schikhofa), musiała więc zostać delikatnie poprawiona.
+	Dla $p = 2$ szereg po lewej stronie nie jest nawet zbieżny.
+	Podamy jedynie sumy częściowe (do $n = m$), które uważny Czytelnik może zweryfikować:
+	\begin{align*}
+	2 & + (m+2)! (m-1) \\
+	26 & + (m+2)! (m^4 - m^3 - 3m^2 +12m-13) \\
+	- 1 & + (m + 2)! (m + 2) : 4^{m+1}. \qedhere
+	\end{align*}
+\end{proof}
+
+Spróbujemy teraz związać dwa ostatnie szeregi ze światem poza-$p$-adycznym.
+Dla każdego $n$ istnieją (jedyne) liczby $a_n$, $b_n$ oraz wielomian $p_n(x)$, że (przy niefortunnej notacji!)
+\[
+	%\sum_{i = 1}^k (i^n - a_n) (i+1)! = (k+2)! \cdot p_n(k) + b_n.
+	\sum_{i = 1}^k i^n (i+1)! = (k+2)! \cdot p_n(k) + b_n + \sum_{i = 1}^k a_n (i+1)!.
+\]
+
+Jeżeli $a_n = 0$, to lewa strona dąży do $b_n$ w $\Q_p$, ale niestety nie są znane żadne $n$ inne niż $2$ i $5$, które spełniają ten warunek.
+Ciągi 074051 i 074052 w bazie danych OEIS zawierają więcej informacji.
+Wykładnicza tworząca $a_n$ to $\exp(1-2x-e^{-x})$.
+
+Problem wymierności liczby $x = \sum_n n!$ pozostaje otwarty w każdym ciele $\Q_p$.
+Wymierna wszędzie nie może jednak być: po pierwsze, nie zależałaby od $p$, po drugie, byłaby całkowita.
+
+\begin{fakt}
+	Mamy $x_k := \sum_{n \ge 1} n^k \cdot n! = v_k - u_k x$, $v_k, u_k \in \Z$.
+\end{fakt}
+
+\begin{lemat}
+	$\sum_{n \ge 1} (n+k)! - n! = - \sum_{n\le k} n!$.
+\end{lemat}
+
+Wykorzystamy notację Murty'ego i Sumner.
+
+\begin{proof}
+Rozwinięcie obu stron lematu daje $\sum_n n^2 \cdot n! = -x$ (dla $k = 2$), przypadek $k = 1$ rozważaliśmy wcześniej.
+Teraz wystarczy zastosować indukcję.
+\end{proof}
+
+\begin{fakt}
+	Zachodzi $u_k = \sum_{i=1}^{k+1} (-1)^{k+i} \cdot \{k+1, i\}$.
+\end{fakt}
+
+Wzór ten pozwala szybciej wyznaczać współczynniki $u_k$, wcześniej Dragovich sugerował rozwiązanie układu liniowych $k+1$ równań.
+
+\begin{fakt}
+	Jeśli $k \in 3\N + 1$, to $u_k \neq 0$, wtedy $x_k$ i $x$ są tak samo niewymierne.
+\end{fakt}
+
+Wrócimy teraz do rzeczy przyziemnych i $p$-adycznej analizy ,,numerycznej''.
+
+\begin{fakt}
+	Niech $x \in \Z$ nie dzieli się przez $p$, zaś $x_0 \in \Z$ będzie takie, że $|1 - x_0x|_p < 1$.
+	Formuła $1 - x_{n+1} x = (1 - x_n x)^2$, to znaczy $x_{n+1} = x_n (2 - x_nx)$ zadaje ciąg liczb $x_n$, które szybko zbiegają do odwrotności $x$: $v_p(x_n - 1 : x) \ge 2^n$.
+\end{fakt}

@@ -1,0 +1,120 @@
+\subsection{Transformacja Mellina-Mazura}
+Jeśli $X \subseteq \Z_p$ jest zwarty i otwarty, to można do niego obciąć miarę $\mu$ z $\Z_p$: wtedy całka z $f$ nad $X$ to całka nad $\Z_p$ funkcji $f \cdot \chi_X$.
+Chcieliśmy interpolować $-B_k / k$.
+Mamy prosty związek
+\[
+	\kobint 1 \cdot \mu_B^k = \mu_B^k (\Z_p) = B_k.
+\]
+
+Dla różnych $k$ dystrybucje $\mu_B^k$ nie są ze sobą związane, ale ich regularne odpowiedniki tak!
+
+\begin{wniosek}
+	Niech funkcja $X \subseteq \Z_p$ będzie zwarto-otwarty.
+	Określmy funkcję $f \colon \Z_p \to \Z_p$ wzorem $f(x) = x^{k-1}$.
+	Wtedy
+\[
+	\kobint_X 1 \cdot \mu_{k, \lambda} = k \kobint_X f \mu_{1, \lambda}
+\]
+\end{wniosek}
+
+\begin{proof}
+	Z faktu \ref{heroine} wynika, że dla $m = n - v_p (d_k)$ mamy kongruencję $\mu_{k, \alpha}(\dysk{a}{n}) \equiv ka^{k-1} \mu_{1, \alpha} (\dysk{a}{n})$ mod $p^m$.
+	Biorąc $n$ tak duże, by $X$ było unią dysków postaci $\dysk{a}{n}$, mamy
+	\begin{align*}
+		\kobint_X 1 \mu_{k, \lambda} & = 
+		\sum_{a=0}^{p^n-1} \mu_{k, \lambda} (\dysk{a}{n}) \equiv 
+		\sum_{a=0}^{p^n-1} ka^{k-1} \mu_{1, \lambda} (\dysk{a}{n}) \\ & = 
+		k \sum_{a=0}^{p^n-1} f(a) \mu_{1, \lambda} (\dysk{a}{n}).
+	\end{align*}
+	%Sumowaliśmy po $a$ od $0$ do $p^n-1$. 
+	Idziemy z $n$ do nieskończoności.
+\end{proof}
+
+Prawa strona wygląda dużo lepiej, ponieważ $k$ nie pojawia się magicznie w indeksie $\mu$, ale wykładniku ($f$).
+Wiemy już, jak wygląda interpolacja $x^{k-1}$ dla ustalonego $x$: wystarczy nam, by $x \not\equiv 0$ mod $p$.
+Aby wszystkie argumenty miały tę własność, weźmy $X = \Z_p^\times$.
+
+Twierdzimy, że całkę z $x^{k-1}$ nad $\Z_p^\times$ względem $\mu_{1, \lambda}$ można interpolować.
+Połączymy teraz odkrycia ustępu o przedłużaniu $s \mapsto a^s$ z wnioskami poprzedniej podsekcji.
+Wnioski te mówią nam, że jeśli $|f(x) - x^{k-1}|_p \le \varepsilon$ dla $x \in \Z_p^\times$, to
+\[
+	\left|\kobint_{\Z_p^\times} f \mu_{1, \lambda} - \kobint_{\Z_p^\times} x^{k-1} \mu_{1, \lambda}\right|_p \le \varepsilon.
+\]
+
+Wybierzmy za $f$ funkcję $x^{l-1}$, gdzie $l \equiv k$ mod $p-1$ oraz $p^n$.
+Zachodzi: $|x^{l - 1} - x^{k - 1}|_p \le  p^{-n-1}$, a to implikuje
+\[
+	\left|\kobint_{\Z_p^\times} x^{l- 1} \mu_{1, \lambda} - \kobint_{\Z_p^\times} x^{k - 1} \mu_{1, \lambda} \right|_p \le p^{-n-1}
+\]
+
+Dochodzimy do wniosku, że dla ustalonego $0 \le s_0 \le p -2$ i $k$ biegnącego przez $S(s_0) := [s_0 + (p - 1) \Z] \cap \N_+$ możemy przedłużyć naszą funkcję do $p$-adycznych całkowitych:
+\[
+	\kobint_{\Z_p^\times} x^{k-1} \mu_{1, \lambda} \textrm{ do } \kobint_{\Z_p^\times} x^{s_0 + s(p-1) - 1} \mu_{1, \lambda}
+\]
+
+Trochę zabłądziliśmy!
+Interpolowaliśmy
+\[
+	\kobint_{\Z_p^\times} x^{k-1} \mu_{1, \lambda} = \frac 1 k \kobint_{\Z_p^\times} 1 \mu_{k, \lambda}.
+\]
+
+Zwiążemy teraz te dwie liczby.
+\begin{align*}
+\frac 1 k \kobint_{\Z_p^\times} 1 \mu_{k, \lambda} & = \frac {\mu_{k, \lambda} (\Z_p^\times)}{k} = \frac{B_k}{k} (1 - \lambda^{-k})(1 - p^{k-1}) \\
+& = (\lambda^{-k} - 1) (1 - p^{k - 1}) \cdot \kobint_{\Z_p} \frac{-1}{k} \mu_B^k.
+\end{align*}
+
+Wyraz $1 - p^{k-1}$ pojawił się, ponieważ obcięliśmy całkę z $\Z_p$ do $\Z_p^\times$.
+Ten fenomen został przewidziany wcześniej: nie można przedłużyć $n^s$, gdy $p \mid n$ -- konieczne jest pozbycie się $p$-czynnika Eulera.
+Zajmiemy się więc
+\[
+	(1 - p^{k-1})(-B_k / k) = \frac{1}{\lambda^{-k} - 1} \kobint_{\Z_p^\times} x^{k-1} \mu_{1, \lambda}
+\]
+
+Wystąpienie $k - 1$ zamiast $-k$ zaskakuje tylko początkowo, za sprawą funkcyjnego równania wiążącego coś z czymś innym.
+
+\begin{definicja}
+	Jeżeli $k$ jest dodatnia i całkowita, to
+	\[
+		\zeta_p(1 - k) := (1 - p^{k - 1}) \cdot \frac{-B_k}{k}.
+	\]
+\end{definicja}
+
+Powinno się w tym miejscu wyprowadzić klasyczne fakty teorii liczb o liczbach Bernoulliego.
+Uznawano je za eleganckie, ale i tajemnicze niezwykłości, zanim związano je z $\zeta_p$ Kuboty i Leopoldta oraz miarą Mazura $\mu_{1, \alpha}$.
+Clausen z van Staudtem też maczali w tym palce.
+
+\begin{fakt}
+	$k \zeta(1-k) + B_k = 0$.
+\end{fakt}
+
+\begin{proof}
+	Skorzystamy z definicji $\zeta(1 - k) = \sum n^{k-1}$. Niech $\mathfrak D$ oznacza (lokalnie) $(\textrm{d}/ \textrm{d}t)^{k-1} \left. \ldots \right|_{t = 0}$.
+	\begin{align*}
+		\zeta(1-k) & = \sum_{n \ge 1} n^{k-1} = \sum_{n \ge 1} \mathfrak D \exp nt = \mathfrak D \sum_{n \ge 1} \exp nt \\
+		& = \mathfrak D \left[\frac{1}{1 - \exp t} - 1\right] = - \mathfrak D \frac 1 t \sum_{n = 1}^\infty B_n \frac{t_n}{n!} \\
+		& = \mathfrak D \sum_{n=0}^\infty - \frac{B_n} n \frac{t^{n-1}}{(n-1)!} = - \frac{B_k}k. \qedhere
+	\end{align*}
+\end{proof}
+
+Głębsze przemyślenia sprawiają, że dla $s \in \Z_p$ i ustalonego $s_0 \in \{0, 1, \dots, p-2\}$ ($s \neq 0$, gdy $s_0 = 0$) określamy:
+\[
+	\zeta_{p, s_0}(s) := \frac{\kobint_{\Z_p^\times} x^{s_0 + (p-1)s-1} \mu_{1,\lambda}}{\lambda^{-(s_0 + (p-1)s)}-1}.
+\]
+
+Jeżeli $k$ jest postaci $s_0 + (p-1)k_0$, to $\zeta_p(1-k)$ i $\zeta_{p,s_0}(k_0)$ są tym samym, więc myślimy o $\zeta_{p, s_0}$ jak o $p$-adycznych ,,gałęziach'' dla $\zeta_p$ (interesują nas parzyste $s_0$!).
+Uwaga: prawa strona nie zależy (!) od $\lambda$.
+
+Pominęliśmy przypadek $s = s_0 = 0$, bo wtedy mianownik znika, co odpowiada $\zeta_p(1)$.
+Tak więc $p$-adyczna funkcja $\zeta$ też ma ,,biegun'' w $1$.
+
+\begin{fakt}
+	Dla ustalonych $p$ i $s_0$ funkcja $\zeta_{p,s_0}(s)$ jest ciągła. % i nie zależy od wyboru $\alpha$.
+\end{fakt}
+
+Pozostaje wytłumaczyć, skąd wzięła się nazwa podsekcji.
+Otóż transformatą Mellina funkcji $f$ jest
+\[
+	(\mathcal M f)(s) = \int_0^\infty x^{s-1} f(x)\,\textrm{d}x.
+\]
+W $\R$-analizie transformatą $(\exp x - 1)^{-1}$ jest $\Gamma(s) \zeta(s)$, zaś $\zeta_p$ możemy traktować jako transformatę Mellina-Mazura dla zregularyzowanej miary $\mu_{1, \lambda}$.

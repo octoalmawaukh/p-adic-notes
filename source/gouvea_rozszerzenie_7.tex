@@ -1,0 +1,166 @@
+\section{Na drodze do $\C_p$}
+Dobrze jest znać teorię Galois, ale bez niej też można przeżyć.
+Elementy $x, y \in \Q_p^a$ nazywamy \kolorowo{sprzężonymi} (nad podciałem $\mathcal K \subseteq \Q_p^a$), jeżeli zerują ten sam nierozkładalny wielomian z $\mathcal K[X]$, którego współczynnik wiodący to jeden.
+Lemat Krasnera powie nam, że jeśli $b$ jest ,,bliski'' $a$, to jest od niego bardziej ,,skomplikowany''.
+
+\begin{twierdzenie}[lemat Krasnera]
+	Gdy liczba $b \in \Q_p^a$ leży bliżej $a  \in \Q_p^a$ niż jej sprzężenia ($|b-a| < |a - a_i|$ dla $i = 1, 2, \dots, n$, sprzężenia nad $\Q_p^a$), to $\Q_p(a) \subseteq \Q_p(b)$.
+\end{twierdzenie}
+
+\begin{proof}
+	Niech $L = \Q_p(b)$, załóżmy, że $a \not \in L$.
+	W takim razie stopień $m = [L(a) : L]$ jest większy od jeden.
+	Musi istnieć $m$ homomorfizmów $\sigma \colon L(a) \to \Q_p^a$, które posyłają $L$ na $L$ (siebie).
+	Załóżmy, że jeden z nich, $\sigma_0$, nie przerzuca $a$ na $a$.
+	Z jednoznaczności rozszerzenia wartości bezwzględnej wiemy, że $|\sigma(x)| = |x|$ dla $x \in \Q_p^a$.
+	Zatem $|\sigma_0(b) - \sigma_0(a) | = |b-a|$. Ale wiemy też, że $\sigma_0$ trzyma $L$, a z nim $b$, więc $|b - \sigma_0(a)| = |b-a|$.
+	To początek końca, bo
+	\begin{align*}
+		|a - \sigma_0(a)| & \le \max \{|a-b|, |b-\sigma_0(a)|\}\\
+		& = \max \{|b-a|, |a-b|\}= |a-b|,
+	\end{align*}
+	a to niedopuszczalne.
+\end{proof}
+
+Z powyższego lematu płynie ważny wniosek.
+
+\begin{fakt}\label{satis}
+	Jeżeli $f(X) = X^n + \ldots + a_1 X + a_0 \in \Q_p[X]$ jest nierozkładalny, $f(\lambda) = 0$ i $L = \Q_p(\lambda)$, to istnieje liczba rzeczywista $\varepsilon > 0$ o następującej własności: jeśli współczynniki $g(X) = X^n + \ldots + b_1X + b_0$ leżą ,,blisko'': $|a_i - b_i| < \varepsilon$, to $g(X)$ jest nierozkładalny nad $\Q_p$ i ma pierwiastek w $L$.
+\end{fakt}
+
+\begin{proof}
+	Niech $\lambda_1 = \lambda, \lambda_2, \dots, \lambda_n$ będą pierwiastkami $f(X)$ w domknięciu $\Q_p^a$. Określmy $r = \min_{i \neq j} |\lambda_i - \lambda_j|$.
+	Weźmy $g(X)$ taki, jak w fakcie.
+	Wtedy (jeżeli jego pierwiastki w $\Q_p^a$ to $\mu_1, \dots, \mu_m$) ma on postać $g(X) = \prod (X - \mu_j)$.
+	Przyjmijmy $D = \prod_i g(\lambda_i) = \prod_{i,j} (\lambda_i - \mu_j)$.
+
+	\emph{Jeśli $|D| < r^{n^2}$, to wielomian $g(X)$ jest nierozkładalny nad $\Q_p$ i ma pierwiastek w $L = \Q_p(\lambda)$.}
+	Wtedy istnieje para $i, j$, że $|\lambda_i - \mu_j| < r$.
+	Definicja $r$ pozwala na użycie lematu Krasnera, by pokazać, że $\Q_p(\lambda_i) \subseteq \Q_p(\mu_j)$.
+	Oznacza to, że $\Q_p(\mu_j)$ jest stopnia co najmniej $n$ nad $\Q_p$.
+	Tak może być tylko wtedy gdy wielomian jest nierozkładalny i stopnia dokładnie $n$ (bo $\mu_j$ ,,taki'' zeruje?). 
+	Wtedy oba ciała mają stopień $n$ i są zawarte jedno w drugim, zatem równe sobie.
+
+	Mamy nierozkładalność $g(X)$ oraz to, że $\Q_p(\lambda_i) = \Q_p(\mu_j)$.
+	Gdyby okazało się, że $i = 1$, to byłby już koniec dowodu.
+	Jeśli nie, to istnieje automorfizm $\Q_p^a$, który posyła $\lambda_i$ na $\lambda$, zaś $\mu_j$ na jakiś inny pierwiastek $g(X)$.
+	Po nałożeniu tego automorfizmu na równość $\Q_p(\lambda_i) = \Q_p(\mu_j)$ daje $L = \Q_p(\mu)$.
+	Wtedy $g(X)$ ma pierwiastek $\mu$ w $L$.
+
+	\emph{Istnieje liczba $\varepsilon > 0$, że gdy $|a_i - b_i| < \varepsilon$, to $|D|<r^{n^2}$.}
+	% Dowód - 258
+	% 259 - potrzebność założeń
+	% 260 - podobny fakt?
+	% 261 - potrzebność założeń 2
+	% 262 - pytanie o prawdziwość uogólnienia
+\end{proof}
+
+Z tym dowodem nie wszystko jest w porządku, dlatego warto zapoznać się z problemami 258 -- 262.
+
+\begin{fakt}\label{timoris}
+	Ciało ${\Q}^a_p$ nie jest zupełne.
+\end{fakt}
+
+\begin{proof}
+	Wiemy, że nierozgałęzione rozszerzenie $\Q_p$ powstaje przez dołączenie pierwiastka rzędu względnie pierwszego z $p$.
+	Wybierzmy $\zeta_1 = 1$, a potem ciąg $\zeta_2, \zeta_3, \dots$, że: $\zeta_i^{m_i} = 1$ (i $p \nmid m_i$), $\Q_p(\zeta_{i-1}) \subseteq \Q_p(\zeta_i)$ oraz $[\Q_p(\zeta_i) : \Q_p(\zeta_{i-1})] > i$.
+	% Czy to jest możliwe? 263
+
+	Niech $c_n =\sum_{i=0}^n \zeta_i p^i$ będą sumami częściowymi szeregu.
+	Tworzą w $\Q_p^a$ ciąg Cauchy'ego bez granicy.
+	Załóżmy nie wprost, że jednak $c_n \to c \in \Q_p^a$.
+	Liczba $c$ to pierwiastek wielomianu nad $\Q_p$, powiedzmy, że stopnia $d$, który nie jest rozkładalny.
+	Zatem $[\Q_p(c) : \Q_p] = d$.
+	Rozważmy $d$-tą sumę częściową.
+
+	Skoro $c - c_d = \sum_{i=d+1}^\infty \zeta_i p^i$, zaś $\zeta_i$ są jednościami, to mamy $|c - c_d| \le p^{-(d+1)}$.
+	Ustalmy automorfizm $\sigma \colon {\Q}^a_p \to {\Q}_p^a$, który indukuje identyczność na $\Q_p$.
+	Musi on zachować bezwzględną wartość, zatem $|\sigma(c) - \sigma(c_d) | \le p^{-(d+1)}$.
+
+	Dążymy do sprzeczności, więc trzeba trzeba wybrać dobre $\sigma$.
+	Pamiętając, że wybraliśmy $\zeta$ tak, by $[\Q_p (\zeta_i) : \Q_p(\zeta_{i-1})] >i$, możemy użyć tego dla  $i=d$.
+	Istnieje $d+1$ automorfizmów $\sigma_1, \dots, \sigma_{d+1}$, które obcięte do $\Q_p(\zeta_{d-1})$ są identycznością (więc trzymają $\zeta_1, \dots, \zeta_{d-1}$), ale różnią się parami na $\zeta_d$.
+
+	Teraz, jeśli $i \neq j$, to $\sigma_i(c_d) - \sigma_j(c_d) = (\sigma_i(\zeta_d) - \sigma_j(\zeta_d))p^d$. 
+	Zauważmy, że $\sigma_i(\zeta_d)$ oraz $\sigma_j(\zeta_d)$ to różne $m_d$-te pierwiastki z jedynki, nie mogą przystawać do siebie modulo $p$.
+	To oznacza, że $p$ nie może dzielić ich różnicy i $|\sigma_i(c_d) - \sigma_j(c_d)| = p^{-d}$.
+
+	Prawie koniec: nakładamy (wszystkie) $\sigma$ na $c$:
+	\begin{align*}
+		|\sigma_i(c_d) - \sigma_i(c)| & \le p^{-(d+1)} \\
+		|\sigma_j(c_d) - \sigma_j(c)| & \le p^{-(d+1)} \\
+		|\sigma_i(c_d) - \sigma_j(c_d)| & = p^{-d}.
+	\end{align*}
+	Zatem $|\sigma_i(c) - \sigma_j(c)| = p^{-d}$ (trójkąty są równoramienne), czyli $\sigma_i (c) \neq \sigma_j(c)$.
+
+	Innymi słowy, znaleźliśmy $d+1$ automorfizmów $\sigma_i$ dla ${\Q}^a_p$, które są identycznością na $\Q_p$.
+	Dodatkowo przerzucają $c$ na różne elementy, zatem wielomian minimalny dla $c$ ma $d+1$ (co najmniej) pierwiastków i nie może być stopnia $d$.
+	Skoro $c$ nie zeruje wielomianów z $\Q_p[X]$, to nie ma go w $\Q_p^a$.
+\end{proof}
+
+Skoro wszystkie $\zeta_i$ są pierwiastkami jedności rzędu, który jest względnie pierwszy z $p$, to pokazaliśmy coś jeszcze:
+
+\begin{fakt}
+	Maksymalne nierozgałęzione rozszerzenie $\Q_p^{\textrm{unr}}$ dla $\Q_p$ nie jest zupełne.
+\end{fakt}
+
+Ponieważ $\Q_p^a$ nie jest zupełne, trzeba ponownie zbudować uzupełnienie, podobnie jak dla $\Q$ i $\Q_p$.
+Wnioskujemy stąd, że ,,ciało $\C_p$ istnieje''.
+
+\begin{definicja}
+	$\C_p$ to uzupełnienie $\Q_p^a$ z normą $|\cdot|_p$.
+\end{definicja}
+
+Jeśli tylko mamy zbieżny ciąg $x_n \to x \neq 0$ w ciele, które nie jest archimedesowe, to $|x_n| = |x|$ dla odpowiednio dużych wartości $n$.
+Oznacza to, że zbiór wartości bezwzględnych w $\C_p$ pokrywa się ze swoim odpowiednikiem w $\Q_p^a$: $v_p[\C_p^\times] = \Q$, zaś pojęcie jednolitości straciło wszelki sens.
+
+\begin{fakt}
+	Każdy element $x \in \C_p$ to iloczyn trzech liczb: ułamkowej potęgi $p$, pierwiastka jedności oraz $1$-jedności.
+\end{fakt}
+
+\begin{proof}
+	Załóżmy, że $x \in \C_p$, zaś $v_p(x) = r = a/b$.
+	Wybierzmy pierwiastek $\pi$ dla $X^b - p^a$ w $\Q_p^a$; wtedy $v_p(\pi)= a/b$ i $y = x/ \pi$ jest jednością.
+\end{proof}
+
+$\C_p$ to ogromny obiekt.
+Wreszcie uzyskaliśmy ciało, które nie dość, że jest zupełne, to jeszcze algebraicznie domknięte.
+Nie jest niestety sferycznie domknięte (stąd bierze się 	potrzeba powiększania go do $\Omega_p$, o czym mowa będzie później).
+
+\begin{fakt}
+	$\C_p$ jest algebraicznie domknięte.
+\end{fakt}
+
+\begin{proof}
+	Ustalmy wielomian $f(X)$ o współczynnikach w $\C_p$, który nie jest rozkładalny.
+	$\Q_p^a$ jest gęste w $\C_p$, możemy zatem znaleźć wielomiany o tym samym stopniu i współczynnikach w $\Q_p^a$ tak, by były bliskie ,,tym z $\C_p$''.
+	
+	Z faktu \ref{satis} wynika, że ,,odpowiednio bliski'' $f_0(X)$ będzie nierozkładalny nad $\C_p$, nad $\Q_p$ zatem też.
+	To ciało jest jednak algebraicznie domknięte, więc stopień $f_0$ (a więc także $f$) to jeden.
+\end{proof}
+
+\begin{fakt} % 269
+	$\C_p$ nie jest lokalnie zwarte.
+\end{fakt}
+
+%\begin{proof} Trzeba pokazać, że domknięta kula jednostkowa (czyli pierścień waluacji $\mathfrak O$) nie jest zwarta. Ile elementów widzisz w obrazie $\mathfrak O$ względem redukcji modulo $\mathfrak p$? \end{proof}
+
+Prawdą jest mocniejszy fakt: każde lokalnie zwarte (więc też zupełne) ciało charakterystyki zero jest izomorficzne z $\R$, $\C$ lub skończonym rozszerzeniem $\Q_p$.
+Ciało $\C_p$ (mocy continuum) można traktować jak algebraiczne $\C$ z egzotyczną metryką, a przez to także topologią. Nie znamy izomorfizmu $\C_p \to \C$ z powodu użycia (w dowodzie istnienia) Aksjomatu Wyboru.
+
+Co ciekawe, można zacząć od ,,końca'': lokalnie zwartego ciała o charakterystyce zero i odtworzyć normę z miary Haara.
+
+ 	
+% https://oeis.org/A100976, 7 i 8:
+% rozszerzeń dla Qp stopnia n w alg. domknięciu Qp jest
+\begin{fakt}
+	Jeżeli $n = hp^m$, $p \nmid h$, to rozszerzeń $\Q_p$ stopnia $n$ w $\Q_p^a$ jest dokładnie (przynajmniej dla $p \le 5$)
+	\[
+		\sum_{d \mid h} d \sum_{s=0}^m  \frac{(p^{m+1}-p^{s})(p^{n \varepsilon(s)}-p^{n \varepsilon(s-1)})}{(p-1)p^{-s}},
+	\]
+	gdzie $\varepsilon (-1) = -\infty$, $\varepsilon(0) = 0$ i $\varepsilon(s) = \sum_{i=1}^s p^{-i}$, zaś
+	\[
+ 		n (\sum_{s=0}^m p^s (p^{n \varepsilon(s)} - p^{n \varepsilon(s-1)})) %a(n)=n*(sum_{s=0}^m p^s*(p^(eps(s)*n)-p^(eps(s-1)*n))), where p=2, n=h*p^m, with gcd(h, p)=1, eps(-1)=-infinity, eps(0)=0 and eps(s)=sum_{i=1 to s} 1/(p^i) 
+	\]
+	jest totally ramified.
+\end{fakt}

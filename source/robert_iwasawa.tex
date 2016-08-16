@@ -1,0 +1,63 @@
+\section{Logarytm (japoński)}
+Pracujemy w $\cialo = \C_p$.
+
+\begin{fakt}
+	$\log \exp x = x$, $\exp \log (1+x) = 1 +x$, o ile $|x| < r_p$.
+\end{fakt}
+
+(To było tylko przypomnienie).
+
+\begin{wniosek}
+	Morfizm $\log \colon 1 + \mathfrak p \to \cialo$ jest ,,na''.
+	Jego jądro to $\mu(p^\infty)$.
+	Obcięty do $1 + \kula(0, r_p)$ jest (injektywną) izometrią.
+\end{wniosek}
+
+\begin{fakt}
+	Dokładnie jeden morfizm $f \colon \cialo^\times \to \cialo$ ma poniższe własności (logarytm Iwasawy $\iwasawa$): $f(p) = 0$ (normalizacja), zaś obcięcie $f$ do $\kula(1,1)$ pokrywa się ze zwykłym logarytmem (to znaczy szeregiem potęgowym).
+\end{fakt}
+
+\begin{proof}
+	(Jednoznaczność) Podgrupy $p^\Q\mu_{(p)}$ i $1 + \mathfrak p$ generują całe $\cialo^\times$.
+	Jest to oczywiste dla $\mu$, gdyż ciało $\cialo$ (charakterystyki 0) nie ma addytywnej torsji.
+	Z drugiej strony, jeśli $x^a = p^b$, to $af(x) = bf(p) = 0$, co daje $f(x) = 0$.
+
+	(Istnienie) Niech $f$ będzie zerem na $p^\Q\mu$, gdyż zgadza się to z logarytmem na przekroju $p^\Q\mu$ z $1 + \mathfrak p$, $\mu(p^\infty)$.
+	Ale podgrupa $\mu(p^\infty)$ to dokładnie jądro logarytmu.
+\end{proof}
+
+\begin{fakt}
+	Logarytm Iwasawy jest lokalnie analityczny: dla $a \neq 0$ i $|x - a| < |a|$ mamy
+	$\iwasawa x = \iwasawa a - \sum_{k \ge 1}^\infty [1 - x/a]^k / k$.
+\end{fakt}
+
+\begin{fakt}
+	Dla $x \in \Z_p^\times$, $(1-p)\iwasawa x = \sum_{k \ge 1} (1-x^{p-1})^k / k$.
+\end{fakt}
+
+\begin{fakt}
+	Dla zupełnych podciał $K \subseteq \C_p$, $\iwasawa[K^\times] \subseteq K$.
+\end{fakt}
+
+\begin{fakt}
+	Dla każdego ciągłego automorfizmu $\sigma$ ciała $\C_p$ prawdą jest $\iwasawa(x^\sigma) = (\iwasawa x)^\sigma$.
+\end{fakt}
+
+W swojej pracy doktorskiej (,,Prolongement de la fonction exponentielle en dehors de son cercle de convergence'') M. C. Sarmant-Durix pokazała, że funkcja wykładnicza przedłuża się na całe $\C_p$.
+Robert zaś postanowił podążać za Schikhofem (ale nie widać tego tutaj).
+
+\begin{fakt}
+	Ustalmy $a \in \C_p$, że $|1 - a|_p <1$.
+	Wtedy
+	\[
+		\iwasawa a = \lim_{n \to \infty}\frac{a^{p^n} - 1}{p^n}.
+	\]
+
+	Jeżeli $b \in \C_p$, $|b|_p = 1$ i $\omega$ jest charakterem Teichmüllera, to
+	\[
+		\iwasawa b = \lim_{n \to \infty}\frac{b^{p^{n!}} - \omega_p(b)}{\omega_p(b) p^{n!}}.
+	\]
+
+\end{fakt}
+
+\color{black}

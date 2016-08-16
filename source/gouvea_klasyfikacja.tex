@@ -1,0 +1,106 @@
+\section{Klasyfikacja wymiernych norm}
+\begin{lemat}
+	Następujące warunki są równoważne dla dwóch norm na jednym ciele $\cialo$:
+	\begin{enumx}
+		\item topologie od norm pokrywają się
+		\item $\|x\|_1 < 1$, wtedy i tylko wtedy gdy $\|x\|_2 < 1$
+		\item istnieje stała $\alpha > 0$, że dla $x \in \cialo$ jest $\|x\|_1 = \|x\|_2^\alpha$.
+	\end{enumx}
+\end{lemat}
+
+\begin{proof}
+	Pokażemy ciąg implikacji.
+	\begin{itemx}
+		\item [$3 \Rightarrow 1$] $\|x-y\|_1 < r$ wtedy i tylko wtedy, gdy $\|x-y\|_2 < r^{1:\alpha}$; ,,otwarte kule są nadal otwarte''. 
+		\item [$1 \Rightarrow 2$] Z każdą topologią związane jest pojęcie zbieżności, tutaj można wykorzystać równoważność $x^n \to 0$ i $\|x\| < 1$.
+		\item [$2 \Rightarrow 3$] 	Wybierzmy $y \in \cialo$ różne od $0$, że $|y|_1 < 1$.
+	Warunek nr 2 mówi, że $|y|_2$ też jest mniejsze od jeden.
+	Wskazujemy więc $\alpha > 0$ takie, by $|y|_1 = |y|_2^\alpha$.
+	\end{itemx}
+
+	Ustalmy $x \in \cialo^\times$, takie że $1 > \|x\|_1 \neq \|y\|_1$.
+	Nie tracimy w ten sposób ogólności: jeśli jest $\|x\|_1 = \|y\|_1$, to $\|x\|_2 = \|y\|_2$ (gdyby tak nie było, to normy ilorazów byłyby zepsute).
+	Jeżeli $\|x\|_1 = 1$, postępujemy podobnie.
+
+	Znów istnieje $\beta > 0$, że $\|x\|_1 = \|x\|_2^\beta$, ale potencjalnie może być różne od $\alpha$.
+	Weźmy dowolne naturalne $n$, $m$.
+	Wtedy $\|x\|_1^n < \|y\|_1^m \iff \|x\|_2^n < \|y\|_2^m$.
+	Wzięcie logarytmów daje (po drobnych przekształceniach)
+	\[
+		\frac nm < \frac{\log \|y\|_1}{\log \|x\|_1} \iff \frac n m < \frac{\log \|y\|_2}{\log \|x\|_2}.
+	\]
+
+	Oznacza to, że ułamki po prawych stronach są równe.
+	Skoro $\|y\|_1 = \|y\|_2^\alpha$, to rzeczywiście $\alpha = \beta$.
+\end{proof}
+
+\begin{wniosek}
+	Norma $p$-adyczna nie jest równoważna $q$-adycznej, zaś archimedesowa -- niearchimedesowej.
+\end{wniosek}
+
+\begin{definicja}
+	Dwie normy spełniające dowolny z trzech warunków lematu nazywamy równoważnymi.
+\end{definicja}
+
+\begin{twierdzenie}[Ostrowski, 1916]
+	Każda norma na $\Q$ jest dyskretna lub równoważna z $\|\cdot\|_p$, gdzie $p \le \infty$ jest l. pierwszą.
+\end{twierdzenie}
+
+\begin{proof}
+	Niech $\|\cdot\|$ będzie nietrywialną normą na $\Q$.
+	Pierwszy przypadek: archimedesowa (odpowiada normie $|\cdot|_\infty$).
+	Weźmy więc najmniejsze dodatnie całkowite $n_0$, że $\|n_0\| > 1$.
+	Wtedy $\|n_0\| = n_0^\alpha$ dla pewnej $\alpha > 0$.
+	Wystarczy uzasadnić, dlaczego $\|x\| = |x|_\infty^\alpha$ dla każdej $x \in \Q$, a właściwie tylko dla $x \in \N $ (gdyż norma jest multiplikatywna).
+	Dowolną liczbę $n$ można zapisać w systemie o podstawie $n_0$: $n = a_0 + a_1 n_0 + \dots + a_mn_0^m$, gdzie $a_m \neq 0$ i $0 \le a_j \le n_0-1$.
+	\begin{align*}
+		\|n\| & = \left\|\sum_{i=0}^m a_in_0^i\right\| \le \sum_{i=0}^m \left\|a_i\right\| n_0^{i \alpha} \le n_0^{m \alpha} \sum_{i = 0}^m n_0^{-i \alpha} \\ & \le n_0^{m \alpha} \sum_{i = 0}^\infty n_0^{-i \alpha} = n_0^{m \alpha} \frac{n_0^\alpha}{n_0^\alpha - 1} = C n_0^{m \alpha}
+	\end{align*}
+
+	Pokazaliśmy $\|n\| \le Cn_0^{m \alpha} \le C n^\alpha$ dla każdego $n$, a więc w szczególności dla liczb postaci $n^N$ (gdyż $C$ nie zależy od $n$): $\|n\| \le C^{1/n}n^\alpha$.
+	Idziemy z $N$ do nieskończoności, dostajemy $C^{1/n} \to 1$ i $\|n\| \le n^\alpha$.
+	Teraz trzeba pokazać nierówność w drugą stronę.
+	Skorzystamy jeszcze raz z rozwinięcia.
+	Skoro $n_0^{m+1} > n \ge n_0^m$, to nie kłamczymy pisząc
+	\[
+		\|n_0^{m+1}\| = \|n+n_0^{m+1} - n\| \le \|n\| + \|n_0^{m+1} - n\|,
+	\]
+	a stąd wnioskujemy, że 
+	\begin{align*}
+		\|n\| & \ge n_0^{(m+1) \alpha} - \|n_0^{m+1} - n\| \\
+		& \ge n_0^{(m+1)\alpha} - (n_0^{m+1} - n)^\alpha.
+	\end{align*}
+
+
+	Skorzystaliśmy tutaj z nierówności udowodnionej wyżej.
+	Wiemy, że $n \ge n_0^m$, więc prawdą jest, że
+	\begin{align*}
+		\|n\| & \ge n_0^{(m+1)\alpha} - (n_0^{m+1} - n_0^m)^\alpha \\
+		& = n_0^{(m+1) \alpha} [1 - (1 - 1 : n_0)^\alpha] = C' n^\alpha.
+	\end{align*}
+
+	Od $n$ nie zależy $C' = 1 - (1-1:n_0)^\alpha$, jest dodatnia i przez analogię do poprzedniej sytuacji możemy pokazać $\|n\| \ge n^\alpha$.
+	Wnioskujemy stąd, że $\|n\| = n^\alpha$ i $\|\cdot\|$ jest równoważna ze zwykłą wartością bezwzględną.
+
+	Załóżmy, że $\|\cdot\|$ jest niearchimedesowa.
+	Wtedy $\|n\| \le 1$ dla całkowitych $n$.
+	Ponieważ $\|\cdot\|$ jest nietrywialna, musi istnieć najmniejsza l. całkowita $n_0$, że $\|n_0\| < 1$.
+	Zacznijmy od tego, że $n_0$ musi być l. pierwszą: gdyby zachodziło $n_0 = a \cdot b$ dla $1 < a,b < n_0$, to $\|a\| = \|b\| = 1$ i $\|n_0\| < 1$ (z minimalności $n_0$) prowadziłoby do sprzeczności.
+	Chcemy pokazać, że $\|\cdot\|$ jest równoważna z normą $p$-adyczną, gdzie $p := n_0$.
+	W następnym kroku uzasadnimy, że jeżeli $n \in \Z$ nie jest podzielna przez $p$, to $|n| = 1$.
+	Dzieląc $n$ przez $p$ z resztą dostajemy $n = ap + b$ dla $0 < b < p$.
+	Z minimalności $p$ wynika $\|b\| = 1$, zaś z $\|a\| \le 1$ ($\|\cdot\|$ jest niearchimedesowa) i $\|p\| < 1$: $\|ap\| < 1$.
+	,,Wszystkie trójkąty są równoramienne'', więc $\|n\| = 1$.
+	Wystarczy więc tylko zauważyć, że dla $n \in \Z$ zapisanej jako $n = p^v n'$ z $p \nmid n'$ zachodzi $\|n\| = \|p\|^v \|n'\| = \|p\|^v < 1$.
+\end{proof}
+
+\begin{historia}[Ostrowski Aleksander]\end{historia}
+
+Zatem $\infty$ jest liczbą pierwszą (!).
+
+\begin{wniosek}[produkt adeliczny]
+	Gdy $x \in \Q^\times$, to
+	\[
+		\prod_{p = 2}^\infty |x|_p = 1.
+	\]
+\end{wniosek}
