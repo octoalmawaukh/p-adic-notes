@@ -1,0 +1,135 @@
+\section{Liczby Liouville'a}
+\begin{fakt} % Schikhof 65
+	Jeśli operator $A$ z przestrzeni ciągłych funkcji $\Z_p \to \cialo$ w siebie spełnia warunek Lipschitza, to istnieje $\|\cdot\|$-izometria p. funkcji $\Z_p \to \cialo$ o zerowej pochodnej na zbiór rozwiązań $f' = Af$.
+\end{fakt}
+
+\begin{definicja}
+	Dla $\lambda \in \Z_p$, $\nu(\lambda) = \liminf_n |n - \lambda|_p^{1:n}$.
+\end{definicja}
+
+\begin{definicja}
+	Mówimy, że $\lambda$ jest liczbą Liouville'a, gdy $\nu(\lambda) = 0$.
+\end{definicja}
+
+Van der Put postawił w 1980 problem, który rozwiążemy (z ,,Meromorphic differential equations over valued fields'', Indag. Math. 42, Fasc. 3).
+
+\begin{fakt}
+	Niech funkcja $g \colon \Z_p \to \cialo$ będzie ciągła, a w zerze też różniczkowalna, $\lambda \in \Z_p$.
+	Niech $\lambda \in \Z_p$.
+	Jeśli $\lambda = 0$, $g(0) = 0$.
+	Jeśli $\lambda = 1$, $g'(0) = 0$.
+	Istnieje $\mathcal C^1$-rozwiązanie (?) dla $x y' - \lambda y = g$.
+\end{fakt}
+
+Uwaga. 
+Zbiór rozwiązań stanowi warstwę w przestrzeni $\mathcal C^1$ podgrupy $\{f \colon \Z_p \to \cialo : xf'(x) - \lambda f(x) = 0\}$, której wymiar jest nieskończony.
+
+\begin{proof}
+	Niech $g(0) = g'(0) = 0$, przez $P$ oznaczmy obcięcie antyderywatu do p. ciągłych $\Z_p \to \cialo$, które zerują się w zerze, $C_0$.
+	Wskażemy takie $u$, że $y = Pu$ będzie rozwiązaniem.
+
+	Łatwo sprawdzić, że $Qu(x) := (\lambda Pu(x) + g(x))/x$ (dla $x \neq 0$) i $Qu(0) := 0$ określa funkcję z $C_0$ w $C_0$.
+	Oszacowanie $|Pu(x)| \le |x|_p \cdot \|u\| / p$ daje $\|Qu - Qv\| \le \|u - v\| / p$.
+	Funkcja $Q$ jest kontrakcją, więc ma punkt stały $u$.
+
+	W ogólnym przypadku stosujemy pierwszą część do funkcji $g(x) - g'(0) x - g(0)$ i dostajemy funkcję $f_1$, potrzebną do
+	\[
+		y(x) := f_1(x) + \begin{cases}
+		g'(0)x & \lambda = 0 \\
+		-g(0) & \lambda = 1 \\
+		\frac{g'(0) x}{1-  \lambda} - \frac{g(0)}{\lambda} & \lambda \neq 0, 1 \end{cases},
+	\]
+	rozwiązania ogólnego równania.
+\end{proof}
+
+Pytanie, czy równanie $xy' - \lambda y = g$ ma $\mathcal C^\infty$-rozwiązania dla każdej $\mathcal C^\infty$-funkcji $g$ z $g(0)$ i $g'(0) = 0$, chyba wciąż pozostaje otwarte.
+
+\begin{definicja}
+	Luka w $x = \sum_{j \ge 0} a_jp^j$ długości $[tp^{-s}]$ to para liczb $s < t$, taka że $a_s \neq 0$, $a_t \neq 0$, ale $a_k = 0$ dla $s < k < t$.
+\end{definicja}
+
+\begin{fakt}
+	Liczba $\lambda \in \Z_p$ jest Liouville'a, wtedy i tylko wtedy gdy w jej rozwinięciu są dowolnie duże luki.
+\end{fakt}
+
+\begin{fakt}
+	Liczby Liouville'a są przestępne (,,nad $\Q$'').
+\end{fakt}
+
+\begin{proof}
+	Niech liczba $a \in \Z_p$ będzie algebraiczna nad ciałem $\Q$ z wielomianem minimalnym $f(x) = a_0 + \ldots + a_d x^d$, $a_d \neq 0$.
+	Skoro funkcja $f$ spełnia warunek Lipschitza ze stałą $c$, to dla $n \in \N$ jest $|f(n)|_p \le c|n-a|_p$.
+	Dla dużych $n$, $f(n) \neq 0$, gdyż $f$ ma co najwyżej $d$ zer, a jednocześnie $|f(n)|_p \ge 1/|f(n)|_\infty$.
+	Skoro tak, $1/ |f(n)|_p \le (|a_0|_\infty + \ldots + |a_d|_\infty) n^d$.
+	Istnieje pewna stała $c' > 0$, że $|n - a|_p \ge c' / n^{d}$, skąd $\nu(a) = 1$.
+\end{proof}
+
+\begin{fakt}
+	Liczby Liouville'a tworzą gęsty $G_\delta$ podzbiór $\Z_p$.
+\end{fakt}
+
+Warto tu wspomnieć o twierdzeniu Baire'a: niepusta oraz zupełna przestrzeń metryczna nie jest przeliczalną unią nigdzie gęstych i domkniętych zbiorów.
+
+\begin{proof}
+	Niech $n \in \N$.
+	Dobry wybór $n_1 < n_2 < \ldots$ sprawia, że liczba $n + p^{n_1} + p^{n_2} + \ldots$ jest blisko $n$ i ma dowolnie długie luki.
+	Domknięcie zbioru liczb Liouville'a zawiera $\N$, zatem całe $\Z_p$.
+	Niech $U_{mk} = \{x \in \Z_p : |m-x|_p < k^{-m}\}$.
+	Liczby Liouville'a to dokładnie $\bigcap_{k \in \N} \bigcap_{n \in \N} \bigcup_{m \ge n} U_{mk}$.
+\end{proof}
+
+\begin{fakt}
+	Liczby Liouville'a tworzą zbiór zerowy (można je pokryć kulami, których suma średnic jest dowolnie mała).
+\end{fakt}
+
+\begin{proof}
+	Zbiór liczb Liouville'a leży w $\bigcup_{m \ge n} U_{mk}$ dla każdych $k, n \in \N$ przy zachowaniu notacji z poprzedniego dowodu.
+	Średnica zbioru $U_{mk}$ nie przekracza $k^{-m}$, zatem dla $k \ge 2$ mamy $\sum_{m \ge n} d(U_{mk}) \le k^{1-n}$.
+	Bierzemy duże $k$, $n$.
+\end{proof}
+
+\begin{fakt}
+	Niech $\lambda \in \Z_p$ będzie liczbą Liouville'a.
+	Wtedy równanie różniczkowe $(1-x)(x f'(x) - \lambda f(x)) = 1$ nie posiada rozwiązań analitycznych na żadnym otoczeniu $0$ 
+\end{fakt}
+
+\begin{proof}
+	Zapiszmy $f(x) = \sum_{n=0}^\infty b_n x^n$.
+	Podstawienie tego do naszego równania daje $b_n (n - \lambda ) = 1$.
+	Jeśli $\lambda \not \in \Z$ (jeśli $\lambda$ jest całkowita, rozumowanie niepotrzebnie się komplikuje), szereg $f$ ma zerowy promień zbieżności, $\nu(\lambda)$.
+\end{proof}
+
+Zajmiemy się polami wektorowymi.
+
+\begin{fakt}
+	Niech $f, g \colon \cialo^2 \to \cialo$ będą ciągłymi funkcjami.
+	Istnieje $\mathcal C^1$-funkcja $F \colon \cialo^2 \to \cialo$, że $\partial_x F = f$, $\partial_y F = g$.
+\end{fakt}
+
+\begin{proof}
+	Niech $x \mapsto x_n$ będzie przybliżeniem identyczności (to jest ciągiem odwzorowań $\sigma_0, \sigma_1, \ldots \colon \cialo \to \cialo$, że $\sigma_0$ jest stała, $\sigma_m \circ \sigma_n = \sigma_n \circ \sigma_m = \sigma_n$ jeśli $m \ge n$, $|x - y| < \sigma^n$ implikuje $\sigma_n(x) = \sigma_n(y)$ oraz $|\sigma_n(x) - x| < \rho^n$, $0 < \rho < 1$ ustalone), $x_n' = x_{n+1} - x_n$, $y_n' = y_{n+1} - y_n$. 
+	Wtedy $F(x, y)$:
+	\[
+		\sum_{n \ge 0} f(x_n, y_n)x_n' +g(x_n, y_n)y_n'
+	\]
+
+	jest w porządku.
+\end{proof}
+
+Twierdzenie Schwarza o mieszaniu (dobrych) pochodnych czosnkowych nie jest prawdziwe.
+
+\begin{wniosek}
+	Istnieje funkcja $f \colon \cialo^2 \to \cialo$ o ciągłych drugich pochodnych czosnkowych, że
+	\[
+		\frac{\partial^2 f}{\partial x \partial y} = 1, \mbox{ jednak }
+		\frac{\partial^2 f}{\partial y \partial x} = 0.
+	\]
+\end{wniosek}
+
+\begin{proof}
+	Weźmy $\partial_y f = x$, $\partial_xf = 0$ i zróżniczkujmy.
+\end{proof}
+
+\begin{fakt}
+	Jeśli $f \colon \cialo^2 \to \cialo$ jest $\mathcal C^2$, to drugie (mieszane) pochodne są równe.
+\end{fakt}

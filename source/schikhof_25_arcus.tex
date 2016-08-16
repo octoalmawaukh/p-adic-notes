@@ -1,0 +1,114 @@
+\section{Trygonometria van Hamme'a}
+Poniższe konstrukcje mogą działać w wielu ciałach, my jednak ograniczymy się do $\Q_p$ (charakterystyki zero, ciało residuów charakterystyki $p$).
+
+Szeregami potęgowymi można określić funkcje $\sin_p$, $\cos_p$, ale nie będą okresowe (ze względu na fakt \ref{arcis}).
+
+\begin{fakt}
+	$\sin_p^2x + \cos_p^2x = 1$.
+\end{fakt}
+
+\begin{fakt}
+	$\cosh_p^2x - \sinh_p^2x = 1$.
+\end{fakt}
+
+\begin{fakt}
+	Sinus jest izometrią z $E = \kula(0, p^{1/(1-p)})$ w $1 + E$.
+\end{fakt}
+
+\begin{fakt}
+	Kosinus nie jest lokalnie injektywny w $0$.
+\end{fakt}
+
+\begin{fakt}
+	Jeśli $p$ jest postaci $4k + 1$, to w $\Q_p$ równanie $x^2 + 1 = 0$ ma rozwiązanie $x = i$ spełniające $\exp_p(ix) = \cos_p(x) + i \sin_p(x)$.
+\end{fakt}
+
+\begin{wniosek}
+	Okrąg $\{(x,y) \in \Q_p^2 : x^2 + y^2 = 1\}$ jest zwarty dokładnie dla $p = 2$ lub $p = 4k+3$.
+\end{wniosek}
+
+\begin{fakt}
+	Tangens (iloraz sinusa i kosinusa) jest analityczną funkcją $E \to \C_p$.
+\end{fakt}
+
+\begin{proof}
+	Funkcja $\log_p \cos$ jest dobrze określona i analityczna, a razem z nią jej pochodna.
+\end{proof}
+
+\begin{definicja}
+	Arkus tangens dla $x \in \C_p \setminus \{i, -i\}$ to
+	\[
+		\arctan x = \frac 1{2i} \log_p \frac{1 + ix}{1 - ix}.
+	\]
+\end{definicja}
+
+Jest to oczywiście funkcja odwrotna do tangensa, bowiem w przeciwnym przypadku nie nazywałaby się tak.
+Znika (między innymi) w zerze i nieskończoności.
+
+\begin{fakt}
+	Dla $|x|_p < 1$ mamy
+	\[
+		\arctan x = \sum_{k=0}^\infty (-1)^k \frac{x^{2k+1}}{2k+1}.
+	\]
+\end{fakt}
+
+\begin{fakt}
+	Dla $x \neq i, -i$ mamy
+	\[
+		\arctan' x = \frac 1{1 + x^2}.
+	\]
+\end{fakt}
+
+\begin{fakt}
+	Jeśli $xy \neq 1$ oraz $x,y \neq i, -i$, to
+	\[
+		\arctan \frac{x + y}{1 - xy} = \arctan x + \arctan y.
+	\]
+\end{fakt}
+
+\begin{fakt}
+	Jeśli $z \neq 0, i, -i$, to $0 = \arctan z + \arctan 1/z$.
+\end{fakt}
+
+\begin{fakt}
+	Jeśli $x \neq 0$, $x^2  + y^2 \neq 0$, to
+	\[
+		\log_p (x +  iy) = \frac 12 \log_p (x^2 + y^2) + i \arctan \frac y x.
+	\]
+\end{fakt}
+
+\begin{fakt}
+	Największym dyskiem zbieżności $\arctan$, który zawiera $a \in \C_p$, jest $\{x \in \C_p : |x - a|_p < \min (|a - i|_p, |a+i|_p)$.
+\end{fakt}
+
+\begin{definicja}
+	Dla $|x|_p < 1$ i $x \in \C_p$ mamy 
+	\[
+		\arcsin x = \frac 1i \log_p (ix + \sqrt{1 - x^2}).
+	\]
+\end{definicja}
+
+\begin{fakt}
+	Dla $|x|_p < 1$ mamy
+	\[
+		\arcsin' x = \sqrt{1 - x^2}^{-1}.
+	\]
+\end{fakt}
+
+\begin{fakt}
+	Arkus sinus jest analityczną surjekcją na $\C_p$.
+\end{fakt}
+
+\begin{definicja}
+	Ustalmy $x \in \kula(\sqrt{1 - a^2}, |a^2|_p)$, niezerowe $a \in E$.
+	\[
+		\arccos_a(x) = \frac 1i \log_p (x + ia \sqrt{(1-x^2) / a^2}).
+	\]
+\end{definicja}
+
+\begin{fakt}
+	Dla $|x - \cos a|_p < |a|_p^2$ mamy
+	\[
+		\arccos' x = - \frac 1 a \sqrt{a^2 / (1-x^2)}.
+	\]
+\end{fakt}
