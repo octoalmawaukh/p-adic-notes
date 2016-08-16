@@ -1,0 +1,23 @@
+\documentclass[a4paper, 10pt, fleqn]{extreport}
+
+\input{source/z-pre}
+
+\newcommand{\dysk}[2]{\mathrel{\langle\mkern-3.85mu\mid\mkern-4mu} {#1}\mathrel{\mkern-4mu\mid\mkern-3.85mu\rangle}_{#2}}  
+
+
+\begin{document} 
+	\setlength{\belowdisplayskip}{2pt}
+	\setlength{\belowdisplayshortskip}{2pt}
+	\setlength{\abovedisplayskip}{2pt}
+	\setlength{\abovedisplayshortskip}{2pt}
+	\setlength{\topskip}{1pt}
+
+	% \includepdf[pages={1}]{titlepage_lemon.pdf}
+	\thispagestyle{fancy}
+
+	\input{source/z-proper}
+	
+	\raggedright
+	\bibliography{bibtech}{}
+	\bibliographystyle{acm}
+\end{document}
