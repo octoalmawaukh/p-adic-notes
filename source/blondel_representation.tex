@@ -1,0 +1,103 @@
+\section{Teoria reprezentacji Blondela}
+Teoria reprezentacji w tym rozdziale wyłożona jest w naprawdę telegraficznym skrócie.
+Tak długo, jak to możliwe, będziemy pracować z przestrzenią wektorową nad ciałem, zakładając, że nie ma charakterystyki $p$.
+Naszym ,,węgielnym kamieniem'' będzie następujące stwierdzenie: gładkie oraz nierozkładalne reprezentacje $p$-adycznej grupy reduktywnej nad ciałem, które ma charakterystykę różną od $p$, są osiągalne.
+
+% \section{Gładkie reprezentacje}
+% \subsection{Grupy lokalnie proskończone}
+\begin{definicja}
+	Grupa topologiczna $\grupa$ jest {proskończona}, gdy jest zwarta i całkowicie niespójna.
+\end{definicja}
+
+\begin{fakt}
+	Proskończone grupy topologiczne $\grupa$ są izomorficzne z $\varprojlim \grupa / U$, gdzie $U$ przebiega otwarte podgrupy normalne.
+\end{fakt}
+
+\begin{fakt}
+	Jeśli ilorazy $\grupa / U$ są $p$-grupami, to granica odwrotna również nią jest.
+\end{fakt}
+
+\begin{przyklad}
+	$\Z_p = \varprojlim \Z / p^n \Z$.
+\end{przyklad}
+
+\begin{definicja}
+	Grupa topologiczna $\grupa$ jest {lokalnie proskończona}, gdy każde otoczenie $e \in G$ zawiera otwartą i zwartą podgrupę
+\end{definicja}
+
+\begin{fakt}
+	 Lokalna proskończoność $\grupa$ jest równoważna lokalnej zwartości i całkowitej niespójności.
+\end{fakt}
+
+\begin{przyklad}
+	$(\Q_p, +)$.
+\end{przyklad}
+
+% \subsection{Podstawy teorii}
+
+\begin{definicja}
+	{Reprezentacja} $(\pi, \liniowa)$ grupy $\grupa$ w przestrzeni $\liniowa$ nad ciałem $\cialo$ to homomorfizm $\pi \colon G \to \textrm{Aut}_{\cialo}(\liniowa)$.
+\end{definicja}
+
+\begin{definicja}
+	Niezerowa reprezentacja jest {nieredukowalna}, gdy właściwe podprzestrzenie $\liniowa$ są niestabilne względem automorfizmów $\pi(G)$.
+\end{definicja}
+
+\begin{definicja}
+	Reprezentacja jest {nierozkładalna}, jeśli $\liniowa$ nie da się rozłożyć jako sumę prostą właściwych podprzestrzeni, które same są stabilne względem tych samych automorfizmów $\pi(G)$.
+\end{definicja}
+
+% \subsection{Reprezentacje gładkie}
+\begin{definicja}
+	Reprezentacja $(\pi, \liniowa)$ dla $\grupa$ jest {gładka}, jeżeli wszystkie zbiory postaci $G_v = \{g \in \grupa : \pi(g)(v) = v\} \subseteq \grupa$ dla $v$, stabilizatory w $\grupa$, są otwartymi podzbiorami $\grupa$.
+\end{definicja}
+
+% \subsection{Reprezentacje indukowane}
+
+% \section{Reprezentacje osiągalne}
+\begin{definicja}
+	Gładka reprezentacja $(\pi, \liniowa)$ dla $\grupa$ jest {osiągalna}, o ile $\liniowa^K$ ma skończony wymiar dla każdej zwartej podgrupy otwartej $K \le \grupa$.
+\end{definicja}
+
+\begin{enumerate}
+\item Miara Haara. 
+\item Algebra Heckego. 
+\item Koniezmienniki. 
+\item Charaktery. 
+\item Lemat Schura, charakter centralny. 
+\item Reprezentacje $Z$-zwarte. 
+\item Paraboliczna indukcja, restrykcja, para.
+\item Rozkład Iwahoriego. 
+\item Reprezentacje szpiczaste. 
+\end{enumerate}
+
+% \subsection{Miara Haara}
+
+% \subsection{Algebra Heckego}
+
+% \subsection{Koniezmienniki}
+
+% \section{Lemat Schura i $Z$-zwartość}
+% \subsection{Charaktery}
+
+% \subsection{Lemat Schura, charakter centralny}
+
+% \subsection{Reprezentacje $Z$-zwarte}
+
+% \subsection{Przykład}
+
+% \section{Reprezentacje szpiczaste}
+
+% \subsection{Paraboliczna indukcja, restrykcja}
+
+% \subsection{Pary paraboliczne}
+
+% \subsection{Reprezentacje szpiczaste}
+
+% \subsection{Rozkład Iwahoriego}
+
+% \subsection{Główne twierdzenie}
+
+\begin{twierdzenie}
+	Każda gładka reprezentacja nieredukowalna dla $\grupa$ nad $\cialo$ o charakterystyce różnej od $p$ jest osiągalna.
+\end{twierdzenie}

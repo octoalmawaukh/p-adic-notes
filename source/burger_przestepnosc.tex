@@ -1,0 +1,103 @@
+\section{Przestępność}
+\begin{definicja}[lokalna]
+	Niech $a, b \in \Z$ będą względnie pierwsze.
+	Wtedy $h(a/b) := \max \{|a|_\infty, |b|_\infty\}$.
+\end{definicja}
+
+\begin{definicja}
+	Dla $X \subseteq \Q$, $h(X) := \max\{h(x) : x \in X\}$.
+\end{definicja}
+
+Przypomnimy teraz twierdzenie, które jest użyteczne samo w sobie.
+
+\begin{twierdzenie}[Liouville'a]
+	Dla każdej liczby pierwszej $p \le \infty$ i algebraicznej $x \in \Q_p$ stopnia $d \ge 1$ nad $\Q$ istnieje stała $c > 0$, że dla wymiernych liczb $a / b \neq \alpha$ mamy
+	\[
+		\frac{c}{h(a/b)^d} \le \left|x - \frac ab \right|_p.
+	\]
+\end{twierdzenie}
+
+Wybierzemy taki ciąg $\beta_i \in \Q$, że spełnione są nierówności $0 < |\beta_n|_p \cdot n^n \cdot h(\{\beta_0, \ldots, \beta_{n-1}\})^{n^2-2n+1} \le 1$ i $\gamma \in \Q^\times$, przy czym te pierwsze chyba mogą być prawdziwe prawie zawsze.
+
+\begin{definicja}
+	Niech $q_n = \sum_{k = 0}^n \beta_k \gamma^k \in \Q$.
+\end{definicja}
+
+\begin{definicja}
+	Niech $f(x) = \sum_{k \ge 0} \beta_k x^k$.
+\end{definicja}
+
+Jeśli $m = h(\gamma)$, to $h(q_n) \le (n+1) h(\{\beta_0, \ldots, \beta_n\})^{n+1} m^n$.
+Z pierwszej nierówności mamy dla $\lambda_k = 1 : h(\{\beta_0, \ldots, \beta_{k}\})$, $n > m$ i $\Delta = |f(\gamma) - q_n|_p$:
+
+\begin{align*}
+	\Delta & \le \sum_{k = n+1}^\infty |\beta_k|_p |\gamma|_p^k \le \sum_{k = n+1}^\infty \frac{m^k}{k^k} \cdot \lambda_{k-1}^{(k-1)^2} \\
+	& \le \sum_{k = n+1}^\infty \lambda_{k-1}^{(k-1)^2} \le \sum_{k=n+1}^\infty \lambda_n^{(k-1)^2} \\ % &= \lambda_n^{n \cdot n} \sum_{k  = n+1}^\infty \lambda_n^{(k-1)^2 - n^2} 
+	& \le \lambda_n^{n \cdot n} \sum_{k = 0}^\infty \lambda_n^k \le \lambda_n^{n \cdot n} \sum_{k = 0}^\infty 2^{-n} = 2 \lambda_n^{n \cdot n}.
+\end{align*}
+
+Jeżeli założymy teraz, że $f(\gamma)$ jest algebraiczna, stopnia $d$, to twierdzenie Liouville'a zapewnia nam stałą $c > 0$, taką że $c h(q_n)^{-d} \le |f(\gamma) - q_n|_p$.
+Stąd ciąg nierówności
+\begin{align*}
+	0 & < c/2 \le h(q_n)^d \lambda_n^{n \cdot n} \le (n+1)^d m^{dn} \lambda_n^{-dn-d} \lambda_n^{n \cdot n} \\
+	& = [(n+1)^d \lambda^{n^2:3}] [m^{dn} \lambda^{n^2:3}] \lambda_n^{n^2:3-dn-d}.
+\end{align*}
+
+Im większe $n$, tym bliższa zeru prawa strona, ale to nie jest możliwe, gdyż ogranicza ją $c/2$.
+Zatem $f(\gamma)$ jest przestępna w $\Q_p$ i pozostało wskazać stosowne $\beta_i$.
+
+Przez $A_p(n)$ oznaczmy (tylko lokalnie) sumę cyfr $n \in \N$ w rozwinięciu przy podstawie $p$.
+
+\begin{lemat}[VI]
+	Gdy $n$ jest naturalna, zaś $p$ pierwsza, to
+	\[
+		v_p(n!) = \frac{n-A_p(n)}{p-1}.
+	\]
+\end{lemat}
+
+\begin{wniosek}[VII]
+	Dla liczby pierwszej $p$ oraz prawie każdej $n$ (naturalnej) mamy $v_p(n!) \ge n/(2p-2)$.
+\end{wniosek}
+
+\begin{proof}
+	Niech $n = a_0 + \ldots + a_k p^k$, gdzie $a_k \neq 0$, zaś same cyfry $a_i$ spełniają $0 \le a_i \le p-1$.
+	Wtedy $n \ge p^k$ i $k \le \log n / \log p$, zatem
+	\[
+		A_p(n) \le (p-1) \left(1+ \frac{\log n}{\log p}\right),
+	\]
+	co dla dużych $n$ daje $A_p(n) \le n/2$.
+	Lemat VI z wcześniejszą nierównością kończą dowód.
+\end{proof}
+
+\begin{fakt}
+	Jeśli $q \in \Q^\times$, to dla każdego $p \le \infty$ liczba $f(q) \in \Q_p$ jest przestępna:
+	\[
+		f(x) = \sum_{n=0}^\infty \left(\frac{n!}{n!^2+1}\right)^{n! \cdot n! \cdot n!} x^n.
+	\]
+\end{fakt}
+
+\begin{proof}
+	Zdefiniujmy wreszcie ciąg $\beta$:
+	\[
+		\beta_n = \left[\frac{n!}{(n!)^2+1} \right]^{n!^3}
+	\]
+
+	Wystarczy sprawdzić, że dla dużych wartości $n$ stosowne nierówności są spełnione.
+
+	Jeśli $p = \infty$, to $|\beta_n|_\infty \le (n!)^{-n!^3}$.
+	Z drugiej strony, dla $n$ odpowiednio dużych (i $m = n-1$) mamy
+	\begin{align*}
+		\frac{\lambda_m^{m \cdot m}}{n^n} & = \frac{1}{n^n (1+m!^2)^{m^2 \cdot m!^3}}  \ge_\diamondsuit (n!)^{-n-m^2 \cdot m!^3}\\
+		& \ge (n!)^{-n!^3} \ge |\beta_n|_\infty.
+	\end{align*}
+	
+	Niech teraz $p$ będzie pierwsza.
+	Z wniosku VII wnioskujemy, że dla dużych $n$: $v_p(\beta_n) = v_p(n!^i) \ge in / (2p-2)$, $i = n!^3$.
+
+	Jak już zauważyliśmy, mamy (,,$\diamondsuit$'', wyciągnięte z przypadku $p = \infty$):
+	\[
+		\frac{\lambda_{m}^{m \cdot m}}{n^n} \ge \left(\frac{1}{n!}\right)^{n + m^2 m!^3}.
+	\]
+	
+	Prawa strona przekracza $p^{-in/(2p-2)}$, koniec.
+\end{proof}
