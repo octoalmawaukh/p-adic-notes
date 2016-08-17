@@ -1,42 +1,46 @@
+\usepackage[paperheight=23cm,paperwidth=15.8cm,left=1.5cm, right=1.5cm, top=1.8cm, bottom=1.5cm ,headsep=0.3cm]{geometry}
+%\usepackage[left=1.5cm, top=1.7cm, right=1.5cm, bottom=1.7cm, marginparwidth=0.3in, ]{geometry} 
+
 %%% Alegreya font, AMS packages
 \usepackage{Alegreya}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{amssymb}
-
-%%% select alternative section titles
-\usepackage{titlesec} 
-\titleformat{\chapter}[display]
-{\normalfont\huge\bfseries}
-{\chaptertitlename\ \thechapter}{0pt}{\Huge}   	
-\titlespacing*{\chapter}{0pt}{-10pt}{0pt}
-
-%%% Flexible and complete interface to document dimensions
-\usepackage[left=1.5cm, top=1.7cm, right=1.5cm, bottom=1.7cm, marginparwidth=0.3in, headsep=.1in]{geometry} 
-\setlength{\parskip}{.1ex plus 0.2ex minus 0.2ex}
-\usepackage{multicol}
-
 %%% customising captions in floating environments
 \usepackage{caption}
-\newenvironment{Figure}
-  {\par\medskip\noindent\minipage{\linewidth}}
-  {\endminipage\par\medskip}
 \usepackage{graphicx}
+\newenvironment{Figure}{\par\medskip\noindent\minipage{\linewidth}}{\endminipage\par\medskip}
 \usepackage[usenames, dvipsnames]{xcolor}
-\newcommand{\kolorowo}[1]{{\color{black} \textbf{#1}}}
 
-%%% extensive control of page headers and footers in LATEX2ε
-\usepackage{fancyhdr, lastpage}
-\fancypagestyle{plain}{	
-	\fancyhf{}
-	\fancyfoot[C]{\thepage\ z \pageref{LastPage}}
-	\fancyhead[LE, RO]{\nouppercase{\leftmark}}
-	\fancyhead[LO, RE]{Almawaukh $p$-adyczy na marzec 2016}
-	\renewcommand{\headrulewidth}{1pt}
-	\renewcommand{\footrulewidth}{0pt}
-}
-\pagestyle{plain}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+\lhead[\thepage/\pageref{LastPage}]{\nouppercase{\leftmark}/\nouppercase{\rightmark}}
+\chead[]{}
+\rhead[\nouppercase{\leftmark}/\nouppercase{\rightmark}]{\thepage/\pageref{LastPage}}
+\pagestyle{fancy}
+
+
+
+
+
+
+
+
+
+
+% select alternative section titles
+%\usepackage{titlesec} 
+%\titleformat{\chapter}[display]
+%{\normalfont\huge\bfseries}
+%{\chaptertitlename\ \thechapter}{0pt}{\Huge}   	
+%\titlespacing*{\chapter}{0pt}{-10pt}{0pt}
+
+%%% Flexible and complete interface to document dimensions
+%
+%\setlength{\parskip}{.1ex plus 0.2ex minus 0.2ex}
 
 \begingroup
 	\makeatletter		
@@ -62,14 +66,14 @@
 
 %%% sup/inf - wyrównanie granic
 \usepackage{mathtools} 
-\usepackage{pdfpages}
-\newenvironment{enumx}
-	{\begin{enumerate} \setlength{\itemsep}{0pt} \setlength{\parskip}{0pt} \setlength{\parsep}{0pt}}{\end{enumerate}}
-\newenvironment{itemx}
-	{\begin{itemize} \setlength{\itemsep}{0pt} \setlength{\parskip}{0pt} \setlength{\parsep}{0pt}}{\end{itemize}}
+
+%\usepackage{pdfpages}
+\newenvironment{enumx}{\begin{enumerate} \setlength{\itemsep}{0pt} \setlength{\parskip}{0pt} \setlength{\parsep}{0pt}}{\end{enumerate}}
+\newenvironment{itemx}{\begin{itemize} \setlength{\itemsep}{0pt} \setlength{\parskip}{0pt} \setlength{\parsep}{0pt}}{\end{itemize}}
 
 \usepackage[polish]{babel}
 \usepackage[utf8]{inputenc}
+
 \usepackage[T1]{fontenc}
 \usepackage{microtype}
 \selectlanguage{polish}
