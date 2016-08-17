@@ -1,5 +1,5 @@
 \section{Rozszerzenia kwadratowe}
-Rozszerzymy teraz $\Q_p$ o pierwiastek z $\varepsilon \not \in \Q_p^\times$. Otrzymany tak zbiór, $\Q_p(\sqrt{\varepsilon}) = \{x + y \sqrt{\varepsilon} : x, y \in \Q_p\}$, jest ciałem.
+Rozszerzymy teraz $\Q_p$ o pierwiastek z $\varepsilon \not \in \Q_p^\times$. Otrzymany tak zbiór, $\Q_p(\sqrt{\varepsilon})$, jest ciałem równym $\{x + y \sqrt{\varepsilon} : x, y \in \Q_p\}$.
 
 \begin{lemat}
 	Równanie $x^2 = a \in \Z_p^\times$, ma rozwiązanie $x \in \Q_p$, wtedy i tylko wtedy gdy $a_0$ jest kwadratem w $\mathbb F_p$ (dla $p \neq 2$) lub $a_ 1$ i $a_2$ są zerami (dla $p = 2$): $a = a_0 + a_1p + a_2p^2 + \ldots$.
@@ -26,13 +26,22 @@ Ustalmy  jedność $\eta$, która nie jest kwadratem.
 	Dla $p = 4k + 3$, $|x^2 + y^2|_p = \max \{|x|^2_p, |y|_p^2\}$.
 \end{wniosek}
 
-Jeśli $z = x + \sqrt{\varepsilon} y$, $x, y \in \Q_p$, to parę $(x, y)$ dla $z$ nazwiemy współrzędnymi kartezjańskimi.
-Zbiór punktów, które spełniają równanie $z \overline z = c$, będzie dla nas ,,okręgiem''.
-Niech $\Q_p^\varepsilon \le \Q_p^\times$ składa się z liczb $c$ tej postaci: $c = r^2$ lub $c = \kappa r^2$, gdzie $r \in \Q_p^\times$, $\kappa \in \Q_p^\varepsilon$ nie jest kwadratem.
-Para $(\rho, \sigma)$, gdzie $\rho = r$ lub $\rho = \nu r$ ($\nu \in \Q_p^\times (\sqrt \varepsilon)$), $z = \rho \sigma$ i $\sigma\overline \sigma = 1$ to współrzędne biegunowe.
+\begin{definicja}
+	Współrzędne kartezjańskie to para $(x, y) \in \Q_p \times \Q_p$ dla $x + y \sqrt{\varepsilon}$.
+\end{definicja}
+
+\begin{definicja}
+	Pseudookrąg to zbiór punktów $z$ spełniających $z \overline z = c$.
+\end{definicja}
+
+Niech $\Q_p^\varepsilon \le \Q_p^\times$ składa się z liczb postaci: $r^2$ lub $\kappa r^2$, gdzie $r \in \Q_p^\times$, $\kappa \in \Q_p^\varepsilon$ nie jest kwadratem.
+
+\begin{definicja}
+	Współrzędne biegunowe to para $(\rho, \sigma)$, gdzie $\rho = r$ lub $\rho = \nu r$, $\nu \neq 0$, $z = \rho \sigma$ i $\sigma \overline \sigma = 1$.
+\end{definicja}
+
 ,,Okrąg'' $z \overline z = 1$ to $\{(1 + \varepsilon t^2, 2t) / (1 - \varepsilon t^2) : t \in \Q_p\}$, jest on zbiorem zwartym.
 
-Obraz funkcji $\varphi \colon \Q_p \to \R_+$, $\varphi(x) = |x|_p \sum_{k = 0}^\infty x_k p^{-2k}$ jest przeliczalną unią rozłącznych, nigdzie gęstych zbiorów o mierze Lebesgue'a zero, które są doskonałe.
-
-Przestrzeń $\Q_p^n$ z iloczynem skalarnym $\langle x \mid y \rangle$ danym przez $\sum_{i=1}^n x_i y_i$ zachowuje nierówność Cauchy'ego Schwarza.
-Kula $B_\gamma(a)$ jest produktem kul $B_\gamma(a_i)$ (rozpatrujemy tu metrykę od normy $|x|_p = \max_i |x_i|_p$).
+\begin{fakt}
+	Obraz funkcji $\varphi \colon \Q_p \to \R_+$, $\varphi(x) = |x|_p \sum_{k = 0}^\infty x_k p^{-2k}$ jest przeliczalną unią rozłącznych, nigdzie gęstych zbiorów o mierze Lebesgue'a zero, które są doskonałe.
+\end{fakt}
