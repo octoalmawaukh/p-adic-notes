@@ -1,28 +1,30 @@
 \section{Liczby Liouville'a}
 \begin{fakt} % Schikhof 65
-	Jeśli operator $A$ z przestrzeni ciągłych funkcji $\Z_p \to \cialo$ w siebie spełnia warunek Lipschitza, to istnieje $\|\cdot\|$-izometria p. funkcji $\Z_p \to \cialo$ o zerowej pochodnej na zbiór rozwiązań $f' = Af$.
+	Jeśli operator $A \colon \mathcal C(\Z_p, \cialo) \to C(\Z_p, \cialo)$ spełnia warunek Lipschitza, to istnieje pewna $\|\cdot\|$-izometria z przestrzeni funkcji $\Z_p \to \cialo$ o zerowej pochodnej na zbiór rozwiązań równania różniczkowego $f' = Af$.
 \end{fakt}
 
 \begin{definicja}
-	Dla $\lambda \in \Z_p$, $\nu(\lambda) = \liminf_n |n - \lambda|_p^{1:n}$.
+	Niech $\nu(\lambda) = \liminf_n |n - \lambda|_p^{1:n}$ dla $\lambda \in \Z_p$.
 \end{definicja}
 
 \begin{definicja}
-	Mówimy, że $\lambda$ jest liczbą Liouville'a, gdy $\nu(\lambda) = 0$.
+	Mówimy, że $\lambda$ jest \emph{liczbą Liouville'a}, gdy $\nu(\lambda) = 0$.
 \end{definicja}
 
 Van der Put postawił w 1980 problem, który rozwiążemy (z ,,Meromorphic differential equations over valued fields'', Indag. Math. 42, Fasc. 3).
 
 \begin{fakt}
-	Niech funkcja $g \colon \Z_p \to \cialo$ będzie ciągła, a w zerze też różniczkowalna, $\lambda \in \Z_p$.
+	Niech funkcja $g \colon \Z_p \to \cialo$ będzie ciągła, a w zerze też różniczkowalna.
 	Niech $\lambda \in \Z_p$.
 	Jeśli $\lambda = 0$, $g(0) = 0$.
 	Jeśli $\lambda = 1$, $g'(0) = 0$.
-	Istnieje $\mathcal C^1$-rozwiązanie (?) dla $x y' - \lambda y = g$.
+	Istnieje $\mathcal C^1$-rozwiązanie równania $x y' - \lambda y = g$.
 \end{fakt}
 
 Uwaga. 
+Być może chodzi o $\mathcal S^1$, a nie $\mathcal C^1$.
 Zbiór rozwiązań stanowi warstwę w przestrzeni $\mathcal C^1$ podgrupy $\{f \colon \Z_p \to \cialo : xf'(x) - \lambda f(x) = 0\}$, której wymiar jest nieskończony.
+To pokazuje, że rozwiązania są bardzo niejednoznaczne.
 
 \begin{proof}
 	Niech $g(0) = g'(0) = 0$, przez $P$ oznaczmy obcięcie antyderywatu do p. ciągłych $\Z_p \to \cialo$, które zerują się w zerze, $C_0$.
@@ -75,7 +77,7 @@ Warto tu wspomnieć o twierdzeniu Baire'a: niepusta oraz zupełna przestrzeń me
 	Dobry wybór $n_1 < n_2 < \ldots$ sprawia, że liczba $n + p^{n_1} + p^{n_2} + \ldots$ jest blisko $n$ i ma dowolnie długie luki.
 	Domknięcie zbioru liczb Liouville'a zawiera $\N$, zatem całe $\Z_p$.
 	Niech $U_{mk} = \{x \in \Z_p : |m-x|_p < k^{-m}\}$.
-	Liczby Liouville'a to dokładnie $\bigcap_{k \in \N} \bigcap_{n \in \N} \bigcup_{m \ge n} U_{mk}$.
+	Liczby Liouville'a to dokładnie elementy przekroju $\bigcap_{k \in \N} \bigcap_{n \in \N} \bigcup_{m \ge n} U_{mk}$.
 \end{proof}
 
 \begin{fakt}
@@ -89,14 +91,14 @@ Warto tu wspomnieć o twierdzeniu Baire'a: niepusta oraz zupełna przestrzeń me
 \end{proof}
 
 \begin{fakt}
-	Niech $\lambda \in \Z_p$ będzie liczbą Liouville'a.
-	Wtedy równanie różniczkowe $(1-x)(x f'(x) - \lambda f(x)) = 1$ nie posiada rozwiązań analitycznych na żadnym otoczeniu $0$ 
+	Równanie różniczkowe $(1-x)(x f'(x) - \lambda f(x)) = 1$ nie posiada rozwiązań, które są analityczne na małym otoczeniu $0$ dla $\lambda \in \Z_p$ będących liczbami Liouville'a.
 \end{fakt}
 
 \begin{proof}
 	Zapiszmy $f(x) = \sum_{n=0}^\infty b_n x^n$.
 	Podstawienie tego do naszego równania daje $b_n (n - \lambda ) = 1$.
-	Jeśli $\lambda \not \in \Z$ (jeśli $\lambda$ jest całkowita, rozumowanie niepotrzebnie się komplikuje), szereg $f$ ma zerowy promień zbieżności, $\nu(\lambda)$.
+	Jeśli $\lambda \not \in \Z$, szereg $f$ ma zerowy promień zbieżności, $\nu(\lambda)$.
+	Jeśli $\lambda$ jednak jest całkowita, rozumowanie niepotrzebnie się komplikuje.
 \end{proof}
 
 Zajmiemy się polami wektorowymi.
@@ -108,15 +110,10 @@ Zajmiemy się polami wektorowymi.
 
 \begin{proof}
 	Niech $x \mapsto x_n$ będzie przybliżeniem identyczności (to jest ciągiem odwzorowań $\sigma_0, \sigma_1, \ldots \colon \cialo \to \cialo$, że $\sigma_0$ jest stała, $\sigma_m \circ \sigma_n = \sigma_n \circ \sigma_m = \sigma_n$ jeśli $m \ge n$, $|x - y| < \sigma^n$ implikuje $\sigma_n(x) = \sigma_n(y)$ oraz $|\sigma_n(x) - x| < \rho^n$, $0 < \rho < 1$ ustalone), $x_n' = x_{n+1} - x_n$, $y_n' = y_{n+1} - y_n$. 
-	Wtedy $F(x, y)$:
-	\[
-		\sum_{n \ge 0} f(x_n, y_n)x_n' +g(x_n, y_n)y_n'
-	\]
-
-	jest w porządku.
+	Wtedy $F(x, y) = \sum_{n \ge 0} f(x_n, y_n)x_n' +g(x_n, y_n)y_n'$ jest w porządku.
 \end{proof}
 
-Twierdzenie Schwarza o mieszaniu (dobrych) pochodnych czosnkowych nie jest prawdziwe.
+Schwarz kłamie na temat mieszania (dobrych) pochodnych czosnkowych.
 
 \begin{wniosek}
 	Istnieje funkcja $f \colon \cialo^2 \to \cialo$ o ciągłych drugich pochodnych czosnkowych, że
