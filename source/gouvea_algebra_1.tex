@@ -10,9 +10,8 @@ Niech $\cialo$ będzie ciałem, na którym mamy niearchimedesowską wartość be
 \end{fakt}
 
 \begin{proof}
-	Pokażemy najpierw nie wprost, że $\mathcal O$ to maksymalny podpierścień.
 	Jeżeli podpierścień $\pierscien$ zawiera element $x$, taki że $|x| > 1$, to sam jest całym ciałem, gdyż $\cialo = \bigcup_{n \ge 1} x^n \mathcal O$.
-
+	Pokazaliśmy nie wprost, że $\mathcal O$ jest maksymalny.
 	Każdy ideał większy od $\mathfrak p$ musi zawierać jedność, a przez to pokrywać się z pierścieniem $\mathcal O$.
 \end{proof}
 
@@ -26,12 +25,8 @@ Pierścienie, w których ideał maksymalny jest tylko jeden, nazywamy lokalnymi.
 	Dla ciała $\mathcal K = \Q$ i $p$-adycznej wartości bezwzględnej,
 	$\mathcal O = \Z_{(p)}$,
 	$\mathfrak p = p \Z_{(p)}$, zaś
-	$\mathfrak K = \mathbb F_p$ (ciało o $p$ elementach).
-	\[
-		\Z_{(p)} = \left\{ \frac a b \in \Q : p \nmid b\right\}
-	\]
+	$\mathfrak K = \mathbb F_p$ (ciało o $p$ elementach), gdzie $\Z_{(p)}$ to $\{\frac a b \in \Q : p \nmid b\}$.
 \end{fakt}
-
 
 \begin{fakt} \label{libresoy}
 	Niech $\cialo$ będzie zupełnym ciałem z ultrametryką.
@@ -45,17 +40,16 @@ Pierścienie, w których ideał maksymalny jest tylko jeden, nazywamy lokalnymi.
 	Ciąg $x - x_n \xi^n$ jest Cauchy'ego, zaś dla $x \in \cialo$ mamy $|\xi^k x| \le 1$ ($k$: jakieś).
 \end{proof}
 
-Kiedy $\cialo$ nie jest zupełne, izomorfizm z faktu staje się tylko zanurzeniem w uzupełnienie $\mathcal O$.
+
+Izomorfizm z faktu staje się tylko zanurzeniem w uzupełnienie $\mathcal O$ dla niezupełnych $\cialo$.
 
 \begin{fakt} %Robert, strona 135
-	Dla niedyskretnego ciała $\cialo$ z ultrametryką albo $\mathfrak p$ jest główny, albo $\mathfrak p = \mathfrak p^2$ i $\mathcal O$ nie jest noetherowski.
+	Dla niedyskretnego ciała $\cialo$ z ultrametryką albo ideał $\mathfrak p$ jest główny, albo składa się z samych kwadratów ($\mathfrak p = \mathfrak p^2$) i $\mathcal O$ nie jest noetherowski.
 \end{fakt}
 
 \begin{proof}
 	Z założeń wiemy, że $\Gamma = |\cialo^\times| \neq \{1\}$ i albo $\Gamma \cap (0, 1)$ zawiera element maksymalny $\theta$, albo ciąg zbieżny do jedynki.
-
 	W pierwszym przypadku wybieramy taki $\pi \in \mathfrak p$, że $|\pi| = \theta$, wtedy ideał $\mathfrak p = \pi \mathcal O$ jest główny.
-
 	W drugim, dla każdego $x \in \mathfrak p$ znajdujemy element $y$, że $|x| < |y| < 1$, wtedy $x = y (x/y) \in \mathfrak p^2$ i $\mathfrak p = \mathfrak p^2$.
-	Podgrupa $\Gamma$ leży gęsto w $\R_+$, zaś ideały $B[0, r]$ dla $r \in \Gamma \cap (0,1)$ są parami różne, więc $A$ nie jest noetherowski.
+	Podgrupa $\Gamma$ leży gęsto w $\R_+$, zaś ideały $B[0, r]$ dla $r \in \Gamma \cap (0,1)$ są parami różne, więc $\mathcal O$ nie jest noetherowski.
 \end{proof}

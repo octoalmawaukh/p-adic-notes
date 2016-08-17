@@ -4,8 +4,11 @@ Lemat Hensela pokazał, że zawiera $(p-1)$-sze pierwiastki z jedynki.
 Dla prostoty ,,$q_2 = 4$ i $q_p = p$''.
 % Eksponensa $p$-adyczna będzie określona dla $x \in q \Z_p$, zaś logarytm dla $x \in 1+ p \Z_p$.
 Podzbiory $U = 1 + p\Z_p$ i $U_1 = 1 + q\Z_p$ są podgrupami $\Z_p^\times$, $U_1 \subset U$. Jeśli $p = 2$, to $U = \Z_p^\times$, jeśli nie, to $U_1 = U$.
-Elementy $U$ nazywa się \kolorowo{jeden-jednościami}.
 Niech $W = (q\Z_p, +)$.
+
+\begin{definicja}
+	Elementy $U$ nazywa się \emph{jeden-jednościami}.
+\end{definicja}
 
 \begin{fakt}
 	Logarytm $p$-adyczny zadaje homomorfizm $U \to \Z_p^+$ oraz izomorfizm $U_1 \to W$ (funkcja odwrotna: eksponensa).
@@ -17,27 +20,28 @@ Niech $W = (q\Z_p, +)$.
 \end{proof}
 
 \begin{wniosek}\label{hostis}
-	Dla każdej pierwszej $p$ mamy $\Z_p^\times \cong V \times U$, gdzie $U \cong \Z_p^+$ to beztorsyjna pro-$p$-grupa, zaś grupa $V \le \Z_p^\times$ składa się z pierwiastków jedności w $\Q_p$ (część torsyjna).
+	Mamy $\Z_p^\times \cong V \times U$, gdzie $U \cong \Z_p^+$ to beztorsyjna pro-$p$-grupa, zaś $V \le \Z_p^\times$ składa się z pierwiastków jedności w $\Q_p$ (część torsyjna).
 	Jest cykliczna, rzędu $\varphi(q)$.
 \end{wniosek}
 
 \begin{proof}
-	Łatwo widać, że istnieje poniższy ciąg dokładny (jest to definicja $U$).
+	Łatwo widać, że istnieje ciąg dokładny $1 \to U_1 \to \Z_p^\times \stackrel \pi \to  (\Z/q\Z)^\times \to 0$ (jest to definicja $U$).
 	Chcemy pokazać, że się ,,rozdziela''.
-	\[
-		1 \to U_1 \to \Z_p^\times \stackrel \pi \to  (\Z/q\Z)^\times \to 0.
-	\]
-	Lemat Hensela połączony z twierdzeniem Straßmana mówi, że $\Z_p^\times$ zawiera grupę $V$ pierwiastków jedności, cykliczną i rzędu $\varphi(q)$.
+	Lemat Hensela z twierdzeniem Straßmana mówią, że $\Z_p^\times$ zawiera grupę $V$ pierwiastków jedności, cykliczną i rzędu $\varphi(q)$.
 	Elementy $V$ są różne modulo $q$ (lemat Hensela dla $p > 2$).
-	Jeżeli $\pi(\zeta_1) = \pi(\zeta_2)$, to $\zeta_1 \zeta_2^{-1} = 1 + qx \in U$ dla $x \in \Z_p$, czyli $\zeta_1 = \zeta_2$ mod $q$, a jedyny przypadek, kiedy to jest możliwe, to $\zeta_1 = \zeta_2$.
+	Jeżeli $\pi(\zeta_1) = \pi(\zeta_2)$, to $\zeta_1 / \zeta_2 = 1 + qx \in U$ dla $x \in \Z_p$, czyli $\zeta_1 = \zeta_2$ mod $q$, a jedyny przypadek, kiedy to jest możliwe, to $\zeta_1 = \zeta_2$.
 
 	Strzałka $\pi$ indukuje izomorfizm $V \cong (\Z/q\Z)^\times$.
 	Reszta jest prosta: dla $u \in \Z_p^\times$ istnieje $\zeta \in V$, takie że $\pi(\zeta) = \pi(u)$, wtedy $u \mapsto (\zeta, u \zeta^{-1})$ uzasadnia $\Z_p^\times \cong V \times U$.
 \end{proof}
 
 \section{Charakter Teichmüllera\label{sekcjateich}}
-Z faktu \ref{hostis} możemy wywnioskować, że dla pierwszej $p \neq 2$ mamy inkluzję $\omega \colon \mathbb F_p^\times \cong V \hookrightarrow \Z_p^\times$; określmy do tego $\omega(0) = 0$.
-Funkcję $\omega$ nazywa się \kolorowo{charakterem Teichmüllera}.
+Z faktu \ref{hostis} możemy wywnioskować dla pierwszej $p \neq 2$ istnienie $\omega \colon \mathbb F_p^\times \cong V \hookrightarrow \Z_p^\times$ przedłużonej przez $\omega(0) = 0$.
+
+\begin{definicja}
+	\emph{Charakter Teichmüllera} to funkcja $\omega$.
+\end{definicja}
+
 Czasem tej nazwy używa się dla charakteru Dirichleta, to jest złożenia $\omega$ z redukcją mod $p$: $\Z \to \mathbb F_p \to \Z_p$.
 
 Żeby nie było zbyt łatwo, często przez $\omega$ oznacza się rzut z $\Z_p^\times$ na $V$, by każdy $x\in \Z_p^\times$ zapisywał się jednoznacznie jako $x = \omega(x) \cdot x_1$ z $x_1 \in 1 + q\Z_p$.
@@ -53,11 +57,7 @@ Niech ,,$(x) = x_1$''.
 
 \begin{proof}
 	Skoro $\omega(x)^{p-1} = 1$, to $\omega(x)^{p^n} = \omega(x)$ dla każdego $n$.
-	Z drugiej strony, $x_1 = 1 + qy$, więc
-	\[
-		(1 + qy)^p = 1 + pqy + q^2 \cdot \mbox{reszta},
-	\]
-	a stąd wynika $x_1^p \in 1 + p^2 \Z_p$.
+	Z drugiej strony, $x_1 = 1 + qy$, więc $(1 + qy)^p = 1 + pqy + q^2 \cdot$ reszta, a stąd wynika $x_1^p \in 1 + p^2 \Z_p$.
 	Można to powtórzyć: indukcyjnie pokazuje się, że $x_1^{r} \in 1 + p^{n+1} \Z_p$ i $x_1^r \to 1$ ($r = p^n$).
 \end{proof}
 
