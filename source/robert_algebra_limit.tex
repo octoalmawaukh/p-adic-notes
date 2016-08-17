@@ -1,15 +1,14 @@
 \section{Granice rzutowe}
 Homomorfizm $\varepsilon_n \colon \Z_p \to \Z/p^n\Z$ uogólnia redukcję.
-Skoro $\sum_{i < n} a_ip^i$ dąży do liczby $p$-adycznej $\sum_{i \ge 0} a_i p^i$, chcemy tego samego dla pierścieni $\Z/p^n\Z$ i $\Z_p$.
+Przeniesiemy zbieżność $\sum_{i < n} a_ip^i$ do liczby $p$-adycznej $\sum_{i \ge 0} a_i p^i$ na pierścienie $\Z/p^n\Z$ i $\Z_p$.
 Nic trudnego.
-Umożliwią nam to: kanoniczny homomorfizm $\varphi_n \colon \Z/p^{n+1} \Z \to \Z / p^n \Z$ oraz przemienny diagram: ,,$\varepsilon_n = \varphi_n \circ \varepsilon_{n+1}$''.
+
+Umożliwi nam to kanoniczny homomorfizm $\varphi_n \colon \Z/p^{n+1} \Z \to \Z / p^n \Z$ z przemiennym diagramem ,,$\varepsilon_n = \varphi_n \circ \varepsilon_{n+1}$''.
 
 \begin{definicja}
 	Układ rzutowy to ciąg funkcji $\varphi_n \colon E_{n+1} \to E_n$ (oraz samych zbiorów $E_n$). 
-	Jego granicą jest zbiór $E$ z funkcjami $\psi_n \colon E \to E_n$, że $\psi_n = \varphi_n \circ \psi_{n+1}$, o ile spełniony jest warunek uniwersalny: dla drugiej ,,granicy'' $E'$ z funkcjami $f_n$ mamy funkcję $f$, by $f_n = \psi_n \circ f \colon E' \to E \to E_n$ (,,faktoryzacja'').
-\[
-	E_0 \leftarrow E_1 \leftarrow \dots \leftarrow E_n \leftarrow \dots \leftarrow \varprojlim E_n = E
-\]
+	Jego granicą jest zbiór $E$ z funkcjami $\psi_n \colon E \to E_n$, że $\psi_n = \varphi_n \circ \psi_{n+1}$, o ile jest uniwersalny: dla drugiej ,,granicy'' $E'$ z funkcjami $f_n$ mamy funkcję $f$, by $f_n = \psi_n \circ f \colon E' \to E \to E_n$ (,,faktoryzacja'').
+	$E_0 \leftarrow E_1 \leftarrow \dots \leftarrow E_n \leftarrow \dots \leftarrow \varprojlim E_n = E$
 \end{definicja}
 
 Możemy iterować $f_n = \psi_n \circ f_{n+1}$, by uzyskać $f_n = \psi_n \circ f$:
@@ -32,14 +31,12 @@ Granice rzutowe istnieją dla wielu obiektów, nie tylko grup, ale także przest
 \end{fakt}
 
 \begin{fakt}
-	Jeśli $A$ jest podzbiorem granicy $E$ dla $E_n$, to ma miejsce równość $\operatorname{cl} A = \bigcap_{n=0}^\infty \psi_n^{-1} (\operatorname{cl} \psi_n (A))$.
+	Jeśli $A$ jest podzbiorem granicy $E$ dla $E_n$, to $\operatorname{cl} A = \bigcap_{n=0}^\infty \psi_n^{-1} (\operatorname{cl} \psi_n (A))$.
 \end{fakt}
 
-Dla grup mamy trochę inny wynik.
-Załóżmy, że $\grupa$ to granica rzutowa grup $\grupa_n$ z homomorfizmami $\psi_n \colon \grupa \to \grupa_n$.
-
 \begin{fakt}
-	Zachodzi $\bigcap \ker \psi_n = \{e\}$, zaś grupa $G$ jest kanonicznie izomorficzna z $\varprojlim (G / \ker \psi_n)$.
+	Jeśli $\grupa$ jest granicą rzutową grup $\grupa_n$ z homomorfizmami $\psi_n \colon \grupa \to \grupa_n$, to przekrój ich jąder jest trywialny.
+	Istnieje kanoniczny izomorfizm $\grupa \cong \varprojlim (\grupa / \ker \psi_n)$.
 \end{fakt}
 
 Pierścień szeregów formalnych $\Z_p$ można opisać w języku granic rzutowych.
@@ -49,26 +46,23 @@ Pierścień szeregów formalnych $\Z_p$ można opisać w języku granic rzutowyc
 \end{fakt}
 
 \begin{proof}
-	Skoro homomorfizmy przejścia $\varphi_n$ są dane przez
-	\[
-		\sum_{i \le n} a_ip^i \pmod {p^{n+1}} \mapsto \sum_{i<n} a_ip^i \pmod {p^n},
-	\]
-	to konsekwentne ciągi w $\prod \Z/p^n\Z$ są dokładnie ciągami sum częściowych szeregu $\sum_{i \ge 0} a_i p^i$ ($0 \le a_i\le p-1$), czyli liczbami $p$-adycznymi.
-
-	Relacje $x_n = \sum_{i \le n} a_ip^i$, $a_0 = x_1$, $a_n = (x_{n+1} - x_n)p^{-n}$ pokazują nam, że faktoryzacja $\Z_p \to \lim_{\leftarrow} \Z/p^n\Z$ jest bijekcją, czyli izomorfizmem, a jednocześnie homeomorfizmem (jako ciągła bijekcja między p. zwartymi).
+	Z definicji, $\varphi_n (\sum_{i \le n} a_ip^i \mbox{ mod } {p^{n+1}}) = \sum_{i<n} a_ip^i \mbox{ mod } {p^n}$, więc konsekwentne ciągi w $\prod \Z/p^n\Z$ są dokładnie ciągami sum częściowych szeregu $\sum_{i \ge 0} a_i p^i$ ($0 \le a_i\le p-1$), czyli liczbami $p$-adycznymi.
+	Relacje $x_n = \sum_{i \le n} a_ip^i$, $a_0 = x_1$, gdzie $a_n = (x_{n+1} - x_n)p^{-n}$ pokazują nam, że faktoryzacja $\Z_p \to \lim_{\leftarrow} \Z/p^n\Z$ jest bijekcją, czyli izomorfizmem, a jako ciągła bijekcja między p. zwartymi, jednocześnie homeomorfizmem.
 \end{proof}
 
-Homomorfizmy $\Z \to \Z/p^{n+1} \Z \to \Z/p^n\Z$ wyznaczają coś jeszcze: graniczny homomorfizm $\Z \to \lim_{\leftarrow} \Z/p^n\Z$, który można utożsamić z kanonicznym włożeniem $\Z \to \Z_p$.
-Funkcja
-\[
-	\sum_{i < n} a_ip^i \pmod {p^n} \mapsto \sum_{i<n} a_ip^i \pmod {p^n \Z_p}
-\]
-definiuje izomorfizm $\Z/p^n\Z \to \Z_p/p^n\Z_p$, a w szczególności $\Z_p / p\Z_p \cong \Z/p\Z = \mathbb F_p$.
+Homomorfizmy $\Z \to \Z/p^{n+1} \Z \to \Z/p^n\Z$ są źródłem granicznego homomorfizmu $\Z \to \lim_{\leftarrow} \Z/p^n\Z$, który można utożsamić z kanonicznym włożeniem $\Z \to \Z_p$.
+Funkcja $\sum_{i < n} a_ip^i \mbox{ mod } {p^n} \mapsto \sum_{i<n} a_ip^i \mbox{ mod } {p^n \Z_p}$ definiuje izomorfizm $\Z/p^n\Z \to \Z_p/p^n\Z_p$, a w szczególności $\Z_p / p\Z_p \cong \Z/p\Z = \mathbb F_p$.
 Ogólniej $\Z_p/p^n \Z_p \cong \Z/p^n\Z$.
-Cóż, obcięcie homomorfizmu $\Z_p \to \Z/p^n\Z$ (redukcji) do $\Z_{(p)} \subseteq \Q$ (podpierścień ułamków o mianowniku, który nie dzieli się przez $p$) jest (z drugiej strony) ,,na'' i ma jądro $p^n\Z_{(p)}$.
-Zyskaliśmy w ten sposób izomorfizm $\Z_{(p)} / p^n \Z_{(p)} \cong \Z/p^n\Z$: $\Z_p$ to rzutowa granica $\varprojlim \Z_{(p)} / p^n\Z_{(p)}$; uzupełnienie $\Z_{(p)}$.
+Obcięcie redukcji $\Z_p \to \Z/p^n\Z$ do $\Z_{(p)} \subseteq \Q$ jest (z drugiej strony) ,,na'' i ma jądro $p^n\Z_{(p)}$.
+Zyskaliśmy tak
 
-Jeszcze inna definicja $p$-adycznych liczb całkowitych bierze się z funkcji $\sum a_i X^i \mapsto \sum a_i p^i$, homomorfizmu pierścieni $\Z[[x]] \to \Z_p$.
-Zadaje ona izomorfizm $\Z[[x]] / (X-p) \to \Z_p$ (kanoniczny).
+\begin{fakt}
+	Uzupełnienie $\Z_{(p)}$ to $\Z_p$, rzutowa granica $\varprojlim \Z_{(p)} / p^n\Z_{(p)}$.
+\end{fakt}
 
 Granica rzutowa to konstrukcja z teorii kategorii, z powodu jej dużej ogólności nie będzie nam więcej potrzebna.
+Na zakończenie prostsza, choć bezużyteczna definicja.
+
+\begin{fakt}
+	Homomorfizm pierścieni $\Z[[x]] \to \Z_p$, ewaluacja w punkcie $x = p$, zadaje kanoniczny izomorfizm $\Z[[x]] / (x-p) \cong \Z_p$.
+\end{fakt}

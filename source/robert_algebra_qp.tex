@@ -1,13 +1,14 @@
 \section{Ciało $\Q_p$}
-Pierścień $\Z_p$ jest dziedziną całkowitości, więc można określić na jego podstawie ciało ułamków: $\Q_p = \operatorname{Frac} \Z_p$.
-Gdy $x = p^m u$ ($u$: jedność w $\Z_p$), to $1/x = p^{-m} u^{-1}$.
-Ciało $\Q_p$ jest generowane (jako pierścień) przez $\Z_p$ i ujemne potęgi $p$, tzn. $\Q_p = \Z_p[1/p]$.
-Reprezentacja $1/x = p^{-m} u^{-1}$ pokazuje coś jeszcze:
-\[
-	\Q_p = \bigcup_{m \ge 0} p^{-m} \Z_p \mbox{ oraz } \Q_p^\times = \coprod_{m \in \Z} p^m \Z_p^\times
-\]
+Pierścień $\Z_p$ jest dziedziną całkowitości, więc można z niego zbudować ciało ułamków $\Q_p = \operatorname{Frac} \Z_p$.
+Gdy $x = p^m u$ ($u$: jedność w $\Z_p$), to $1/x = p^{-m} u^{-1}$, wynika stąd, że ciało to jest pierścieniem generowanym przez $\Z_p$ i ujemne potęgi $p$: $\Q_p = \Z_p[1/p]$.
+Poniższa obserwacja wynika z reprezentacji $1/x = p^{-m} u^{-1}$.
 
-Struktura ultramentryczna na $\Q_p$ jest na tyle ciekawa, że możemy poświęcić jej chwilę.
+\begin{fakt}
+	$\Q_p = \bigcup_{m \ge 0} p^{-m} \Z_p = \{0\} \cup \coprod_{m \in \Z} p^m \Z_p^\times$.
+\end{fakt}
+
+
+Struktura ultramextryczna na $\Q_p$ jest na tyle ciekawa, że możemy poświęcić jej chwilę.
 Jeśli to zrobimy, możemy dojść na przykład do takiej obserwacji.
 
 \begin{fakt}
@@ -26,16 +27,13 @@ Analogia z $\R$ jest oczywista.
 
 \begin{proof}
 	Przedstawimy samą ideę prostego, ale trochę nużącego dowodu.
-	Mnożąc przez $x$ przez $p^{v(x)}$ można założyć, że $x \in \Z_p$.
-	Jeżeli ciąg cyfr jest od pewnego miejsca okresowy, to $x$ jest sumą liczby całkowitej i kombinacji liniowej (nad $\Z$) szeregów postaci $\sum_{j \ge 0} p^{s+jt} = p^s / (1-p^t) \in \Q$, czyli sam $x$ jest wymierny.
+	Mnożąc liczbę $x$ przez wysoką potęgę $p$ można założyć, że $x \in \Z_p$.
+	Jeżeli ciąg cyfr jest okresowy od pewnego miejsca, to $x$ jest sumą liczby całkowitej i kombinacji liniowej (nad $\Z$) szeregów postaci $\sum_{i \ge 0} p^{s+it} = p^s / (1-p^t) \in \Q$, czyli sam $x$ jest wymierny.
 
 	W drugą stronę można założyć, że $x = a/b$ jest dodatni, $a, b$ są względnie pierwsze i $p$ nie dzieli $b$.
-	Rozwijając $p$-adycznie:
-	\[
-		\sum_{j \le \beta} b_j p^j \cdot \sum_{i \ge 0} x_i p^i = \sum_{k \le \alpha} a_kp^k.
-	\]
-	Zaczynając od $(x_{l-1}, \dots, x_{l - \beta}, r_l) \in (\Z/p\Z)^{\beta + 1}$ pewien bliżej nieokreślony algorytm znajduje krotkę $(x_{l}, \dots, x_{l - \beta+1}, r_{l+1})$.
-	Zbiór $(\Z/p\Z)^{\beta+1}$ jest skończony, więc kiedyś wpadniemy na cykl.
+	W języku rozwinięć, $\sum_{i \le \beta} b_i p^i \cdot \sum_{i \ge 0} x_i p^i = \sum_{k \le \alpha} a_kp^k$.
+	Zaczynając od krotki $(x_{l-1}, \dots, x_{l - \beta}, r_l)$ o wyrazach z $\Z/p\Z$ pewien bliżej nieokreślony algorytm znajdzie inną krotkę $(x_{l}, \dots, x_{l - \beta+1}, r_{l+1})$.
+	Przestrzeń krotek jest skończona, więc kiedyś wpadniemy na cykl.
 	Wiemy, że ten opis jest mętny, ale nic nie zrobimy.
 \end{proof}
 
@@ -55,10 +53,7 @@ Analogia z $\R$ jest oczywista.
 \end{proof}
 
 Przyjrzyjmy się teraz reprezentantom mod $1$, to znaczy w $\Z[1/p] / \Z \subset \R / \Z$.
-Okrąg $\R / \Z$ można zanurzyć w płaszczyźnie zespolonej:
-\[
-	\R \to \R / \Z \to \C^\times : t \mapsto \exp (2 \pi i t).
-\]
+Okrąg $\R / \Z$ można zanurzyć w płaszczyźnie zespolonej: $\R \to \R / \Z \to \C^\times : t \mapsto \exp (2 \pi i t)$.
 
 John Tate (to jemu zawdzięczamy notację) badał kiedyś funkcję $\uptau \colon \Q_p \to \C^\times$ określoną wzorem $\uptau(x) = \exp(2 \pi \uroj \langle x \rangle)$.
 Na przykład gdy $v(x) = -1$, czyli $x = k/p + y$, $0 < k \le p-1$, $y \in \Z_p$, to $\uptau(x) = \zeta^k$, gdzie $\zeta$ to pierwotny $p$-ty pierwiastek jedności w $\C$.
@@ -86,49 +81,41 @@ Zauważmy jeszcze, że ciąg grup cyklicznych $\mu_p \subset \mu_{p^2} \subset \
 	Funkcja $\uptau$ to homomorfizm, którego jądro składa się z tych $x \in \Q_p$, że $\langle x \rangle \in \Z$: $\ker \uptau = \Z_p$.
 
 	Do obrazu $\uptau$ należą liczby postaci $\exp(2\pi \uroj k/p^m)$, równe po prostu $\exp(2 \pi \uroj / p^m)^k$.
-	Przyjmując $k = 1$ dostajemy $p^m$-te pierwiastki jedności, które generują grupę $\mu_{p^\infty}$.
+	Grupa $\mu_{p^\infty}$ jest generowana przez $p^m$-te pierwiastki jedności otrzymane po położeniu $k = 1$.
 \end{proof}
 
 Rozłożymy teraz $\Q$ ,,niezależnie'' od liczb $p$-adycznych.
+Każda liczba wymierna zapisuje się jako $x = p^v \frac a b$, gdzie $v \in \Z$, zaś $a, b$ są względnie pierwsze z $p$.
+Gdy $v = -m < 0$, mamy prawo użyć twierdzenia Bézout: $1 = \alpha p^m + \beta b$.
+Zatem $x = \alpha a / b + \beta b p^{-m}$: pierwszy składnik żyje w $\Z_{(p)}$, drugi w $\Z[1/p]$.
+Wynika stąd, że $\Q = \Z_{(p)} + \Z[1/p]$.
 
-Każda liczba wymierna jest postaci $x = p^v \frac a b$, gdzie $v \in \Z$, zaś $a, b$ są względnie pierwsze z $p$.
-Kiedy $v = -m < 0$, możemy użyć twierdzenia Bézout: $1 = \alpha p^m + \beta b$.
-Zatem
-\[
-	x = \frac{\alpha a}{b} + \frac{\beta b}{p^m} \in \Z_{(p)} + \Z[1/p].
-\]
-
-Wynika stąd, że $\Q = \Z_{(p)} + \Z[1/p]$ (rozkład indukowany przez $\Q_p = \Z_p + \Z[1/p]$).
-
-Suma $\Q_p = \Z_p + \Z[1/p]$ nie jest prosta, ponieważ składniki kroją się do $\Z$.
+Niestety suma $\Q_p = \Z_p + \Z[1/p]$ nie jest prosta, ponieważ składniki kroją się do $\Z$.
 Jeżeli włożymy $\Z$ w $\Z_p \oplus \Z[1/p]$ poprzez funkcję $m \mapsto (m, -m)$ z obrazem $\Gamma$, to homomorfizmy dodawania 
-\begin{align*}
-	\Z_{(p)} \oplus \Z[1/p] & \to \Z_{(p)} + \Z[1/p] = \Q \\
-	\Z_p \oplus \Z[1/p] & \to \Z_p + \Z[1/p] = \Q_p
-\end{align*}
-mają to samo jądro, $\Gamma$.
-Podzielenie sum prostych przez $\Gamma$ daje nam odpowiednio $\Q$ i $\Q_p$.
+$\Z_{(p)} \oplus \Z[1/p] \to \Z_{(p)} + \Z[1/p] = \Q$ oraz $\Z_p \oplus \Z[1/p] \to \Z_p + \Z[1/p] = \Q_p$ mają to samo jądro, $\Gamma$.
+Podzielenie przez $\Gamma$ daje nam odpowiednio $\Q$ i $\Q_p$.
+
 
 Podgrupa $\Z_p \le \Q_p$ nie ma prostego dopełnienia.
 Istotnie, jeżeli $\Gamma \le \Q_p$ jest dowolną podgrupą, taką że $\Gamma \cap \Z_p = \{0\}$, to jest ona dyskretna w $\Q_p$, a co za tym idzie jest trywialna.
 W pewnym sensie $\Z[1/p]$ jest najlepszym, na co możemy liczyć; mamy jednoznaczny rozkład na $x \in \Z_p$ i $y \in [0,1) \cap \Z[1/p]$.
 Problem w tym, że drugi zbiór nie jest podgrupą.
 
-Wskażemy wszystkie automorfizmy $\Q_p$ nad $\Q$.
+Poszukamy automorfizmów $\Q_p$ nad $\Q$.
 
 \begin{lemat}
-	Liczba $x \in \Q_p^\times$ jest jednością ($x \in \Z_p^\times$), wtedy i tylko wtedy gdy $x^{p-1}$ ma $n$-te pierwiastki dla $\infty$ wielu $n$.
+	Liczba $x \in \Q_p^\times$ leży w $\Z_p^\times$, wtedy i tylko wtedy gdy $x^{p-1}$ ma $n$-te pierwiastki dla $\infty$ wielu wartości $n$.
 \end{lemat}
 
 \begin{proof}
+	($\Leftarrow$) Jeśli $x^{p-1} = y_n^n$, to $(p-1)v(x) = n v(y_n)$, więc liczba $n$ dzieli lewą stronę nieskończenie często.
+	Skoro $x$ nie jest zerem, to $v(x) = 0$.
+
 	($\Rightarrow$)
 	$x \not \equiv 0$ mod $p\Z_p$ i $x^{p-1} \equiv 1$ mod $p \Z_p$.
 	Rozważmy równanie $P(X) = X^n-x^{p-1} = 0$.
 	Przybliżony pierwiastek to $1$ mod $p$, a kiedy $n$ nie jest krotnością $p$, to $P'(1) = n$ nie znika mod $p$.
 	Lemat Hensela daje dokładne rozwiązanie $\xi \in \Z_p$.
-
-	($\Leftarrow$) Jeśli $x^{p-1} = y_n^n$, to $(p-1)v(x) = n v(y_n)$, więc $n$ dzieli lewą stronę nieskończenie często.
-	Zatem $v(x) = 0$, gdyż $x$ nie jest zerem.
 \end{proof}
 
 \begin{fakt}
@@ -138,21 +125,15 @@ Wskażemy wszystkie automorfizmy $\Q_p$ nad $\Q$.
 \begin{proof}
 	Niech $\varphi$ będzie automorfizmem ciała $\Q_p$.
 	Trzyma on jedności w $\Q_p^\times$, co wynika z ich charakteryzacji.
-
-	Jeśli $x \in \Q_p^\times$ zapiszemy jako $x = p^nu$, gdzie $n = v(x)$ oraz $u \in \Z_p^\times$ jest jednością, to
-	\[
-		\varphi(x) = \varphi(p^nu) = \varphi(p^n) \varphi(u) = p^n\varphi(u).
-	\]
+	Jeśli $x \in \Q_p^\times$ zapiszemy jako $x = p^nu$, gdzie $n = v(x)$ oraz $u \in \Z_p^\times$ jest jednością, to $\varphi(x) = \varphi(p^nu) = \varphi(p^n) \varphi(u) = p^n\varphi(u)$.
 
 	Oznacza to, że $v(\varphi(x)) = n = v(x)$, zaś sam automorfizm zachowuje $p$-adyczny rząd i jest ciągły.
 	Ustalmy $y \in \Q_p$ i ciąg $y_n \in \Q$ zbieżny do $y$, na przykład ciąg obciętych rozwinięć $p$-adycznych dla $y$.
-	Automorfizm $\varphi$ jest trywialny na liczbach wymiernych, zatem
-	\[
-		\varphi(y) = \varphi(\lim_n y_n) = \lim_n \varphi(y_n) = \lim y_n = y. \qedhere
-	\]
+	Automorfizm $\varphi$ jest trywialny na liczbach wymiernych, co kończy dowód, gdyż $\varphi(y) = \varphi(\lim_n y_n) = \lim_n \varphi(y_n) = \lim y_n = y$.
 \end{proof}
 
 Jest to $p$-adyczny odpowiednik twierdzenia mówiącego, że jedynym automorfizmem algebraicznym  $\R$ jest identyczność.
 W tych przypadkach algebraiczne automorfizmy nad $\Q$ okazują się być ciągłe i przez to trywialne.
+
 Istnieje jednak nieskończenie wiele automorfizmów $\C$, choć tylko dwa z nich są ciągłe.
 Skoro $\Q(\sqrt 2) \subset \C$, to funkcję $a + b\sqrt 2 \mapsto a - b\sqrt 2$ można przedłużyć do całego $\C$.
