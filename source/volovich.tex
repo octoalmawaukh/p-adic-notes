@@ -2,11 +2,11 @@ Ten rozdział miał być poświęcony mechanice kwantowej, ale wygląda na to, �
 Być może kiedyś znajdziemy czas na gaussowskie całki, uogólnione funkcje (,,dystrybucje''), transformatę Fouriera, jeszcze więcej operatorów różniczkowych i wreszcie fizykę.
 
 \section{Analityczny wstęp}
-Dla świętego spokoju do końca rozdziału tymczasowo przyjmiemy nowe oznaczenia na kule i ich różnice, $B_n(a) = \{x \in \Q_p: |x - a|_p \le p^n\}$, $S_n(a) = \{x \in \Q_p: |x - a|_p = p^n\}$.
+Dla \prawo{Vlad.\\1.3} świętego spokoju do końca rozdziału tymczasowo przyjmiemy nowe oznaczenia na kule i ich różnice, $B_n(a) = \{x \in \Q_p: |x - a|_p \le p^n\}$, $S_n(a) = \{x \in \Q_p: |x - a|_p = p^n\}$.
 Jeśli $a=0$, stosujemy też skrócony zapis $B(n)$, $S(n)$.
 
-\begin{definicja}
-	\emph{Charakter addytywny} to ciągły morfizm $\chi \colon \Q_p^+ \to S^1 \subsetneq \C$.
+\begin{definicja} \label{underpressure}
+	\emph{Charakter addytywny} \prawo{Vlad.\\3.1} to ciągły morfizm $\chi \colon \Q_p^+ \to S^1 \subsetneq \C$.
 \end{definicja}
 
 Łatwo sprawdzić, że funkcja $\exp (2 \pi i \langle\xi x\rangle)$ spełnia warunki tej definicji dla ustalonego $\xi$. 
@@ -81,7 +81,7 @@ Niech $\chi_\infty(x) = \exp(- 2 \pi i x)$.
 \end{proof}
 
 \begin{definicja}
-	\emph{Multiplikatywny charakter} ciała $\Q_p$ to ciągły homomorfizm $\Q_p^\times \to \C$. %, analogicznie dla $\Q_p(\varepsilon^{1/2})$ i $S_\varepsilon$.
+	\emph{Multiplikatywny charakter} \prawo{Vlad.\\3.2} ciała $\Q_p$ to ciągły homomorfizm $\Q_p^\times \to \C$. %, analogicznie dla $\Q_p(\varepsilon^{1/2})$ i $S_\varepsilon$.
 \end{definicja}
 
 \begin{fakt}
@@ -93,13 +93,13 @@ Dowód jest na tyle podobny do tego, który uzasadniał już klasyfikację addyt
 Każdy element $x$ ciała $\Q_p (\sqrt{\varepsilon})$ ma postać $z = r \sigma$ lub $ \nu r \sigma$, gdzie $r \in \Q_p$, $\nu \overline \nu$ nie jest kwadratem w $\Q_p$ i $\sigma \overline \sigma = 1$.
 
 \begin{fakt}
-	Niech $\pi_1$ będzie multiplikatywnym charakterem ciała $\Q_p$, zaś $\pi_2$: ,,okręgu'' $C$.
+	Niech \prawo{Vlad.\\3.3} $\pi_1$ będzie multiplikatywnym charakterem ciała $\Q_p$, zaś $\pi_2$: ,,okręgu'' $C$.
 	Wtedy $\pi^2(\nu) = \pi_1(\nu \overline \nu) \pi_2 (\nu / \overline \nu)$, a także $\pi(r \sigma) = \pi_1(r)\pi_2(\sigma)$ ($\pi(\nu r \sigma) = \pi(\nu)\pi(r\sigma)$) wyznaczają nam w jednoznaczny sposób charaktery dla $\Q_p(\sqrt \varepsilon)$.
 \end{fakt}
 
 Nie do końca wiadomo, czy niżej opisana całka jest istotnie czymś nowym.
 
-Ciało $\Q_p$ jest lokalnie zwartą grupą abelową, więc istnieje na jego addytywnej grupie miara Haara, dodatnia miara $\textrm{d}x$, która jest niezmiennicza na przesunięcia.
+Ciało \prawo{Vlad.\\4.1} $\Q_p$ jest lokalnie zwartą grupą abelową, więc istnieje na jego addytywnej grupie miara Haara, dodatnia miara $\textrm{d}x$, która jest niezmiennicza na przesunięcia.
 Staje się jedyna po unormowaniu przez $\int \chi(B_0) \,\textrm{d}x = 1$, przy czym $\chi$ oznacza tu indykator, a nie charakter!
 
 Jeżeli  $K \subseteq \Q_p$ jest zwarty, to miara $\textrm{d}x$ definiuje dodatni funkcjonał ciągły na $\mathcal C(K)$ (z normą maksimum), całkę nad tym zbiorem.
@@ -112,7 +112,7 @@ Jeżeli  $K \subseteq \Q_p$ jest zwarty, to miara $\textrm{d}x$ definiuje dodatn
 \end{definicja}
 
 \begin{fakt}[zamiana zmiennych I]
-$\textrm{d}(xa) = |a|_p \textrm{d}x$ dla $a \in \Q_p^\times$.
+	$\textrm{d}(xa) = |a|_p \textrm{d}x$ \prawo{Vlad.\\4.2} dla $a \in \Q_p^\times$.
 \end{fakt}
 
 \begin{proof}
@@ -128,7 +128,8 @@ Policzymy teraz kilka całek. %: $\gamma \in \Z$, $\Re \alpha > 0$.
 	$\int_{X} \! 1 \,\textrm{d}x = p^n$ ($n \in \Z$, $X = B_n$).
 \end{przyklad}
 
-\begin{proof}$\int_X dx = \int_{|y|_p \le 1} d(p^{-n}y) = |p^{-n}|_p = p^n$.
+\begin{proof}
+	$\int_X dx = \int_{|y|_p \le 1} d(p^{-n}y) = |p^{-n}|_p = p^n$.
 \end{proof}
 
 Wynika stąd, że ,,okrąg'' ($S_n$) w $\Q_p$ ma dodatnie pole, gdyż jest różnicą dwóch dysków, wbrew temu, czego spodziewać się można po okręgu na $\R$: $\int_{S_n} dx = p^n - p^{n-1}$.
@@ -173,7 +174,7 @@ Uogólnieniem powyższej całki jest:
 \end{proof}
 
 \begin{przyklad}
-	Jeżeli $n \in \Z$, to
+	Jeżeli \prawo{Vlad.\\4.3} $n \in \Z$, to
 	\[
 		\int_{B(n)}\! \chi_p(\xi x) \,\textrm{d}x = p^n \cdot [|\xi|_p \le p^{-n}].
 	\]
@@ -244,7 +245,7 @@ Uogólnieniem powyższej całki jest:
 %Przestrzeń $\Q_p^n$ z iloczynem skalarnym $\langle x \mid y \rangle$ danym przez $\sum_{i=1}^n x_i y_i$ zachowuje nierówność Cauchy'ego Schwarza.
 %Kula $B_\gamma(a)$ jest produktem kul $B_\gamma(a_i)$ (rozpatrujemy tu metrykę od normy $|x|_p = \max_i |x_i|_p$).
 
-Miara $\textrm{d}x$ z $\Q_p$ przenosi się na przestrzeń produktową $\Q_p^n$.
+Miara \prawo{Vlad.\\4.4} $\textrm{d}x$ z $\Q_p$ przenosi się na przestrzeń produktową $\Q_p^n$.
 Redukcja wielowymiarowych całek do prostszych, w jednym wymiarze, jest możliwa na mocy twierdzenia Fubiniego.
 
 \begin{twierdzenie}[Fubini]
@@ -265,7 +266,7 @@ Redukcja wielowymiarowych całek do prostszych, w jednym wymiarze, jest możliwa
 \end{fakt}
 
 \begin{fakt}[całka Gaußa]
-	Jeśli $a \neq 0$, to
+	Jeśli \prawo{Vlad.\\5.1} $a \neq 0$, to
 	\[
 		\int_{\Q_p} \chi_p(ax^2 + bx)\,\textrm{d} x = \lambda_p(a) |a|_p^{-1/2} \chi_p(-b^2 / 4a),
 	\]
@@ -276,5 +277,5 @@ Redukcja wielowymiarowych całek do prostszych, w jednym wymiarze, jest możliwa
 Sowieci liczą teraz śmieszne całki, gaussowskie oraz różne warianty $\int_X \chi_p (t(x-y)^2) \,\textrm{d}y$.
 
 \begin{fakt}
-	$\lambda_p(a) \lambda_p(b) = \lambda_p(a+b) \lambda_p(1/a+1/b)$.
+	$\lambda_p(a) \lambda_p(b) = \lambda_p(a+b) \lambda_p(1/a+1/b)$. \prawo{Vlad.\\5.4}
 \end{fakt}
