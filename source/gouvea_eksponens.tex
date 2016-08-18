@@ -1,5 +1,5 @@
 \section{Eksponens (klasyczny)}
-W $\R$ szereg $\exp(x) = \sum_{n = 0}^\infty x^n/n!$ zbiega wszędzie, bo $1/n!$ bardzo szybko maleje: ale nie w $\Q_p$.
+W \prawo{Gouv\\4.5} $\R$ szereg $\exp(x) = \sum_{n = 0}^\infty x^n/n!$ zbiega wszędzie, bo $1/n!$ bardzo szybko maleje: ale nie w $\Q_p$.
 Trzeba więc określić tempo wzrostu tych współczynników.
 
 \begin{lemat}
@@ -14,21 +14,18 @@ Trzeba więc określić tempo wzrostu tych współczynników.
 \end{proof}
 
 \begin{lemat}
-	Szereg $\sum_{n = 0}^\infty {x^n}:{n!}$, protoplasta eksponensa, zbiega wtedy i tylko wtedy gdy $v_p(x) > 1 / (p-1)$. 
+	Szeregowy protoplasta eksponensa zbiega, wtedy i tylko wtedy gdy $v_p(x) > 1 / (p-1)$. 
 \end{lemat}
 
 \begin{proof}
-	Promieniem zbieżności ,,protoplasty'' jest co najmniej $p^{-1/(p-1)}$, gdyż $|1/n!| = p^{v_p(n!)} < p^{n/(p-1)}$.
+	Promień zbieżności ,,protoplasty'' to co najmniej $p^{-1/(p-1)}$, gdyż $|1/n!|$ wynosi $p^{v_p(n!)} < p^{n/(p-1)}$.
 	
 	Z drugiej stony, gdy $n = p^m$, to $v_p(n!) = (n-1)/(p-1)$.
-	Jeśli ustalimy $x$ o waluacji równej $1 / (p-1)$, to $x^n/n!$ nie dąży do zera (a sam szereg nie jest zbieżny), gdyż poniższe wyrażenie nie zależy od $m$.
-	\[
-		v_p\left ( \frac{x^n}{n!}\right) = \frac{p^m}{p-1} - \frac{p^m-1}{p-1} = \frac{1}{p-1}. \qedhere
-	\]
+	Jeśli ustalimy $x$ o waluacji równej $1 / (p-1)$, to $x^n/n!$ nie dąży do zera (a sam szereg nie jest zbieżny), gdyż wyrażenie $v_p(x^n : n!) = (p-1)^{-1}$ nie zależy od $m$.
 \end{proof}
 
-Nierówność z lematu jest trochę dziwna, przecież dla $p \neq 2$ i $x \in \Z_p$ wartość bezwzględna, $|x|$, może być albo większa lub równa $1$ (więc większa niż $p^{-1/(p-1)}$) lub mniejsza lub równa $1/p$ (ta zaś liczba jest mniejsza), nie ma wartości ,,pomiędzy''.
-A zatem dysk z lematu jest po prostu otwartym o promieniu jeden: lemat nie jest jednak bezsensowny, w szczególności dla ciał, które zawierają $\Q_p$ (np. $\C_p$).
+Nierówność z lematu jest trochę dziwna, przecież eksponens zbiega na $p \Z_p$ dla $p \neq 2$ i $4\Z_2$.
+Lemat nie jest jednak bezsensowny, w szczególności dla rozszerzeń $\Q_p$ takich jak $\C_p$.
 %Podsumujmy: funkcja $g(x)$ zbiega dla $x \in p\Z_p$ (jeśli $p\neq 2$) i dla $x \in 4 Z_2$ (dla $p = 2$).
 
 \begin{definicja}
@@ -42,11 +39,10 @@ A zatem dysk z lematu jest po prostu otwartym o promieniu jeden: lemat nie jest 
 \begin{proof}
 	Dowód to po prostu formalna manipulacja szeregów.
 	\begin{align*}
-		L & = \exp_p(x+y) = \sum_{n \ge 0} \frac{(x+y)^n}{n!} = \\
+		L & = \exp_p(x+y) = \sum_{n \ge 0} \frac{(x+y)^n}{n!} 
 		% & = \sum_{n = 0}^\infty \frac{1}{n!} \sum_{k = 0}^n C^n_k x^{n-k} y^k \\
-		& = \sum_{n \ge 0} \sum_{k \le n} \frac{1}{n!} \frac{n!}{k!(n-k)!} x^{n-k}y^k \\
-		& = \sum_{n \ge 0} \sum_{k \le n} \frac{x^{n-k}}{(n-k)!} \frac{y^k}{k!} = \sum_{m \ge 0} \frac{x^m}{m!} \cdot \sum_{k \ge 0} \frac{y^k}{k!} \\
-		& = \exp_p(x) \exp_p(y) = R\qedhere
+		 = \sum_{n \ge 0} \sum_{k \le n} \frac{1}{n!} \frac{n!}{k!(n-k)!} x^{n-k}y^k \\
+		& = \sum_{n \ge 0} \sum_{k \le n} \frac{x^{n-k}}{(n-k)!} \frac{y^k}{k!} = \sum_{m \ge 0} \frac{x^m}{m!} \cdot \sum_{k \ge 0} \frac{y^k}{k!} = \exp_p(x) \exp_p(y) = R\qedhere
 	\end{align*}
 \end{proof}
 
@@ -65,41 +61,30 @@ Fakt \ref{auctoris} ma założenia, które trzeba sprawdzić.
 		|\exp_p x - 1| = \left|\sum_{n=1}^\infty \frac {x^n}{n!} \right| < \frac{|x|^n}{p^{n / (p-1)}} < 1
 	\]
 
-	Można jeszcze lepiej oszacować waluację $v = v_p(x^{n-1} / n!)$:
-	\[
-		v = (n-1)v_p(x) - v_p(n!) > \frac{n-1}{p-1} - \frac{n-s}{p-1} > 0,
-	\]
-	gdzie $s$ to suma cyfr $n$ w rozwinięciu $p$-adycznym i $n \ge 2$.
-	Stąd wynika, że $v_p(x) < v_p(x^n / n!)$ i wreszcie korzystamy z lematu \ref{auctoris} dla $\log_p \circ \exp_p$, gdyż
-	\[
-		p^{-1/(p-1)} > |\exp_p(x) - 1| = |x| > |x^n/n!|.
-	\]
+	Można jeszcze lepiej oszacować: $v_p(x^{n-1} / n!) > (n-1)/(p-1) - (n-s(n))(p-1) > 0$, gdzie $s$ to suma cyfr $n$ w rozwinięciu $p$-adycznym i $n \ge 2$.
+	Stąd wynika, że $v_p(x) < v_p(x^n / n!)$ i korzystamy z lematu \ref{auctoris} dla $\log_p \circ \exp_p$, gdyż $1/(p-1) < v_p(\exp_p(x) - 1) = v_p(x)$. %< v_p(x^n / n!)$.
 
 	Złożymy teraz szeregi w drugą stronę.
-	Niech $n > 1$ oraz $a_n = - (-x)^n / n$.
-	Wtedy (dla $v = v_p(a_n) - v_p(x)$) mamy
-	
+	Niech $n > 1$. 
+	Wtedy mamy
 	\begin{align*}
-		v & = (n-1) v_p(x) - v_p(n) \\
-		& > \frac{n-1}{p-1} - v_p(n) = (n-1) \left[ \frac{1}{p-1} - \frac{v_p(n)}{n-1}\right].
+		v_p(-(-x)^n/n) - v_p(x) & = (n-1) v_p(x) - v_p(n) > (n-1) \left[ \frac{1}{p-1} - \frac{v_p(n)}{n-1}\right].
 	\end{align*}
 
 	Wykażemy nieujemność tego, co pozostało w nawiasach.
 	Niech $n = p^v n'$ z $n ' \nmid p$, czyli
-	
 	\begin{align*}
-		\frac{v_p(n)}{n-1} & = \frac{v}{p^v n' -1 } \le \frac{v}{p^v - 1} \\
-		& = \frac{1}{p-1} \cdot \frac{v}{p^{v-1} + \ldots + p + 1} \le \frac{1}{p-1}.
+		\frac{v_p(n)}{n-1} & = \frac{v}{p^v n' -1 } \le \frac{v}{p^v - 1}  = \frac{1}{p-1} \cdot \frac{v}{p^{v-1} + \ldots + p + 1} \le \frac{1}{p-1}.
 	\end{align*}
 
 	A zatem $|(-1)^{n+1} x^n/n| < |x|$ i do akcji wkracza fakt \ref{ingentis}: $|\log_p(x)| = |x| < p^{-1/(p-1)}$ daje żądaną równość.
 \end{proof}
 
-Ostrożność była potrzebna: dla $p = 2$, $x = -2$ ,,wszystko'' zbiega, ale $\exp(\log_p(1+x)) = \exp(0) = 1 \neq -1$.
+Ostrożność była potrzebna: chociaż dla $p = 2$, $x = -2$ ,,wszystko'' na pierwszy rzut oka zbiega, to i tak $\exp(\log_p(1+x)) = \exp(0) = 1 \neq -1$.
 
 W ciałach charakterystyki $p$ dzieje się coś niedobrego.
 \begin{fakt}
-	Analityczna $f$ z wypukłego otoczenia zera spełniająca jeden z warunków: $f' = f$ lub $f(x+y) = f(x)f(y)$ jest zerem.
+	Analityczna \prawo{Schik\\Ex.25.J} $f$ z wypukłego otoczenia zera spełniająca jeden z warunków: $f' = f$ lub $f(x+y) = f(x)f(y)$ jest zerem.
 \end{fakt}
 
 Szereg z definicji eksponensa wcale nie ma sensu, jako że $n!$ nie odwraca się dla $n \ge p$.

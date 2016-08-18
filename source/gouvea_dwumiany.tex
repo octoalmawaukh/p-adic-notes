@@ -1,6 +1,5 @@
 \section{Szereg dwumianowy}
-% Gouvea - około strony 123
-Zajmiemy się wreszcie szeregami dwumianowymi (warto się zapoznać z treścią sekcji \ref{sekcjalog} i \ref{sekcjateich}).
+Zajmiemy \prawo{Gouv\\4.5} się wreszcie szeregami dwumianowymi (warto się zapoznać z treścią sekcji \ref{sekcjalog} i \ref{sekcjateich}).
 W $\R$ funkcję $(1+x)^\alpha$ można rozwinąć w szereg potęgowy zbieżny dla $|x| < 1$:
 \[
 	(1+x)^\alpha = B(\alpha, x) = \sum_{n = 0}^\infty {\alpha \choose n} x^n.
@@ -32,8 +31,7 @@ Z równości formalnych szeregów potęgowych wynika, że dla $\alpha = a/b \in 
 	$(1 + x)^{a/b} : = B(a/b, x)$.
 \end{definicja}
 
-Chciałoby się przyjąć dla dowolnej $\alpha \in \Z_p$ oraz $x \in p\Z_p$, że $(1+x)^\alpha = B(\alpha, x)$.
-Problem w tym, że $p$-adyczna funkcja $B(a/b, x)$ nie zachowuje się jak jej rzeczywisty odpowiednik, nawet gdy $x$ jest wymierny i $1+x$ jest $b$-tą potęgą w $\Q$!
+Nie możemy przyjąć takiej definicji dla dowolnej $\alpha \in \Z_p$, $x \in p\Z_p$, jako że $p$-adyczna funkcja $B(a/b, x)$ nie zachowuje się jak jej rzeczywisty odpowiednik, nawet gdy $x$ jest wymierny i $1+x$ jest $b$-tą potęgą w $\Q$!
 
 \begin{przyklad}[Koblitz]
 	Jeśli $p = 7$, $\alpha = 1/2$, $x = 7/9$, to w $\R$ pierwiastek z $1+x$ jest równy $4/3$, ale w $\Q_7$ nie: $|x| = 1/7$, więc dla $n \ge 1$ jest $|(1/2 \textrm{ nad } n) x^n| \le |x|^n = 7^{-n} < 1$.
@@ -65,7 +63,7 @@ Interesujący wynik dotyczący szeregów $p$-adycznych i ich zbieżności przeds
 Wygląda na to, że dwa poniższe stwierdzenia pochodzą od samego Koblitza, jednak brakuje im dowodu.
 
 \begin{fakt}
-	Szeregu dwumianowy $B(\alpha, x)$ ma tę samą wartość w ciałach $\Q_p$ i $\R$ (między innymi) dla:
+	Szeregu \prawo{Kblitz\\4.1.Ex.10} dwumianowy $B(\alpha, x)$ ma tę samą wartość w ciałach $\Q_p$ i $\R$ (między innymi) dla:
 	\begin{itemx}
 	\item $\alpha = -n \in - \N$ oraz $x = -p / (p+1)$.
 	\item $\alpha = 1/2$ oraz $xm^2 = p^2 + 2mp$, $m > (\sqrt 2 + 1)p$, $p \nmid m$.

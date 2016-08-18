@@ -7,9 +7,8 @@ $\Z \cap [a, \infty)$ jest gęste w $\Z_p$, więc nie może być dwóch przedłu
 Poszukiwanie $p$-adycznych wariantów funkcji określanych normalnie na podzbiorach $\C$ zaczniemy właśnie od logarytmu i eksponensa.
 
 \section{Logarytm ($\Q_p$)}
-
 \begin{definicja}
-	Logarytm to formalny szereg
+	Logarytm \prawo{Gouv\\4.5} to formalny szereg
 	\[
 		f(x) = \log(1+x) = \sum_{n = 1}^\infty - \frac{(-x)^n}{n}.
 	\]
@@ -28,7 +27,7 @@ Skoro $0 \le \frac 1 n v_p (n) \le \frac 1 n \log_p n \to 0$ i $|a_n| = p^{v_p(n
 Łatwo widać, że nie ma dla $|x| = 1$ zbieżności.
 \end{proof}
 
-Mamy nadzieję, że logarytm $p$-adyczny nie zostanie nigdy pomylony ze zwykłym (rzeczywistym) przy podstawie $p$.
+Mamy nadzieję, że logarytm $p$-adyczny nie zostanie nigdy pomylony ze zwykłym, przy podstawie $p$, rzeczywistym.
 
 By funkcja $\log_p \colon \mathcal B \to \Q_p$ zasługiwała na bycie logarytmem, musi mieć jego własności. Tak rzeczywiście jest.
 
@@ -46,8 +45,8 @@ By funkcja $\log_p \colon \mathcal B \to \Q_p$ zasługiwała na bycie logarytmem
 	Jest to szereg potęgowy zbieżny dla $|x| < 1$.
 	Reguła łańcucha pozwala policzyć pochodną:
 	\begin{align*}
-		g'(x) & = (1+y) f'(y + (1+y)x) = \frac{(1+y)}{1+y + (1+y)x} \\
-		& = \frac{1}{1+x} = f'(x) \Rightarrow g(x) = f(x) + C.
+		g'(x) & = (1+y) f'(y + (1+y)x) = \frac{(1+y)}{1+y + (1+y)x}  = \frac{1}{1+x} = f'(x) \\
+		g(x)& = f(x) + C.
 	\end{align*}
 	%To oznacza, że $g(x), f(x)$ różnią się o stałą.
 	Widać, że $g(0) = f(y)$, zatem $g(x) = f(x) + f(y)$, wystarczy przetłumaczyć to na język logarytmów.
