@@ -1,11 +1,7 @@
 \subsection{Transformacja Mellina-Mazura}
-Jeśli $X \subseteq \Z_p$ jest zwarty i otwarty, to można do niego obciąć miarę $\mu$ z $\Z_p$: wtedy całka z $f$ nad $X$ to całka nad $\Z_p$ funkcji $f \cdot \chi_X$.
+Jeśli \prawo{Kbltz\\2.5} $X \subseteq \Z_p$ jest zwarty i otwarty, to można do niego obciąć miarę $\mu$ z $\Z_p$: wtedy całka z $f$ nad $X$ to całka nad $\Z_p$ funkcji $f \cdot 1_X$.
 Chcieliśmy interpolować $-B_k / k$.
-Mamy prosty związek
-\[
-	\kobint 1 \cdot \mu_B^k = \mu_B^k (\Z_p) = B_k.
-\]
-
+Mamy prosty związek $\kobint 1 \cdot \mu_B^k = \mu_B^k (\Z_p) = B_k$.
 Dla różnych $k$ dystrybucje $\mu_B^k$ nie są ze sobą związane, ale ich regularne odpowiedniki tak!
 
 \begin{wniosek}
@@ -18,12 +14,12 @@ Dla różnych $k$ dystrybucje $\mu_B^k$ nie są ze sobą związane, ale ich regu
 \end{wniosek}
 
 \begin{proof}
-	Z faktu \ref{heroine} wynika, że dla $m = n - v_p (d_k)$ mamy kongruencję $\mu_{k, \alpha}(\dysk{a}{n}) \equiv ka^{k-1} \mu_{1, \alpha} (\dysk{a}{n})$ mod $p^m$.
+	Z faktu \ref{heroine} możemy wywnioskować $\mu_{k, \alpha}(\dysk{a}{n}) \equiv ka^{k-1} \mu_{1, \alpha} (\dysk{a}{n})$ mod $p^m$ dla $m = n - v_p (d_k)$.
 	Biorąc $n$ tak duże, by $X$ było unią dysków postaci $\dysk{a}{n}$, mamy
 	\begin{align*}
 		\kobint_X 1 \mu_{k, \lambda} & = 
 		\sum_{a=0}^{p^n-1} \mu_{k, \lambda} (\dysk{a}{n}) \equiv 
-		\sum_{a=0}^{p^n-1} ka^{k-1} \mu_{1, \lambda} (\dysk{a}{n}) \\ & = 
+		\sum_{a=0}^{p^n-1} ka^{k-1} \mu_{1, \lambda} (\dysk{a}{n}) = 
 		k \sum_{a=0}^{p^n-1} f(a) \mu_{1, \lambda} (\dysk{a}{n}).
 	\end{align*}
 	%Sumowaliśmy po $a$ od $0$ do $p^n-1$. 
@@ -42,22 +38,15 @@ Wnioski te mówią nam, że jeśli $|f(x) - x^{k-1}|_p \le \varepsilon$ dla $x \
 \]
 
 Wybierzmy za $f$ funkcję $x^{l-1}$, gdzie $l \equiv k$ mod $p-1$ oraz $p^n$.
-Zachodzi: $|x^{l - 1} - x^{k - 1}|_p \le  p^{-n-1}$, a to implikuje
+Wtedy pasujący $\varepsilon$ to na przykład $p^{-n-1}$.
+%Spełniona jest nierówność $|x^{l - 1} - x^{k - 1}|_p \le  p^{-n-1}$, a to implikuje $|\kobint_{\Z_p^\times} x^{l- 1} \mu_{1, \lambda} - \kobint_{\Z_p^\times} x^{k - 1} \mu_{1, \lambda}|_p \le p^{-n-1}$.
+Tak oto dochodzimy do wniosku, że dla ustalonego $0 \le s_0 \le p -2$ i $k$ biegnącego przez $S(s_0) := [s_0 + (p - 1) \Z] \cap \N_+$ możemy przedłużyć funkcję do $p$-adycznych całkowitych:
 \[
-	\left|\kobint_{\Z_p^\times} x^{l- 1} \mu_{1, \lambda} - \kobint_{\Z_p^\times} x^{k - 1} \mu_{1, \lambda} \right|_p \le p^{-n-1}
-\]
-
-Dochodzimy do wniosku, że dla ustalonego $0 \le s_0 \le p -2$ i $k$ biegnącego przez $S(s_0) := [s_0 + (p - 1) \Z] \cap \N_+$ możemy przedłużyć naszą funkcję do $p$-adycznych całkowitych:
-\[
-	\kobint_{\Z_p^\times} x^{k-1} \mu_{1, \lambda} \textrm{ do } \kobint_{\Z_p^\times} x^{s_0 + s(p-1) - 1} \mu_{1, \lambda}
+	\kobint_{\Z_p^\times} x^{k-1} \mu_{1, \lambda} \rightsquigarrow \kobint_{\Z_p^\times} x^{s_0 + s(p-1) - 1} \mu_{1, \lambda}
 \]
 
 Trochę zabłądziliśmy!
-Interpolowaliśmy
-\[
-	\kobint_{\Z_p^\times} x^{k-1} \mu_{1, \lambda} = \frac 1 k \kobint_{\Z_p^\times} 1 \mu_{k, \lambda}.
-\]
-
+Interpolowaliśmy $\kobint_{\Z_p^\times} x^{k-1} \mu_{1, \lambda} = \frac 1 k \kobint_{\Z_p^\times} 1 \mu_{k, \lambda}$.
 Zwiążemy teraz te dwie liczby.
 \begin{align*}
 \frac 1 k \kobint_{\Z_p^\times} 1 \mu_{k, \lambda} & = \frac {\mu_{k, \lambda} (\Z_p^\times)}{k} = \frac{B_k}{k} (1 - \lambda^{-k})(1 - p^{k-1}) \\
@@ -74,13 +63,10 @@ Zajmiemy się więc
 Wystąpienie $k - 1$ zamiast $-k$ zaskakuje tylko początkowo, za sprawą funkcyjnego równania wiążącego coś z czymś innym.
 
 \begin{definicja}
-	Jeżeli $k$ jest dodatnia i całkowita, to
-	\[
-		\zeta_p(1 - k) := (1 - p^{k - 1}) \cdot \frac{-B_k}{k}.
-	\]
+	Jeżeli $k \in \N_+$, to $\zeta_p(1 - k) := -(1 - p^{k - 1}) \cdot B_k/k$.
 \end{definicja}
 
-Powinno się w tym miejscu wyprowadzić klasyczne fakty teorii liczb o liczbach Bernoulliego.
+Powinniśmy w tym miejscu wyprowadzić pewne klasyczne fakty o liczbach Bernoulliego.
 Uznawano je za eleganckie, ale i tajemnicze niezwykłości, zanim związano je z $\zeta_p$ Kuboty i Leopoldta oraz miarą Mazura $\mu_{1, \alpha}$.
 Clausen z van Staudtem też maczali w tym palce.
 
@@ -89,17 +75,22 @@ Clausen z van Staudtem też maczali w tym palce.
 \end{fakt}
 
 \begin{proof}
-	Skorzystamy z definicji $\zeta(1 - k) = \sum n^{k-1}$. Niech $\mathfrak D$ oznacza (lokalnie) $(\textrm{d}/ \textrm{d}t)^{k-1} \left. \ldots \right|_{t = 0}$.
+	%Skorzystamy z definicji $\zeta(1 - k) = \sum n^{k-1}$.
+	Niech $\mathfrak D$ oznacza (lokalnie) $(\textrm{d}/ \textrm{d}t)^{k-1} \left. \ldots \right|_{t = 0}$.
 	\begin{align*}
-		\zeta(1-k) & = \sum_{n \ge 1} n^{k-1} = \sum_{n \ge 1} \mathfrak D \exp nt = \mathfrak D \sum_{n \ge 1} \exp nt \\
-		& = \mathfrak D \left[\frac{1}{1 - \exp t} - 1\right] = - \mathfrak D \frac 1 t \sum_{n = 1}^\infty B_n \frac{t_n}{n!} \\
-		& = \mathfrak D \sum_{n=0}^\infty - \frac{B_n} n \frac{t^{n-1}}{(n-1)!} = - \frac{B_k}k. \qedhere
+		\zeta(1-k) 
+		& = \sum_{n \ge 1} n^{k-1} 
+		= \sum_{n \ge 1} \mathfrak D \exp nt 
+		= \mathfrak D \sum_{n \ge 1} \exp nt 
+		= \mathfrak D \left[\frac{1}{1 - \exp t} - 1\right] \\
+		& = - \mathfrak D \frac 1 t \sum_{n = 1}^\infty B_n \frac{t_n}{n!}
+		= \mathfrak D \sum_{n=0}^\infty - \frac{B_n} n \frac{t^{n-1}}{(n-1)!} = - \frac{B_k}k. \qedhere
 	\end{align*}
 \end{proof}
 
 Głębsze przemyślenia sprawiają, że dla $s \in \Z_p$ i ustalonego $s_0 \in \{0, 1, \dots, p-2\}$ ($s \neq 0$, gdy $s_0 = 0$) określamy:
 \[
-	\zeta_{p, s_0}(s) := \frac{\kobint_{\Z_p^\times} x^{s_0 + (p-1)s-1} \mu_{1,\lambda}}{\lambda^{-(s_0 + (p-1)s)}-1}.
+	\zeta_{p, s_0}(s) := (\lambda^{-(s_0 + (p-1)s)}-1)^{-1}\kobint_{\Z_p^\times} x^{s_0 + (p-1)s-1} \mu_{1,\lambda}.
 \]
 
 Jeżeli $k$ jest postaci $s_0 + (p-1)k_0$, to $\zeta_p(1-k)$ i $\zeta_{p,s_0}(k_0)$ są tym samym, więc myślimy o $\zeta_{p, s_0}$ jak o $p$-adycznych ,,gałęziach'' dla $\zeta_p$ (interesują nas parzyste $s_0$!).

@@ -1,5 +1,5 @@
 \section{Funkcja $\zeta$ Riemanna}
-Rozpatrzmy zbiór liczb
+Rozpatrzmy \prawo{Kbltz\\2.1} zbiór liczb
 \[
 	f(2k) = 2 \cdot \frac{\zeta(2k)}{\pi^{2k}} \cdot (1-p^{2k-1}) \cdot \frac{(2k-1)!}{(-4)^k},
 \]
@@ -24,16 +24,14 @@ Oznacza to, że funkcję $f$ można jednoznacznie przedłużyć do $\Z_p \to \Q_
 	Załóżmy, że zachodzi dla $k - 1$.
 	Wtedy
 	\begin{align*}
-	\dots & = \sin [(2k+1)x] = \sin [(2k-1)x + 2x] \\
-	& = \sin(2k-1)x \cos 2x + \cos(2k-1)x \sin 2x \\
-	& = P_{2k-1}(\sin x) (1-2\sin^2 x) \\
-	& + \cos x Q_{2k-2} (\sin x) 2 \sin x \cos x.
+	\sin [(2k+1)x]  & = \sin [(2k-1)x + 2x]  = \sin(2k-1)x \cos 2x + \cos(2k-1)x \sin 2x \\
+	& = P_{2k-1}(\sin x) (1-2\sin^2 x) + \cos x Q_{2k-2} (\sin x) 2 \sin x \cos x.
 	\end{align*}
 	Dowód dla kosinusa jest bardzo podobny.
 \end{proof}
 
 \begin{fakt}\label{sine}
-	Mamy $\pi x \prod_{n \ge 1} (1 + x^2/n^2) = \sinh (\pi x)$, $x \in \R$.
+	Mamy $\pi x \prod_{n \ge 1} (1 + x^2/n^2) = \sinh (\pi x) = \frac 12 (\exp (\pi x) - \exp(-\pi x))$, $x \in \R$.
 \end{fakt}
 
 \begin{proof}
@@ -46,8 +44,7 @@ Oznacza to, że funkcję $f$ można jednoznacznie przedłużyć do $\Z_p \to \Q_
 
 \begin{proof}
 	Zlogarytmujmy ,,fakt'' \ref{sine}.
-	Po prawej stronie mamy $\log \sinh (\pi x) = \log(1 - \exp(-2 \pi x)) + \pi x - \log 2$, natomiast po lewej $\log \pi + \log x - \sum_{k \ge 1} (-1)^{k} x^{2k} \zeta(2k) / k$, dla $x \in (0,1)$.
-
+	Po prawej mamy $\log(1 - \exp(-2 \pi x)) + \pi x - \log 2$, natomiast po lewej $\log \pi + \log x - \sum_{k \ge 1} (-1)^{k} x^{2k} \zeta(2k) / k$, dla $x \in (0,1)$.
 	Różniczkujemy wyraz po wyrazie względem $x$, mnożymy przez $x$ i zamieniamy $x$ na $x/2$:
 	\[\frac{\pi x}{e^{\pi x}- 1} + \frac{\pi x}{2} =  1 + \sum_{k=1}^\infty \frac{(-1)^{k+1} \zeta(2k)}{2^{2k-1}} x^{2k}\]
 	Wystarczy przyrównać współczynniki parzystych potęg $x$.

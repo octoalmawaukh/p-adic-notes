@@ -1,14 +1,11 @@
 \subsection{Miary i całki}
 \begin{definicja}
-	Dystrybucja $p$-adyczna $\mu$ na $X$, której wartości są ograniczone przez stałą na zwarto-otwartych $U\subseteq X$, to miara.
+	Dystrybucja \prawo{Kbltz\\2.4} $p$-adyczna $\mu$ na $X$, której wartości są ograniczone przez stałą na zwarto-otwartych $U\subseteq X$, to miara.
 \end{definicja}
 
 Dystrybucja Diraca $\mu_\alpha$ dla ustalonego $\alpha \in \Z_p$ jest miarą, ale dystrybucje Bernoulliego nie.
 Dzięki ,,regularyzacji'' można to naprawić.
-
-Dla $x \in \Z_p$ niech $\{x\}_n$ będzie wymierną całkowitą między $0$, $p^n-1$, która przystaje do $x$ mod $p^n$.
-
-Niech $\lambda \neq 1$ będzie wymierną całkowitą niepodzielną przez $p$; $\mu_{k, \lambda}$ będzie zregularyzowaną dystrybucją Bernoulliego na $\Z_p$: $\mu_{k,\lambda}(U) = \mu_B^k(U) - \lambda^{-k} \mu_B^k (\lambda U)$.
+Dla $x \in \Z_p$ niech $\{x\}_n$ będzie wymierną całkowitą między $0$, $p^n-1$, która przystaje do $x$ mod $p^n$, natomiast $\lambda \neq 1$ pewną całkowitą wymierną niepodzielną przez $p$; $\mu_{k, \lambda}$ będzie zregularyzowaną dystrybucją Bernoulliego na $\Z_p$: $\mu_{k,\lambda}(U) = \mu_B^k(U) - \lambda^{-k} \mu_B^k (\lambda U)$.
 
 \begin{fakt}
 	$|\mu_{1, \lambda} (U)|_p \le 1$ dla zwarto-otwartych $U \subseteq \Z_p$.
@@ -16,8 +13,8 @@ Niech $\lambda \neq 1$ będzie wymierną całkowitą niepodzielną przez $p$; $\
 
 \begin{proof}
 	Zauważmy, że $(1/\lambda - 1) \in 2\Z_p$, jeżeli $p \neq 2$.
-	Kiedy $p = 2$, to $1/\lambda - 1 \equiv 0$ mod $2$ i wszystko jest w porządku.
-	Skoro $[\lambda x |p^n|] \in \Z$, to ze wzoru $2\lambda \mu_{1, \lambda}(\dysk{x}{n}) = 2[\lambda x |p^n|] + 1-\lambda$ wynika $\mu_{1, \lambda}(\dysk{x}{n}) \in \Z_p$, co kończy dowód.
+	Kiedy $p = 2$, to $1/\lambda - 1 \equiv 0$ mod $2$ i wszystko w porządku.
+	Skoro $[\lambda x |p^n|] \in \Z$, ze wzoru $2\lambda \mu_{1, \lambda}(\dysk{x}{n}) = 2[\lambda x |p^n|] + 1-\lambda$ wynika $\mu_{1, \lambda}(\dysk{x}{n}) \in \Z_p$, co kończy dowód.
 \end{proof}
 
 Zatem $\mu_{1,\lambda}$ jest miarą i gra pierwsze skrzypce w $p$-adycznej teorii całki, jest niemalże tak ważna, jak $\mathrm{d}x$ w $\R$-analizie.
@@ -26,7 +23,6 @@ Udowodnimy teraz kluczową kongruencję wiążącą $\mu_{k,\lambda}$ z $\mu_{1,
 Wydaje się, że dowód ten jest nieprzyjemnie obliczeniowy, ale staje się zrozumiały, kiedy pomyśli się o podobnej sytuacji w zwykłej analizie.
 
 Jeśli walczymy z całką $\int f(x^{1:k}) \,\textrm{d}x$ i podstawimy $x \mapsto x^k$, to (skoro $d(x^k):dx = kx^{k-1}$) $d(x^k)$ udaje miarę $\mu_k$ wzorem $\mu_k[a,b] = b^k - a^k$.
-
 Nasza relacja przyjmuje postać
 \[
 	\lim_{b \to a} \frac{\mu_k([a,b])}{\mu_1([a,b])} = ka^{k-1}.
@@ -34,30 +30,40 @@ Nasza relacja przyjmuje postać
 
 \begin{fakt}\label{heroine}
 	Niech $d_k$ oznacza najmniejszy wspólny mianownik dla współczynników $B_k(x)$.
-	Wtedy
-	\[
-		d_k \mu_{k, \lambda}(\dysk{a}{n}) \equiv d_k ka^{k-1} \mu_{1, \lambda}(\dysk{a}{n}) \mod {p^n}.
-	\]
+	Wtedy $d_k \mu_{k, \lambda}(\dysk{a}{n}) \equiv d_k ka^{k-1} \mu_{1, \lambda}(\dysk{a}{n}) \mod {p^n}$.
 \end{fakt}
 
 \begin{proof}
-	Wiemy z ogólnej teorii, że wielomian $B_k(x)$ zaczyna się od $B_0x^k + kB_1 x^{k-1} + \ldots = x^k - \frac k 2 x^{k-1} + \ldots$, więc teraz $d_k \mu_{k, \lambda} (\dysk{a}{n}) =  d_k p^{n(k-1)} (B_k(a|p^n| ) - \lambda^{-k} B_k(\{\lambda a\}_n |p^n|))$.
+	Prosto z definicji wynika, że wielomian $B_k(x)$ zaczyna się od $x^k - (k:2) x^{k-1} + \ldots$, więc teraz $d_k \mu_{k, \lambda} (\dysk{a}{n}) =  d_k p^{n(k-1)} (B_k(ap^{-n}) - \lambda^{-k} B_k(\{\lambda a\}_n p^{-n}))$.
 	
 	Wielomian $d_kB_k(x)$ ma całkowite współczynniki i stopień $k$.
-	Wystarczy więc, że zajmiemy dwoma wiodącymi członami, to jest $d_k x^k - d_k \frac k 2 x^{k-1}$, ponieważ nasz $x$ ma mianownik $p^n$ (tu niższe człony zostają zjedzone przez $p^{n(k-1)}$).
-
-	Skorzystamy teraz z tego, że $\lambda a \equiv \{\lambda a\}_n$ mod $p^n$, a także $\{\lambda a\}_N |p^n| = \lambda a |p^n| - \lfloor \lambda a |p^n| \rfloor$ (podłoga).
-	Niech $\beta = \lambda a$ i $I = d_k\mu_k(\dysk{a}{n})$.
-
+	Wystarczy więc zająć się dwoma wiodącymi członami, to jest $d_k x^k - d_k (k:2) x^{k-1}$, ponieważ nasz $x$ ma mianownik $p^n$ (tu niższe człony zostają zjedzone przez $p^{n(k-1)}$).
+	Skorzystamy teraz z $\beta \equiv \{\beta\}_n$ mod $p^n$, a także $\{\beta\}_N |p^n| = \beta p^{-n} - \lfloor \beta p^{-n} \rfloor$ (podłoga).
+	Niech $\beta = \lambda a$ i $I = d_k\mu_{k,\lambda}(\dysk{a}{n})$. % lambda była alphą
 	\begin{align*}
-	I & \equiv d_kp^{n(k-1)} ((a|p^n|)^k - (\{\beta\}_n |p^n|  / \lambda)^k \\
-	  & - k ((a|p^n|)^{k-1} -  (\{\beta\}_n |p^n|)^{k-1} \lambda^{-k})/ 2)  \\
-	  & = d_k (a^k |p^n| - p^{n(k-1)} (\beta |p^n| - \lfloor \beta |p^n|\rfloor)^k \lambda^{-k} \\
-	  & - k (a^{k-1} - p^{n(k-1)} (\beta |p^n| - \lfloor \beta |p^n|\rfloor)^{k-1}\lambda^{-k})/2)  \\
-	  & \equiv d_k (a^k|p^n| - \lambda^{-k}(\beta^k p^{n} - k\beta^{k-1} \lfloor \beta |p^n|\rfloor) \\
-	  & - k (a^{k-1} - \lambda^{-k} \beta^{k-1})/2) \\
-	  & = d_k k a^{k-1} (2 \lfloor \beta|p^n|\rfloor + 1 - \lambda)(2\lambda)^{-1}\\
-	  & = d_k k a^{k-1} \mu_{1, \lambda} (\dysk{a}{n}),
+	I & \equiv d_k p^{n(k-1)} \Bigl(\frac{a^k}{p^{nk}} - \frac{\{\beta\}_n^k}{\lambda^kp^{nk}} - \frac k 2 \Bigl(\frac{a^{k-1}}{p^{n(k-1)}} - \frac{1}{\lambda^k} \frac{\{\beta\}_n^{k-1}}{p^{n(k-1)}}\Bigr)\Bigr) \\
+	& = d_k \Bigl(
+			\frac{a^k}{p^n} - \frac{p^{n(k-1)}}{\lambda^k} \Bigl(
+				\frac{\beta}{p^n} - \Bigl[
+					\frac{\beta}{p^n}
+				\Bigr]
+			\Bigr)^k-\frac{k}{2} \Bigl(
+				a^{k-1} - \frac{p^{n(k-1)}}{\lambda^k} \Bigl(
+					\frac{\beta}{p^{n}} - \Bigl[
+						\frac{\lambda}{p^n}
+					\Bigr]
+				\Bigr)^{k-1}
+			\Bigr)
+		\Bigr) \\
+	& \equiv d_k \Bigl(\frac{a^k}{p^n} - \frac{1}{\lambda^n} \Bigl(\frac{\beta^k}{p^n} - k \lambda^{k-1} a^{k-1} \Bigl[\frac{\beta}{p^n}\Bigr]\Bigr)-\frac k2(a^{k-1}-\lambda^{-k}\beta^{k-1})\Bigr) \\
+	& = d_k ka^{k-1}\Bigl(
+		\frac 1\lambda \Bigl[
+			\frac{\beta}{p^n}
+		\Bigr] + \frac{\lambda^{-1}-1}{2}\Bigr) = d_k k a^{k-1} \mu_{1,\lambda}(\dysk{a}{n}).
+	%I & \equiv d_kp^{n(k-1)} ((a|p^n|)^k - (\{\beta\}_n |p^n|  / \lambda)^k - k ((a|p^n|)^{k-1} -  (\{\beta\}_n |p^n|)^{k-1} \lambda^{-k})/ 2)  \\
+	 %& = d_k (a^k |p^n| - p^{n(k-1)} (\beta |p^n| - \lfloor \beta |p^n|\rfloor)^k \lambda^{-k} - k (a^{k-1} - p^{n(k-1)} (\beta |p^n| - \lfloor \beta |p^n|\rfloor)^{k-1}\lambda^{-k})/2)  \\
+	  %& \equiv d_k (a^k|p^n| - \lambda^{-k}(\beta^k p^{n} - k\beta^{k-1} \lfloor \beta |p^n|\rfloor) - k (a^{k-1} - \lambda^{-k} \beta^{k-1})/2) \\
+	  %& = d_k k a^{k-1} (2 \lfloor \beta|p^n|\rfloor + 1 - \lambda)(2\lambda)^{-1} = d_k k a^{k-1} \mu_{1, \lambda} (\dysk{a}{n}),
 	\end{align*}
 	przy czym wszystkie przystawania są mod $p^n$.
 \end{proof}
@@ -67,21 +73,14 @@ Nasza relacja przyjmuje postać
 \end{wniosek}
 
 \begin{proof}
-	Pokażemy ograniczoność dla $Y = \dysk{a}{n}$:
-	\begin{align*}
-		|\mu_{k, \lambda}(Y)|_p & \le \max (|p^nd_k^{-1}|_p, |k a^{k-1} \mu_{1, \lambda}(Y)|_p ) \\
-		& \le \max (|d_k^{-1}|_p, |\mu_{1, \lambda}(Y)|_p) \le 1 + |d_k|_p^{-1} \qedhere
-	\end{align*}
+	Dla $Y$ $=$ $\dysk{a}{n}$, $|\mu_{k, \lambda}(Y)|_p \le \max (|p^nd_k^{-1}|_p, |k a^{k-1} \mu_{1, \lambda}(Y)|_p )$, co można dalej ograniczyć przez $\max (|d_k^{-1}|_p, |\mu_{1, \lambda}(Y)|_p) \le 1 + |d_k|_p^{-1}$.
 \end{proof}
 
 Po co w ogóle zmieniać dystrybucje Bernoulliego na miary?
-Dla nieograniczonych dystrybucji $\mu$, $\kobint f\mu$ jest zdefiniowana tylko dla lokalnie stałych $f$, zaś już ciągłe $f$ stanowią problem.
+Dla nieograniczonych dystrybucji $\mu$, $\kobint f\mu$ jest zdefiniowana tylko dla lokalnie stałych $f$, zaś już ciągłe stanowią dla niej problem.
 ,,Miara'' $\mu$ jest do niczego, jeśli nie można całkować względem niej ciągłych.
-
-Problemy pojawiają się na przykład dla dystrybucji Haara i $\textrm{id} \colon \Z_p \to \Z_p$: sumy Riemanna nie są niezależne od partycji pierścienia $\Z_p$.
-
-Pokażemy, że dla ograniczonych dystrybucji nic się jednak nie psuje. 
-$X$ jest zwarto-otwartym podzbiorem $\Z_p$.
+Na przykład sumy Riemanna dla dystrybucji Haara i $\textrm{id} \colon \Z_p \to \Z_p$ zależą od partycji pierścienia $\Z_p$.
+Pokażemy, że dla ograniczonych dystrybucji nic się jednak nie psuje, jeśli $X$ jest zwarto-otwartym podzbiorem $\Z_p$.
 
 \begin{fakt}
 	Niech $\mu$ będzie $p$-adyczną miarą na $X$, zaś $f$ ciągłą funkcją $ X \to \Q_p$.
@@ -93,14 +92,12 @@ $X$ jest zwarto-otwartym podzbiorem $\Z_p$.
 
 \begin{proof}
 	Niech $\mu(U) \le B$ dla zwarto-otwartych $U \subseteq X$.
-	Krok pierwszy polega na oszacowaniu $|S_{n, \{x(a, n)\}} - S_{m, \{x(a, m)\}}|_p$ dla $m > n$.
-	Rozpiszmy $X$ jako skończoną unię dysków i weźmy tak duże $n$, że zbiory $\dysk{a}{n}$ leżą w $X$ lub są z nim rozłączne.
+	Rozpiszmy $X$ jako skończoną unię dysków i weźmy tak duże $n$, że zbiory $\dysk{a}{n}$ leżą w $X$ lub są z nim rozłączne, aby móc oszacować $|S_{n, \{x(a, n)\}} - S_{m, \{x(a, m)\}}|_p$ dla $m > n$.
 
 	Bez straty ogólności przyjmujemy, że $|f(x) - f(y)|_p < \varepsilon$ dla $x \equiv y$ mod $p^n$.
 	Wtedy (druga suma po $\dysk{a}{m} \subseteq X$):
 	\begin{align*}
-		\ldots & = |S_{n, \{x(a, n)\}} - S_{m, \{x(a, m)\}}|_p \\
-		& = \left|\sum_{a = 0}^{p^m-1} (f(x_{\overline a, n}) - f(x_{a, m})) \mu(\dysk{a}{m})\right|_p \\
+		\ldots & = |S_{n, \{x(a, n)\}} - S_{m, \{x(a, m)\}}|_p  = \left|\sum_{a = 0}^{p^m-1} (f(x_{\overline a, n}) - f(x_{a, m})) \mu(\dysk{a}{m})\right|_p \\
 		& \le \max (|f(x_{\overline a, n}) - f(x_{a, m})|_p \cdot |\mu(\dysk{a}{m})|_p) \le \varepsilon B,
 	\end{align*}
 	bo $x_{\overline a, n} \equiv x_{a, m}$ mod $p^n$ (lewa strona jest bowiem z definicji najmniejszą nieujemną klasą abstrakcji).
@@ -116,15 +113,10 @@ $X$ jest zwarto-otwartym podzbiorem $\Z_p$.
 Definicja zgadza się z poprzednią dla lokalnie stałych $f$.
 
 \begin{fakt}
-	Jeśli ciągła funkcja $f \colon X \to \Q_p$ spełnia $|f(x)|_p \le A$ dla $x \in X$ i $\mu(U) \le B$ dla zwarto-otwartych $U \subseteq X$, to
-	\[
-		\left| \kobint f \mu \right|_p \le AB.
-	\]
+	Jeśli ciągła funkcja $f \colon X \to \Q_p$ spełnia $|f(x)|_p \le A$ dla $x \in X$ i $\mu(U) \le B$ dla zwarto-otwartych $U \subseteq X$, to $|\kobint f \mu|_p \le AB$.
 \end{fakt}
 
 \begin{wniosek}
-	Jeżeli $f, g \colon X \to \Q_p$ są ciągłymi funkcjami, dla których $|f(x) - g(x)|_p \le \varepsilon$ dla wszystkich $x \in X$ i $\mu(U) \le B$ dla zwarto-otwartych $U \subseteq X$, to
-	\[
-		\left|\kobint f \mu - \kobint g\mu\right|_p \le \varepsilon B.
-	\]
+	Jeżeli $f, g \colon X \to \Q_p$ są ciągłymi funkcjami, dla których $|f(x) - g(x)|_p \le \varepsilon$ dla wszystkich $x \in X$ i $\mu(U) \le B$ dla zwarto-otwartych $U \subseteq X$, to $
+		|\kobint f \mu - \kobint g\mu|_p \le \varepsilon B$.
 \end{wniosek}

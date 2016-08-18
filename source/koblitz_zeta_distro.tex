@@ -1,5 +1,5 @@
 \subsection{Dystrybucje} 
-Dystrybucje zdefiniowane niżej mają mało wspólnego z analizą funkcjonalną, ale ta nazwa nie jest w ostateczności taka zła.
+Dystrybucje \prawo{Kbltz\\2.3} zdefiniowane niżej mają mało wspólnego z analizą funkcjonalną, ale ta nazwa nie jest w ostateczności taka zła.
 Otwarty podzbiór $\Q_p$ jest zwarty, wtedy i tylko wtedy gdy jest skończoną unią przedziałów. 
 To wiele tłumaczy.
 
@@ -9,8 +9,8 @@ Zbiory $x+p^n \Z_p$ ($x \in \Q_p$, $n \in \Z$) nazwiemy \emph{przedziałami} lub
 	Dystrybucja na zwarto-otwartym $X \subseteq \Q_p$ jest $\Q_p$-liniowym morfizmem $\mu$ z ,,p. lokalnie stałych $X \to \Q_p$'' w $\Q_p$.
 \end{definicja}
 
-Będziemy pisać skrótowo $\kobint \!f\, \mu := \mu(f)$.
-Okazuje się, że można podać inną, równoważną definicję dystrybucji:
+Skrótowo $\kobint \!f\, \mu := \mu(f)$.
+Okazuje się, że można podać inną definicję dystrybucji:
 
 \begin{definicja}
 	Addytywna funkcja z rodziny zwarto-otwartych $Y \subseteq X$ w $\Q_p$.
@@ -24,19 +24,17 @@ Przejście między nimi zapewniają indykatory.
 
 \begin{proof}
 	Jeśli zwarto-otwarty zbiór $U \subseteq X$ jest unią $U_s$, trzeba zdefiniować $\mu(U)$ jako $\sum_s \mu(U_s)$.
-
-	Mając dwie partycje, $\bigcup_s I_s = \bigcup'_s I_s$, możemy znaleźć nową, drobniejszą: $I_s = \bigcup_t I_{st}$.
+	Mając dwie partycje, $\bigcup_s I_s = \bigcup'_s I_s$, możemy znaleźć drobniejszą: $I_s = \bigcup_t I_{st}$.
 	Zbiory $I_{st}$ przebiegają przez dyski $\dysk{y}{m}$ dla ustalonego $m > n$ i zmiennej $y \equiv x$ mod $p^n$, gdy $I_s$ jest postaci $\dysk{x}{n}$.
 
 	Wykorzystamy wielokrotnie wzór z założenia do pokazania, że dystrybucja nie zależy od partycji: $\mu(I_s)$, czyli $\mu(\dysk{x}{n})$, to $\sum_k \mu(\dysk{x + kp^n}{m})$ (suma od $k = 0$ do $p^{m-n}-1$), jednak to jest po prostu $\sum_t \mu(I_{st})$.
-
 	Addytywność jest oczywista.
 \end{proof}
 
 Podamy teraz kilka przykładów dystrybucji dla $\alpha \in \Z_p$.
 \begin{enumx}
 	\item {Haara}: $\mu(\dysk{a}{n}) := |p^n|$.
-	Przedłuża się do $\Z_p$ i jest jedyną niezmienniczą na przesunięcia.
+	Przedłuża się do całego $\Z_p$ i jest jedyną niezmienniczą na przesunięcia.
 	\item {Diraca}: $\mu_\alpha(U) = 1$, wtedy i tylko wtedy gdy $\alpha \in U$.
 	\item {Mazura}: $\mu_{\textrm{Mazur}}(\dysk{a}{n}) = a|p^n| - 1/2$, jeśli $a$ leży między między $0$, $p^n - 1$ i jest wymierną całkowitą.
 \end{enumx}
@@ -48,10 +46,8 @@ Pisząc (teraz) $\dysk{a}{n}$ zakładamy, że $0 \le a \le p^n - 1$.
 \end{fakt}
 
 \begin{proof}
-	Sprawdzimy założenia faktu \ref{sonrisa}.
-	Tamtejsza  strona lewa ma wartość $p^{(n+1)(i-1)} \sum_{k=0}^{p-1} B_i(x|p^{n+1}| + k|p|)$,
-	więc po przemnożeniu przez $|p^{n(i-1)}|$ i położeniu $\lambda = x|p^{n+1}|$ okazuje się, że pokazujemy 
-	$B_i(\lambda p) = p^{i-1} \sum_{k=0}^{p-1} B_i(\lambda + k|p|)$.
+	Lewa strona z faktu \ref{sonrisa} ma wartość $p^{(n+1)(i-1)} \sum_{k=0}^{p-1} B_i(x|p^{n+1}| + k|p|)$,
+	więc po przemnożeniu przez $p^{n(1-i)}$ okazuje się, że tak naprawdę pokazujemy prostszą równość $B_i(\lambda p) = p^{i-1} \sum_{k=0}^{p-1} B_i(\lambda + k|p|)$, gdzie podłożyliśmy $\lambda = xp^{-n-1}$.
 	
 	Wyrażenie po prawej stronie to, z definicji, $i!$-krotność dla współczynnika przy $z^i$ w
 	\[
@@ -61,10 +57,7 @@ Pisząc (teraz) $\dysk{a}{n}$ zakładamy, że $0 \le a \le p^n - 1$.
 	\[
 		\frac{p^i(|p|z)\exp[(\lambda p) |p| z]}{\exp(|p|z) - 1} = p^i \sum_{k=0}^\infty B_k(\lambda p) \frac{(|p| z)^k}{k!}.
 	\]
-	W ten sposób doszliśmy do równości kończącej dowód:
-	\[
-		p^iB_i(\lambda p)p^{-i} = B_i(\lambda p). \qedhere
-	\]
+	W ten sposób doszliśmy do równości kończącej dowód: $p^iB_i(\lambda p)p^{-i} = B_i(\lambda p)$.
 \end{proof}
 
-Warto zauważyć, że w ten sposób ,,nie można'' zdefiniować dystrybucji z innymi wielomianami -- przyjmiemy to jednak bez dowodu.
+Warto zauważyć, że takiej wielomianowej dystrybucji nie można zdefiniować z czymś istotnie innym (innymi wielomianami) -- przyjmiemy to jednak bez dowodu.
