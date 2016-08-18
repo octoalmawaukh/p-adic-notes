@@ -1,5 +1,5 @@
 \section{Gamma Mority}
-Załóżmy najpierw, że $p \ge 3$.
+Załóżmy \prawo{Rbrt\\7.1.1} najpierw, że $p \ge 3$.
 Funkcja $n \mapsto n!$ nie przedłuża się w ciągły sposób na $\Z_p$. Gdybyśmy mieli ciągłą $f \colon \Z_p \to \Q_p$, taką że $f(n) = nf(n-1)$ dla całkowitych $n \ge 1$, to taka sama relacja zachodziłaby dla $n \in \Z_p$.
 Zatem
 \[
@@ -26,13 +26,13 @@ Kluczem do sukcesu jest uogólnienie przystawania Wilsona.
 
 \begin{proof}
 	Reprezentantów ilorazu $\Z/p^v \Z$ wyczerpują całkowite $a \le j < a + p^v$.
-	Liczby niepodzielne przez $p$ odpowiadają za odwracalne elementy, tzn. elementy grupy $G = (\Z/p^v\Z)^\times$.
+	Niepodzielne przez $p$ liczby odpowiadają za odwracalne elementy, tzn. elementy grupy $G = (\Z/p^v\Z)^\times$.
 	Łącząc dowolny element $g \in G$ z odwrotnym, $g^{-1}$, znosimy je wszystkie poza sytuacją, gdy $g^2 = 1$.
 	W pierścieniu $\Z/p^v \Z$ jest tak wtedy i tylko wtedy, gdy $g = \pm 1$ lub $g \pm 1$ są jednocześnie dzielnikami zera.
 	Tak jednak może być tylko wtedy, gdy $p$ dzieli różnicę, $2$, co nie zachodzi nigdy.
 \end{proof}
 
-Fakt ten pociąga dla funkcji $f(n) = (-1)^n \shaprod_{j=1}^{n-1} j$ (gdy $n \ge 2$) relację $f(a) \equiv f(a+mp^v)$ modulo $p^v$.
+To pociąga dla funkcji $f(n) = (-1)^n \shaprod_{j=1}^{n-1} j$ (gdy $n \ge 2$) relację $f(a) \equiv f(a+mp^v)$ modulo $p^v$.
 Odwzorowanie $a \mapsto f(a) \colon \N \setminus\{0,1\} \to \Z$ jest jednostajnie ciągłe w topologii $p$-adycznej, zatem przedłuża się jednoznacznie do $\Z_p \to \Z_p$.
 
 \begin{definicja}
@@ -43,7 +43,8 @@ Odwzorowanie $a \mapsto f(a) \colon \N \setminus\{0,1\} \to \Z$ jest jednostajni
 	$\Gamma_p(\Z_p) \subseteq \Z_p^\times \subset \Z_p$
 \end{lemat}
 
-Jakie  własności ma ta funkcja? Przede wszystkim $\Gamma_p(2) =1$ i $\Gamma_p(3) = -2$.
+Oto \prawo{Rbrt\\7.1.2} własności tej funkcji.
+Przede wszystkim $\Gamma_p(2) =1$ i $\Gamma_p(3) = -2$.
 Jeśli $n \le p-1$ jest nieparzyste, to $\Gamma_p(n+1) = n!$, jeśli jest parzyste, to $-n!$.
 Z definicji widać, że $\Gamma_p(n) \in \Z_p^\times$ jest dana przez
 \[
@@ -78,7 +79,7 @@ Punkt trzeci wynika z przystawania $\Gamma(a + mp^v)$ do $\Gamma(a)$ modulo $p^v
 Dla dowodu piątego połóżmy $f(x) = \Gamma_p(x) \cdot \Gamma_p(1-x)$ \dots szczegóły zna Robert.
 \end{proof}
 
-Zwykła funkcja $\Gamma$ spełnia dla $m\ge 2$ tożsamość:
+Zwykła \prawo{Rbrt\\7.1.3} funkcja $\Gamma$ spełnia dla $m\ge 2$ tożsamość:
 \[
 	\prod_{j=0}^{m-1} \Gamma \left(z + \frac jm\right) = (2\pi)^{(m-1)/2} m^{1/2-mz} \cdot \Gamma (mz).
 \]
@@ -98,13 +99,12 @@ Zwykła funkcja $\Gamma$ spełnia dla $m\ge 2$ tożsamość:
 \begin{proof}
 	Policzmy czynnik Gaussa $G_m(x) = f(x)/\Gamma_p(mx)$.
 	\begin{align*}
-	? & = G(x+1/m) = \frac{\prod_{j=1}^m \Gamma_p(x+j/m)}{\Gamma_p(mx+1)} \\
-	& = \frac{1}{h_p(mx)\Gamma_p(mx)} \cdot \frac{\Gamma_p(x+1)}{\Gamma_p(x)} \prod_{j=0}^{m-1} \Gamma(x+j/m)  \\
+	G(x+1/m) & = \frac{\prod_{j=1}^m \Gamma_p(x+j/m)}{\Gamma_p(mx+1)}  = \frac{1}{h_p(mx)\Gamma_p(mx)} \cdot \frac{\Gamma_p(x+1)}{\Gamma_p(x)} \prod_{j=0}^{m-1} \Gamma(x+j/m)  \\
 	& = \frac{h_p(x)}{h_p(mx)}G(x) = \lambda(x) G(x)
 	\end{align*}
 
 	Lokalnie stały mnożnik $\lambda$ wyznacza kolejne wartości, gdyż $G(1/m)$ to $\lambda(0) G(0)$, $G(2/m)$ to $\lambda(0)\lambda(1/m) G(0)$, i tak dalej.
-	Skoro $m,p$ są względnie pierwsze, to $\prod_{i=0}^{j-1} \lambda(i/m) = (1/m)^u$, gdzie $u$ to ilość względnie pierwszych z $p$ tych $i$, że $0 < i < j$, czyli $j-1 - [(j-1)/p]$.
+	Skoro $m,p$ są względnie pierwsze, $\prod_{i=0}^{j-1} \lambda(i/m) = (1/m)^u$, gdzie $u$ to ilość względnie pierwszych z $p$ tych $i$, że $0 < i < j$, czyli $j-1 - [(j-1)/p]$.
 	Rozwijając $p$-adycznie $j-1$:
 	\[
 		j = \underbrace{(j-1)_0 + 1}_{R(j)}+ p \left[ \frac{j-1}p\right],
@@ -117,8 +117,7 @@ Zwykła funkcja $\Gamma$ spełnia dla $m\ge 2$ tożsamość:
 	więc $\prod_{i=0}^{j-1} \lambda(i/m) = m^{1-R(j)}(m^{p-1})^{s(j)}$ z $s(j) = \frac 1p (R(j)-j)$, które ciągle przedłuża się do $\Z_p$.
 	Pokazaliśmy, że
 	\begin{align*}
-		G(j/m) & = \prod_{j=0}^{j-1} \lambda(i/m) G(0) \\
-		& = m^{1-R(j)} (m^{p-1})^{s(j)} \cdot G(0),
+		G(j/m) & = \prod_{j=0}^{j-1} \lambda(i/m) G(0)  = m^{1-R(j)} (m^{p-1})^{s(j)} \cdot G(0),
 	\end{align*}
 	ale tylko dla całkowitych $x = j/m$.
 	Z ciągłości wzór prawdziwy jest dla wszystkich $x \in \Z_p$.
@@ -136,8 +135,8 @@ Zwykła funkcja $\Gamma$ spełnia dla $m\ge 2$ tożsamość:
 	Tę liczbę znamy: jest równa $-1$, wtedy i tylko wtedy gdy $p = 4k+1$.
 \end{proof}
 
-Ciągła funkcja na $\Z_p$ to szereg Mahlera: dla $a_k = (\nabla^k f)(0)$ mamy $f(x) = \sum_{k=0}^\infty a_k (x\mbox{ nad }k)$.
-Współczynniki $a_k$ można związać z wartościami $f$ (jak wcześniej!):
+Ciągła \prawo{Rbrt\\7.1.4} funkcja na $\Z_p$ to szereg Mahlera: mamy $f(x) = \sum_{k=0}^\infty (\nabla^k f)(0) \cdot (x\mbox{ nad }k)$.
+Współczynniki $a_k = (\nabla^k f)(0)$ można związać z wartościami $f$ (jak wcześniej!):
 \[
 	\sum_{k=0}^\infty a_k \frac{x^k}{k!} = \exp (-x) \sum_{n=0}^\infty f(n) \frac{x^n}{n!}.
 \]
@@ -152,30 +151,36 @@ Współczynniki $a_k$ można związać z wartościami $f$ (jak wcześniej!):
 
 \begin{proof}
 	Obliczymy $\varphi(x)/e^x$, gdzie $\varphi(x)$ jest zadana szeregiem $\sum_{n=0}^\infty \Gamma_p(n+1)x^n/n!$.
-	Sumujemy po warstwach mod $p$:
+	Po wysumowaniu przez warstwy mod $p$:
 	\[
 		\varphi(x) = \sum_{j=0}^{p-1} \sum_{m=0}^\infty \Gamma_p(mp+j+1) \frac{x^{mp+j}}{(mp+j)!}.
 	\]
-	Tutaj możemy zaś (dla $n = mp+j$, $m = [n/p]$) użyć równości $\Gamma_p(n+1) = {(-1)^{n+1}n!}/ ([n/p]! p^{[n/p]})$.
-	Otrzymujemy w ten sposób $\Gamma_p(mp+j+1) = (-1)^{mp+j+1}\cdot (mp+j)! / (m!p^m)$ oraz $- \varphi(x) = \ldots$
+	Tutaj możemy zaś (dla $n = mp+j$, $m = [n/p]$) użyć równości
 	\[
-		= \sum_{m=0}^\infty \frac{(-x)^{mp}}{p^m m!}  \sum_{j=0}^{p-1} (-x)^j \\
-		= \frac {1- (-x)^p}{1-(-x)} \exp \frac{(-x)^p}{p} \qedhere
+		\Gamma_p(n+1) = \frac{(-1)^{n+1}n!}{[n/p]! p^{[n/p]}}
+	\]
+	Otrzymujemy tak $\Gamma_p(mp+j+1) = (-1)^{mp+j+1}\cdot (mp+j)! / (m!p^m)$ i
+	\[
+		- \varphi(x) = \sum_{m=0}^\infty \frac{(-x)^{mp}}{p^m m!}  \sum_{j=0}^{p-1} (-x)^j \\
+		= \frac {1- (-x)^p}{1-(-x)} \exp \frac{(-x)^p}{p}. \qedhere
 	\]
 \end{proof}
 
-Chcemy rozwinąć $\log \Gamma_p$ w szereg potęgowy.
+Chcemy \prawo{Rbrt\\7.1.5} rozwinąć $\log \Gamma_p$ w szereg potęgowy.
 Skorzystamy z poniższego wzoru dla całki Volkenborna:
 \[
 	\suma (f')(x) = \int_{\Z_p} [f(x+y) - f(y)] \,\textrm{d}y
 \]
-i funkcji $f(x) = x \iwasawa x - x$ dla $|x| = 1$ (wtedy $f'(x) = \iwasawa x$) i $0$ dla $|x| < 1$ (wtedy $f'(x) = 0$), więc $f'(x) = \iwasawa h_p(x)$.
-Tutaj $\iwasawa$ jest logarytmem Iwasawy: znika na pierwiastkach jedności, więc $\iwasawa(-x) = \iwasawa x$.
+oraz funkcji $f(x) = x \iwasawa x - x$ dla $|x| = 1$ %(wtedy $f'(x) = \iwasawa x$) 
+i $0$ dla $|x| < 1$, %(wtedy $f'(x) = 0$), 
+więc $f'(x) = \iwasawa h_p(x)$.
+Jako że logarytm Iwasawy znika na pierwiastkach jedności, $\iwasawa(-x) = \iwasawa x$.
 Zatem $f$ jest nieparzysta i całka z niej jest zerem (to ważne).
 \[
 	\nabla \iwasawa \Gamma_p(x) = \iwasawa \Gamma_p(x+1) - \iwasawa \Gamma_p(x) = \iwasawa h_p(x).
 \]
-Ponieważ $\suma \nabla f = f -f(0)$ oraz $\iwasawa \Gamma_p(0) = \iwasawa 1 = 0$, wnioskujemy stąd $\iwasawa \Gamma_p(x) = \suma \iwasawa h_p(x)$.
+
+Równości $\suma \nabla f = f -f(0)$ i $\iwasawa \Gamma_p(0) = 0$ implikują $\iwasawa \Gamma_p(x) = \suma \iwasawa h_p(x)$.
 Powyższy wzór dla całki Volkenborna z $f' = \iwasawa h_p$ daje
 \begin{align*}
 	\iwasawa \Gamma_p(x) = \int_{\Z_p^\times} [(x+y)\iwasawa(x+y) - (x+y)] \,\textrm{d}y.
@@ -200,7 +205,7 @@ Jak zachowuje się $\iwasawa \Gamma_p$?
 	\end{align*}
 \end{wniosek}
 
-Z Kazandzidisem jeszcze lepiej poznamy $\log \Gamma_p$.
+Z \prawo{Rbrt\\7.1.6} Kazandzidisem jeszcze lepiej poznamy $\log \Gamma_p$.
 
 \begin{twierdzenie}[Kazandzidis]
 	Wzór niżej zachodzi dla pierwszych $p \ge 3$, ale jeśli $p = 3$, to zamiast $p^3$ należy wpisać $p^2$.
@@ -211,12 +216,10 @@ Z Kazandzidisem jeszcze lepiej poznamy $\log \Gamma_p$.
 
 \begin{fakt}
 	Funkcja $x \mapsto \log \Gamma_p (px)$ ($\Z_p \to \, ?$) zadana jest przez obcięty szereg o współczynnikach z $p \Z_p$ i
-	\[
-		|f(x + y) - f(x) - f(y)| \le |p^3xy(x+y)|.
-	\]
+	$|f(x + y) - f(x) - f(y)| \le |p^3xy(x+y)|$.
 \end{fakt}
 
-Pokażemy, że funkcję $\Gamma$ Mority można określić dla $p = 2$.
+Pokażemy, \prawo{Rbrt\\7.1.7} że funkcję $\Gamma$ Mority można określić dla $p = 2$.
 
 \begin{fakt}
 	Dla $v \ge 3$, jądro homomorfizmu ,,redukcja modulo $4$'' $(\Z/2^v \Z)^\times \to (\Z / 4 \Z)^\times$ jest cykliczne, generowane przez $5$.

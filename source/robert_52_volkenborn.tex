@@ -1,5 +1,5 @@
 \section{Całka Volkenborna}
-Zdefiniujemy całkę z funkcji $f \colon \Z_p \to \cialo$, gdzie $\cialo$ to zupełne rozszerzenie $\Q_p$.
+Zdefiniujemy \prawo{Rbrt\\5.5.1} całkę z funkcji $f \colon \Z_p \to \cialo$, gdzie $\cialo$ to zupełne rozszerzenie $\Q_p$.
 Niestety, fakt \ref{glorreichetraume} pokazuje, że nie można zdefiniować formy liniowej $\varphi$ na przestrzeni $\mathcal C(\Z_p)$, ciekawej i  niezmienniczej na przesunięcia. % podlinkuj: IV.3.5.3
 %Przypomnijmy: dla formy $\varphi \colon \mathcal C(\Z_p) \to K$ spełniającej $\varphi(f(x+1)) = \varphi(f(x))$  mamy $\varphi = 0$.
 
@@ -9,19 +9,19 @@ Odporność na przesuwanie wymusza tę samą wartość $p^{-n}$ dla indykatorów
 Supremum tych funkcji wynosi $1$, ale $|\varphi(f)|$ jest dowolnie duże, gdyż równe $p^n$, co odbiera formie $\varphi$ ciągłość.
 
 Zdefiniujmy ,,objętość'' kuli $\kula[j, |p^n|]$ w $\Z_p$ jako $p^{-n} \in \Q_p$.
-Zaraz przedstawiona konstrukcja nie jest niezmiennicza na przesunięcia i wymaga istnienia przynajmniej $(\suma f)'(0)$, choć nie ma nic złego w ograniczaniu się do $f \in \mathcal S^1(\Z_p)$.
+Przedstawiona za moment konstrukcja nie jest niezmiennicza na przesunięcia i wymaga istnienia co najmniej $(\suma f)'(0)$, choć nie ma nic złego w ograniczaniu się do $f \in \mathcal S^1(\Z_p)$.
 Zacznijmy od wyrażenia
 \[
 	S(f, n) := \frac{1}{p^n}\sum_{j=0}^{p^n-1} f(j) = \sum_{j=0}^{p^n-1} f(j) m(j+p^n\Z_p).
 \]
 Reprezentuje ono sumę Riemanna dla $f$.
+
 Nieoznaczona suma $F$ dla funkcji $f$ była zdefiniowana tak, by $\nabla F = f$ ($F(0) = 0$).
 Zachodzi wtedy
 \[
 	S(f, n) = \frac{F(p^n) - F(0)}{p^n}.
 \]
 Widać więc, że jeśli $F$ różniczkuje się w początku, to granica z $n \to \infty$ istnieje.
-
 Kiedy $f$ ma współczynniki Mahlera $c_n$, współczynniki $\suma f$ są ,,przesunięte'', zaś różniczkowalność w początku ma miejsce dokładnie gdy $|c_{n-1}/n| \to 0$ (ale tak jest dla $f \in S^1(\Z_p)$). % twierdzenie w Robercie: chyba5.1.5.1
 
 \begin{definicja}
@@ -32,9 +32,9 @@ Kiedy $f$ ma współczynniki Mahlera $c_n$, współczynniki $\suma f$ są ,,prze
 \end{definicja}
 
 \begin{przyklad}
-	Jeśli $b_k$ są liczbami Bernoulliego, to
+	Jeśli $b_k$ są liczbami Bernoulliego, to % (ich wykładniczą funkcją tworzącą jest $t / (\exp t - 1)$), to
 	\[
-		\intzp x^k \,\textrm{d}x = b_k \hfill \frac{t}{\exp t - 1} = \sum_{m = 0}^\infty b_m \frac{t^m}{m!}.
+		\intzp x^k \,\textrm{d}x = b_k.
 	\]
 \end{przyklad}
 
@@ -42,8 +42,8 @@ Kiedy $f$ ma współczynniki Mahlera $c_n$, współczynniki $\suma f$ są ,,prze
 %A oto podstawowa własność całki:
 
 \begin{fakt}
+	Jeśli $\|f_n - f\|_* $ dąży do $0$, to $\int_{\Z_p} f_n$ zbiega do $\int_{\Z_p} f$.
 	Dla $f \in S^1(\Z_p)$ prawdziwe jest poniższe oszacowanie.
-	Jeśli $\|f_n - f\|_* \to 0$, to ,,$\int f_n \to \int f$'' (całki nad $\Z_p$).
 	\[
 		I = \left | \int_{\Z_p} f(x)\,\textrm{d}x \right| \le p \| f\|_1.
 	\]
@@ -68,7 +68,7 @@ Przypomnijmy, że $\nabla f$ to dyskretny gradient funkcji $f$, to jest: $\nabla
 Znamy nieoznaczone sumy dla funkcji dwumianowych, a zatem scałkowanie szeregu Mahlera nie sprawi trudności.
 
 \begin{fakt}
-	Niech $\sum_{k\ge0} c_k {x \choose k}$ będzie szeregiem Mahlera dla $f$, funkcji klasy $S^1$.
+	Niech \prawo{Rbrt\\5.5.2} $\sum_{k\ge0} c_k {x \choose k}$ będzie szeregiem Mahlera dla $f$, funkcji klasy $S^1$.
 	Wtedy
 	\[
 		\int_{\Z_p} f(x) \,\textrm{d}x = \sum_{k = 0}^\infty \frac{(-1)^kc_k}{k+1}.
@@ -91,12 +91,12 @@ Znamy nieoznaczone sumy dla funkcji dwumianowych, a zatem scałkowanie szeregu M
 \end{przyklad}
 
 % 5.3 - Robert
-Przyda nam się więcej wzorów z tą całką.
+Przyda \prawo{Rbrt\\5.5.3} nam się więcej wzorów z tą całką.
 Przypomnijmy, że $\mathfrak D$ komutuje z translacją, zatem także z $\nabla = \tau - \operatorname{id}$.
 
 \begin{fakt}
 	Niechaj $P_0 \colon f \mapsto f(0) \cdot 1$ rzutuje $S^1(\Z_p)$ na stałe.
-	Wtedy: $\suma  \tau = \tau \suma  - P_0$, $\suma \mathfrak D = \mathfrak D\suma  - P_0\mathfrak D\suma $, zaś $\mathfrak D\suma $ komutuje z translacjami $\tau_x$
+	Wtedy $\mathfrak D\suma $ komutuje z translacjami $\tau_x$, a dodatkowo $\suma  \tau = \tau \suma  - P_0$, $\suma \mathfrak D = \mathfrak D\suma  - P_0\mathfrak D\suma $.
 \end{fakt}
 
 \begin{proof}
@@ -106,7 +106,7 @@ Przypomnijmy, że $\mathfrak D$ komutuje z translacją, zatem także z $\nabla =
 		& = \sum_{j = 1}^{n} f(j) = \suma f(n+1) - f(0) = \tau \suma f(n) - f(0),
 	\end{align*}
 	co dowodzi pierwszego stwierdzenia (całkowite $n \ge 1$ w $\Z_p$ leżą gęsto, ciągłość funkcji).
-	Z drugiej strony, różniczkowanie $\suma \tau f=  \tau \suma f - f(0)$ prowadzi do $\mathfrak D\suma \tau f = \mathfrak D \tau \suma f = \tau \mathfrak D \suma f$.
+	Z drugiej strony, różniczkowanie $\suma \tau f=  \tau \suma f - f(0)$ uzasadnia $\mathfrak D\suma \tau f = \mathfrak D \tau \suma f = \tau \mathfrak D \suma f$.
 	Do tego, ponieważ $\nabla \suma f = f$, ale $S \nabla f = f - f(0)$, to $\nabla \suma = \textrm{id}$ oraz $\suma \nabla = \textrm{id} - P_0$.
 	Wnioskujemy, że $\suma \mathfrak D$ to $\suma \mathfrak D \nabla \suma$, czyli $\suma \nabla \mathfrak D \suma = \mathfrak D \suma - P_0 \mathfrak D\suma$.
 \end{proof}

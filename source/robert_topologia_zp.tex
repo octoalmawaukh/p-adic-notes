@@ -1,15 +1,31 @@
-\section{Zwarta przestrzeń $\Z_p$}
-Przez liczby $p$-adyczne rozumiemy szeregi formalne $\sum_{i=0}^\infty a_i p^i$, gdzie całkowite współczynniki $a_i$ spełniają $0\le a_i \le p-1$.
-Takie szeregi można utożsamiać z ciągiem $a_i$.
-
+\section{Zbiór Cantora jako pierścień $\Z_p$}
+Liczby \prawo{Rbrt\\1.2} $p$-adyczne to formalne szeregi $\sum_{i=0}^\infty a_i p^i$, o współczynnikach $a_i \in [0, p) \cap \Z$.
+Takie szeregi można utożsamiać z ciągiem $(a_i)$.
 Kartezjański produkt $X_p = \{0, \dots, p-1\}^\N$ ma topologię produktową (czynniki są dyskretne), zatem jest zwarty.
 Jest też całkowicie rozłączny.
+Topologia na $X_p$ pochodzi od wielu metryk, na przykład \[d(x, y) = \sup_{i \ge 0} \delta(x_i, y_i) p^{-i} = p^{-v_p(x-y)}\]
+albo $\sum_{i \ge 0} \delta(x_i,y_i)p^{-i-1}$, ale nie tylko.
+Wszystkie metryka na zwartej p. metryzowalnej są jednostajnie równoważne, ale my będziemy sobie cenić te, które dają wierny obraz warstwowej struktury $\Z_p$: dla każdej $k \in \N$, warstwy $p^k \Z_p$ mają być izometryczne.
 
-Jest całkiem sporo metryk zgodnych z topologią na $X_p$, dla $x = (x_0, x_1, \dots)$ i $y = (y_0, y_1, \dots) \in X_p$ możemy przyjąć
-\[
-	d(x,y) = \sup_{i \ge 0} \frac{\delta(x_i, y_i)}{p^i} = \frac{1}{p^{v_p(x - y)}} \textrm{ czy } \sum_{i = 0}^\infty \frac{\delta(x_i,y_i)}{p^{i+1}},
-\]
-ale nie tylko.
-Wszystkie metryki na zwartej metryzowalnej są jednostajnie równoważne.
-Te dające wierny obraz struktury warstw $\Z_p$: dla każdej $k \in \N$ warstwy $p^k \Z_p$ są izometryczne w $\Z_p$, lubimy.
-Z $p$-adyczą metryką mnożenie jest kontrakcją: $d(px, py) = d(x,y) / p$, zatem ciągłe.
+\begin{fakt}
+	Z $p$-adyczną metryką mnożenie jest kontrakcją, zatem ciągłe: $d(px, py) = \frac 1p d(x, y)$.
+\end{fakt}
+
+Zbiór Cantora $C \subseteq [0,1]$ składa się z punktów, w których trójkowych rozwinięciach nie znajdziemy cyfr(y) jeden.
+Jest homeomorficzny z $\Z_2$ za sprawą ciągłej bijekcji $\psi \colon \Z_2 \to C$, $\sum_i a_i2^i \mapsto \sum_i 2a_i/3^{i+1}$ między zwartymi zbiorami.
+
+\begin{fakt}
+	Całkowicie \prawo{Engel} niespójna, zwarta p. metryczna bez izolatorów jest homeomorficzna z $\Z_2$.
+	Zwarta przestrzeń metryczna jest obrazem $\Z_2$.
+\end{fakt}
+
+W przestrzeni $\Z_2$ nie ma zatem nic niezwykłego.
+
+Ciekawa jest też funkcja $\varphi \colon \Z_2 \to [0,1]$ zadana przez $\sum_i a_i2^i \mapsto \sum_i a_i/2^{1+i}$.
+Diagram przemienny $\varphi = g \circ \psi$ (funkcja $g$ zszywa krańcowe punkty zbioru Cantora) zachęca nas do rozważenia liniowych modeli $\Z_p$.
+
+\begin{fakt}
+	Funkcje $\psi_b \colon \Z_p \to [0,1]$ określone dla $b > 1$ są ciągłe.
+	Dla $b > p$, są injektywnym homeomorfizmem na obraz.
+	Kiedy $b = p$, $\psi_b$ jest tylko nieróżnowartościową surjekcją: \[\psi_b \Bigl(\sum_{i = 0}^\infty a_i p^i\Bigr) = \frac {b - 1 }{p-1} \sum_{i = 0}^\infty \frac{a_i}{b^{i+1}}.\]
+\end{fakt}

@@ -1,12 +1,12 @@
 \section{Granice rzutowe}
-Homomorfizm $\varepsilon_n \colon \Z_p \to \Z/p^n\Z$ uogólnia redukcję.
+Homomorfizm \prawo{Rbrt\\1.4.1} $\varepsilon_n \colon \Z_p \to \Z/p^n\Z$ uogólnia redukcję.
 Przeniesiemy zbieżność $\sum_{i < n} a_ip^i$ do liczby $p$-adycznej $\sum_{i \ge 0} a_i p^i$ na pierścienie $\Z/p^n\Z$ i $\Z_p$.
 Nic trudnego.
 
 Umożliwi nam to kanoniczny homomorfizm $\varphi_n \colon \Z/p^{n+1} \Z \to \Z / p^n \Z$ z przemiennym diagramem ,,$\varepsilon_n = \varphi_n \circ \varepsilon_{n+1}$''.
 
 \begin{definicja}
-	Układ rzutowy to ciąg funkcji $\varphi_n \colon E_{n+1} \to E_n$ (oraz samych zbiorów $E_n$). 
+	Układ \prawo{Rbrt\\1.4.2} rzutowy to ciąg funkcji $\varphi_n \colon E_{n+1} \to E_n$ (oraz samych zbiorów $E_n$). 
 	Jego granicą jest zbiór $E$ z funkcjami $\psi_n \colon E \to E_n$, że $\psi_n = \varphi_n \circ \psi_{n+1}$, o ile jest uniwersalny: dla drugiej ,,granicy'' $E'$ z funkcjami $f_n$ mamy funkcję $f$, by $f_n = \psi_n \circ f \colon E' \to E \to E_n$ (,,faktoryzacja'').
 	$E_0 \leftarrow E_1 \leftarrow \dots \leftarrow E_n \leftarrow \dots \leftarrow \varprojlim E_n = E$
 \end{definicja}
@@ -20,11 +20,11 @@ $f$ zachowuje się jak granica $f_j$, zaś $\psi_n$ to granica złożeń funkcji
 Łatwo zauważyć, że granica rzutowa nie zależy od początkowych wyrazów (w skończonej ilości), więc można je pominąć.
 
 \begin{fakt}
-	Każdy układ rzutowy $(E_n, \varphi_n)_{n \ge 0}$ ma granicę.
+	Każdy \prawo{Rbrt\\1.4.3} układ rzutowy $(E_n, \varphi_n)_{n \ge 0}$ ma granicę.
 \end{fakt}
 
 Jeśli funkcje przejścia są ,,na'', to rzuty $\psi_n$ też i granica jest niepusta.
-Granice rzutowe istnieją dla wielu obiektów, nie tylko grup, ale także przestrzeni topologicznych.
+Granice rzutowe istnieją dla wielu obiektów, nie tylko grup, ale także \prawo{Rbrt\\1.4.4} przestrzeni topologicznych.
 
 \begin{fakt}
 	Klasa niepustych, zwartych przestrzeni topologicznych jest zamknięta na branie granic odwrotnych.
@@ -35,14 +35,14 @@ Granice rzutowe istnieją dla wielu obiektów, nie tylko grup, ale także przest
 \end{fakt}
 
 \begin{fakt}
-	Jeśli $\grupa$ jest granicą rzutową grup $\grupa_n$ z homomorfizmami $\psi_n \colon \grupa \to \grupa_n$, to przekrój ich jąder jest trywialny.
+	Jeśli \prawo{Rbrt\\1.4.5} $\grupa$ jest granicą rzutową grup $\grupa_n$ z homomorfizmami $\psi_n \colon \grupa \to \grupa_n$, to przekrój ich jąder jest trywialny.
 	Istnieje kanoniczny izomorfizm $\grupa \cong \varprojlim (\grupa / \ker \psi_n)$.
 \end{fakt}
 
 Pierścień szeregów formalnych $\Z_p$ można opisać w języku granic rzutowych.
 
 \begin{fakt}
-	Odwzorowanie, które wiąże liczbę $p$-adyczną z ciągiem jej częściowych sum modulo ${p^n}$, $\Z_p \to \varprojlim_n \Z/p^n\Z$, jest izomorfizmem topologicznych pierścieni.
+	Odwzorowanie, \prawo{Rbrt\\1.4.7} które wiąże liczbę $p$-adyczną z ciągiem jej częściowych sum modulo ${p^n}$, $\Z_p \to \varprojlim_n \Z/p^n\Z$, jest izomorfizmem topologicznych pierścieni.
 \end{fakt}
 
 \begin{proof}
@@ -64,5 +64,5 @@ Granica rzutowa to konstrukcja z teorii kategorii, z powodu jej dużej ogólnoś
 Na zakończenie prostsza, choć bezużyteczna definicja.
 
 \begin{fakt}
-	Homomorfizm pierścieni $\Z[[x]] \to \Z_p$, ewaluacja w punkcie $x = p$, zadaje kanoniczny izomorfizm $\Z[[x]] / (x-p) \cong \Z_p$.
+	Homomorfizm \prawo{Rbrt\\1.4.8} pierścieni $\Z[[x]] \to \Z_p$, ewaluacja w punkcie $x = p$, zadaje kanoniczny izomorfizm $\Z[[x]] / (x-p) \cong \Z_p$.
 \end{fakt}

@@ -2,10 +2,11 @@ Ktoś kiedyś powiedział, że teoria przestrzeni unormowanych nad ciałami inny
 Wprawdzie istnieje, ale nigdy nawet nie otarła się o główny nurt matematyki.
 Nie szkodzi.
 
-Sferyczna zupełność (zdefiniowana na końcu rozdziału 6.) służy zaspokojeniu potrzeb   analizy funkcjonalnej i nie jest poza nią przesadnie ważnym pojęciem.
+\section{Najlepsza aproksymacja, średnia Banacha}
+Sferyczna zupełność (zdefiniowana na końcu rozdziału 6.) służy zaspokojeniu potrzeb analizy funkcjonalnej i nie jest poza nią przesadnie ważnym pojęciem.
 
 \begin{fakt}
-	Niech $X$ będzie przestrzenią ultrametryczną.
+	Niech \prawo{Schik\\20.D} $X$ będzie przestrzenią ultrametryczną.
 	Połóżmy $\rho(x, y) = \exp [\log d(x, y)]$ dla $x \neq y$, $\rho(x, x) = 0$.
 	Funkcja $\rho$ jest dyskretną metryką na $X$, która spełnia nierówności $\rho \le d \le e \rho$.
 \end{fakt}
@@ -15,8 +16,7 @@ Sferyczna zupełność (zdefiniowana na końcu rozdziału 6.) służy zaspokojen
 \end{wniosek}
 
 \begin{definicja}
-	Niech $Y \subseteq X$.
-	Punkt $b \in Y$ jest najlepszą aproksymacją $a \in X$ w $Y$, gdy $d(a, b) = d(a, Y)$.
+	Punkt \prawo{Schik\\21} $b \in Y \subseteq X$ to najlepsza aproksymacja $a \in X$ w $Y$, gdy $d(a, b) = d(a, Y)$.
 \end{definicja}
 
 \begin{fakt}
@@ -24,8 +24,7 @@ Sferyczna zupełność (zdefiniowana na końcu rozdziału 6.) służy zaspokojen
 \end{fakt}
 
 \begin{proof}
-	Niech $\kula_n = \{y \in Y : d(y, a) \le d(a, Y) + 1/n\}$ dla $n \in \N$.
-	Zbiory $\kula_n$ tworzą malejący ciąg niepustych kul w $Y$, za najlepszą aproksymację służą elementy przekroju $\bigcap_n \kula_n$.
+	Zbiory $\kula_n = \{y \in Y : d(y, a) \le d(a, Y) + 1/n\}$ dla $n \in \N$ tworzą malejący ciąg niepustych kul w $Y$, za najlepszą aproksymację służą elementy przekroju $\bigcap_n \kula_n$.
 \end{proof}
 
 Jeśli $Y$ nie jest sferycznie zupełna, można wskazać taką przestrzeń $Y \cup \{a\}$, że $a$ nie ma najlepszej aproksymacji w $Y$.
@@ -43,7 +42,7 @@ Niestety, piękne twierdzenia się psują.
 Nie ma też średniej Banacha dla ograniczonych ciągów w przestrzeni ultrametrycznej:% (w takiej ciąg liczb naturalnych jest ograniczony, wskazówka!).
 
 \begin{fakt}
-	Nie można określić odwzorowania $\lim \colon \ell^\infty \to \cialo$, które byłoby $\cialo$-liniowe, pokrywałoby się z granicą ciągu (jeśli ta istnieje) i $\lim(\xi_1, \xi_2, \ldots) = \lim(0, \xi_1, \xi_2, \ldots)$.
+	Nie \prawo{Schik\\23.R} można określić odwzorowania $\lim \colon \ell^\infty \to \cialo$, które byłoby $\cialo$-liniowe, pokrywałoby się z granicą ciągu (jeśli ta istnieje) i $\lim(\xi_1, \xi_2, \ldots) = \lim(0, \xi_1, \xi_2, \ldots)$.
 \end{fakt}
 
 \begin{proof}
@@ -51,66 +50,62 @@ Nie ma też średniej Banacha dla ograniczonych ciągów w przestrzeni ultrametr
 \end{proof}
 
 \section{Grupa Pontriagina}
-Niech $\cialo$ będzie skończonym rozszerzeniem $\Q_p$, co implikuje jego lokalną zwartość.
+Niech $\cialo$ będzie skończonym rozszerzeniem $\Q_p$.
+Implikuje to jego lokalną zwartość.
 
 \begin{definicja}
-	Charakter to ciągły morfizm $\cialo \to \C^\times$, którego wartości leżą na okręgu jednostkowym.
+	Charakter to ciągły morfizm $\cialo \to S^1 \le \C^\times$ (patrz definicja \ref{underpressure}).
+	Wszystkie charaktery tworzą grupę $\cialo^\#$ z punktowym mnożeniem i niejasną zwarto-otwartą topologią, którą można wprowadzić układem otoczeń dla charakteru $\chi \in \cialo^\#$, $\varepsilon > 0$ i zwartego $A \subseteq \cialo$: otoczeniem jest rodzina $\{\chi' \in \mathcal K^\#: x \in A \implies |\chi'(x) - \chi(x)| \le \varepsilon\}$.
 \end{definicja}
 
-\begin{fakt}
-	Wartości charakteru leżą w $\mu_{p^\infty}$, jest on lokalnie stały.
-\end{fakt}
-
-Ustalmy nietrywialny charakter $\psi$.
-Funkcja $\psi_a(x) = \psi(ax)$ również jest charakterem dla dowolnego $a \in \cialo$.
-
-\begin{fakt}
-	Morfizm $f \colon \cialo \to \cialo^\#$, $a \mapsto \psi_a$, jest różnowartościowy.
-\end{fakt}
-
-Przykładem nietrywialnego elementu z multiplikatywnej grupy $\cialo^\#$ (wszystkich charakterów) jest złożenie śladu $\cialo$ nad $\Q_p$ z morfizmem Tate'a $\uptau$.
-Na $\cialo^\#$ zadaje się topologię od układu otoczeń:
-
-\begin{definicja}
-	Otoczeniem charakteru $\chi$ dla $\varepsilon > 0$ i zwartego $A \subseteq \cialo$ jest $V_{\varepsilon, A} = \{\chi' \in \mathcal K^\#: |\chi'(x) - \chi(x)| \le \varepsilon\}$.
-\end{definicja}
-
-\begin{fakt}
-	Zarówno morfizm $f$, jak i morfizm do niego odwrotny, są ciągłe.
-	Zatem obraz $f(\cialo)$ jest lokalnie zwarty i domknięty w $\cialo^\#$.
-	% Hint: use corollary I in I.3.2.
-\end{fakt}
-
-Przedstawiony wyżej obiekt istnieje dla każdej lokalnie zwartej grupy abelowej $\grupa$:
-
-\begin{definicja}
-	Dual Pontriagina to $\grupa^\#$, zbiór ciągłych morfizmów $\grupa \to \{z \in \C : |z| = 1\}$.
-\end{definicja}
-
-\begin{fakt}
-	Grupy $(\grupa^\#)^\#$ oraz $\grupa$ są kanonicznie izomorficzne: ma to sens, gdyż każdy dual Pontriagina jest lokalnie zwartą grupą abelową.
-\end{fakt}
-
-\begin{fakt}
-	Addytywna grupa lokalnie zwartego ciała $\cialo = \grupa$ jest izomorficzna ze swoim dualem (co stanowi uogólnienie przypadku $\R$).
-\end{fakt}
-
-\begin{fakt} % angielska wikipedia
-	Dual ośrodkowej grupy jest metryzowalny.
-\end{fakt}
-
-\begin{fakt}
-	Dla lokalnie zwartych grup abelowych $\grupa$, dyskretność (zwartość) jest równoważna zwartości (dyskretności) dualu $G^\#$.
-\end{fakt}
+Grupa $G^\#$ zbudowana z dowolnej lokalnie zwartej grupy $\grupa$ abelowej to dual Pontriagina.
+Dzięki niemu można podać przepis na abstrakcyjną transformatę Fouriera.
 
 \begin{historia}
 	Lew Pontriagin.
 \end{historia}
 
-Mając do dyspozycji dual Pontriagina, możemy już podać abstrakcyjny wariant transformaty Fouriera.
+\begin{fakt}
+	Wartości charakteru leżą w $\mu_{p^\infty}$, jest on lokalnie stały.
+\end{fakt}
+
+\begin{przyklad}
+	Złożenie śladu $\cialo$ nad $\Q_p$ z morfizmem Tate'a $\uptau$ to nietrywialny charakter.
+\end{przyklad}
+
+\begin{fakt}
+	Jeśli $\psi$ jest nietrywialnym charakterem, to $\psi_a(x) = \psi(ax)$ dla $a \in \cialo$ też.
+	Morfizm $f \colon \cialo \to \cialo^\#$, $a \mapsto \psi_a$, jest różnowartościowy.
+	Zarówno $f$, jak i morfizm odwrotny, są ciągłe, więc $f(\cialo) \subseteq \cialo^\#$ jest lokalnie zwarty i domknięty.
+\end{fakt}
+
+\begin{fakt}
+	Grupy $(\grupa^\#)^\#$ oraz $\grupa$ są kanonicznie izomorficzne: ma to sens, gdyż dual Pontriagina jest lokalnie zwartą grupą abelową.
+	Addytywna grupa lokalnie zwartego ciała $\cialo = \grupa$ jest izomorficzna ze swoim dualem (co stanowi uogólnienie przypadku $\R$).
+\end{fakt}
+
+\begin{fakt} 
+	Dual \prawo{en-\\-wiki} ośrodkowej grupy jest metryzowalny.
+\end{fakt}
+
+\begin{fakt}
+	Jeśli $\grupa$ jest lokalnie zwartą grupą abelową, to $\grupa$ jest dyskretna (zwarta), wtedy i tylko wtedy gdy dual $G^\#$ jest zwarty (dyskretny).
+\end{fakt}
+
+Pontriagin pokazał, że każda lokalnie zwarta grupa abelowa jest izomorficzna ze swoim bidualem (kanonicznie), przez $x \mapsto (\chi \mapsto \chi(x))$.
+
+Wracamy do obiecanej wcześniej dualności.
+Chcemy uogólnić transformatę ($\R \to \R$), szereg Fouriera ($S^1 \to \Z$) oraz ich dyskretne odpowiedniki ($\Z \to S^1$, $\Z/(n) \to \Z/(n)$).
+Do tego celu użyjemy miary Haara $\mu$ określonej na $\sigma$-ciele zbiorów borelowskich, pozwala ona na zdefiniowanie (klasycznych) przestrzeni $L^p$:
+\[
+	L_\mu^p(\grupa) := \left\{f \colon \grupa \to \C : \int_G |f(x)|^p \,\textrm{d} \mu (x) < \infty\right\}.
+\]
 
 \begin{definicja}
-	Jeśli $f$ leży w $L^1(\grupa)$, to jej transformata jest ciągła, ograniczona i znika w nieskończoności: $\int_\grupa f(x) \overline{\chi (x)} \,\textrm{d}\mu(x)$.
+	Jeśli funkcja $f$ leży w $L^1(\grupa)$, to jej transformata jest ciągła, ograniczona i znika w nieskończoności (choć nie jestem pewien, w jakim sensie, skoro nie ma tu jawnej normy)
+	\[
+		(\mathcal F f)(\chi) = \int_\grupa f(x) \overline{\chi (x)} \,\textrm{d}\mu(x).
+	\]
 \end{definicja}
 
 Każdej mierze Haara $\mu$ na $\grupa$ odpowiada dokładnie jedna miara Haara $\nu$ na $\grupa^\#$, że gdy $g \in L^1(\grupa)$, $\widehat g \in L^1(\grupa^\#)$, to
@@ -118,59 +113,37 @@ Każdej mierze Haara $\mu$ na $\grupa$ odpowiada dokładnie jedna miara Haara $\
 	g(x) = \int_{\grupa^\#} \widehat g(\chi) \chi(x) \,\textrm{d} \nu(\chi),
 \]
 przy czym równość zachodzi $\mu$-prawie wszędzie (a jeśli $g$ jest ciągła, to dosłownie wszędzie).
-Prowadzi to do transformaty odwrotnej.
-
-\begin{definicja}
-	Odwrotna transformata całkowalnej funkcji $f$ na $\grupa^\#$ zadana jest wzorem $\int_{\grupa^\#} f(\chi) \chi(x) \,\textrm{d} \nu(\chi)$.
-\end{definicja}
-
-% The inverse
+Prowadzi to do transformaty odwrotnej (po przesunięciu jednego daszka!).
 
 \begin{fakt}
-	Przestrzeń Banacha $L^1(\grupa)$ jest łączną oraz przemienną algebrą ze splotem $(f * g)(x) = \int_{\grupa} f(x- y) g(y) \,\textrm{d}\mu(y)$.
-\end{fakt}
-
-\begin{fakt}
-	Transformata splotu $f * g$ jest produktem transformat funkcji $f$ oraz $g$.
+	Przestrzeń $L^1(\grupa)$ jest łączną oraz przemienną algebrą (Banacha), jeśli mnożeniem jest splot.
+	Transformatą splotu jest mnożenie, $\mathcal F(f * g) (\chi) = (\mathcal Ff)(\chi)(\mathcal Fg)(\chi)$: \[(f * g)(x) = \int_{\grupa} f(x- y) g(y) \,\textrm{d}\mu(y).\]
 \end{fakt}
 
 \begin{twierdzenie}[Plancherel]
-	Transformata zwarcie niesionej oraz ciągłej funkcji $f \colon \grupa \to \C$ leży w $L^2(\grupa^\#)$ oraz
-	\[
-		\int_G |f(x)|^2 \ d \mu(x) = \int_{\widehat{G}} \left |\widehat{f}(\chi) \right |^2 \ d \nu(\chi).
-	\]
+	Przy zachowaniu powyższych miar ($\mu$ na $\grupa$, $\nu$ na $\grupa^\#$), transformata zwarcie niesionej, ciągłej funkcji $f \colon \grupa \to \C$ leży w $L^2(\grupa^\#)$ oraz
+	\[\int_\grupa |f(x)|^2 \,\textrm{d}\mu(x) = \int_{\grupa^\#} \left |\widehat{f}(\chi) \right|^2 \,\textrm{d} \nu(\chi).\]
 \end{twierdzenie}
 
-Ostrzeżenie: jeżeli lokalnie zwarta grupa $\grupa$ nie jest zwarta, to przestrzeń $L^1(\grupa)$ nie zawiera w sobie $L^2(\grupa)$, sic.
+Możemy przedłużyć $\mathcal F$ do unitarnego operatora $L_\mu^2(\grupa) \to L_\nu^2(\grupa^\#)$, ale jeżeli lokalnie zwarta grupa $\grupa$ nie jest zwarta, to przestrzeń $L^1(\grupa)$ nie zawiera w sobie $L^2(\grupa)$, sic.
+Nie zapiszemy więc przedłużenia całką.
 
-\section{Inne?}
+\section{Przestrzenie Banacha}
+Od teraz prawie wszystko jest ultrametryczne nawet, kiedy o tym nie mówimy.
+Rozumiemy już p. wektorowe nad $\cialo$, zupełnym rozszerzeniem $\Q_p$, skończonego wymiaru.
+Podnosimy więc poprzeczkę do nieskończeniewymiarowego przypadku.
 
-Cały czas przez $\cialo$ będziemy oznaczać zupełne rozszerzenie ultrametryczne dla $\Q_p$.
-Rozumiemy już p. wektorowe nad $\cialo$ skończonego wymiaru.
-Nadszedł wreszcie czas na przypadek $\dim_\cialo = \infty$.
-Od teraz prawie wszystko jest ultrametryczne nawet, kiedy nie jest to zaznaczone.
-%Przez \emph{przestrzeń unormowaną} rozumiemy ultrametrycznę p. unormowaną nad $\cialo$ , zaś przez \emph{p. Banacha}, zupełną przestrzeń unormowaną.
-
-\section{Sumy proste}
 \begin{definicja}
-	\emph{Suma prosta} rodziny p. unormowanych $E_i$ to suma (algebraiczna) z normą supremum: $\|x\| = \sup_i \|x_i\|$.
-	\[
-		\bigoplus_{i \in I} E_i = \{(x_i) : \mbox{skończenie wiele } x_i \neq 0\} \subseteq \prod_{i \in I} E_i
-	\]
+	\emph{Suma prosta} \prawo{Rbrt\\4.4.1} rodziny przestrzeni unormowanych $E_i$ to suma (algebraiczna) z normą supremum: $\|x\| = \sup_i \|x_i\|$, $\bigoplus_{i \in I} E_i = \{(x_i) : \mbox{skończenie wiele } x_i \neq 0\} \subseteq \prod_{i \in I} E_i$.
 \end{definicja}
 
 Kiedy wszystkie $E_i$ są przestrzeniami Banacha, rozpatruje się zwyczajowo uzupełnienie tejże sumy prostej.
-
-Oto konstrukcja.
 Nośnikiem $x = (x_i) \in \prod_i E_i$ jest zbiór $I_x = \{i \in I : x_i \neq 0\}$.
 Przez $\|x_i\| \to 0$ rozumiemy zaś, że dla każdego $\varepsilon > 0$ i skończenie wielu $i$, $\|x_i\| > \varepsilon$.
 W takiej sytuacji sam nośnik jest co najwyżej przeliczalny jako unia $I_x(1/n)$.
 
 \begin{fakt}
-	Uzupełnieniem sumy prostej p. Banacha jest dokładnie
-	\[
-		\widehat{\bigoplus}_{i \in I} E_i = \{x : \|x_i\| \to 0\}.
-	\]
+	Uzupełnieniem sumy prostej p. Banacha jest $\widehat{\bigoplus}_{i \in I} E_i = \{x : \|x_i\| \to 0\}$.
 \end{fakt}
 
 \begin{proof}
@@ -191,7 +164,7 @@ Zauważmy, że $x^{n} \to x$, gdyż $\|x^{n} -x\| = \sup_i \|x^n_i -x_i\| \le \v
 Jeżeli wszystkie przestrzenie Banacha $E_i = E$ są sobie równe, to algebraiczną sumę prostą oznaczamy też przez $E^{(I)}$.
 Jej uzupełnienie oznacza się przez $c_0(I; E)$, udaje się w ten sposób notację Stefana Banacha dla $\cialo = \C$.
 
-Nic nie ryzykujemy, jeżeli przyjmiemy: $c_0(I) = c_0(I; \cialo)$, $c_0(E) = c_0(\N, E)$, $c_0 = c_0(\N) = c_0(\N, \cialo)$.
+Nic nie ryzykujemy, jeżeli przyjmiemy: $c_0(I) = c_0(I; \cialo)$, $c_0(E) = c_0(\N, E)$, wreszcie $c_0 = c_0(\N) = c_0(\N, \cialo)$.
 
 \begin{wniosek}
 	Funkcja-suma $E^{(I)} \to E$ ma jednoznaczne ciągłe przedłużenie $\Sigma \colon c_0(I; E) \to E$, gdzie $E$ jest p. Banacha.
@@ -199,15 +172,14 @@ Nic nie ryzykujemy, jeżeli przyjmiemy: $c_0(I) = c_0(I; \cialo)$, $c_0(E) = c_0
 
 Abstrakcyjny bełkot tłumaczy uniwesalność sum prostych.
 
-\section{Bazy normalne}
-Kiedy $E, F$ są przestrzeniami nad $\cialo$ z normą, przez $L(E, F)$ rozumiemy przestrzeń ciągłych liniowych funkcji $E \to F$.
+Kiedy \prawo{Rbrt\\4.4.2} $E, F$ są przestrzeniami nad $\cialo$ z normą, przez $L(E, F)$ rozumiemy przestrzeń ciągłych liniowych funkcji $E \to F$.
 Ale liniowa funkcja jest ciągła dokładnie wtedy, gdy jest ciągła w zerze, lub, równoważnie, jest ograniczona:
 \[
 	\|T\| := \sup_{x \neq 0} \frac{\|T x\|}{\|x\|} < \infty
 \]
 
 Z definicji tej wynika, że $\|Tx\| \le \|T\| \cdot \|x\|$, a zatem $T$ jest kontrakcją dokładnie dla $\|T\| \le 1$.
-Nierówność ta pokazuje też, że $\|Tx\| \le \|T\|$ dla $\|x\| \le 1$, zatem $\sup_{\|x\| \le 1} \|Tx\| \le \|T\|$.
+Nierówność ta pokazuje też, że $\|Tx\| \le \|T\|$ dla $\|x\| \le 1$, zatem dołożenie supremum, $\sup_{\|x\| \le 1} \|Tx\| \le \|T\|$, nie jest złym pomysłem.
 Wbrew temu, co dzieje się w klasycznej analizie funkcjonalnej, nierówność może być ostra.
 Jeśli $1 \not \in \|E\|$, to jednostkowa sfera jest pusta, a otwarte kule jednostkowe są domknięte.
 Niechaj $T(x) = x$. Wtedy $\sup_{\|x\| \le 1}\|x\| < 1 = \|T\|$.
@@ -220,8 +192,7 @@ Niechaj $T(x) = x$. Wtedy $\sup_{\|x\| \le 1}\|x\| < 1 = \|T\|$.
 	Jeżeli $E$ jest unormowana, to jej dual $L(E, \cialo)$, $E'$, jest przestrzenią Banacha.
 \end{wniosek}
 
-Niech $I$ będzie jakimś zbiorem indeksów, zaś $E$ p. Banacha.
-Przestrzeń ograniczonych ciągów $(a_i)_{i \in I}$ w $E$ razem z normą $\sup_i \|a_i\|$ jest przestrzenią Banacha, oznaczaną $l^\infty(I; E)$.
+Przestrzeń ograniczonych ciągów $(a_i)_{i \in I}$ w $E$, przestrzeń Banacha, razem z normą $\sup_i \|a_i\|$ jest przestrzenią Banacha, oznaczaną $l^\infty(I; E)$ (indeksujemy czymkolwiek).
 
 \begin{fakt}
 	Topologiczny dual do $c_0(I, E)$ oraz $l^\infty(I, E')$ są (jako p. unormowane) kanonicznie izomorficzne.
@@ -229,25 +200,19 @@ Przestrzeń ograniczonych ciągów $(a_i)_{i \in I}$ w $E$ razem z normą $\sup_
 
 \begin{proof}
 	Jeśli $\varphi$ jest funkcjonałem na $c_0(I; E)$, przez $\varphi_i = \varphi \circ \varepsilon_i$ oznaczymy obcięcie do $i$-tego czynnika $E$ w $c_0(I; E)$.
-	Skoro $\|\varphi_i\| \le \|\varphi\|$, mamy ograniczoną rodzinę $(\varphi_i) \in l^\infty(I; E')$.
-
-	Odwrotnie, jeśli $(\varphi_i) \in l^\infty (I; E')$, definiujemy funkcjonał wzorem $\varphi(x) = \sum_i \varphi_i(x)$ na $c_0(I; E)$ przez $(a_i) \mapsto \sum_i \varphi_i (a_i)$ (szereg jest sumowalny, gdyż ciąg $\varphi_i$ jest ograniczony, zaś $\|a_i\|$ dąży do zera).
-
+	
+	Jeśli $(\varphi_i) \in l^\infty (I; E')$, definiujemy funkcjonał wzorem $\varphi(x) = \sum_i \varphi_i(x)$ na $c_0(I; E)$ przez $(a_i) \mapsto \sum_i \varphi_i (a_i)$ (szereg jest sumowalny, gdyż ciąg $\varphi_i$ jest ograniczony, zaś $\|a_i\|$ dąży do zera).
+	Odwrotnie, mamy ograniczoną rodzinę $(\varphi_i) \in l^\infty(I; E')$, bo $\|\varphi_i\| \le \|\varphi\|$.
 	Obie funkcje, $\varphi \mapsto (\varphi \circ \varepsilon_i)$ oraz $(\varphi) \mapsto \sum_i \varphi$, są liniowe i zmniejszają normę: to wzajemnie odwrotne izometrie.
 \end{proof}
 
-Innymi słowy, dwuliniowa $c_0(I; E) \times l^\infty(I, E') \to \cialo$
-\[
-	((a_i), (\varphi_i)) \mapsto \sum_i \varphi_i(a_i)
-\]
-
-jest dualnym parowaniem, które dowodzi faktu.
+Innymi słowy, dwuliniowa $c_0(I; E) \times l^\infty(I, E') \to \cialo$ jest dualnym parowaniem, które dowodzi prawdziwości faktu: $((a_i), (\varphi_i)) \mapsto \sum_ \varphi_i(a_i)$.
 
 \begin{wniosek}
 	Przestrzeń $l^\infty(I) = l^\infty(I, \cialo)$ jest Banacha.
 \end{wniosek}
 
-W przestrzeni $c_0$ elementy $e_i = (\delta_{ij})$ (kroneckerowskie symbole) mają następującą własność.
+W przestrzeni $c_0$ elementy $e_i = (\delta_{ij})$ (symbole Kroneckera) mają następującą własność.
 Każdy ciąg $(a_n) \in c_0$ jest sumą dokładnie jednego zbieżnego szeregu $a = \sum_{n \ge 0} a_ne_n$.
 Wtedy $\|a\| = \sup_{n \ge 0} |a_n| = \max_{n \ge 0} |a_n|$.
 Rodzina $\{e_i\}_{i = 0}^\infty$ jest kanoniczną bazą (chociaż nie jest bazą, bo algebra liniowa dopuszcza tylko skończone kombinacje liniowe!).
@@ -281,17 +246,17 @@ Istnieje odpowiednik faktu \ref{libresoy} dla przestrzeni Banacha, ale nie będz
 Zamiast tego skaczemy do nieznanego nikomu twierdzenia.
 
 \begin{twierdzenie}[Monna, Fleischer]
-	Każda ultrap. Banacha $E$ nad zupełnym ciałem $\cialo$, że $|\cialo^\times|$ jest dyskretne w $\R_{> 0}$, ma normalną bazę dokładnie wtedy, gdy $\|E\| = |\cialo|$.
+	Każda \prawo{Rbrt\\4.4.5} ultrap. Banacha $E$ nad zupełnym ciałem $\cialo$, że $|\cialo^\times|$ jest dyskretne w $\R_{> 0}$, ma normalną bazę dokładnie wtedy, gdy $\|E\| = |\cialo|$.
 \end{twierdzenie}
 
 Efektem ubocznym badania przestrzeni funkcji liniowych jest natomiast coś innego.
 
 \begin{wniosek}
-	Istnieje kanoniczny izomorfizm $(c_0(J))' \cong l^\infty(J)$.
+	Istnieje \prawo{Rbrt\\4.4.6} kanoniczny izomorfizm $(c_0(J))' \cong l^\infty(J)$.
 \end{wniosek}
 
 Na koniec czeka na nas wisienka na torcie z 1952 roku.
 
 \begin{twierdzenie}[Ingleton]
-	Jeżeli $V \le E$ jest podprzestrzenią p. unormowanej nad ciałem $\cialo$ (sferycznie zupełnym), operator obcięcia do $V$ ($\psi \mapsto \psi \mid_V$, $E' \to V'$) jest surjekcją, a funkcjonały z $V'$ można przedłużać do $E'$ bez zmiany normy (,,tw. Hahna-Banacha'').
+	Jeżeli \prawo{Rbrt\\4.4.7} $V \le E$ jest podprzestrzenią p. unormowanej nad ciałem $\cialo$ (sferycznie zupełnym), operator obcięcia do $V$ ($\psi \mapsto \psi \mid_V$, $E' \to V'$) jest surjekcją, a funkcjonały z $V'$ można przedłużać do $E'$ bez zmiany normy (,,tw. Hahna-Banacha'').
 \end{twierdzenie}

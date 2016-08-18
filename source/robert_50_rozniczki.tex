@@ -1,6 +1,5 @@
 \section{Różniczki i pochodne}
-
-Niech $X \subseteq \cialo$ będzie pozbawiony izolatorów, zaś $\cialo$ stanowi zupełne rozszerzenie $\Q_p$ (jak $\C_p$ lub $\Omega_p$).
+Niech \prawo{Rbrt\\5.1.1} $X \subseteq \cialo$ będzie pozbawiony izolatorów, zaś $\cialo$ stanowi zupełne rozszerzenie $\Q_p$ (jak $\C_p$ lub $\Omega_p$).
 
 \begin{definicja}
 	Funkcja $f \colon X \to \cialo$ jest różniczkowalna w punkcie $a$, gdy istnieje granica
@@ -9,7 +8,7 @@ Niech $X \subseteq \cialo$ będzie pozbawiony izolatorów, zaś $\cialo$ stanowi
 	\]
 \end{definicja}
 
-Równoważnie możemy żądać rozwinięcia rzędu jeden (dla $\phi(x) \to 0$): $f(x) = f(a) + (x-a) f'(a) + (x-a) \phi(x)$.
+Równoważnie: $f(x) = f(a) + (x-a) f'(a) + (x-a) \phi(x)$ dla pewnej funkcji $\phi$ gdy $\phi(x) \to 0$ dla $x \to a$.
 
 \begin{przyklad}
 	Niech otwarta kula $\kula_n \subseteq \Z_p$ ma swój środek w $p^n$ i promień $|p^{2n}|$.
@@ -26,7 +25,7 @@ Równoważnie możemy żądać rozwinięcia rzędu jeden (dla $\phi(x) \to 0$): 
 	\[
 		f(x) = x - \sum_{n \ge 1} p^{2n} \cdot [|x - p^n|_p < p^{-2n}]
 	\]
-	jest różniczkowalna dla wszystkich $x \in \Z_p$ z $f'(x) = 1$; pomimo to $f$ nie jest injekcją, bo $f (p^n) = f(p^n - p^{2n})$.
+	jest różniczkowalna dla wszystkich $x \in \Z_p$ z $f'(x) = 1$; pomimo to $f$ nie jest injekcją, albowiem dla $x = p^n$ i $x = p^n - p^{2n}$ przyjmuje tę samą wartość.
 \end{przyklad}
 
 \begin{przyklad}
@@ -73,10 +72,10 @@ Nie jest to ultrametryczną prawdą: tu interesujące wyniki wymagają równie i
 		x \in V_\varepsilon, y \in V_\varepsilon$ daje $|\Phi f(x,y) - f'(a)| < \varepsilon.
 	$
 	Weźmy $\varepsilon = |f'(a)|$.
-	Wtedy dla $x, y \in V$ zachodzi $|\Phi f(x,y)| = |f'(a)|$, a to pociąga $|f(x) - f(y)| = |f'(a)| \cdot |x-y|$.
+	Wtedy dla $x, y \in V$ zachodzi równość $|\Phi f(x,y)| = |f'(a)|$, a to pociąga $|f(x) - f(y)| = |f'(a)| \cdot |x-y|$.
 \end{proof}
 
-Podamy teraz zaskakujące uogólnienie lematu Hensela: funkcja $f-c$ ma zero $x \in \mathcal B$, $f(x) = c$, gdy tylko $|f(b)-c|$ jest małe dla pewnego $b \in \mathcal B$, chociaż $f$ nie musi być wielomianem.
+Podamy teraz zaskakujące uogólnienie lematu Hensela: funkcja $f-c$ ma zero $x \in \mathcal B$, $f(x) = c$, gdy tylko $|f(b)-c|$ jest małe dla pewnego $b \in \mathcal B$, nie tylko dla wielomianów!
 
 \begin{fakt}
 	Niech funkcja $f$ z otoczenia punktu $a \in \cialo$ będzie ściśle różniczkowalna w $a$, $f'(a) \neq 0$.
@@ -98,7 +97,7 @@ Podamy teraz zaskakujące uogólnienie lematu Hensela: funkcja $f-c$ ma zero $x 
 	Funkcja $\varphi$ jest kontrakcją ze stałą $\sigma/|s| < 1$ na lewej kuli (domkniętej w zupełnym $\cialo$), zatem ma tam dokładnie jeden punkt stały.
 \end{proof}
 
-Jeżeli funkcja $f$ spełnia któryś z poniższych warunków, to powiemy, że jest {ściśle różniczkowalna} ($f \in \mathcal S^1(X)$).
+Jeżeli funkcja $f$ spełnia któryś z poniższych warunków, to powiemy o niej, że jest {ściśle różniczkowalna} (symbolicznie $f \in \mathcal S^1(X)$).
 
 \begin{fakt}
 	Dla funkcji $f \colon X \to \mathcal K$ te warunki są równoważne:
@@ -119,11 +118,12 @@ Jeśli $r \in |\cialo^\times|$, każda kula $\kula[a, r]$ jest rozłączną sum�
 Dowolny zbiór zawierający $q$ różnych punktów $x_i \in \kula[a, r]$, że $i \neq j$ implikuje $|x_i - x_j| \ge r$ zawiera co najwyżej po jednym punkcie z $\kula_i$, zatem dokładnie po jednym.
 
 \begin{fakt} \label{exinferius}
-	Izometria $f$ z $G$, zwartego, otwartego podzbioru $\mathcal K$, w $\mathcal K$, skończone rozszerzenie $\Q_p$, przerzuca kule na kule.
+	Izometria \prawo{Rbrt\\5.1.2} $f$ z $G$, zwartego, otwartego podzbioru $\mathcal K$, w $\mathcal K$, skończone rozszerzenie $\Q_p$, przerzuca kule na kule.
 \end{fakt}
 
 \begin{proof}
 	Jeśli $\kula[a, r] \subseteq G$, to $f[\kula[a, r]] \subseteq \kula[f(a), r]$, pokażemy drugie zawieranie.
+	
 	Rozbijmy $\kula[a, r]$ na mniejsze rozłączne kule o środkach w $a_i$ oraz promieniach $\varepsilon = |\pi|^v r$.
 	Obrazy punktów $x_i = f(a_i)$ tworzą układ $q^v$ punktów spełniający $|x_i - x_j| > \varepsilon$ dla $i \neq j$, zatem obraz $f[\kula[a, r]]$ zawiera punkt z każdej z mniejszych kul rozkładu (czyli kroi wszystkie kule domknięte dodatniego promienia).
 	Wynika stąd, że $f[\kula[a, r]]$ leży gęsto w $\kula[f(a), r]$; jest też zwarty, przez co domknięty.
@@ -154,10 +154,10 @@ Podsumujmy.
 \end{proof}
 
 \begin{wniosek}
-	Dla $p > 2$ nie istnieje ściśle różniczkowalna bijekcja $f \colon \Z_p \to \Z_p^\times$, której pochodna nie znika.
+	Dla $p \neq 2$ nie istnieje ściśle różniczkowalna bijekcja $\Z_p \to \Z_p^\times$, której pochodna nie znika.
 \end{wniosek}
 
-Zajmiemy się teraz funkcjami bardziej różniczkowalnymi.
+Zajmiemy \prawo{Rbrt\\5.1.3+4} się teraz funkcjami bardziej różniczkowalnymi.
 Przyjmijmy
 \[
 	\Phi_2 f(x, y, z) = \frac{\Phi f(x,z) - \Phi f(y, z)}{x-y}.
@@ -181,12 +181,12 @@ Przyjmijmy
 
 Uwaga: twierdzenie odwrotne nie jest prawdziwe (choćby dla niektórych funkcji z $f' \equiv 0$).
 
-Spróbujemy teraz zróżniczkować szereg Mahlera.
+Spróbujemy \prawo{Rbrt\\5.1.5+6} teraz zróżniczkować szereg Mahlera.
 Ustalmy $f$, ciągłą funkcję na $\Z_p$ oraz $y \in \Z_p$.
 Możemy wtedy rozwinąć: $f(x+y) = \sum_{k \ge 0} c_k(y) (x \mbox { nad } k)$, $c_k(y) = (\nabla^k f)(y)$ dąży do zera.
 
 \begin{fakt}
-	Ciągła funkcja $f$ na $\Z_p$ jest różniczkowalna w $y$, wtedy i tylko wtedy gdy $|(\nabla^k f)(y) / k| \to 0$ dla $k \to \infty$.
+	Ciągła funkcja $f$ na $\Z_p$ jest różniczkowalna w $y$, wtedy i tylko wtedy gdy dla $k \to \infty$ jest $|(\nabla^k f)(y) / k| \to 0$.
 	Wtedy
 	\[
 		f'(y) = - \sum_{k=1}^\infty \frac{(-1)^k }{k} \cdot (\nabla^k f)(y).
@@ -200,18 +200,20 @@ Wtedy $c_0 = f(0)$ i
 	\frac{f(x) - f(0)}{x} = \sum_{k=1}^\infty \frac{c_k}{k} {x \choose k} = \sum_{k=1}^\infty \frac{c_k}{k} {x-1 \choose k-1}.
 \]
 
-Jeśli $|c_k/k|$ zbiega do zera, szereg Mahlera zadany przez $g(y) = \sum_{k \ge 1} (y \mbox{ nad } k-1) \cdot {c_k}/{k}$ reprezentuje ciągłą funkcję na $\Z_p$ i w szczególności $f'(0)$ istnieje, jest równe $g(-1)$, czyli $\sum_{k \ge 1} (-1)^{k-1} {c_k}/{k}$.
+Jeśli $|c_k/k|$ zbiega do zera, szereg Mahlera zadany przez $g(y) = \sum_{k \ge 1} \frac {1}k (y \mbox{ nad } k-1) c_k $ reprezentuje ciągłą funkcję na $\Z_p$ i w szczególności $f'(0)$ istnieje, jest równe $g(-1)$, czyli $\sum_{k \ge 1} (-1)^{k-1} {c_k}/{k}$.
 
 Odwrotnie, gdy $f'(0)$ istnieje, to funkcja $g$ równa $f'(0)$ w zerze i $(f(x) - f(0)) / x$ poza nim jest ciągła.
 Współczynniki Mahlera dla niej to $\gamma_k = \nabla^k g(0)$ (dążą do zera).
 Zapiszmy więc $g$ jako $\sum_{k \ge 0} \gamma_k (x \mbox{ nad } k)$.
-
-Mamy $x (x \mbox{ nad } k) = (k+1) (x \mbox{ nad } k+1) + k (x \mbox{ nad } k)$ (jak łatwo sprawdzić bezpośrednim rachunkiem), co upoważnia do $f(x) = f(0) + x g(x) = c_0 + \sum_{k \ge 1} k (\gamma_{k-1} + \gamma_k) (x \mbox{ nad } k)$. 
-Z jednoznaczności współczynników Mahlera dla $f$ możemy wywnioskować, że $c_k = k(\gamma_k + \gamma_{k-1})$, więc $c_k / k \to 0$.
+Mamy $x (x \mbox{ nad } k) = (k+1) (x \mbox{ nad } k+1) + k (x \mbox{ nad } k)$ (jak łatwo sprawdzić bezpośrednim rachunkiem), co upoważnia do zapisania
+\[
+	f(x) = f(0) + x g(x) = c_0 + \sum_{k \ge 1} k (\gamma_{k-1} + \gamma_k) (x \mbox{ nad } k).
+\]
+Współczynniki Mahlera są jednoznaczne, więc $\frac 1k c_k = \gamma_k + \gamma_{k-1}$ dąży do zera.
 \end{proof}
 
 \begin{fakt}
-	Dla ciągłej funkcji $f(x) = \sum_{k \ge 0} c_k{x \choose k}$ klasy $\mathcal C(\Z_p)$ ograniczoność $k|c_k|$ jest równoważna z lipschitzowskością $f$.
+	Dla ciągłej funkcji $f(x) = \sum_{k \ge 0} c_k{x \choose k}$ klasy $\mathcal C(\Z_p)$, ograniczoność liczb $k|c_k|$ jest równoważna lipschitzowskości $f$.
 \end{fakt}
 
 \begin{wniosek}
@@ -239,13 +241,13 @@ Aby dostać normę możemy położyć $q_0 = 1$ i napisać $\|f\|_* = \sup(|f(0)
 \end{fakt}
 
 \begin{fakt} %schikhof 177/318
-	Funkcja $\sum_{k\ge 0} c_k (x \mbox { nad } k) \in \mathcal C(\Z_p)$ jest analityczna, wtedy i tylko wtedy gdy $c_n / n!$ dąży do zera.
+	Funkcja \prawo{Schik\\54} $\sum_{k\ge 0} c_k (x \mbox { nad } k) \in \mathcal C(\Z_p)$ jest analityczna, wtedy i tylko wtedy gdy $c_n / n!$ dąży do zera.
 \end{fakt}
 
 Następne stwierdzenie jest szokujące.
 
 \begin{przyklad}
-	Suma ($\suma f$) analitycznej funkcji na $\Z_p$ nie musi taka być!
+	Suma \prawo{Schik\\54.C} ($\suma f$) analitycznej funkcji na $\Z_p$ nie musi taka być!
 \end{przyklad}
 
 Podobne charakteryzacje istnieją także w terminach bazy van der Puta.
@@ -254,7 +256,7 @@ Przypomnijmy, $e_0 \equiv 1$, zaś dla $n \ge 1$ funkcja $e_n$ jest indykatorem 
 Niech $f = \sum_{n \ge 0} a_n e_n \in \mathcal C(\Z_p, \cialo)$.
 
 \begin{fakt}
-	Funkcja $f$ jest $a$-lipschitzowska, wtedy i tylko wtedy gdy $\sup_n |a_n| n^a < \infty$, $a > 0$.
+	Funkcja \prawo{Schik\\63} $f$ jest $a$-lipschitzowska, wtedy i tylko wtedy gdy $\sup_n |a_n| n^a < \infty$, $a > 0$.
 \end{fakt}
 
 \begin{fakt}
@@ -273,7 +275,7 @@ Niech $f = \sum_{n \ge 0} a_n e_n \in \mathcal C(\Z_p, \cialo)$.
 Zajmiemy się teraz ratowaniem twierdzenia o wartości średniej, które nie zawsze jest prawdziwe.
 
 \begin{fakt}
-	Niech szereg $f \in \cialo\{x\}$ wyznacza funkcję $f$ na kuli $\kula_[0, 1]$.
+	Niech \prawo{Rbrt\\5.3} szereg $f \in \cialo\{x\}$ wyznacza funkcję $f$ na kuli $\kula_[0, 1]$.
 	Ustalmy $h, t \in \cialo$, takie że $|t| \le 1$ i $|h| \le r_p = |p|^{1 / (p-1)}$.
 	Wtedy $|f(t+h) - f(t)| \le |h| \cdot \|f'\|$.
 \end{fakt}
@@ -285,10 +287,10 @@ Wynika z niego inne, o punkcie stałym.
 	Wtedy $f$ ma punkt stały na kuli $\kula$.
 \end{fakt}
 
-Sekcja 73 książki Schikhofa porusza:
+Skaczemy w nieznane.
 
 \begin{twierdzenie}[Łuzin]
-	Niech funkcja $f \colon \Z_p \to \Q_p$ posiada pochodną.
+	Niech \prawo{Schik\\73} funkcja $f \colon \Z_p \to \Q_p$ posiada pochodną.
 	Wtedy to obrazem zbioru zerowego jest zbiór zerowy, zaś $\{f(x) : f'(x) = 0\}$ jest zerowy.
 \end{twierdzenie}
 
@@ -299,10 +301,10 @@ Istnieje jednak ciągła funkcja $\Z_p \to \Z_p$, obrazem przez którą pewnego 
 	Wtedy dla $g(x) = \sum_{j <t(x)} a_j p^{j:2}$ (suma po parzystych $j$) mamy równość $g[X] = \Z_p$.
 \end{przyklad}
 
-Skończymy na izometriach. % Schikhof 75
+Skończymy na izometriach. 
 
 \begin{fakt}
-	Jeśli ciało residuów jest nieskończone, to ,,domknięta'' kula jednostkowa i sfera są izometrycznie izomorficzne.
+	Jeśli \prawo{Schik\\75} ciało residuów jest nieskończone, to ,,domknięta'' kula jednostkowa oraz sfera są izometrycznie izomorficzne.
 \end{fakt}
 
 \begin{wniosek}

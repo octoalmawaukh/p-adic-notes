@@ -1,5 +1,5 @@
 \section{Eksponens (Dworka)}
-Pierwiastkami równania $x + x^p:p = 0$ są zero i pierwiastki $x^{p-1} + p = 0$, ,,$\pi$''
+Pierwiastkami \prawo{Rbrt\\7.2.4} równania $x + x^p:p = 0$ są zero i pierwiastki $x^{p-1} + p = 0$, ,,$\pi$''
 Problem w tym, że nie możemy dokonać tu podstawienia: $\exp(\pi + \pi^p:p) \neq \exp(0) = 1$!
 
 W klasycznym $\C$-przypadku pierwiastki jedności dają się określić jako specjalne wartości eksponensy.
@@ -20,14 +20,9 @@ Zauważmy, że zazwyczaj takie $\pi$ żyje w $\Q_p^a$.
 	Rozszerzenie $\Q_p(\pi)$ jest całkowicie oraz poskromienie rozgałęzione, stopnia $p-1$, Galois: to $\Q_p(\mu_p)$.
 \end{twierdzenie}
 
-Dokładniej:
-\begin{enumx}
-	\item dokłanie jeden element $\zeta_\pi \in \Q_p(\pi)$ jest x pierwiastkiem jedności ($p$-tym), że $\zeta_\pi \equiv 1 + \pi$ mod $\pi^2$
-	\item promień zbieżności $E_\pi(x)$ to $p^\beta > 1$, $\beta = 1/p - 1/p^2$.
-	\item jeśli $a \in \Q_p$ i $a^p = a$, to $E_\pi(a)^p = 1$, $E_\pi(a) \equiv 1 + a\pi$ mod $\pi^2$.
-\end{enumx}
+Dokładniej: dokłanie jeden element $\zeta_\pi \in \Q_p(\pi)$ jest $p$-tym pierwiastkiem jedności, że $\zeta_\pi \equiv 1 + \pi$ mod $\pi^2$, promień zbieżności $E_\pi(x)$ to $p^\beta > 1$, $\beta = 1/p - 1/p^2$, a jeśli $a \in \Q_p$ i $a^p = a$, to $E_\pi(a)^p = 1$, $E_\pi(a) \equiv 1 + a\pi$ mod $\pi^2$.
 
-Nastał czas sum Gaußa.
+Nastał \prawo{Rbrt\\7.2.5} czas sum Gaußa.
 
 \begin{definicja}
 	Morfizm $\psi \colon \mathbb F_q \to \cialo^\times$ to addytywny charakter $\mathbb F_q$.
@@ -43,11 +38,9 @@ Nastał czas sum Gaußa.
 	Jeśli $\tau \colon \mathbb F \to \cialo^\times$ to nietrywialny charakter (addytywny) skończonego ciała, nie ma innych charakterów niż $\psi(x) = \tau(ax)$ dla różnych $a \in \mathbb F$.
 \end{fakt}
 
-Przejdźmy do tw. Grossa-Koblitza.
-
+Przejdźmy \prawo{Rbrt\\7.2.6} do tw. Grossa-Koblitza.
 % R = B_\le 1 \sup P 		A
 % P = B_<   1 				M
-
 Wybierzmy pierwotny $p$-ty pierwiastek jedności $\zeta_p \in \C_p$, niech $\cialo = \Q_p(\zeta_p)$.
 Jak widzieliśmy, ideał $\mathfrak p$ jest maksymalny w $\mathcal O_p$.
 Istnieje generator (jedyny!) $\pi$ dla $\mathfrak p$, że $\pi^{p-1} = -p$ oraz $\pi \equiv \zeta_p - 1$ mod $(\zeta_p-1)^2$.
@@ -78,26 +71,19 @@ Warto nadmienić, że te sumy Gaußa związane są z $p$-adyczną funkcją $\Gam
 
 %\[ G_\alpha = \pi^a \Gamma_p \left( \frac a {p-1}\right).\]
 %To szczególny przypadek twierdzenia Grossa-Koblitza.
-Wartości $\Gamma_p$ są jednościami w $\Z_p$, poprzedni wzór daje więc dokładny rząd $|G_\alpha| = |\pi|^a = r_p^a = |p|^{a/(p-1)}$.
-Przytoczone wyżej twierdzenie pokazuje, że $\Gamma_p(a/(p-1)) \in \Q(\pi,\mu_{p^2-p})$, a ta wartość jest algebraiczna, bo $\pi^{p-1} = -p$.
+Wartości $\Gamma_p$ są jednościami w $\Z_p$, poprzedni wzór daje więc dokładny rząd $|G_\alpha| = |\pi|^a$, czyli $r_p^a = |p|^{a/(p-1)}$.
+Przytoczone wyżej twierdzenie pokaże $\Gamma_p(a/(p-1)) \in \Q(\pi,\mu_{p^2-p})$, a ta wartość jest algebraiczna, bo $\pi^{p-1} = -p$.
 
 Spróbujemy uogólnić to wszystko.
-Niech $\alpha \in \Z_{(p)}$, $\Q \cap \Z_p$, będzie wymierną o mianowniku $N$ względnie pierwszym z $p$.
-Dla wysokiej potęgi $q = p^f$ rozszerzenie $\mathbb F_q$ stopnia $f$ swego  prostego ciała zawiera $N$-ty pierwiastek jedności.
-Będziemy więc pracować w poskromionym rozszerzeniu rozgałęzionym
-${\cialo = \Q_p(\pi, \mu_{q-1}) \subset \C_p}$ o indeksie rozgałęzienia $e = p-1$, stopniu  residuum $f$, zatem stopnia $n = ef$ nad $\Q_p$.
 
-Dla $\alpha \in \frac{1}{N} \Z/\Z \subset \frac{1}{q-1} \Z/\Z$ wybieramy reprezentację:
-\[
-	0 \le \langle \alpha \rangle = a/(q-1) < 1
-\]
-i piszemy $p$-adyczne rozwinięcie licznika:
-\[
-	a = a_0 + a_1p + \ldots + a_{f-1}p^{f-1} < q-1 < q =  p^f
-\]
+Niech $p$ nie dzieli $n$, mianownika $\alpha \in \Z_{(p)} = \Q \cap \Z_p$.
+Dla wysokiej potęgi $q = p^f$ rozszerzenie $\mathbb F_q$ stopnia $f$ swego prostego ciała zawiera $n$-ty pierwiastek jedności, więc będziemy pracować w poskromionym rozszerzeniu rozgałęzionym
+${\cialo = \Q_p(\pi, \mu_{q-1}) \subset \C_p}$ o indeksie rozgałęzienia $e = p-1$, stopniu  residuum $f$ i przez to stopnia $m = ef$ nad $\Q_p$.
 
-Niech $S_p(a) = a_0 + a_1 +\ldots + a_{f-1}$ oznacza sumę cyfr $a$.
-Niech całkowite $a^{(i)}$ za rozwinięcie mają cykliczną permutację $a = a^{(0)}$.
+Dla $\alpha \in \frac{1}{N} \Z/\Z \subset \frac{1}{q-1} \Z/\Z$ wybieramy reprezentację $0 \le \langle \alpha \rangle = a/(q-1) < 1$ oraz piszemy $p$-adyczne rozwinięcie licznika $a = a_0 + a_1p + \ldots < q-1 < q$.
+Niech $S_p(a)$ oznacza sumę cyfr $a$, % = a_0 + a_1 +\ldots + a_{f-1}
+zaś całkowite $a^{(i)}$ za rozwinięcie mają cykliczną permutację
+$a = a^{(0)}$.
 Przykładowo $a^{(1)} = a_{f-1} + a_0p + \dots + a_{f-2}p^{f-1}$.
 
 Z drugiej strony, jeśli nietrywialny addytywny charakter $\psi$ ciała prostego $\mathbb F_p$ jest nadal taki sam, to złożenie $\psi$ ze śladem
@@ -108,7 +94,7 @@ Nietrywialność śladu wynika z tego, że rozszerzenie $\mathbb F_q / \mathbb F
 Czas na niespodziankę.
 
 \begin{twierdzenie}[Gross-Koblitz, 1979] 
-	Wartość sumy Gaußa $G_\alpha$ dla $0 \le \alpha = a / (q-1) < 1$ to
+	Suma Gaußa $G_\alpha$ dla $0 \le \alpha = a / (q-1) < 1$ to
 	\[
 		-\sum_{x \in \mathbb F_p}^{x\neq 0} \omega(x)^{-a} \psi (\textrm{Tr}(x)) = \pi^{S_p(a)} \prod_{j=0}^{f-1} \Gamma_p \left( \frac{a^{(j)}}{q-1} \right).
 	\]

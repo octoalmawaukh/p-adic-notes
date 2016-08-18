@@ -1,5 +1,5 @@
 \section{Ciało $\Q_p$}
-Pierścień $\Z_p$ jest dziedziną całkowitości, więc można z niego zbudować ciało ułamków $\Q_p = \operatorname{Frac} \Z_p$.
+Pierścień \prawo{Rbrt\\1.5.1} $\Z_p$ jest dziedziną całkowitości, więc można z niego zbudować ciało ułamków $\Q_p = \operatorname{Frac} \Z_p$.
 Gdy $x = p^m u$ ($u$: jedność w $\Z_p$), to $1/x = p^{-m} u^{-1}$, wynika stąd, że ciało to jest pierścieniem generowanym przez $\Z_p$ i ujemne potęgi $p$: $\Q_p = \Z_p[1/p]$.
 Poniższa obserwacja wynika z reprezentacji $1/x = p^{-m} u^{-1}$.
 
@@ -7,8 +7,7 @@ Poniższa obserwacja wynika z reprezentacji $1/x = p^{-m} u^{-1}$.
 	$\Q_p = \bigcup_{m \ge 0} p^{-m} \Z_p = \{0\} \cup \coprod_{m \in \Z} p^m \Z_p^\times$.
 \end{fakt}
 
-
-Struktura ultramextryczna na $\Q_p$ jest na tyle ciekawa, że możemy poświęcić jej chwilę.
+Struktura \prawo{Rbrt\\1.5.2} ultrametryczna na $\Q_p$ jest na tyle ciekawa, że możemy poświęcić jej chwilę.
 Jeśli to zrobimy, możemy dojść na przykład do takiej obserwacji.
 
 \begin{fakt}
@@ -17,7 +16,7 @@ Jeśli to zrobimy, możemy dojść na przykład do takiej obserwacji.
 	Utożsamia się je z uzupełnieniem $\Q$ lub $\Z[1/p]$ względem metryki $p$-adycznej.
 \end{fakt}
 
-Liczby wymierne pośród $p$-adycznych zlokalizować nie jest trudno, co trochę szokuje.
+Liczby \prawo{Rbrt\\1.5.3} wymierne pośród $p$-adycznych zlokalizować nie jest trudno, co trochę szokuje.
 Analogia z $\R$ jest oczywista.
 
 \begin{fakt}
@@ -38,7 +37,7 @@ Analogia z $\R$ jest oczywista.
 \end{proof}
 
 \begin{definicja} \label{cptmetal}
-	Liczby postaci $x = \sum_{i \ge m} x_i p^i \in \Q_p$ rozbijają się na część całkowitą $[x] \in \Z_p$ oraz ułamkową $\langle x \rangle \in \Z[1/p] \subseteq \Q$:
+	Liczby \prawo{Rbrt\\1.5.4} postaci $x = \sum_{i \ge m} x_i p^i \in \Q_p$ rozbijają się na część całkowitą $[x] \in \Z_p$ oraz ułamkową $\langle x \rangle \in \Z[1/p] \subseteq \Q$:
 	\[
 		x = [x] + \langle x \rangle = \sum_{i \ge 0} x_i p^i + \sum_{i < 0} x_i p^i.
 	\]
@@ -90,7 +89,7 @@ Gdy $v = -m < 0$, mamy prawo użyć twierdzenia Bézout: $1 = \alpha p^m + \beta
 Zatem $x = \alpha a / b + \beta b p^{-m}$: pierwszy składnik żyje w $\Z_{(p)}$, drugi w $\Z[1/p]$.
 Wynika stąd, że $\Q = \Z_{(p)} + \Z[1/p]$.
 
-Niestety suma $\Q_p = \Z_p + \Z[1/p]$ nie jest prosta, ponieważ składniki kroją się do $\Z$.
+Niestety \prawo{Rbrt\\1.5.5} suma $\Q_p = \Z_p + \Z[1/p]$ nie jest prosta, ponieważ składniki kroją się do $\Z$.
 Jeżeli włożymy $\Z$ w $\Z_p \oplus \Z[1/p]$ poprzez funkcję $m \mapsto (m, -m)$ z obrazem $\Gamma$, to homomorfizmy dodawania 
 $\Z_{(p)} \oplus \Z[1/p] \to \Z_{(p)} + \Z[1/p] = \Q$ oraz $\Z_p \oplus \Z[1/p] \to \Z_p + \Z[1/p] = \Q_p$ mają to samo jądro, $\Gamma$.
 Podzielenie przez $\Gamma$ daje nam odpowiednio $\Q$ i $\Q_p$.
