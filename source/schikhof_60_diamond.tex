@@ -1,11 +1,8 @@
 \section{Logarytm (diamentowy)}
-Poznamy zaraz funkcję, która choć nie jest równa $\log_p \Gamma_p$, i tak zasługuje na swoją nazwę: log gamma Diamonda.
+Poznamy \prawo{Schik\\60} zaraz funkcję, która choć nie jest równa $\log_p \Gamma_p$, i tak zasługuje na swoją nazwę: log gamma Diamonda.
 
 \begin{definicja}
-	Dla $x \in \C_p \setminus \Z_p$ niech
-	\[
-		G_p(x) = \intzp (x+u) (\log_p (x+u) - 1) \,\textrm{d}u.
-	\]
+	Dla $x \in \C_p \setminus \Z_p$ niech $G_p(x) = \intzp (x+u) (\log_p (x+u) - 1) \,\textrm{d}u$.
 \end{definicja}
 
 \begin{fakt}
@@ -13,8 +10,8 @@ Poznamy zaraz funkcję, która choć nie jest równa $\log_p \Gamma_p$, i tak za
 \end{fakt}
 
 \begin{proof}
-	Niech $f(x, u) = (x+u)(\log p(x+u) - 1)$.
-	Wtedy to $f(x + 1, u) - f(x, u) = f(x, u + 1) - f(x, u)$, zatem prawdą jest też $G_p(x+1) - G_p(x) = \partial_uf(x, 0) = \log_p(x)$.
+	Mamy $f(x + 1, u) - f(x, u) = f(x, u + 1) - f(x, u)$, jeśli $f(x, u)$ zdefiniujemy jako	$(x+u)(\log p(x+u) - 1)$.
+	Zatem $G_p(x+1) - G_p(x) = \partial_uf(x, 0) = \log_p(x)$.
 \end{proof}
 
 \begin{fakt}
@@ -22,12 +19,11 @@ Poznamy zaraz funkcję, która choć nie jest równa $\log_p \Gamma_p$, i tak za
 \end{fakt}
 
 \begin{proof}
-	Skoro $\log_p(-1) = 0$, to $f(-x, u) = - f(x, -u)$.
+	Skoro $\log_p(-1) = 0$, to $f(-x, u) = - f(x, -u)$ i 
 	\begin{align*}
 		- G_p (-x) & = \intzp f(x, -u) \,\textrm{d}u
-		= \intzp -f(x, u+1) \,\textrm{d}u \\
-		& =  \intzp -f(x+1, u) \,\textrm{d}u
-		= G_p(1+x). \qedhere
+		= \intzp -f(x, u+1) \,\textrm{d}u =  \intzp -f(x+1, u) \,\textrm{d}u. \qedhere
+		%\\ & = G_p(1+x). 
 	\end{align*}
 \end{proof}
 
@@ -54,7 +50,7 @@ Poznamy zaraz funkcję, która choć nie jest równa $\log_p \Gamma_p$, i tak za
 \end{proof}
 
 \begin{fakt}
-	Funkcja $G_p$ jest lokalnie analityczny.
+	Funkcja $G_p$ jest lokalnie analityczna.
 \end{fakt}
 
 \begin{fakt}

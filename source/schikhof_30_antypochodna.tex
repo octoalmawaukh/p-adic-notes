@@ -1,6 +1,6 @@
 \section{Antypochodna}
 \begin{fakt}
-	Dla każdej ciągłej funkcji $f \colon X \to \cialo$ ($X \subseteq \cialo$) i $\varepsilon > 0$ istnieje lokalnie stała $g \colon X \to \cialo$, że $|f(x) - g(x)| < \varepsilon$.
+	Dla \prawo{Schik\\26.1} każdej ciągłej funkcji $f \colon X \to \cialo$ ($X \subseteq \cialo$) i $\varepsilon > 0$ istnieje lokalnie stała $g \colon X \to \cialo$, że $|f(x) - g(x)| < \varepsilon$.
 \end{fakt}
 
 \begin{proof}
@@ -10,19 +10,18 @@
 \end{proof}
 
 \begin{wniosek}
-	Jeśli $X$ nie ma izolatorów, to $g' = 0$.
+	Jeśli $X$ nie ma izolatorów, to można żądać $g' = 0$.
 \end{wniosek}
 
 \begin{twierdzenie}[Kaplansky]
-	Jeżeli zbiór $X \subseteq \cialo$ jest zwarty, zaś $f \colon X \to \cialo$ ciągła, to istnieje wielomian $P \colon \cialo \to \cialo$, że dla każdego $x \in X$, $|P(x) - f(x)| < \varepsilon$.
+	Jeżeli \prawo{Schik\\43.3} zbiór $X \subseteq \cialo$ jest zwarty, zaś $f \colon X \to \cialo$ ciągła, to istnieje wielomian $P \colon \cialo \to \cialo$, że dla każdego $x \in X$, $|P(x) - f(x)| < \varepsilon$.
 \end{twierdzenie}
 
 Twierdzenie Kaplansky'ego nie jest wybredne co do ciała $\cialo$, natomiast twierdzenie Weierstraßa (o jednostajnej granicy wielomianów) staje się fałszywe (!) dla $\C$ zamiast $\R$.
 
 \begin{proof}
 	Fakt połączony ze zwartością $X$ pokazują, że można ograniczyć się do indykatorów kul.
-
-	Bez straty ogólności, niech $0 \in X$, $f(0) = 1$.
+	Bez straty ogólności załóżmy, że $0 \in X$, $f(0) = 1$.
 	Wybierzmy $c_1, \ldots, c_m \in X$, by $|c_1| \le \ldots \le |c_m|$ i $X \subseteq \bigsqcup_{k \le m} \kula[c_k, \delta]$ ($c_0 = 0$).
 	Wtedy $\delta <|c_1|$.
 	Dla pewnego $s$ mamy $(\delta / |c_1|)^s < \varepsilon$.
@@ -32,11 +31,9 @@ Twierdzenie Kaplansky'ego nie jest wybredne co do ciała $\cialo$, natomiast twi
 	\]
 
 	miała potrzebne własności: $|P(x) - 1| < \varepsilon$ dla $x$ z $\kula[0, \delta]$ i $|(x)| < \varepsilon$ dla $x$ z kolejnych kul.
-
 	Niech $x \in \kula[0, \delta]$.
 	Wtedy $1 - (x/c_j)^s \in \kula[1, \varepsilon]$ dla każdego $j$.
 	Skoro $\kula[1, \varepsilon]$ jest grupą z mnożeniem (co najmniej dla $\varepsilon < 1$), wnioskujemy, że $|P(x) - 1| < \varepsilon$ niezależnie od $n_1$, $\ldots$, $n_m$.
-
 	Niech teraz $x \in \kula[c_i, \delta]$ dla $i \ge 1$.
 	Wtedy $|x - c_i| \le \delta$ i $|x| = |c_i|$, zatem
 	\[
@@ -56,7 +53,7 @@ Twierdzenie Kaplansky'ego nie jest wybredne co do ciała $\cialo$, natomiast twi
 Rozpatrujemy funkcje $f \colon \Z_p \to \Q_p$.
 
 \begin{fakt}
-	Zbiór antypochodnych $f$ jest gęsty w zbiorze $\mathcal C(\Z_p, \Q_p)$.
+	Zbiór \prawo{Schik\\z 26.3} antypochodnych $f$ jest gęsty w zbiorze $\mathcal C(\Z_p, \Q_p)$.
 \end{fakt}
 
 \begin{proof}
@@ -65,21 +62,23 @@ Rozpatrujemy funkcje $f \colon \Z_p \to \Q_p$.
 
 Funkcja $\sum_{n \ge 0} p^n x^{p^n- 1}$ jest analityczna, ale dla $x = 1$ jej antypochodna nie zbiega.
 Natomiast antypochodna dowolnej funkcji lokalnie analitycznej też jest taka.
+% Funkcja $\sum_{n \ge 0} qx^{q-1}$, $q = p^n$, pokazuje, że słowa ,,lokalnie'' nie można pominąć.
 
 \begin{fakt}
-	Antypochodna funkcji lokalnie analitycznej jest lokalnie analityczna, rzędu o jeden wyższego.
+	Antypochodna \prawo{Schik\\30.A} funkcji lokalnie analitycznej jest lokalnie analityczna, jednak rzędu o jeden wyższego.
+	Lokalności nie można pominąć.
 \end{fakt}
 
-Funkcja $\sum_{n \ge 0} qx^{q-1}$, $q = p^n$, pokazuje, że słowa ,,lokalnie'' nie można pominąć.
 Zastanowimy się teraz, czy każda ciągła funkcja $f \colon \Z_p \to \Q_p$ ma antypochodną.
 
 \begin{fakt}
-	Niech funkcje $f_1, f_2, \ldots$ będą ograniczone na $\Z_p$, tak by $f = \sum_{n \ge 1} f_n$ zbiegał jednostajnie.
+	Niech \prawo{Schik\\30.1} funkcje $f_1, f_2, \ldots$ będą ograniczone na $\Z_p$, tak by szereg $f = \sum_{n \ge 1} f_n$ zbiegał jednostajnie.
 	Jeśli $F_n$ jest antypochodną $f_n$ i $\|F_n\|_\triangle := \max (\|F_n\|, \|\Phi_1 F_n\|) \le \|f_n\|$, to szereg $\sum_n F_n$ także zbiega jednostajnie, do antypochodnej $f$.
 \end{fakt}
 
 \begin{proof}
-	Z jednostajnej zbieżności $\|f_n\|$ dąży do zera, więc $\|F_n\|$ także (i $F$ jest dobrze określoną funkcją ciągłą). Ustalmy $\varepsilon > 0$ i $N$, takie że $\|f_n\| <\varepsilon$ dla $n > N$.
+	Z jednostajnej zbieżności $\|f_n\|$ dąży do zera, więc $\|F_n\|$ także.
+	Oznacza to, że $F$ jest dobrze określoną i ciągłą funkcją. Ustalmy $\varepsilon > 0$ i $N$, takie że $\|f_n\| <\varepsilon$ dla $n > N$.
 
 	Wtedy $|\Phi_1 F_n(s,t) - f_n(t)|_p \le \max(\|\Phi_1 F_n\|, \|f_n\|) < \varepsilon$ jednostajnie w $s \neq  t \in \Z_p$.
 	Dla $x$ bliskich $a$, lewa strona jest mniejsza od $\varepsilon$ również dla $n \le N$ ($x, a$ zamiast $s, t$), można zatem ,,zgubić'' indeksy $n$.
@@ -88,23 +87,25 @@ Zastanowimy się teraz, czy każda ciągła funkcja $f \colon \Z_p \to \Q_p$ ma 
 Jeżeli funkcje $F_n$ są klasy $\mathcal C^1$, dowód daje się poprawić tak, by $F$ też była.
 
 \begin{twierdzenie}[Dieudonné]
-	Każda ciągła $f \colon \Z_p \to \Q_p$ posiada antypochodną.
+	Każda \prawo{Schik\\30.2} ciągła $f \colon \Z_p \to \Q_p$ posiada antypochodną.
 \end{twierdzenie}
 
 \begin{proof}
-	Lemat ze spostrzeżeniem pokazują, iż wystarczy nam ograniczyć się do lokalnie stałych $f$ i pokazać antypochodną $F$ klasy $\mathcal C^1$, $\|F\|_\triangle \le \|f\|$.
+	Lemat ze spostrzeżeniem pokazują, iż wystarczy ograniczyć się do lokalnie stałych $f$ i pokazać antypochodną $F$ klasy $\mathcal C^1$, $\|F\|_\triangle \le \|f\|$.
+
 	Niech $f = \sum_{m=0}^{q} \lambda_m [x \in m + p^n\Z_p]$ dla $q = p^n-1$.
 	Wtedy naturalnym kandydatem na funkcję $F$ jest $\sum_m \lambda_m (x-m) [x \in m + p^n\Z_p]$.
 	Jej pochodna to $f$, zaś $\|F\| \le \|f\|$.
 
 	Pokażemy, że $|\Phi_1 F(x,y)|_p \le \|f\|$ dla różnych $x, y \in \Z_p$.
-	Niech $x \in m + p^n\Z_p$, $y \in m' + p^n \Z_p$.
-	Jeśli liczby $m$ i $m'$ są równe, to $F(x) - F(y) = \lambda_m (x - y)$.
-	Jeśli nie, to $|x-y|_p$ można szacować z dołu przez większą z $|x - m|_p$, $|y - m'|_p$, ale wtedy $|F(x) - F(y)|_p = |\lambda_m(x - m) + \lambda_{m'}(y - m')|_p \le \|f\| \cdot |x -y|_p$, co kończy dowód.
+	
+	Niech $x \in \dysk{m}{n}$, $y \in \dysk{m'}{n}$.
+	Jeśli $m = m'$, to $F(x) - F(y) = \lambda_m (x - y)$.
+	Jeśli nie, to $|x-y|_p$ można szacować z dołu przez większą z $|x - m|_p$, $|y - m'|_p$, ale wtedy kończymy dowód przez $|F(x) - F(y)|_p = |\lambda_m(x - m) + \lambda_{m'}(y - m')|_p \le \|f\| \cdot |x -y|_p$.
 \end{proof}
 
 \begin{fakt}
-	Funkcja $f \colon X \to \cialo$ jest pierwszej klasy Baire'a (jest punktową granicą f. ciągłych), wtedy i tylko wtedy gdy posiada ona antypochodną.
+	Funkcja \prawo{Schik\\70.1} $f \colon X \to \cialo$ jest pierwszej klasy Baire'a (jest punktową granicą f. ciągłych), wtedy i tylko wtedy gdy posiada ona antypochodną.
 \end{fakt}
 
 Twierdzenie to nie ma rzeczywistego odpowiednika, ale wiadomo, że tylko implikacja w lewo jest prawdziwa.
@@ -112,14 +113,14 @@ Dowód w lewo (ultrametryczny) również jest prosty.
 W prawo trzeba skorzystać z kilku lematów.
 
 \begin{lemat}
-	Jeśli $f \colon X \to \cialo$ jest pierwszej klasy Baire'a, to jest sumą przeliczalnie wielu lokalnie stałych $f_n \colon X \to \cialo$, takich że $\|f_n\| \le \|f\|$ (dla ograniczonych $f$).
+	Jeśli \prawo{Schik\\70.3} $f \colon X \to \cialo$ jest pierwszej klasy Baire'a, to jest sumą przeliczalnie wielu lokalnie stałych $f_n \colon X \to \cialo$, takich że $\|f_n\| \le \|f\|$ (dla ograniczonych $f$).
 \end{lemat}
 
 \begin{lemat}
-	Ustalmy $\varepsilon > 0$ oraz domkniętą kulę $\kula \subseteq X$.
+	Ustalmy \prawo{Schik\\70.4} $\varepsilon > 0$ oraz domkniętą kulę $\kula \subseteq X$.
 	Istnieje wtedy liniowe odwzorowanie $F \colon X \to \cialo$, antypochodna indykatora $\kula$, normy co najwyżej $\varepsilon$, takie że $|F(x-y)| \le |x- y|$ (dla $x, y \in \kula$) i lub ,,$\le |x-y|$'' (w pozostałych przypadkach), zerowe poza kulą $\kula$.
 \end{lemat}
 
 \begin{lemat}
-	Jeśli $f \colon X \to \cialo$ jest lokalnie stała, zaś $\varepsilon > 0$, to istnieje lokalnie liniowa antypochodna $F \colon X \to \cialo$, że $\|F\| \le \varepsilon$ i $|F(x) - F(y)| \le \max (|f(x)|, \varepsilon) |x-y|$.
+	Dla \prawo{Schik\\70.5} lokalnie stałej funkcji $f \colon X \to \cialo$ i ustalonego $\varepsilon > 0$ istnieje lokalnie liniowa antypochodna $F \colon X \to \cialo$, że $\|F\| \le \varepsilon$ i $|F(x) - F(y)| \le \max (|f(x)|, \varepsilon) |x-y|$.
 \end{lemat}	
