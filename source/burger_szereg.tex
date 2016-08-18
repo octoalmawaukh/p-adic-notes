@@ -1,5 +1,5 @@
 \section{Wielozbieżność \label{burger}}
-Czy istnieje szereg o wymiernych wyrazach, który jest zbieżny w $\Q_p$ dla wszystkich $p \le \infty$?
+Czy istnieje szereg o wymiernych wyrazach, który jest zbieżny w $\Q_p$ dla każdej $p \le \infty$?
 Pytanie to zadali Edward Burger oraz Thomas Struppeck w pracy~\cite{burger96}.
 Okazuje się, że tak:
 \[
@@ -7,7 +7,7 @@ Okazuje się, że tak:
 \]
 
 Naturalne pytanie o algebraiczność granicy szeregu jest trudne.
-Pomimo to przeprowadzimy teraz konstrukcję, która pozornie stanowi dużo większe wyzwanie: wskażemy szereg zbieżny do liczby wymiernej w każdym z ciał $\Q_p$ (dla $p \le \infty$).
+Przeprowadzimy teraz pomimo to konstrukcję, która pozornie stanowi dużo większe wyzwanie: wskażemy szereg zbieżny do liczby wymiernej w każdym z ciał $\Q_p$ (dla $p \le \infty$).
 
 \begin{definicja}
 	$X_m = \{\frac{1+am}{1 + bm} : a, b \in \Z\} \subseteq \Q$ dla $m \ge 2$.
@@ -20,7 +20,7 @@ Pomimo to przeprowadzimy teraz konstrukcję, która pozornie stanowi dużo więk
 \begin{proof}
 	Niech $\varepsilon > 0$, $a/b \in \Q$.
 	Gdy $b^2mn \varepsilon > |a-b|_\infty - b\varepsilon$,
-	$|a/b - (1+amn)/(1+bmn)|_\infty < \varepsilon$.
+	$|\frac ab- \frac{1+amn}{1 + bmn}|_\infty < \varepsilon$.
 \end{proof}
 
 Każdej ze skończenie wielu liczb pierwszych $p \in P$ niech odpowiada $\delta_p \in \Q_p^\times$ równa $\sum_n d_{p, n} p^n$ dla $n \ge l_p$, gdzie cyfra początkowa jest niezerem, a kolejne leżą między $0$ oraz $p-1$.
@@ -78,11 +78,12 @@ Niech $\Upsilon = \prod_p |\delta_p|_p^{-1}$.
 	
 	Łatwo widać, że założenia są spełnione w kroku bazowym.
 	Dla każdej liczby pierwszej $p \in P_{n+1}$ napiszmy $\delta_p = x_p - S_n$, $P_{n+1}^\delta = \{p \in P_{n+1}: \delta_p \neq 0\}$.
+	
 	Gdy $P^\delta_{n+1} = \varnothing$, to kładziemy $M \Upsilon := 1$.
 	W przeciwnym razie lemat IV daje całkowitą $M > 0$, że $|\delta_p - M \Upsilon|_p < |\delta_p|_p$ dla wszystkich $p \in P^\delta_{n+1}$.
 	Niechaj $\Pi$ będzie produktem pierwszych $n+1$ liczb pierwszych.
 	
-	Lemat III orzeka o istnieniu takiej wymiernej $u \in X_\Pi$, dla której $0 < u < (x_\infty - S_n) / (M\Upsilon)$, a przy tym
+	Lemat III orzeka o istnieniu takiej dodatniej $u \in X_\Pi$, dla której $u < (x_\infty - S_n) / (M\Upsilon)$, a przy tym
 	\[
 		\left|\frac{x_\infty-S_n}{M \Upsilon} - u\right|_\infty < \frac{|S_n - x_\infty|_\infty}{2 M \Upsilon}.
 	\]

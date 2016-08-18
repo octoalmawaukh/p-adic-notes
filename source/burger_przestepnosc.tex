@@ -1,7 +1,6 @@
 \section{Przestępność}
 \begin{definicja}[lokalna]
-	Niech $a, b \in \Z$ będą względnie pierwsze.
-	Wtedy $h(a/b) := \max \{|a|_\infty, |b|_\infty\}$.
+	$h(a/b) := \max \{|a|_\infty, |b|_\infty\}$ dla względnie pierwszych $a, b$.
 \end{definicja}
 
 \begin{definicja}
@@ -17,7 +16,10 @@ Przypomnimy teraz twierdzenie, które jest użyteczne samo w sobie.
 	\]
 \end{twierdzenie}
 
-Wybierzemy taki ciąg $\beta_i \in \Q$, że spełnione są nierówności $0 < |\beta_n|_p \cdot n^n \cdot h(\{\beta_0, \ldots, \beta_{n-1}\})^{n^2-2n+1} \le 1$ i $\gamma \in \Q^\times$, przy czym te pierwsze chyba mogą być prawdziwe prawie zawsze.
+Wybierzemy taki ciąg $\beta_i \in \Q$, że spełnione są nierówności
+\[
+	0 < |\beta_n|_p \cdot n^n \cdot h(\{\beta_0, \ldots, \beta_{n-1}\})^{n^2-2n+1} \le 1
+\] i $\gamma \in \Q^\times$, przy czym te pierwsze chyba mogą być prawdziwe prawie zawsze.
 
 \begin{definicja}
 	Niech $q_n = \sum_{k = 0}^n \beta_k \gamma^k \in \Q$.
@@ -29,10 +31,8 @@ Wybierzemy taki ciąg $\beta_i \in \Q$, że spełnione są nierówności $0 < |\
 
 Jeśli $m = h(\gamma)$, to $h(q_n) \le (n+1) h(\{\beta_0, \ldots, \beta_n\})^{n+1} m^n$.
 Z pierwszej nierówności mamy dla $\lambda_k = 1 : h(\{\beta_0, \ldots, \beta_{k}\})$, $n > m$ i $\Delta = |f(\gamma) - q_n|_p$:
-
 \begin{align*}
-	\Delta & \le \sum_{k = n+1}^\infty |\beta_k|_p |\gamma|_p^k \le \sum_{k = n+1}^\infty \frac{m^k}{k^k} \cdot \lambda_{k-1}^{(k-1)^2} \\
-	& \le \sum_{k = n+1}^\infty \lambda_{k-1}^{(k-1)^2} \le \sum_{k=n+1}^\infty \lambda_n^{(k-1)^2} \\ % &= \lambda_n^{n \cdot n} \sum_{k  = n+1}^\infty \lambda_n^{(k-1)^2 - n^2} 
+	\Delta & \le \sum_{k = n+1}^\infty |\beta_k|_p |\gamma|_p^k \le \sum_{k = n+1}^\infty \frac{m^k}{k^k} \cdot \lambda_{k-1}^{(k-1)^2}  \le \sum_{k = n+1}^\infty \lambda_{k-1}^{(k-1)^2} \le \sum_{k=n+1}^\infty \lambda_n^{(k-1)^2} \\ % &= \lambda_n^{n \cdot n} \sum_{k  = n+1}^\infty \lambda_n^{(k-1)^2 - n^2} 
 	& \le \lambda_n^{n \cdot n} \sum_{k = 0}^\infty \lambda_n^k \le \lambda_n^{n \cdot n} \sum_{k = 0}^\infty 2^{-n} = 2 \lambda_n^{n \cdot n}.
 \end{align*}
 
@@ -45,27 +45,26 @@ Stąd ciąg nierówności
 
 Im większe $n$, tym bliższa zeru prawa strona, ale to nie jest możliwe, gdyż ogranicza ją $c/2$.
 Zatem $f(\gamma)$ jest przestępna w $\Q_p$ i pozostało wskazać stosowne $\beta_i$.
-
-Przez $A_p(n)$ oznaczmy (tylko lokalnie) sumę cyfr $n \in \N$ w rozwinięciu przy podstawie $p$.
+Przez $S_p(n)$  (tylko lokalnie?) oznaczmy sumę cyfr $n \in \N$ w rozwinięciu przy podstawie $p$.
 
 \begin{lemat}[VI]
 	Gdy $n$ jest naturalna, zaś $p$ pierwsza, to
 	\[
-		v_p(n!) = \frac{n-A_p(n)}{p-1}.
+		v_p(n!) = \frac{n-S_p(n)}{p-1}.
 	\]
 \end{lemat}
 
 \begin{wniosek}[VII]
-	Dla liczby pierwszej $p$ oraz prawie każdej $n$ (naturalnej) mamy $v_p(n!) \ge n/(2p-2)$.
+	Dla pierwszej $p$ oraz prawie każdej $n$ mamy $v_p(n!) \ge n/(2p-2)$.
 \end{wniosek}
 
 \begin{proof}
 	Niech $n = a_0 + \ldots + a_k p^k$, gdzie $a_k \neq 0$, zaś same cyfry $a_i$ spełniają $0 \le a_i \le p-1$.
 	Wtedy $n \ge p^k$ i $k \le \log n / \log p$, zatem
 	\[
-		A_p(n) \le (p-1) \left(1+ \frac{\log n}{\log p}\right),
+		S_p(n) \le (p-1) \left(1+ \frac{\log n}{\log p}\right),
 	\]
-	co dla dużych $n$ daje $A_p(n) \le n/2$.
+	co dla dużych $n$ daje $S_p(n) \le n/2$.
 	Lemat VI z wcześniejszą nierównością kończą dowód.
 \end{proof}
 
@@ -83,17 +82,14 @@ Przez $A_p(n)$ oznaczmy (tylko lokalnie) sumę cyfr $n \in \N$ w rozwinięciu pr
 	\]
 
 	Wystarczy sprawdzić, że dla dużych wartości $n$ stosowne nierówności są spełnione.
-
 	Jeśli $p = \infty$, to $|\beta_n|_\infty \le (n!)^{-n!^3}$.
-	Z drugiej strony, dla $n$ odpowiednio dużych (i $m = n-1$) mamy
+	Z drugiej strony, dla $n$ odpowiednio dużych (i $m = n-1$) mamy ciąg nierówności
 	\begin{align*}
-		\frac{\lambda_m^{m \cdot m}}{n^n} & = \frac{1}{n^n (1+m!^2)^{m^2 \cdot m!^3}}  \ge_\diamondsuit (n!)^{-n-m^2 \cdot m!^3}\\
-		& \ge (n!)^{-n!^3} \ge |\beta_n|_\infty.
+		\frac{\lambda_m^{m \cdot m}}{n^n} & = \frac{1}{n^n (1+m!^2)^{m^2 \cdot m!^3}}  \ge_\diamondsuit (n!)^{-n-m^2 \cdot m!^3}\ge (n!)^{-n!^3} \ge |\beta_n|_\infty.
 	\end{align*}
 	
-	Niech teraz $p$ będzie pierwsza.
+	% Niech teraz $p$ będzie pierwsza.
 	Z wniosku VII wnioskujemy, że dla dużych $n$: $v_p(\beta_n) = v_p(n!^i) \ge in / (2p-2)$, $i = n!^3$.
-
 	Jak już zauważyliśmy, mamy (,,$\diamondsuit$'', wyciągnięte z przypadku $p = \infty$):
 	\[
 		\frac{\lambda_{m}^{m \cdot m}}{n^n} \ge \left(\frac{1}{n!}\right)^{n + m^2 m!^3}.
