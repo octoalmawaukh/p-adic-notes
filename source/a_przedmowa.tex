@@ -1,45 +1,10 @@
-Chociaż Kurt Hensel odkrył liczby $p$-adyczne ponad sto lat temu, do dzisiaj wydają się one nieco tajemnicze i niezrozumiane.
-Podczas sporządzania notatek im poświęconych nawet nie starałem się o formalny wydźwięk, żywię przy tym nadzieję, iż okażą się one użyteczne dla przynajmniej jednej osoby. % wielu osób.
-%Wykraczają bowiem daleko poza wprowadzenie do tak zwanej analizy ultrametrycznej, sięgając do teorii liczb, geometrii i topologii, algebry, funkcjonalnej, zespolonej czy rzeczywistej analizy (teorii miary). 
-%Dobry Bóg stworzył liczby naturalne, ja sam wolę nie znać rodowodu pozostałych.
-
-Dokument oparty jest na kilku książkach, jakie zdążyły się ukazać, przed zabraniem się za lekturę nie trzeba jednak znać zbyt dużo matematyki.
-
-Najważniejsze pozycje umieszczone są w bibliografii na końcu, mniej ważne odniesienia do istniejącej literatury można znaleźć w uwagach historycznych zamykających poszczególne rozdziały.
-%Na kolejnych stronicach starałem się uwypuklić różnice pomiędzy analizą $p$-adyczną i rzeczywistą.
-%Tym, co łączy ciała $\Q_p$ z lepiej znanymi $\R$ (lub $\C$), jest wartość bezwzględna.
-%W przypadku $p$-adycznym udaje ona rząd wielkości: z nierówności $|p| < 1$ wynika zbieżność ciągu $p^n$ do zera, co stanowi łącznik z ciałami charakterystyki zarówno $p$, jak i $0$.
-
-%Rozdziały pierwszy i drugi są zrozumiałe po standardowym kursie analizy rzeczywistej.
-%Pojawia się ważny lemat Hensela o podnoszeniu rozwiązań równań ze skończonego ciała $\mathbb F_p$ do $\mathbb Z_p$ oraz reguła lokalno-globalna, która orzeka, iż zachowanie (globalnego) ciała $\Q$ można lepiej wyjaśnić analizując lokalne ciała $\Q_p$ oraz $\R$.
-%Już tam widać nieoczekiwane znalezionych wiek temu liczb oraz przewagę szeregów potęgowych nad pochodną.
-%Analiza z plusem (rozdział trzeci) wymaga włożenia większego wysiłku, dodatkowo niektóre stwierdzenia musiałem niestety obedrzeć z dowodów.
-%Pozostawiłem za to przy życiu sekcję poświęconą rachunkowi cienistemu (\emph{umbral calculus}), choć jego związek z resztą książki jest wątpliwy.
-%Określam także pierwszy odpowiednik całki Riemanna, ważną dla zastosowań całkę Volkenborna oraz zwracam uwagę na dalsze trudności wychodzące na światło dzienne podczas różniczkowania.
-
-%Do imperium z czwartego rozdziału można wkroczyć po kursie topologii skupiony tylko na przestrzeniach metrycznych, aczkolwiek im więcej się wcześniej przeżyło, tym lepiej.
-%Nieznajomość grup topologicznych nie stanowi przeszkody, jako że przywołuję je jedynie na potrzeby ustępu o solenoidzie, algebraiczno-topologicznej struktury, w której żyją wszystkie lokalne ciała dla $\Q$.
-%Rozdział czwarty wymaga jeszcze mniej, nie trzeba znać teorii kategorii, gdyż granice rzutowe nie pojawiają się nigdzie poza piątą sekcją.
-
-%Rozsądnie rozszerzamy ciała, aż do uzyskania liczb zespolonych z $p$-adyczną topologią ($\C_p$) oraz ich sferycznego domknięcia.
-
-%Funkcje specjalne są chyba najciekawszym z punktu widzenia zastosowań.
-%Dołączyłem m.in. opis analogonu funkcji $\zeta$ Riemanna, to znaczy $p$-adycznego przedłużenia Kuboty-Leopoldta, w oparciu o książkę Koblitza.
-%W przyszłości zamierzam wspomnieć o wydajnych obliczeniach z pakietem \texttt{Pari/GP}.
-
-%Potem zajmujemy się już tylko analizą: funkcjonalną nad ciałami innymi niż $\R$ i $\C$, równaniami różniczkowymi, analizą zespoloną i mechaniką kwantową (a właściwie jej zalążkiem).
-
-%Zajmujący tylko jedną stronę (ale nadal zajmujący!) rozdział dziesiąty to zachęta do przeczytania jedynej w swoim rodzaju monografii trzech rosyjskich uczonych (\cite{volovich94}).
-%Tu i ówdzie widać też inspirację Schikhofem (\cite{schikhof85}).
-%W przyszłości planuję dopisanie dodatkowych ustępów o zastosowaniu metod $p$-adycznych w kombinatoryce czy teorii macierzy (na przykład w oparciu o nieco przestarzałą ,,Local fields'' Casselsa, \cite{cassels86}), nie wiem jednak, kiedy to nastąpi.
-
 Liczby $p$-adyczne do matematyki wprowadził Kurt Hensel.
-Oto, co chyba mogło być jego główną motywacją: pary $\Z$, $\Q$ i $\C[X]$, $\C(x)$ (pierścień -- ciało ułamków) są do siebie podobne.
-Zarówno $\Z$ jak i $\C[X]$ są pierścieniami z jednoznacznością rozkładu: liczby pierwsze $p \in \Z$ odpowiadają wielomianom $X - \alpha \in \C[X]$.
-Każdemu wielomianowi $P(X) \in \C[X]$ można przypisać jego rozwinięcie Taylora wokół $\alpha$: $P(X) = \sum_{0 \le i \le n} a_i (X - \alpha)^k$.
+Oto, co chyba mogło być jego główną motywacją: pary $\Z$, $\Q$ i $\C[x]$, $\C(x)$ (pierścień -- ciało ułamków) są do siebie podobne.
+Zarówno $\Z$ jak i $\C[x]$ są pierścieniami z jednoznacznością rozkładu: liczby pierwsze $p \in \Z$ odpowiadają wielomianom $x - x_0 \in \C[x]$.
+Każdemu wielomianowi $P(x) \in \C[x]$ można przypisać jego rozwinięcie Taylora wokół $x_0$: $P(x) = \sum_{0 \le i \le n} a_i (x - x_0)^k$.
 
 Elementy $\N$ również mają tę własność: jeżeli $p$ jest l. pierwszą, to $m = a_0 + \ldots + a_n p^n$, przy czym $a_i \in \Z \cap [0, p-1]$ jest dobrze znanym rozwinięciem w systemie o podstawie $p$.
-Kodujemy tak lokalne informacje (rząd $\alpha$ jako pierwiastka $P$, stopień podzielności $m$ przez $p$).
+Kodujemy tak lokalne informacje (rząd $x_0$ jako pierwiastka $P$, stopień podzielności $m$ przez $p$).
 Analogia nie umiera tak łatwo. 
 W $\C(x)$ istnieją szeregi Laurenta, zazwyczaj zawierające nieskończenie wiele wyrazów.
 
@@ -52,11 +17,14 @@ Później rozwiniemy tę analogię i uwypuklimy kilka różnic.
 
 Oto tematyka kolejnych rozdziałów.
 Zaczynamy od analizy rzeczywistej i kombinatoryki, by przejść potem do topologii i algebry.
-Z pomocą teorii Galois algebry liniowej budujemy niearchimedesowe ciało liczb zespolonych ($\C_p$) oraz jego sferyczne uzupełnienie ($\Omega_p$).
+Z pomocą teorii Galois i algebry liniowej budujemy niearchimedesowe ciało liczb zespolonych ($\C_p$) oraz jego sferyczne uzupełnienie ($\Omega_p$).
 W połowie kończymy zwiedzanie i wyruszamy w naukową ekspedycję, chociaż to chyba wciąż za mało, by poprowadzić poważne badania.
 Mam nadzieję, że Czytelnik znajdzie po lekturze tego skryptu ulubioną gałąź matematyki w $p$-adycznej odmianie.
 Oby się tylko na niej nie powiesił.
 
+Notatki te w żadnym razie nie próbują udawać przesadnie poważnego tekstu.
+Niestety, ale nie są najprawdopodobniej wolne od błędów.
+Dla uprzyjemnienia życia podaję, kto jako pierwszy (lub najrozsądniej) podał dane stwierdzenie, na marginesie.
 
 {\color{white}.} \hfill \\
 {\color{white}.} \hfill Leon Aragonés\\
