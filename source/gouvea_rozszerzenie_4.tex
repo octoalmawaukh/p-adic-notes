@@ -118,7 +118,7 @@ Okazuje się, że liczba $f$ ma naturalną interpretację.
 	Przez analogię uzasadnia się, że także $x_{j,1}$ (a także ,,wyższe'') współczynniki dzielą się przez $p$, co jest sprzeczne z założeniami (mamy liniową niezależność).
 \end{proof}
 
-Rozszerzenie ciała o charakterystyce zero powstaje przez dołączanie pierwiastków nierozkładalnego wielomianu.
+Rozszerzenie ciała o charakterystyce zero powstaje poprzez dołączanie pierwiastków nierozkładalnego wielomianu.
 Teoria ciał dostarcza nam tej wiedzy.
 Jaki dokładnie jest to wielomian, można powiedzieć na przykład w całkowicie rozgałęzionym przypadku.
 
@@ -148,11 +148,11 @@ Jaki dokładnie jest to wielomian, można powiedzieć na przykład w całkowicie
 \end{proof}
 
 To całkiem ciekawy wynik, bo daje precyzyjny opis pewnej klasy rozszerzeń.
-Chcielibyśmy udowodnić coś podobnego, ale dla rozszerzeń nierozgałęzionych.
+Chcemy udowodnić coś podobnego, ale dla rozszerzeń nierozgałęzionych.
 Okazuje się, że to jeszcze prostsze, lecz wymaga dodatkowego narzędzia.
 
 \begin{twierdzenie}[lemat Hensela]
-	Dane są skończone rozszerzenie $\cialo/\Q_p$, jednolitość $\pi$ oraz wielomian $F(X)$ z $\mathcal O[X]$.
+	Dane są: skończone rozszerzenie $\cialo/\Q_p$ z jednolitością $\pi$, a także wielomian $F(X) \in \mathcal O[X]$.
 	Gdy istnieje taka ,,całkowita'' $\alpha_1 \in \mathcal O$, że $F(\alpha_1) \equiv 0 \pmod \pi$, zaś $F'(\alpha_1) \not\equiv 0 \pmod \pi$ (gdzie $F'$ to formalna pochodna), to istnieje $\alpha \in \mathcal O$, że $\alpha \equiv \alpha_1$ i $F(\alpha) = 0$.
 \end{twierdzenie}
 
@@ -163,12 +163,13 @@ Okazuje się, że to jeszcze prostsze, lecz wymaga dodatkowego narzędzia.
 Lemat Hensela pozwala uzyskać pierwiastki jedności w $\cialo$.
 Niezerowe elementy ciała residuów $\mathfrak K$ (jest ich $p^f -1$) tworzą grupę cykliczną.
 Oznacza to, że gdy $m$ dzieli $p^f-1$, wielomian $F_(X) = X^m-1$ ma dokładnie $m$ pierwiastków w $\mathfrak K^\times$.
+
 Wybór dowolnego podniesienia tychże do $\mathcal O^\times$ daje $m$ nieprzystających ,,przybliżonych pierwiastków''.
 Pochodna $F_m'(X) = mX^{m-1}$ nie jest zerem, jak w lemacie; daje on więc $m$ różnych (bo nieprzystających) $m$-tych pierwiastków z jedności w $\mathcal O^\times$.
 To prawda dla dowolnego $m$ dzielącego $p^f-1$, udowodniliśmy więc
 
 \begin{fakt} \label{vergisst}
-	Jeżeli $\cialo$ jest skończonym rozszerzeniem $\Q_p$, to $\mathcal O^\times$ ma w sobie cykliczną grupę $(p^f-1)$-ych pierwiastków jedności.
+	Jeżeli $\cialo$ jest skończonym rozszerzeniem $\Q_p$, to grupa $\mathcal O^\times$ ma w sobie cykliczną grupę $(p^f-1)$-ych pierwiastków jedności.
 \end{fakt}
 
 Jeżeli $m$ dzieli $p^f-1$ i ciało $\cialo$ zawiera $(p^f-1)$-e pierwiastki jedności, to ma w sobie także $m$-te.
@@ -207,13 +208,14 @@ Tak samo pokazuje się, że zbiory $U_n = 1 + \pi^n \mathcal O$ są podgrupami.
 
 \begin{proof}
 	Lemat \ref{pluris} pokazuje, że $x \in U_n$ pociąga $x^p \in U_{n+1}$.
-	Zatem każdy element abelowego ilorazu ma rząd $p$.
+	Wynika stąd, że każdy element abelowego ilorazu ma rząd $p$.
 	Dlaczego jednak jest skończony?
 	Bo funkcja $U_n \to \mathcal O$, $1 + \pi^n x \mapsto x$ dla ustalonej jednolitości $\pi$.
 \end{proof}
 
-Mamy prawie gotowy opis pierwiastków jedności.
-Ciało $\cialo$ zawiera $p^f-1$ nieprzystające $(p^f-1)$-e oraz jakieś $p^i$-sze, które są $1$-jednościami.
+Mamy już prawie gotowy opis pierwiastków jedności.
+Ciało $\cialo$ zawiera bowiem $p^f-1$ nieprzystające $(p^f-1)$-e oraz jakieś $p^i$-sze, które są $1$-jednościami.
+
 Wracamy do nierozgałęzionych rozszerzeń $\Q_p$, naszego pierwotnego celu.
 
 \begin{fakt}
@@ -248,7 +250,7 @@ Wracamy do nierozgałęzionych rozszerzeń $\Q_p$, naszego pierwotnego celu.
 \end{proof}
 
 \begin{definicja}
-	$\Q_p^{\textrm{unr}}$ to maksymalne nierozgałęzione rozszerzenie $\Q_p$, unia wszystkich nierozgałęzionych.
+	$\Q_p^{\textrm{unr}}$ to maksymalne nierozgałęzione rozszerzenie ciała $\Q_p$, unia wszystkich jego nierozgałęzionych.
 \end{definicja}
 
 \begin{fakt}
@@ -268,7 +270,7 @@ Wracamy do nierozgałęzionych rozszerzeń $\Q_p$, naszego pierwotnego celu.
 	$v_p[\Q_p^a] = \Q$.
 \end{fakt}
 
-Koblitz twierdzi, że wszystkie rozszerzenia powstają przez wzięcie najpierw nierozgałęzionego, a następnie całkowicie rozgałęzionego.
+Koblitz twierdzi, że wszystkie rozszerzenia powstają w dwóch krokach: przez wzięcie najpierw nierozgałęzionego, a następnie całkowicie rozgałęzionego.
 
 \begin{definicja}
 	Rozszerzenie $\cialo / \Q_p$ jest poskromione, gdy jest ono całkowicie rozgałęzione i $p$ nie dzieli stopnia $e$.
@@ -280,6 +282,7 @@ Koblitz twierdzi, że wszystkie rozszerzenia powstają przez wzięcie najpierw n
 
 \begin{fakt} % Robert, 125
 	Niech $\cialo$ będzie niedyskretnym ciałem ultrametrycznym, które nie jest zupełne.
+	
 	Uzupełnienie $\cialo'$ jest topologiczną przestrzenią wektorową nad $\cialo$.
 	Ustalmy liniowo niezależne $a, b \in \cialo'$.
 	$\cialo^2$ oraz $\cialo a + \cialo b$ nie są izomorficzne jako liniowe p. topologiczne.

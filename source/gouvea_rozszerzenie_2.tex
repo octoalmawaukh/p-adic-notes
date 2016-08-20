@@ -2,8 +2,7 @@
 Pokażemy, że w pewnym sensie jeżeli przestrzeń wektorowa ma skończony wymiar, to wiemy o niej wszystko, co tylko można wiedzieć.
 
 \begin{fakt}
-	Niech $\liniowa$ będzie p. wektorową nad zupełnym ciałem $\cialo$ z normą, że $\dim_\cialo \liniowa < \infty$.
-	Wszystkie normy na $\liniowa$ są równoważne, a sama $ \liniowa$ jest zupełna ,,z metryką supremum''.
+	Wszystkie normy na $\liniowa$, przestrzeni wektorowej nad zupełnym ciałem z normą skończonego wymiaru, są równoważne, a sama przestrzeń jest zupełna z metryką supremum.
 \end{fakt}
 
 To nie takie proste w dowodzie, więc podzielimy go na kilka części.
@@ -27,7 +26,7 @@ Będziemy indukować po wymiarze $\liniowa$.
 % Trzymajcie się! Oto indukcja po wymiarze $\liniowa$.
 
 \begin{lemat}
-	Dla pewnej stałej $D > 0$ zachodzi $\|v\|_0 \le D \|v\|_1$ dla każdego $v \in \liniowa$, w szczególności: $\liniowa$ jest zupełna z $\|\cdot\|_1$.
+	Dla pewnej stałej $D > 0$ zachodzi nierówność $\|v\|_0 \le D \|v\|_1$ dla każdego $v \in \liniowa$, w szczególności: $\liniowa$ jest zupełna z $\|\cdot\|_1$.
 \end{lemat}
 
 \begin{proof}
@@ -59,6 +58,7 @@ Będziemy indukować po wymiarze $\liniowa$.
 	Ustalmy bazę $v_i$ dla $\liniowa$.
 	Normą jest supremum.
 	Wektor $v$ postaci $\sum_{k=1}^n a_k v_k$ należy do $\mathcal B$ dokładnie wtedy, gdy $a_k$ należą do domkniętej kuli jednostkowej w $\cialo$.
+
 	Chcemy pokazać, że $\mathcal B$ jest zupełne (owszem: jest domknięte w zupełnej $\liniowa$) i całkowicie ograniczone.
 	Pokryjmy w $\cialo$ jednostkową kulę $N$ kulami (środki w $c_1, \dots, c_N$, promień $\varepsilon$ ustalony).
 	Kule wokół $n^N$ wektorów w $\liniowa$ o współrzędnych ,,z $c_i$'' o promieniu $\varepsilon$ kryją $\mathcal B$. 
@@ -67,7 +67,7 @@ Będziemy indukować po wymiarze $\liniowa$.
 Udowodnimy twierdzenie częściowo do powyższego faktu odwrotne (za Robertem, a nie Gouveą).
 
 \begin{fakt}
-	Lokalnie zwarta p. unormowana $\liniowa$ nad $\Q_p$ ma skończony wymiar.
+	Lokalnie \prawo{Rbrt\\2.3.2} zwarta p. unormowana $\liniowa$ nad $\Q_p$ ma skończony wymiar.
 \end{fakt}
 
 \begin{proof}
@@ -95,6 +95,6 @@ Zwartych przestrzeni nad $\Q_p$ zbyt wiele nie ma: każdy niezerowy jej element 
 \begin{proof}
 	W każdej p. metrycznej zbiory zwarte są domknięte i ograniczone (ze względu na ciągłość metryki).
 
-	Odwrotnie, lokalnie zwarta p. unormowana nad $\Q_p$ ma skończony wymiar, więc możemy założyć bez utraty ogólności, że normą jest supremum.
+	Odwrotnie, lokalnie zwarta p. unormowana nad $\Q_p$ ma skończony wymiar, możemy więc założyć bez utraty ogólności, że normą jest supremum.
 	Ale w $\Q_p^n$ ograniczone zbiory leżą w produktach kul z $\Q_p$, a domkniętość pociąga zwartość.
 \end{proof}

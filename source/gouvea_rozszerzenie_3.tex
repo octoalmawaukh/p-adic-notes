@@ -1,5 +1,6 @@
 \section{Skończone rozszerzenia ciał}
 Nadciało $\cialo$ dla $\Q_p$, które jest nad nim przestrzenią wymiarową i ma skończony wymiar (zwany stopniem) to właśnie skończone rozszerzenie.
+
 Chcemy rozszerzyć wartość bezwzględną z $\Q_p$ do całego $\cialo$.
 Będzie to jednocześnie niearchimedesowa norma (,,wektorowa'').
 Pokażemy, jakie jeszcze własności musiałaby mieć, gdyby istniała.
@@ -18,8 +19,8 @@ Z samego faktu wynika ważny wniosek:
 \end{fakt}
 
 \begin{proof}
-	Załóżmy, że mamy dwie: $|\cdot|$, $\|\cdot\|$.
-	Pokażemy najpierw, że są równoważne (jako wartości bezwzględne!) i identyczne.
+	Załóżmy, że mamy dwie.
+	Pokażemy najpierw, że są równoważne (jako wartości bezwzględne) i identyczne.
 	Chcemy pokazać, że dla $x\in \cialo$ zachodzi $|x|<1 \Leftrightarrow \|x\|<1$.
 	Oznacza to, że $x^n \to 0$ w każdej z topologii.
 	Wiemy już, że zarówno $|\cdot|$, jak i $\|\cdot\|$ są równoważne (jako normy na $\cialo$!), więc zadają tę samą topologię.
@@ -27,7 +28,7 @@ Z samego faktu wynika ważny wniosek:
 	Wystarczy podstawić $x = p$, by przekonać się o równości $\alpha = 1$.
 \end{proof}
 
-Przypuśćmy, że mamy dwa rozszerzenia $\cialo, \mathcal L$, powiedzmy, $\Q_p \subset\mathcal  L \subset \cialo$.
+Przypuśćmy, że mamy dwa rozszerzenia, $\Q_p \subset\mathcal  L \subset \cialo$.
 Gdy znajdziemy wartości bezwzględne na nich, które przedłużają $p$-adyczną wartość bezwzględną, to obcięcie $|\cdot|_{\mathcal  K}$ do $\mathcal L$ jest po prostu $|\cdot|_{\mathcal L}$, czyli wartość bezwzględna ,,nie zależy od kontekstu''.
 
 \begin{definicja}
@@ -36,19 +37,19 @@ Gdy znajdziemy wartości bezwzględne na nich, które przedłużają $p$-adyczn�
 
 Automorfizmy rozszerzenia normalnego, charakterystyki zero tworzą skończoną grupę (grupę Galois), której rząd jest wymiarem rozszerzenia.
 
-Dla każdego skończonego rozszerzenia $\cialo/\mathcal F$ istnieje inne, skończone i normalne rozszerzenie dla $\mathcal F$, które zawiera $\cialo$, zwane {normalnym domknięciem} $\cialo/\mathcal F$.
-Warto wiedzieć.
+Każde skończone rozszerzenie $\cialo/\mathcal F$ posiada {normalne domknięcie}: skończone oraz normalne rozszerzenie dla $\mathcal F$, które zawiera $\cialo$.
+
 To, że istnieje funkcja  $N_{\cialo/\mathcal F} \colon \cialo \to \mathcal F$, zwana normą z $\cialo$ do $\mathcal F$, jest kluczem do sukcesu.
 Nazewnictwo troszkę niefortunne\dots
 
 Funkcja nie jest byle jaka, a do tego można określić ją na kilka równoważnych sposobów. Oto trzy z nich.
 
 \begin{definicja}
-	$N_{\cialo/ \mathcal F}(\alpha)$ to wyznacznik macierzy $\mathcal F$-liniowego mnożenia przez $\alpha$ (jako endomorfizm $\cialo$, przestrzeni wektorowej nad $\mathcal F$ skończonego wymiaru).
+	$N_{\cialo/ \mathcal F}(\alpha)$ to wyznacznik $\mathcal F$-liniowego mnożenia przez $\alpha$ (jako endomorfizmu $\cialo$, przestrzeni wektorowej nad $\mathcal F$ skończonego wymiaru).
 \end{definicja}
 
 \begin{definicja}
-	$N_{\cialo/\mathcal F}(\alpha) = (-1)^{nr} a_0^r$, gdzie r to stopień $\cialo$ nad $\mathcal F(\alpha)$, zaś $x^n + a_{n-1}x^{n-1} + \dots  + a_0 \in \mathcal F[x]$ jest minimalny dla elementu $\alpha$.
+	$N_{\cialo/\mathcal F}(\alpha) = (-1)^{nr} a_0^r$, gdzie r to stopień $\cialo$ nad $\mathcal F(\alpha)$, zaś $\alpha$ ma wielomian minimalny równy $x^n + a_{n-1}x^{n-1} + \dots  + a_0 \in \mathcal F[x]$.
 \end{definicja}
 
 \begin{definicja} $N_{\cialo/\mathcal F}(\alpha)$ to produkt $\sigma(\alpha)$, przy czym $\sigma$ przebiega automorfizmy $\cialo / \mathcal F$.
@@ -68,7 +69,7 @@ Jeśli $\alpha \in \mathcal F$, to $N(\alpha) = \alpha^n$, gdzie $n = [\cialo : 
 \end{proof}
 
 A jeżeli $\cialo$ jest większe od $\mathcal F(\alpha)$?
-W takiej sytuacji skorzystać można z następującego faktu: gdy mamy trzy ciała $\mathcal F \subseteq \mathcal L \subseteq \cialo$, to dla $\alpha \in \cialo$ prawdą jest $N_{\mathcal L / \mathcal F}(N_{\cialo / \mathcal L} (\alpha)) = N_{\cialo / \mathcal F}(\alpha)$.
+W takiej sytuacji skorzystać można z: ,,gdy mamy trzy ciała $\mathcal F \subseteq \mathcal L \subseteq \cialo$, to dla $\alpha \in \cialo$ prawdą jest $N_{\mathcal L / \mathcal F}(N_{\cialo / \mathcal L} (\alpha)) = N_{\cialo / \mathcal F}(\alpha)$''.
 Także definicje B i C są równoważne.
 Rozpatruje się dwa przypadki: $\cialo / \mathcal F$ jest normalne i $\cialo = \mathcal F(\alpha)$ albo nie.
 W tym pierwszym obrazy $\sigma(\alpha)$ dla różnych $\sigma$, automorfizmów $\cialo/ \mathcal F$, to dokładnie pierwiastki wielomianu minimalnego.
@@ -96,8 +97,7 @@ Co prawda ograniczyliśmy się do rozszerzeń normalnych, ale nie jest tak źle,
 \end{lemat}
 
 \begin{proof}
-	$N_{\cialo/\mathcal F}(x) = N_{\mathcal L/\Q_p} (N_{\cialo/\mathcal L}(x)) = N_{\mathcal L/\Q_p} (x^{[\cialo: \mathcal L]})$.
-	A teraz wystarczy $[\cialo:\Q_p] = [\cialo  :\mathcal L][\mathcal L : \Q_p]$.
+	Skoro zachodzi $N_{\cialo/\mathcal F}(x) = N_{\mathcal L/\Q_p} (N_{\cialo/\mathcal L}(x)) = N_{\mathcal L/\Q_p} (x^{[\cialo: \mathcal L]})$, to wystarczy zauważyć, że $[\cialo:\Q_p] = [\cialo  :\mathcal L][\mathcal L : \Q_p]$.
 \end{proof}
 
 Założenie o normalności rozszerzenia przestaje być nam już potrzebne: wystarczy przejść do normalnego domknięcia i zauważyć, że wartość pierwiastka ,,nie zależy'' od ciała.
@@ -122,7 +122,7 @@ Tym samym pokazaliśmy prawdziwość następującego:
 	Jeżeli $|x| \le 1$, to $\max\{|x|, 1\} = 1$, jeśli nie, to $|1/x| < 1$, więc $|1+1/x| \le 1$, czyli $|x+1| \le |x|$.
 
 	Nierówność $|x| \le 1$ ma miejsce dokładnie wtedy, gdy $|N_{\cialo / \Q_p}|_p \le 1$.
-	Zatem tak naprawdę pokazujemy wynikanie: jeśli $N_{\cialo/\Q_p}(x) \in \Z_p$, to $N_{\cialo/\Q_p}(x-1) \in \Z_p$.
+	Pokazujemy więc wynikanie: jeśli $N_{\cialo/\Q_p}(x) \in \Z_p$, to $N_{\cialo/\Q_p}(x-1) \in \Z_p$.
 
 	Z poniższego lematu wynika, że możemy przyjąć, że $\cialo = \Q_p(x)$ jest najmniejszym ciałem zawierającym $x$.
 	Zawsze mamy $\Q_p(x) = \Q_p(x-1)$.
@@ -148,27 +148,28 @@ Tym samym pokazaliśmy prawdziwość następującego:
 Prawdziwsze jest ogólniejsze stwierdzenie.
 
 \begin{twierdzenie}[Krull]
-	Waluację niearchimedesową z ciała $\cialo$ na nadciało $L$ można zawsze przedłużyć.
+	Niearchimedesowa norma z ciała $\cialo$ przedłuża się na każde nadciało.
 \end{twierdzenie}
 
 Wszystkie jego znane dowody są trudne, ale my ominemy rozszerzenia i grupy Galois.
 Ideą przewodnią jest ,,wygładzanie dowolnej normy'' na $L$.
 
 \begin{proof}
-	Na mocy lematu Zorna jedynym rozszerzeniem, jakie należy rozpatrzyć, jest $L = \cialo(z)$.
+	Lemat Zorna pokazuje, że bez straty ogólności możemy rozpatrzyć $L = \cialo(z)$.
 
 	Jeżeli $z$ nie jest algebraiczny nad $\cialo$, to ciała $\cialo(z)$ oraz $\cialo(x)$ są izomorficzne.
-	Dla $f = \sum_{i\le n} a_i x^i$ (wielomianu) kładziemy $\|f\| := \max \{|a_j| \colon 0 \le j \le n\}$.
+	Niech $f$ będzie wielomianem $\sum_{i\le n} a_i x^i$, wtedy kładziemy $\|f\| := \max \{|a_j| \colon 0 \le j \le n\}$.
+
 	Oczywiście przedłuża to naszą wartość bezwzględną.
 	Pokażemy multiplikatywność.
 	Jasnym jest to, że $\|fg\| \le \|f\| \cdot \|g\|$.
-
-	Dla dowodu nierówności w drugą stronę wystarczy nam sprawdzić w produkcie współczynnik $c_{s+t}$, gdzie $s$ dobrany jest wg przepisu $s = \min \{j : |a_j| = \|f\|\}$, $t$ analogicznie.
+	Dla dowodu nierówności w drugą stronę wystarczy nam sprawdzić w produkcie współczynnik $c_{s+t}$, gdzie $s = \min \{j : |a_j| = \|f\|\}$, $t$ analogicznie.
 
 	Formuła $\|f:g\| = \|f\|:\|g\|$ daje żądane przedłużenie.
 
-	Jeżeli $z$ jest algebraiczny, ustalamy bazę $e_1, \ldots, e_n$ dla $L$.
+	Jeżeli zaś $z$ jest algebraiczny, ustalamy bazę $e_1, \ldots, e_n$ dla $L$.
 	Definiujemy dla $x \in L$: $\| \sum_{k=1}^n \xi_k e_k \|_1 = \max \{|\xi_k| : k \le n\}$.
+	
 	Funkcja ta ma własności normy, ale nie wiemy jeszcze, czy jest multiplikatywna.
 	Weźmy zatem dwa elementy $x = \sum_{i \le n} \xi_i e_i$, $y = \sum_{i \le n} \eta_i e_i$ ($\xi, \eta \in \cialo$), wtedy $\|xy\|_1$, ,,norma'' ich iloczynu, to $\|\sum_{i, j \le n} \xi_i \eta_j e_i e_j \|_1 \le \max_{i, j} |\xi_i| |\eta_j| \|e_ie_j\|_1$, oszacujemy z góry jeszcze przez $C \|x\|_1 \|y\|_1.$
 
@@ -192,8 +193,7 @@ Ideą przewodnią jest ,,wygładzanie dowolnej normy'' na $L$.
 	Nierówności trójkąta dowód przebiega prosto:
 	\begin{align*}
 		\tau(x + y) & = \tau(x(1 + x^{-1}y)) = \tau(x) \tau(1 + x^{-1}y) \\
-		& \le \tau(x) \max (1, \tau(x^{-1}y)) \\
-		& = \max(\tau(x), \tau(y)). \qedhere
+		& \le \tau(x) \max (1, \tau(x^{-1}y))  = \max(\tau(x), \tau(y)). \qedhere
 	\end{align*}
 \end{proof}
 
@@ -204,11 +204,7 @@ Ideą przewodnią jest ,,wygładzanie dowolnej normy'' na $L$.
 \begin{proof}
 	Ustalmy $\varepsilon > 0$ i takie $n$, by $\|x^n\|_2 < (a + \varepsilon)^n$.
 	Niech $m = qn + r$ (dzielenie z resztą).
-	Wtedy
-	\begin{align*}
-		\|x^m\|_2 & \le \|x^n\|_2^q \|x\|_2^r \le (a + \varepsilon)^{nq} \|x\|_2^r \\
-		& = (a + \varepsilon)^m (\|x\|_2 : (a + \varepsilon))^r,
-	\end{align*}
+	Wtedy $\|x^m\|_2 \le \|x^n\|_2^q \|x\|_2^r \le (a + \varepsilon)^{nq} \|x\|_2^r = (a + \varepsilon)^m (\|x\|_2 : (a + \varepsilon))^r$,
 	skąd wynika już, że granica górna (!) nie przekracza $a + \varepsilon$.
 \end{proof}
 
@@ -217,11 +213,10 @@ Ideą przewodnią jest ,,wygładzanie dowolnej normy'' na $L$.
 \end{lemat}
 
 \begin{proof}
-Nierówność $\|(1 + x)^n\|_2 \le \max_{0 \le k \le n} \|x^k\|_2$ jest wnioskiem z rozwinięcia dwumianowego.
+Nierówność $\|(1 + x)^n\|_2 \le \max_{0 \le k \le n} \|x^k\|_2$ jest prostym wnioskiem z rozwinięcia dwumianowego.
 Jeśli mamy $k = 0$, to $\|x^k\|_2 = \|1\|_2$.
 Dla $1 \le k \le m$ i $m^2 = n$ jest $\|x^k\|_2 \le 1$ lub  $\|x\|_2^m$.
 Jeśli $m < k \le n^2$, $\|x^k\|_2 \ge 1$, to prawdziwe jest inne oszacowanie: $\|x^k\|_2 \le \sup_{s^2 > n} \|x^s\|_2^{n:s}$.
-
 Połączenie tych przypadków mówi, że $\|(1+x)^n\|_2$ z góry jest ograniczony przez największy z: $\sup_{s^2 > n} \|x^s\|_2^{n:s}$, $\|x\|_2^m$, $\|1\|_2$, $1$, co kończy dowód.
 \end{proof}
 
@@ -229,18 +224,18 @@ Połączenie tych przypadków mówi, że $\|(1+x)^n\|_2$ z góry jest ograniczon
 	Z dokładnością do izomorfizmu, nie ma żadnych zupełnych ciał z metryką archimedesową poza $\R$ lub $\C$.
 \end{fakt}
 
-Pokazaliśmy dla dowolnego skończonego rozszerzenia $\cialo$ dla $\Q_p$ istnienie jedynej wartości bezwzględnej, która przedłuża $p$-adyczną na $\Q_p$.
-Na koniec zajmiemy się $\Q_p^a$, algebraicznym domknięciem $\Q_p$.
-Ciało to zawiera pierwiastki wielomianów o współczynnikach z $\Q_p$ i można je dostać w łatwy sposób: biorąc sumę skończonych rozszerzeń $\Q_p$.
+Pokazaliśmy dla skończonych rozszerzeń $\Q_p$ istnienie jedynej normy przedłużającej $p$-adyczną na $\Q_p$.
 
-Wartość bezwzględną na tymże domknięciu już dobrze znamy.
+Zbudujemy teraz $\Q_p^a$, algebraiczne domknięcie $\Q_p$.
+Ciało to można je dostać w łatwy sposób: biorąc sumę skończonych rozszerzeń $\Q_p$.
+
+%Wartość bezwzględną na tymże domknięciu już dobrze znamy.
 Jeżeli $x \in \Q_p^a$, to rozszerzenie $\Q_p(x)$ jest skończone.
 Żyje w nim $x$, więc możemy określić $|x|$ dzięki jednoznacznemu przedłużeniu $p$-adycznej wartości bezwzględnej z $\Q_p$ do $\Q_p(x)$.
 Wiemy, że $|x|$ nie zależy od ciała, tylko od $x$.
 Zatem $p$-adyczna wartość bezwzględna na $\Q_p^a$ też jest jednoznaczna.
 
-Dlaczego $\Q_p^a$ nie jest skończonym rozszerzeniem $\Q_p$?
-Bo istnieją nierozkładalne wielomiany nad $\Q_p$ wysokiego stopnia.
+Niestety $\Q_p^a$ nie jest skończonym rozszerzeniem $\Q_p$, albowiem istnieją nierozkładalne wielomiany nad $\Q_p$ wysokiego stopnia.
 Potrzebny będzie lemat.
 
 \begin{lemat}
@@ -252,7 +247,7 @@ Potrzebny będzie lemat.
 
 	\emph{Jeżeli lemat jest prawdziwy dla $w(f(x)) = 0$, to jest prawdziwy zawsze (dla $w(f(x)) \ge 0$)}.
 
-	Istotnie, $w(f(x)) = - v_p(a)$, gdzie $a \in \Q_p$ to odwrotność najmniejszego współczynnika dla $f(x)$.
+	Istotnie, mamy równość $w(f(x)) = - v_p(a)$, gdzie $a$ to odwrotność najmniejszego współczynnika dla $f(x)$.
 	Wiemy, że $f \in \Z_p[x]$, zatem $a^{-1} \in \Z_p$.
 	Jest oczywistym, że $w(af(x)) = 0$.
 	Teraz wystarczy położyć $f^*(x) = af(x)$ oraz $g^*(x) = ag(x)$, wtedy $f^* = g^*h$ i $w(f^*) =0$
@@ -270,7 +265,7 @@ Potrzebny będzie lemat.
 	Można przyjąć $g_0(x) = (bc)^{-1}g_1(x)$, $h_0(x) = h_1(x)$.
 \end{proof}
 
-Wniosek: gdy $f(x) \in \Z_p[x]$ ma nierozkładalną redukcję modulo $p$ w $\mathbb F_p[x]$ i jest unormowany, to jest też nierozkładalny nad $\Q_p$.
+Wniosek: gdy unormowany $f(x) \in \Z_p[x]$ ma nierozkładalną redukcję modulo $p$ w $\mathbb F_p[x]$, to jest też nierozkładalny nad $\Q_p$.
 Gdyby tak nie było, to rozkładałby się nad $\Z_p$ (lemat), a po zredukowaniu także nad $\mathbb F_p$.
 
 Algebraicy wiedzą, że zawsze można znaleźć wielomian (stopnia $n \in \N$, nierozkładalny) w $\mathbb F_p[x]$, którego pierwiastki generują jedyne rozszerzenie stopnia $n$ dla $\mathbb F_p$.
@@ -285,7 +280,7 @@ Wielomian ten podnosi się naturalnie do $\Z_p[x]$. Zatem:
 	$\Q_p^a$ jest nieskończonym rozszerzeniem $\Q_p$.
 \end{wniosek}
 
-Zanim zajmiemy się algebraicznym domknięciem bliżej, potrzeba nam lepszej znajomości skończonych rozszerzeń $\Q_p$.
+Potrzeba nam lepszej znajomości skończonych rozszerzeń $\Q_p$ zanim zajmiemy się algebraicznym domknięciem bliżej.  
 Trochę wcześniej dowiemy się jednak, jak dostać jeszcze więcej skończonych rozszerzeń dla tego ciała.
 
 \begin{twierdzenie}[kryterium Eisensteina]\label{einstein}
