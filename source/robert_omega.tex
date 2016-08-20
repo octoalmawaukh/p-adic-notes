@@ -1,13 +1,13 @@
 \section{Konstrukcja uniwersalnego ciała $\Omega_p$}
 Niech $\pierscien$ będzie pierścieniem $\ell^\infty(\Q_p^a)$ ograniczonych ciągów $x = (x_i)$ w $\Q_p^a$ z normą $\|x\| = \sup_i |x_i|$. 
 Ustalmy ultrafiltr $\mathcal U$ na $\N$ zawierający zbiory $[n, \infty)$ ($n$ naturalne).
-Ponieważ każdy ograniczony ciąg liczb rzeczywistych ma granicę pośród $\mathcal U$ (?), kładziemy $\varphi(x) = \lim_{\mathcal U} |x_i| \ge 0$.
 
+Każdy ograniczony ciąg liczb rzeczywistych ma granicę pośród $\mathcal U$, więc sensownie kładziemy $\varphi(x) = \lim_{\mathcal U} |x_i| \ge 0$.
 Krótkie powtórzenie wiadomości o filtrach znajduje się na końcu sekcji.
 
 \begin{fakt}
 	Zbiór $\mathcal I = \varphi^{-1}(0)$ jest maksymalnym ideałem w $\pierscien$.
-	Ciało $\Omega_p = \pierscien / \mathcal I$ jest rozszerzeniem $\Q_p^a$.
+	Ciało $\Omega_p = \pierscien / \mathcal I$ stanowi więc rozszerzenie dla $\Q_p^a$.
 \end{fakt}
 
 \begin{proof}
@@ -25,7 +25,7 @@ Funkcja $\varphi$ zadaje na $\Omega_p$ wartość bezwzględną.
 Kładziemy $|\alpha| = \varphi(x)$ dla $\alpha = (x \mbox{ mod } \mathcal I)$.
 
 \begin{fakt}
-	Tak zdefiniowana wartość bezwzględna pokrywa się z normą ilorazową dla $\pierscien / \mathcal I$, mianowicie dla $\alpha = (x \mbox { mod } \mathcal I)$ mamy
+	Tak zdefiniowana wartość bezwzględna pokrywa się z normą ilorazową dla $\pierscien / \mathcal I$, mamy bowiem dla $\alpha = (x \mbox { mod } \mathcal I)$ równości
 	\[
 		|\alpha|_\Omega = \|x \mbox{ mod }\mathcal I\|_{\pierscien / \mathcal I} := \inf_{y \in \mathcal I} \|x - y\|.
 	\]
@@ -33,7 +33,9 @@ Kładziemy $|\alpha| = \varphi(x)$ dla $\alpha = (x \mbox{ mod } \mathcal I)$.
 
 \begin{proof}
 	Mamy $\lim_{\mathcal U}|z_i| \le \sup |z_i|$ dla każdego $z \in \pierscien$, a zatem
-	$\lim_{\mathcal U} |x_i| = \lim_{\mathcal U}|x_i - y_i| \le \sup |x_i - y_i|$ oraz $|\alpha|_\Omega  \le \|x - y\|$ dla $y \in \mathcal I$, co dowodzi nierówności $|\alpha|_\Omega \le \|\alpha\|_{\pierscien / \mathcal I}$.
+	\[
+		\lim_{\mathcal U} |x_i| = \lim_{\mathcal U}|x_i - y_i| \le \sup |x_i - y_i|
+	\] oraz $|\alpha|_\Omega  \le \|x - y\|$ dla $y \in \mathcal I$, co dowodzi nierówności $|\alpha|_\Omega \le \|\alpha\|_{\pierscien / \mathcal I}$.
 
 	Jeśli $\alpha = x \mbox { mod } \mathcal I$, to dla każdego podzbioru $A \in \mathcal U$ można określić ciąg $y$ wzorem $y_i = x_i \cdot [i \not \in A]$.
 	Wtedy ciąg $y$ leży w ideale $I$ oraz $\|x - y\| = \sup_{i \in A} |x_i|$, a do tego
@@ -65,8 +67,8 @@ Ciało $\Omega_p$ ma wiele intrygujących własności.
 	Ciąg $\xi$, $(\xi_i)$, jest ograniczony: $\|\xi\| \le \|\alpha_0\|^{1/n}$, $\xi \in \pierscien$, klasa abstrakcji dla $\xi$ zeruje $f$ w $\Omega_p$.
 \end{proof}
 
-Rozważmy zstępujący ciąg kul $\kula[a_n, r_n]$ ($d(a_i, a_n) \le r_n$ dla $i \ge n$) w przestrzeni ultrametrycznej $X$.
-Kiedy $r_n$ dąży do zera, ciąg $a_n$ jest Cauchy'ego i ma granicę (dla zupełnych $X$), zatem przekrój kul jest niepusty.
+Rozważmy zstępujący ciąg kul $\kula[a_n, r_n]$ ($d(a_i, a_n) \le r_n$ dla $i \ge n$) w pewnej przestrzeni ultrametrycznej $X$.
+Zbieżnosć ciągu $r_n$ do zera implikuje, że $a_n$ jest Cauchy'ego i ma granicę (dla zupełnych $X$), zatem przekrój kul jest niepusty.
 
 \begin{definicja}
 	Przestrzeń ultrametryczną, w której nie istnieje ciąg zstępujący domkniętych kul o pustym przekroju, nazywamy sferycznie zupełną.
@@ -113,7 +115,7 @@ Odwrotna implikacja jest fałszywa.
 	Ciąg $\xi$ leży w $\pierscien$.
 	
 	Oszacowanie $\|\xi - a_n\| \le \sup_{i \ge n} |\xi_i - a_{ni}| \le r_{n-1}$ wynika z należenia przedziałów $[n, \infty)$ do ultrafiltru $\mathcal U$.
-	Wnioskujemy stąd, że dla $x = \xi \mbox{ mod } \mathcal I$, $n > 0$ zachodzą nierówności:
+	Zatem dla $x = \xi \mbox{ mod } \mathcal I$, $n > 0$ zachodzą nierówności:
 	\begin{align*}
 		|x - a_n| & \le \|\xi - \alpha_n\| \le r_{n-1} \\
 		|x-a_{n-1}| & \le \max(|x-a_n|, |a_n-a_{n-1}|) \le r_{n-1},
@@ -227,6 +229,7 @@ Przypomnijmy, że jego ciało residuów jest nieskończone, zaś $|\Omega_p^\tim
 Każdej domkniętej kuli $\kula[a, r]$ zawartej w $\Omega_p$ przypiszemy teraz filtr okrężny $\mathcal F_\kula$ (na $\Omega_p$).
 
 Jeśli $\kula$ jest jednym punktem, za $\mathcal F_\kula$ bierzemy filtr otoczeń generowany przez małe kule wokół $a$, $\kula(a, \varepsilon)$.
+
 Jeśli jednak $\kula$ ma dodatni promień, generatory to $\kula[a, r + \varepsilon] \setminus \bigcup_{i=1}^n \kula (a_i, r - \varepsilon)$.
 Im mniejszy $\varepsilon > 0$ lub większy $n$, tym mniejsze zbiory; istotnie stanowią one bazę pewnego filtru.
 
