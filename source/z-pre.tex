@@ -1,4 +1,4 @@
-\usepackage[paperheight=23cm,paperwidth=15.8cm,left=1.5cm, right=1.5cm, top=1.8cm, bottom=1.5cm ,headsep=0.3cm]{geometry}
+\usepackage[paperheight=23cm,paperwidth=15.8cm,left=1.5cm, right=1.5cm, top=1.8cm, bottom=1.5cm ,headsep=0.3cm, marginparsep=1mm]{geometry}
 %\usepackage[left=1.5cm, top=1.7cm, right=1.5cm, bottom=1.7cm, marginparwidth=0.3in, ]{geometry} 
 
 %%% Alegreya font, AMS packages
@@ -13,6 +13,10 @@
 \newenvironment{Figure}{\par\medskip\noindent\minipage{\linewidth}}{\endminipage\par\medskip}
 \usepackage[usenames, dvipsnames]{xcolor}
 
+%%% marginesy parzysto-nieparzyste
+%\newcommand{\mymarginpar}[1]{\label{marginpar:#1}\ifodd\getp‌​agerefnumber{marginp‌​ar:#1}\marginpar{#1}‌​\else\marginpar{\hfi‌​ll #1}\fi}
+\DeclareRobustCommand{\mymarginpar}[1]{\marginpar[\raggedleft#1]{\raggedright#1}}
+
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \pagestyle{fancy}
@@ -20,31 +24,9 @@
 \renewcommand{\sectionmark}[1]{\markright{#1}}
 \fancyhf{} % sets both header and footer to nothing
 \renewcommand{\headrulewidth}{0pt}
-%\lhead[\thepage/\pageref{LastPage}]{\nouppercase{\leftmark}/\nouppercase{\rightmark}} \nouppercase{\leftmark}
-\lhead{\fancyplain{}{\nouppercase{\leftmark} -- \nouppercase{\rightmark} }}
+\lhead[(\thepage/\pageref{LastPage})\quad\nouppercase{\leftmark}]{}
 \chead[]{}
-\rhead{\thepage/\pageref{LastPage}}
-%\rhead[\nouppercase{\leftmark}/\nouppercase{\rightmark}]{\thepage/\pageref{LastPage}}
-
-
-
-
-
-
-
-
-
-
-% select alternative section titles
-%\usepackage{titlesec} 
-%\titleformat{\chapter}[display]
-%{\normalfont\huge\bfseries}
-%{\chaptertitlename\ \thechapter}{0pt}{\Huge}   	
-%\titlespacing*{\chapter}{0pt}{-10pt}{0pt}
-
-%%% Flexible and complete interface to document dimensions
-%
-%\setlength{\parskip}{.1ex plus 0.2ex minus 0.2ex}
+\rhead[]{\nouppercase{\rightmark}\quad(\thepage/\pageref{LastPage})}
 
 \begingroup
 	\makeatletter		
@@ -81,5 +63,10 @@
 \usepackage[T1]{fontenc}
 \usepackage{microtype}
 \selectlanguage{polish}
+
+\usepackage{titlesec}
+
+\titleformat{\chapter}[hang] 
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter:}{0.25em}{} 
 
 \input{source/z-cuts}
