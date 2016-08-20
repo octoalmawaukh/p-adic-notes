@@ -1,103 +1,78 @@
-\section{Teoria reprezentacji Blondela}
-Teoria reprezentacji w tym rozdziale wyłożona jest w naprawdę telegraficznym skrócie.
-Tak długo, jak to możliwe, będziemy pracować z przestrzenią wektorową nad ciałem, zakładając, że nie ma charakterystyki $p$.
-Naszym ,,węgielnym kamieniem'' będzie następujące stwierdzenie: gładkie oraz nierozkładalne reprezentacje $p$-adycznej grupy reduktywnej nad ciałem, które ma charakterystykę różną od $p$, są osiągalne.
+\section{Reduktywne grupy $p$-adyczne}
+Wyłożymy jedynie podstawy teorii reprezentacji reduktywnych grup $p$-adycznych na tyle elementarnie, by treść tego rozdziału była przystępna dla początkujących.
+Aby nie rozrosły się przesadnie, konieczne były drastyczne cięcia.
+Mimo to staraliśmy się zachować jak najdłużej ogólność, to jest minimalne założenia: od drugiej podsekcji żądamy mianowicie, by ciało $\cialo$ nie było charakterystyki $p$.
+Po drugie, chcieliśmy jednak być w stanie udowodnić cokolwiek sensownego i to się nam udało.
 
-% \section{Gładkie reprezentacje}
-% \subsection{Grupy lokalnie proskończone}
-\begin{definicja}
-	Grupa topologiczna $\grupa$ jest {proskończona}, gdy jest zwarta i całkowicie niespójna.
-\end{definicja}
-
-\begin{fakt}
-	Proskończone grupy topologiczne $\grupa$ są izomorficzne z $\varprojlim \grupa / U$, gdzie $U$ przebiega otwarte podgrupy normalne.
-\end{fakt}
-
-\begin{fakt}
-	Jeśli ilorazy $\grupa / U$ są $p$-grupami, to granica odwrotna również nią jest.
-\end{fakt}
-
-\begin{przyklad}
-	$\Z_p = \varprojlim \Z / p^n \Z$.
-\end{przyklad}
+\subsection{Gładkość}
+\subsubsection{Grupy lokalnie proskończone}
+Przypomnijmy (nie do końca wiadomo skąd), że grupa topologiczna $\grupa$ jest \emph{proskończona}, jeśli jest zwarta i całkowicie niespójna (składowe spójności liczą równo jeden element).
+W takim przypadku $\grupa$ jest izomorficzna z $\varprojlim \grupa / U$, gdzie $U$ przebiega otwarte dzielniki normalne $\grupa$.
+Zauważmy, że wszystkie ilorazy $\grupa / U$ są skończone.
+Odwrotnie, taka granica odwrotna jest zwarta i całkowicie rozłączna, zatem proskończona.
+Jeśli ilorazy były $p$-grupami, to $\grupa$ jest pro-$p$-grupą.
+Przykładem takiej sytuacji jest znana nam już równość $\Z_p = \varprojlim \Z/p^n\Z$.
 
 \begin{definicja}
-	Grupa topologiczna $\grupa$ jest {lokalnie proskończona}, gdy każde otoczenie $e \in G$ zawiera otwartą i zwartą podgrupę
+	Grupa topologiczna $\grupa$ jest lokalnie proskończona, gdy każde otoczenie $e \in G$ zawiera otwartą i zwartą podgrupę lub (równoważnie) $\grupa$ jest lokalnie zwarta i całkowicie niespójna.
 \end{definicja}
 
-\begin{fakt}
-	 Lokalna proskończoność $\grupa$ jest równoważna lokalnej zwartości i całkowitej niespójności.
-\end{fakt}
-
 \begin{przyklad}
-	$(\Q_p, +)$.
+	Addytywna grupa $\Q_p$ lub ogólniej, lokalnego ciała niearchimedesowego.
+	Grupa multiplikatywna $\Q_p^\times$.
+	Przestrzenie liniowe nad $\Q_p$ skończonego wymiaru.
+	Grupa macierzy $n \times n$ nad tym ciałem, podgrupa (otwarta) macierzy odwracalnych.
 \end{przyklad}
 
 % \subsection{Podstawy teorii}
-
+\subsubsection{Podstawy teorii reprezentacji}
 \begin{definicja}
-	{Reprezentacja} $(\pi, \liniowa)$ grupy $\grupa$ w przestrzeni $\liniowa$ nad ciałem $\cialo$ to homomorfizm $\pi \colon G \to \textrm{Aut}_{\cialo}(\liniowa)$.
+	Reprezentacja $(\pi, \liniowa)$ grupy $\grupa$ w przestrzeni $\liniowa$ nad ciałem $\cialo$ to homomorfizm $\pi \colon G \to \textrm{Aut}_{\cialo}(\liniowa)$.
 \end{definicja}
 
-\begin{definicja}
-	Niezerowa reprezentacja jest {nieredukowalna}, gdy właściwe podprzestrzenie $\liniowa$ są niestabilne względem automorfizmów $\pi(G)$.
-\end{definicja}
+Morfizm między reprezentacjami to liniowy homomorfizm $\phi \colon \liniowa_1 \to \liniowa_2$, że $\phi \circ \pi_1(g) = \pi_2(g) \circ \phi$ dla wszystkich $g \in \grupa$.
+Zbiór morfizmów to $\textrm{Hom}_\grupa(\pi_1, \pi_2)$.
+Jeśli zawiera liniowy izomorfizm, to reprezentacje nazwiemy izomorficznymi.
+
+Reprezentacja jest \emph{nierozkładalna}, jeśli $\liniowa$ nie jest sumą prostą właściwych $\grupa$-stabilnych podprzestrzeni (stabilnych względem automorfizmów z $\pi(\grupa)$).
+
+\emph{Nieskracalna}, jeśli jest niezerowa i żadna właściwa niezerowa podprzestrzeń $\liniowa$ nie jest stabilny względem automorfizmów z $\pi(\grupa)$.
+
+\subsubsection{Gładkie reprezentacje}
+Wracamy do lokalnie proskończonych grup $\grupa$ i wymagamy więcej od reprezentacji zależnie od dodatkowej struktury na $\grupa$.
+Chcemy brać pod uwagę topologię na $\grupa$: $(g, v) \mapsto \pi(g) v$ powinno być ciągłą funkcją $\grupa \times \liniowa \to \liniowa$, kiedy $\liniowa$ jest dyskretną przestrzenią.
 
 \begin{definicja}
-	Reprezentacja jest {nierozkładalna}, jeśli $\liniowa$ nie da się rozłożyć jako sumę prostą właściwych podprzestrzeni, które same są stabilne względem tych samych automorfizmów $\pi(G)$.
+	Reprezentacja $(\pi, \liniowa)$ dla $\grupa$ jest gładka, jeżeli $\grupa_v = \{g \in \grupa : \pi(g)(v) = v\}$, stabilizatory $v$ w $\grupa$, są otwartymi podzbiorami $\grupa$.
 \end{definicja}
 
-% \subsection{Reprezentacje gładkie}
-\begin{definicja}
-	Reprezentacja $(\pi, \liniowa)$ dla $\grupa$ jest {gładka}, jeżeli wszystkie zbiory postaci $G_v = \{g \in \grupa : \pi(g)(v) = v\} \subseteq \grupa$ dla $v$, stabilizatory w $\grupa$, są otwartymi podzbiorami $\grupa$.
-\end{definicja}
+\subsubsection{Reprezentacje dziedziczone}
 
-% \subsection{Reprezentacje indukowane}
-
-% \section{Reprezentacje osiągalne}
+\subsection{Osiągalność}
+\subsubsection{Reprezentacje osiągalne}
 \begin{definicja}
 	Gładka reprezentacja $(\pi, \liniowa)$ dla $\grupa$ jest {osiągalna}, o ile $\liniowa^K$ ma skończony wymiar dla każdej zwartej podgrupy otwartej $K \le \grupa$.
 \end{definicja}
 
-\begin{enumerate}
-\item Miara Haara. 
-\item Algebra Heckego. 
-\item Koniezmienniki. 
-\item Charaktery. 
-\item Lemat Schura, charakter centralny. 
-\item Reprezentacje $Z$-zwarte. 
-\item Paraboliczna indukcja, restrykcja, para.
-\item Rozkład Iwahoriego. 
-\item Reprezentacje szpiczaste. 
-\end{enumerate}
+\subsubsection{Miara Haara}
 
-% \subsection{Miara Haara}
+\subsubsection{Algebra Heckego}
 
-% \subsection{Algebra Heckego}
+\subsubsection{Koniezmienniki}
 
-% \subsection{Koniezmienniki}
+\subsection{Lemat Schura}
+\subsubsection{Quasi-charaktery}
+\subsubsection{Charakter centralny}
+\subsubsection{Reprezentacje $Z$-zwarte}
+\subsubsection{Przykład}
 
-% \section{Lemat Schura i $Z$-zwartość}
-% \subsection{Charaktery}
+\subsection{Szpiczastość}
+\subsubsection{Paraboliczna indukcja, restrykcja}
+\subsubsection{Paraboliczna para}
+\subsubsection{Reprezentacje szpiczaste}
+\subsubsection{Rozkład Iwahoriego}
+\subsubsection{Gładkie reprezentacje nieskracalne są osiągalne}
 
-% \subsection{Lemat Schura, charakter centralny}
-
-% \subsection{Reprezentacje $Z$-zwarte}
-
-% \subsection{Przykład}
-
-% \section{Reprezentacje szpiczaste}
-
-% \subsection{Paraboliczna indukcja, restrykcja}
-
-% \subsection{Pary paraboliczne}
-
-% \subsection{Reprezentacje szpiczaste}
-
-% \subsection{Rozkład Iwahoriego}
-
-% \subsection{Główne twierdzenie}
-
-\begin{twierdzenie}
+\begin{twierdzenie}[Vigneras, 2005]
 	Każda gładka reprezentacja nieredukowalna dla $\grupa$ nad $\cialo$ o charakterystyce różnej od $p$ jest osiągalna.
 \end{twierdzenie}
