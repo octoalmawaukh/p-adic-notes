@@ -1,56 +1,69 @@
 \section{Lemat Hensela o podnoszeniu}
-,,Lemat Hensela'' opisuje jedną z ważniejszych algebraicznych cech ciał udających $\Q_p$ (zupełnych oraz z niearchimedesową normą).
-Orzeka mianowicie, że w pewnych warunkach można łatwo sprawdzić, czy wielomian ma pierwiastki w $\Z_p$.
+Niewinne \prawo{Gouvea\\3.4} stwierdzenie, jakie za chwilę podamy (w najprostszej postaci, dla ciała $\Q_p$), opisuje jedną z najważniejszych cech zupełnych ciał z niearchimedesową normą: mówi, że istnieje prosty przepis na sprawdzenie, czy wielomian ma pierwiastki w pierścieniu $\Z_p$.
+Wystarczy znać bardzo przybliżone oszacowanie pierwiastka i wiedzieć, że pochodnia nie wariuje.
 
 \begin{twierdzenie}[lemat Hensela]
-	Każde z zer $x_1 \in \Z_p$ (modulo $p \Z_p$) dla wielomianu $f(x) \in \Z_p[x]$, że $f'(x_1) \not \equiv 0$ mod $p \Z_p$ można podnieść do prawdziwego zera $x$, które przystaje do $x_1$ mod $p\Z_p$.
+	Każde z zer $x_1 \in \Z_p$ dla wielomianu $f(x) \in \Z_p[x]$ mod $p\Z_p$, że $f'(x_1) \neq 0$ mod $p \Z_p$ można podnieść do prawdziwego zera $x \in \Z_p$, które przystaje do $x_1$ mod $p\Z_p$.
 	Co więcej, zero to jest jednoznacznie wyznaczone.
 \end{twierdzenie}
 
 \begin{proof}
-	Wskażemy ciąg Cauchy'ego zbieżny do $x$ przy użyciu ,,metody Newtona'' ($x_n$), taki że $f(x_n) \equiv 0$ mod $p^n$ i $x_n \equiv x_{n+1}$ mod $p^n$.
-	Mamy $x_1$, chcemy $x_2 = x_1 + y_1 p$ dla $y_1 \in \Z_p$.
+	Wskażemy ciąg Cauchy'ego zbieżny do $x$ i odwołamy się do zupełności.
 
-	Widzimy, że $f(x_2) = f(x_1) + f'(x_1) y_1p + p^2 \cdot r_2$ (gruz).
-	Szukamy $y_1$, dla którego $f(x_1) + f'(x_1) y_1p \equiv 0$ mod $p^2$, czyli $z_1 + f'(z_1) y_1 \equiv 0$ mod $p$, gdzie $f(x_1) = pz_1$. 
-	Rozwiązaniem jest $y_1 \equiv -z_1 f'(x_1)^{-1}$ mod $p$.
-	Uważny Czytelnik zauważy, że skoro z $x_1$ można dostać $x_2$, to z $x_n$ można dostać $x_{n+1}$.
+	Użyta przez nas idea znana jest jako metoda Newtona, jednak w analizie rzeczywistej wymaga mocniejszych założeń i przypomni nieco to, czego już dokonaliśmy.
+	Dokładniej, skonstruujemy ciąg liczb całkowitych $x_n$, taki że $f(x_n) = 0$ mod $p^n$ oraz $x_n = x_{n+1}$ mod $p^n$.
+	Łatwo widać, że będzie on ciągiem Cauchy'ego, zaś jego granica stanowić będzie prawdziwe zero wielomianu $f$.
+	Odwrotnie, mając zero łatwo odtworzymy ciąg, z którego powstało.
+
+	Liczba $x_1$ istnieje na mocy założeń.
+	Niech $x_2 = x_1 + y_1 p$ dla pewnej (nieznanej nam) liczby $y_1 \in \Z_p$.
+	Wpychając ją do wielomianu $f$ i rozwijając dostaniemy prostsze równanie, $f(x_2) = f(x_1) + f'(x_1) y_1 p$ mod $p^2$, jako że wyższe wyrazy nas nie obchodzą.
+	
+	Czujemy potrzebę rozwiązania równania $px + f'(x_1)b_1p = 0$ mod $p^2$, co arcytrudne nie jest.
+	Rozwiązanie to $y_1 = - f(x_1) (p f'(x_1))^{-1}$ mod $p$.
+	
+	Uważny Czytelnik zauważy, że skoro z $x_1$ można dostać $x_2$, to z $x_n$ można dostać $x_{n+1}$ na mocy indukcji.
+	Na każdym kroku tylko jeden wyraz pasował do reszty układanki, zatem i cały ciąg $(x_n)$ jest jedyny.
 \end{proof}
 
-W dowodzie skorzystaliśmy ze wzoru Taylora:
+W dowodzie skorzystaliśmy ze wzoru Taylora. 
 
 \begin{fakt}
-	Dla wielomianu $f(x)$ nad ciałem $\cialo$ charakterystyki zero jest $f(x+h) = f(x) + f'(x)h + f''(x)h^2 / 2 + \ldots$, $x, h \in \cialo$.
+	Dla ustalonych $x, h \in \cialo$, ciała $\cialo$ charakterystyki zero oraz wielomianu $f$, 
+	\[
+		f(x+h) = \sum_{k = 0}^\infty\frac{h^k}{k!} \cdot f^{(k)}(x).
+	\]
 \end{fakt}
 
 \begin{proof}
-	Nieustanne różniczkowanie sprawia, że wielomian $f$ kiedyś stanie się zerem.
-	Wystarczy porównać współczynniki przy $x^j$ po obu stronach.
+	Różniczkujemy obie strony bez końca i porównujemy współczynniki przy $x^k$.
 \end{proof}
 
 \begin{historia}[Hensel Kurt]\end{historia}
 
-Założenie z lematu ($f'(x) \not\equiv 0$) można osłabić, choćby do $|f(x)| < |f'(x)|^2$.
-Dowód podał już w 1846 Schöneman (?).
-Już wkrótce i tak przetłumaczymy wszystko na język waluacji.
+Założenie z lematu ($f'(x) \not\equiv 0$) można osłabić, choćby do $|f(x)| < |f'(x)|^2$, ale my tymczasowo wstrzymamy się z podaniem dowodu Schönemana z 1846 roku, jako że już niedługo, choć nie do końca jestem świadom, kiedy, przetłumaczymy lemat na język algebry.
 
 \begin{historia}[Schönemann Theodor]\end{historia} %oddkrył lemat Hensela przed Henselem, prawo wzajemności Scholza przed Scholzem oraz kryterium Eisensteina przed Eisensteinem.
 
-Wyznaczymy teraz pierwiastki jedności w $\Q_p$ wielomianem $f(x) = x^m - 1$ z pochodną $f'(x) = mx^{m-1}$.
-Aby spełnione było drugie założenie z lematu, musimy mieć $p \nmid m$ (zakładamy to) i pozostaje sprawdzić pierwsze założenie.
+Podamy pierwsze zastosowanie lematu do problemu z prawdziwego życia.
+Czy możemy sklasyfikować pierwiastki jedności w dowolnym $\Q_p$?
+Bezpośrednim rachunkiem można bowiem sprawdzić, że w ciele $\Q_5$ istnieje liczba $j$, której kwadrat to dokładnie $-1$.
+
+Okazuje się, że odpowiedź na nasze pytanie jest pozytywna.
+Lemat Hensela żąda od nas wielomianu, odpowiednim wyborem będzie $f(x) = x^m-1$ z pochodną $f'(x) = mx^{m-1}$.
+Pochodna w punkcie $x_1$ będzie zerem (opuszczona do $\mathbb F_p$) w dwóch przypadkach: kiedy $p$ dzieli $x_1$ (wtedy i tak nie mamy żadnego pierwiastka) lub gdy $p$ dzieli $m$.
+Pozostaje pierwsze założenie.
 
 \begin{lemat}
 	Niech $p \nmid m$.
-	Istnieje taka całkowita $n$, że $n^m \equiv 1$ mod $p$ (ale $n \not\equiv 1$ mod $p$), wtedy i tylko wtedy gdy $(m, p - 1) > 1$.
+	Istnieje taka całkowita $n$, że $n^m \equiv 1$ mod $p$ (ale $n \not\equiv 1$ mod $p$), wtedy i tylko wtedy gdy $m$ oraz $p-1$ nie są względnie pierwsze.
 	Dla każdego $n$, najmniejsza $m$ o żądanych własnościach dzieli $p-1$.
 \end{lemat}
 
 \begin{proof}
-	Załóżmy istnienie $n$.
-	Rząd $n$ w $(\Z / p\Z)^\times$ dzieli zarówno $m$, jak i $p-1$, zatem $(m, p-1) > 1$, chyba że $n \equiv 1$ mod $p$.
-	Najmniejsze $m$ musi dzielić NWD, a z nim także $p-1$.
-
-	Odwrotnie, w grupie cyklicznej rzędu $p-1$ istnieje element każdego rzędu, który dzieli $p-1$, a taka jest $(\Z/p\Z)^\times$.
+	Jeśli $n$ istnieje, to jego rząd w $\mathbb F_p^\times$ dzieli zarówno $m$, jak i $p-1$, więc $(m, p-1) > 0$, chyba że $n \equiv 1$ mod $p$.
+	Najmniejsze $m$ dzieli najmniejszą wspólną wielokrotność, a z nim też $p-1$.
+	W cyklicznej grupie $\mathbb F_p^\times$ istnieje elment każdego rzędu dzielącego rząd grupy.
 \end{proof}
 
 Lemat Hensela daje:
@@ -59,89 +72,47 @@ Lemat Hensela daje:
 	Jeżeli naturalna $m$ nie dzieli się przez pierwszą $p$, to w $\Q_p$ istnieje $m$-ty pierwiastek pierwotny z jedynki, wtedy i tylko wtedy gdy $m$ dzieli $p-1$.
 \end{fakt}
 
-Nie wykluczyliśmy jeszcze istnienia $p^n$-tych pierwiastków jedności w $\Q_p$, uda się to po poznaniu logarytmu.
-Pierwiastki jedności w $\Q_p$ dla $p \ge 3$ tworzą grupę $\mu_{p-1}$ o $p-1$ elementach.
+Nie wykluczyliśmy jeszcze istnienia $p^n$-tych pierwiastków jedności w $\Q_p$, ale uda się to po poznaniu logarytmu, gdyż sam lemat Hensela jest za słaby.
+Wrócimy do nich także przy okazji poznania homomorfizmu Tate'a $\uptau$.
+Jeśli zaś $m$ dzieli $p-1$, to $m$-te pierwiastki jedności są także $(p-1)$-szymi.
 
-,,Jednostka urojona'', czyli kwadratowy pierwiastek z $-1$ w $\Q_p$ istnieje dokładnie wtedy, gdy $\frac 1 2(p-1)$ jest jeszcze parzysta, czyli dla $p$ postaci $4k+1$.
+,,Jednostka urojona'', \prawo{Robert\\1.6.7} czyli kwadratowy pierwiastek z $-1$ w $\Q_p$ istnieje dokładnie wtedy, gdy $\frac 1 2(p-1)$ jest jeszcze parzysta, czyli dla $p$ postaci $4k+1$.
 
 Teraz zajmiemy się kwadratami.
 
 \begin{fakt}
-	Jeśli tylko $p > 2$, to każda $p$-adyczna jedność $y$, dla której istnieje $z$, że $z^2 \equiv y$ mod $p \Z_p$, jest kwadratem czegoś z $\Z_p^\times$.
+	Jeśli tylko $p > 2$, to każda $p$-adyczna jedność $y \in \Z_p^\times$, dla której istnieje $z$, że $z^2 \equiv y$ mod $p \Z_p$, jest kwadratem czegoś z $\Z_p^\times$.
 \end{fakt}
 
 \begin{proof}
 	Lemat Hensela dla $x^2 - y$, bo $p \neq 2$ i $y \in \Z_p^\times$ pociągają $2 z \not\equiv 0$ mod $p$.
 \end{proof}
 
+Charakteryzację łatwo przenieść na całe ciało $\Q_p$.
+
 \begin{wniosek}
-	$\{x^2 : x \in \Q_p\} = \{p^{2n} y^2 : n \in \Z, y \in \Z_p^\times\}$, a grupa ilorazowa $\Q_p^\times / (\Q_p^\times)^2$ ma rząd cztery i reprezentantów warstw $\{1, p, c, cp\}$, przy czym $c \in \Z_p^\times$ jest dowolnym elementem, którego redukcja mod $p$ nie jest resztą kwadratową.
+	Niech \prawo{Gouvea\\Cor.3.4.4} $p \neq 2$. 
+	Element $x \in \Q_p$ jest kwadratem, wtedy i tylko wtedy gdy jest postaci $p^{2n} y^2$, gdzie $n \in \Z$, $y \in \Z_p$ jest jednością.
+	Grupa ilorazowa $\Q_p^\times / (\Q_p^\times)^2$ ma rząd cztery i jest generowana przez $p$ oraz $c \in \Z_p$, element, którego redukcja modulo $p$ nie jest resztą kwadratową.
 \end{wniosek}
 
 \begin{proof}
 	Własności reszt kwadratowych.
 \end{proof}
 
-Dla $\R$ jest inaczej: dokładnie nieujemne liczby to kwadraty, zaś $\R^\times/(\R^\times)^2$ odpowiada $\{-1, 1\}$. Co może się dziać w $\Q_2$? Potrzebna jest mocniejsza forma lematu, albowiem $f'(x) = 2x$ jest wielokrotnością dwójki.
+Dla $\R$ jest inaczej: kwadraty to dokładnie nieujemne liczby, zaś $\R^\times/(\R^\times)^2 \cong \{-1, 1\}$ ma rząd dwa.
+Co może się dziać w $\Q_2$?
+Potrzebna jest mocniejsza forma lematu, albowiem $f'(x) = 2x$ jest wielokrotnością dwójki.
 
 \begin{fakt}
-	Każda liczba $y \in 1 + 8\Z_2 \subseteq \Z_2$, jest kwadratem w $\Z_2$.
+	Każda \prawo{Gouvea\\Prob. 116} liczba $y \in 1 + 8\Z_2 \subseteq \Z_2$ jest kwadratem w $\Z_2$.
 	Odwrotnie, $2$-adyczna jedność i kwadrat przystaje do $1$ mod $8$.
-	Zatem $\Q^\times_2 / (\Q^\times_2)^2$ ma rząd osiem, odpowiada jej $\{\pm 1, \pm 2, \pm 5, \pm 10\}$.
+	Zatem $\Q^\times_2 / (\Q^\times_2)^2 \cong \{\pm 1, \pm 2, \pm 5, \pm 10\}$ ma rząd osiem.
 \end{fakt}
 
 \begin{proof}
 	Wystarczy użyć wzmocnionego lematu.
 \end{proof}
 
-Lemat Hensela mówi, że jeżeli wielomian dzieli się przez $x - x_0$: $f(x) \equiv (x - x_0) g(x)$ mod $p$, to w podobny sposób daje się rozłożyć także w $\Z_p[x]$.
-Warunek nałożony na pochodną dopuszcza jedynie pojedyncze pierwiastki.
-Teraz osłabimy to założenie do względnej pierwszości.
-
-Przez $\overline w$, oznaczymy redukcję współczynników wielomianu $w \in \Z_p[x]$ modulo $p$.
-
-\begin{definicja}
-	Wielomiany $q, r$ są względnie pierwsze modulo $p$, gdy $(\overline q, \overline r) = 1$ w $\mathbb F_p[x]$.
-\end{definicja}
-
-Istnieją wtedy $a, b \in \Z_p[x]$, że $aq + br \equiv 1$ mod $p$.
-
-\begin{twierdzenie}
-	Niech dla wielomianu $f(x) \in \Z_p[x]$ istnieją dwa względnie pierwsze mod $p$ wielomiany: $g_1$, $h_1 \in \Z_p[x]$, przy czym $g_1$ jest unormowany i $f(x) \equiv (g_1h_1)(x)$ mod $p$.
-	Wtedy istnieją takie $g(x), h(x) \in \Z_p[x]$, że $g$ jest unormowany, $g$ i $g_1$ oraz $h$ i $h_1$ przystają do siebie mod $p$ oraz $f(x) = (gh)(x)$.
-\end{twierdzenie}
-
-\begin{proof}
-	Postępujemy jak wcześniej: znajdujemy przybliżone rozwiązanie i próbujemy przejść do granicy. 
-
-	Niech $d$ będzie stopniem $f$, zaś $m$: stopniem $g_1$.
-	Możemy założyć, że $\deg h_1 \le d - m$.
-	Potrzebne są nam dwa ciągi, $g_n$ i $h_n$ (wielomiany), że: każdy $g_n$ jest unormowany, $g_{n+1} \equiv g_n$ mod $p^n$ oraz $h_{n+1} \equiv h_n$ mod $p^n$, a przy tym $f \equiv g_n h_n$ mod $p^n$.
-	Wielomiany $h, g$ otrzymamy przez przejście do granicy.
-
-	Mamy już $g_1, h_1$.
-	Musi zachodzić $g_2 = g_1 + pr_1$, a przy tym $h_2 = h_1 + ps_1$.
-	Po podstawieniu do równania $f \equiv g_2h_2$ mod $p^2$ i uproszczeniu otrzymamy $f - g_1 h_1 = pk_1$ dla $k_1 \in \Z_p[x]$.
-	Dalsze uproszczenie do $p k_1 \equiv pr_1 h_1 + p s_1 g_1$ mod ${p^2}$ sprawia, że chcemy podzielić przez $p$.
-
-	Skoro $g_1, h_1$ są względnie pierwsze mod $p$, to istnieją $a, b$ (wielomiany nad $\Z_p$), że $ag_1 + bh_1 \equiv 1$ mod $p$.
-	Rozpatrzmy nowe wielomiany, $\overline r_1 = bk_1$ i $\overline s_1 = ak_1$.
-	Wiemy już, że
-	\[
-		\overline r_1 h_1 + \overline s_1 g_1 \equiv k_1 \pmod p.
-	\]
-
-	Podzielmy $\overline r_1$ przez $g_1$; niech $r_1$ będzie resztą: $r_1 = g_1 q + r_1$.
-	Rzecz jasna $\deg r_1 < \deg g_1$.
-	Ale jeśli położymy $s_1 = \overline s_1 + h_1q$, to wszystko będzie grać:
-	\begin{align*}
-	\ldots & = r_1 h_1 + s_1 g_1
-	\equiv (\overline r_1 - g_1 q)h_1 + (\overline s_1 + h_1 q)g_1 \\
-	& \equiv \overline r_1 h_1 - g_1 h_1 q + \overline s_1 g_1 + g_1 h_1 q
-	\equiv \overline r_1 h_1 + \overline s_1 g_1 \\
-	& \equiv k_1 \pmod p.
-	\end{align*}
-
-	Tak pokazaliśmy, że $g_2$ oraz $h_2$ istnieją.
-	Skoro przystają do $g_1$ i $h_1$ mod $p$, to również są względnie pierwsze mod $p$ i możemy wykonać kolejny krok ,,indukcyjny''.
-\end{proof}
+Gouvea snuje w tym miejscu opowieść o podnoszeniu rozkładów $f(x) \equiv g(x)h(x)$ mod $p$ do prawdziwych (w $\Z_p$) równości $f = g \cdot h$.
+Darujemy sobie.
