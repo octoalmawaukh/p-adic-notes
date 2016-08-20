@@ -1,60 +1,72 @@
 \section{Regionalnie czy wszechstronnie?}
-Jednym z wniosków lematu Hensela jest to, że dla wielomianu o współczynnikach całkowitych łatwo sprawdzić, czy ma zera w $\Z_p$ (bo wystarczy szukać ich w $\Z/p\Z$), podobnie w $\R$.
-Istnienie pierwiastka w $\Q$ pociąga ,,to samo'' w każdym $\Q_p$ ($p \le \infty$).
+Poznany dopiero co lemat Hensela pozwala zazwyczaj łatwo sprawdzić, czy wielomian o całkowitych współczynnikach ma zera w $\Z_p$, jako że wystarczy ich poszukać w $\mathbb F_p$.
+Podobnie jest na prostej rzeczywistej: jeśli w dwóch punktach ciągła funkcja przyjmuje wartości różnych znaków, to między nimi musi przeciąć oś argumentów.
+
+Powiedzmy, że interesują nas jednak pierwiastki żyjące w $\Q$.
+Pierwiastki z $\Q$ przenoszą się w oczywisty sposób do każdego z ciał $\Q_p$ dla $p \le infty$.
 Trzeba o tym myśleć tak: ciała $p$-adyczne są odpowiednikami ciał rozwinięć Laurenta i dają ,,lokalną'' informację ,,blisko'' $p$.
 Fakt, że pierwiastki przenoszą się z $\Q$ do $\Q_p$ oznacza bowiem, że ,,globalny'' pierwiastek jest też ,,lokalnym'' dla każdego $p$, czyli ,,wszędzie''.
-Ciekawe pytanie brzmi, kiedy można to odwrócić.
+Ale czy to rozumowanie daje się odwrócić?
 
 \begin{fakt}
-	Liczba $x \in \Q$ jest kwadratem wtedy i tylko wtedy, gdy jest kwadratem w każdym $\Q_p$, $p \le \infty$.
+	Liczba $x \in \Q$ jest kwadratem, wtedy i tylko wtedy gdy jest nim w każdym $\Q_p$.
 \end{fakt}
 
-Zbyt niejasne, żeby nazwać twierdzeniem:
+Już Helmut mógł to zrobić, jednak to Hasse jako pierwszy stwierdził jawnie, że złożenie w całość lokalnych informacji powinno dawać globalną wiedzę.
+Zbyt niejasne, żeby móc nazwać twierdzeniem:
 
 \begin{fakt}[reguła lokalno-globalna]
-	Istnienie rozwiązań w $\Q$ (lub ich brak) dla równania diofantycznego można stwierdzić na podstawie istnienia (lub nie) rozwiązań w $\Q_p$.
+	Istnienie rozwiązań równania diofantycznego w $\Q$ można wykryć badając lokalne równania, w $\Q_p$.
 \end{fakt}
 
-Niestety, $(x^2 -2)(x^2-17)(x^2-34) = 0$ ma pierwiastki w każdym z $\Q_p$, ale nie w $\Q$. Inny przykład: $x^4 - 17 = 2y^2$. Na szczęście nie wszystko stracone.
+Reguła brzmi naprawdę pięknie, jednak w obecnej, bardzo naiwnej postaci, jest po prostu fałszywa, jak pokazują następujące przykłady:
+
+\begin{przyklad}
+	$(x^2 -2)(x^2-17)(x^2-34) = 0$.
+\end{przyklad}
+
+\begin{przyklad}
+	$x^4 - 2 y^2 = 17$.
+\end{przyklad}
 
 \begin{twierdzenie}[Hasse, Minkowski]
-	Forma kwadratowa $F$ nad $\cialo$ (ciałem liczbowym jak $\Q$) reprezentuje nietrywialnie zero w $\cialo$, wtedy i tylko wtedy gdy reprezentuje je w każdym uzupełnieniu $\cialo$.
+	Forma kwadratowa nad ciałem liczbowym $\cialo$ (na przykład $\Q$) reprezentuje nietrywialnie zero w $\cialo$, wtedy i tylko wtedy gdy reprezentuje je w każdym uzupełnieniu $\cialo$.
+	Taką forme nazywamy izotropową.
 \end{twierdzenie}
 
 \begin{proof}
 	Zbyt trudny (przez wyrwy w wiedzy o kwadratowych formach), nawet dla samego $\cialo = \Q$.
-	Można go jednak znaleźć w pierwszej połowie książki Serre'a (\cite{serre73})
+	Można go jednak znaleźć w pierwszej połowie książki Serre'a (\cite{serre73}), jako kulminację pierwszej jej połowy.
 \end{proof}
 
+Zwracamy uwagę na to, że to rozwiązuje właściwie kompletnie nasz problem.
+Stosowna wersja lematu Hensela pokazuje, jak w skończonym czasie rozstrzygnąć, co dzieje się w $\Q_p$.
+Liczb pierwszych jest nieskończenie wiele, ale okazuje się, iż można napisać procedurę komputerową, która sobie z tym radzi.
+
 \begin{historia}[Hasse Helmut]\end{historia}
+
 \begin{historia}[Minkowski Hermann]\end{historia}
-\color{black}
 
 Ograniczymy się do rozwiązania tylko jednego równania: $ax^2 + by^2 + cz^2 = 0$ dla wymiernych $a, b,c $.
 Poczynimi kilka założeń: $abc \neq 0$ jest bezkwadratowa oraz $a,b,c \in \Z$, gdyż możemy.
 Wynika stąd, że $a,b,c$ są parami względnie pierwsze i różnych znaków (patrz $p= \infty$!).
 
 \begin{fakt}
-	Jeśli liczba pierwsza $p > 2$ nie dzieli $abc$, to istnieją liczby $x_0, y_0, z_0 \in \Z$, że $ax_0^2 + by_0^2 + cz_0^2 = 0$, a przy tym $p$ nie dzieli wszystkich trzech ($x_0, y_0, z_0$).
+	Jeśli liczba pierwsza $p > 2$ nie dzieli $abc$, to istnieją liczby $x_0, y_0, z_0 \in \Z$, nie wszystkie podzielne prez $p$, że $ax_0^2 + by_0^2 + cz_0^2 = 0$.
 \end{fakt}
 
 \begin{proof} %Specjalny przypadek twierdzenia Chevalleya-Warninga.
-	Gdy $x, y, z$ przebiegają przez całkowite od $0$ do $p-1$, to istnieje $p^3$ trójek $(x,y,z)$.
-	Ile z nich pasuje do równania?
-	Brudna sztuczka: $(ax^2+by^2+cx^2)^{p-1}$ jest równe $1$, gdy trójka nie jest rozwiązaniem (i $0$ w przeciwnym przypadku), wynika to z MTF.
-	Liczba nierozwiązań to $\sum_{p^3} (ax^2+by^2+cz^2)^{p-1}$ (ale modulo $p$!).
+	To specjalny przypadek tw. Chevalleya i Warninga, ale podamy bardziej bezpośredni dowód.
+	Istnieje $p^3$ trójek $(x,y,z)$ w $\mathbb F_p^3$, ale ile z nich pasuje do równania?
+
+	Użyjemy nikczemnej sztuczki: $(ax^2+by^2+cx^2)^{p-1}$ jest równe $1$, wtedy i tylko wtedy gdy trójka nie jest rozwiązaniem ($0$ w przeciwnym przypadku), wynika to z małego twierdzenia Fermata.
+	Liczba nierozwiązań to $\sum (ax^2+by^2+cz^2)^{p-1}$ (modulo $p$).
+
 	Rozwijamy potęgi i dostajemy sumy postaci $\sum \lambda x^{2i}y^{2k}z^{2l}$ z $2i+2k+2l = 2(p-1)$ i $\lambda \in \Z$.
 	Każda z nich jest zerem modulo $p$: 
 	przynajmniej jedna z $2i, 2k, 2l$ jest mniejsza od $p-1$ (powiedzmy, $2i$).
-	Wtedy nasza suma to
-	\[
-		\sum_{(y,z)} \left(\lambda y^{2k}z^{2l} \sum_{x} x^{2i}\right).
-	\]
-
-	Przywołujemy poniższy lemat.
-	Skoro $p$ dzieli $N$ (liczbę nierozwiązań), to dzieli także $p^3 - N$.
-	Znamy jedno rozwiązanie (trywialne), zatem istnieją inne.
-	Był to specjalny przypadek tw. Chevalleya i Warninga.
+	Wtedy nasza suma to $\sum_{y,z} (\lambda y^{2k} z^{2l} \sum_x x^{2i})$.
+	Przywołany lemat z poniżej kończy dowód, gdyż $p$ dzieli liczbę rozwiązań, a znamy już jedno (trywialne).
 \end{proof}
 
 \begin{lemat}
@@ -62,36 +74,39 @@ Wynika stąd, że $a,b,c$ są parami względnie pierwsze i różnych znaków (pa
 \end{lemat}
 
 \begin{proof}
-Wybierzmy takie $y$, że $y^n \not\equiv 1$ mod $p$.
-Wtedy
-\[
-	0 \equiv \sum_{i=0}^{p-1} i^n - \sum_{i=0}^{p-1} (yi)^n = (1-y^n) \sum_{i = 0}^{p-1} i^n \qedhere
-\]
+
+	Wybierzmy takie $y$, że $y^n \neq 1$ mod $p$.
+	Wtedy
+	\[
+		0 \equiv \sum_{i=0}^{p-1} i^n - \sum_{i=0}^{p-1} (yi)^n = (1-y^n) \sum_{i = 0}^{p-1} i^n \qedhere
+	\]
 \end{proof}
 
-Znając rozwiązanie $(x_0,y_0, z_0)$ ,,mod $p$'' wiemy, że $p \nmid x_0$ (bez straty ogólności).
-Znamy rozwiązanie wielomianowego $aX^2 + by_0^2 + cz_0^2 = 0$ modulo $p$, $x_0$.
-Z naszymi założeniami lemat Hensela wskaże $x \in \Z_p$, pierwiastek równania, a także rozwiązanie pierwotnego: $(x, y_0, z_0)$.
+Niech $(x_0, y_0, z_0)$ będzie jakimś rozwiązaniem modulo $p$, takim że $p$ nie dzieli $x_0$ (jeśli jest inaczej, permutujemy nazwy).
+Stosujemy lemat Hensela wobec $ax^2 + by_0^2 + cz_0^2 = 0$ i znajdujemy nietrywialne rozwiązanie $(x, y_0, z_0)$.
 
 To jeszcze nie koniec.
 Załóżmy teraz, że $p = 2$, ale $a,b,c$ są nieparzyste.
-Gdy istnieje rozwiązanie $(x,y,z) \in \Q_2^3$, to możemy założyć, że nie wszystkie leżą w $2\Z_2$ (innymi słowy, $\max\{|x|_2, |y|_2, |z|_2\} =1$).
+Jeśli rozwiązanie $(x, y, z)$ istnieje, to bez straty ogólności nie wszystkie niewiadome leżą w $2\Z_2$ -- jeśli tak nie jest, mnożymy przez odpowiednią potęgę dwójki.
+
 Po redukcji mod $2\Z_2$ widzimy, że $y,z$ są jednościami $2$-adycznymi, $x$ dzieli się przez $2$.
 Kwadrat $2$-adycznej jedności leży w $1+4\Z_2$, zaś kwadrat czegoś z $2\Z_2$ leży w $4\Z_2$. Redukując modulo $4\Z_2$ dostajemy więc: $b+ c \equiv 0$ mod $4$.
 Okazuje się, że warunek ten jest nie tylko konieczny, ale też wystarczający.
 
 \begin{lemat}
-	Równanie $aX^2 + bY^2 + cZ^2 = 0$ ma nietrywialne rozwiązanie w $\Q_2$, gdy $2 \nmid abc$ i $4$ dzieli sumę dwóch z $a, b, c$.
+	Równanie $ax^2 + by^2 + cZ^2 = 0$ ma nietrywialne rozwiązanie w $\Q_2$, gdy $2 \nmid abc$ i $4$ dzieli sumę dwóch z $a, b, c$.
 \end{lemat}
 
 \begin{proof}
 	Szukamy początkowego rozwiązania $(x_0, y_0, z_0)$, dla którego $8 \mid ax_0^2 + by_0^2 + cz_0^2$.
-	Jeśli $8 \mid a+b$, to kładziemy $x_0 = 1$, $y_0 = 1$, $z_0= 0$. Jeśli nie, to $z_0 = 2$, $x_0 = y_0 = 1$.
+	Jeśli $8 \mid a+b$, to kładziemy $x_0 = 1$, $y_0 = 1$, $z_0= 0$.
+	Jeśli nie, to $z_0 = 2$, $x_0 = y_0 = 1$.
+
 	Stosujemy lemat Hensela.
 \end{proof}
 
 \begin{lemat}
-	Równanie $aX^2 + bY^2 + cZ^2 = 0$ ma nietrywialne rozwiązanie w $\Q_2$, gdy jedna z $a, b, c$ jest parzysta, zaś suma dwóch lub trzech z nich dzieli się przez 8.
+	Równanie $ax^2 + by^2 + cz^2 = 0$ ma nietrywialne rozwiązanie w $\Q_2$, gdy jedna z $a, b, c$ jest parzysta, zaś suma dwóch lub trzech z nich dzieli się przez 8.
 \end{lemat}
 
 \begin{proof}
@@ -99,12 +114,13 @@ Okazuje się, że warunek ten jest nie tylko konieczny, ale też wystarczający.
 	Możemy przyjąć, że któraś z $x, y,z$ jest $2$-adyczną jednością, zaś wszystkie leżą w $\Z_2$.
 	Kwadrat $2$-adycznej jedności leży w $1 + 8 \Z_2$, zatem $0 = ax^2 + by^2 + cz^2 \equiv b +c$ (mod $8$), jeśli $x \in 2\Z_2$ (wtedy $y,z$ muszą być $2$-adycznymi jednościami).
 
-	Jeśli $x$ jest $2$-adyczną jednością, to $y, z$ i tak też muszą nimi być, co prowadzi do $a+b+c \equiv 0$ mod $8$.
+	Jeśli $x$ jest $2$-adyczną jednością, to $y, z$ i tak też muszą nimi być, co prowadzi nas do $a+b+c \equiv 0$ mod $8$.
+	
 	Twierdzenie odwrotne jest prawdziwe na mocy uogólnionego lematu Hensela.
 \end{proof}
 
 \begin{lemat}
-	Jeżeli $p \neq 2$ dzieli $a$, to równanie ma nietrywialne rozwiązanie dokładnie wtedy, gdy $-b/c$ to kwadratowa reszta mod $p$.
+	Jeżeli \prawo{Gouvea\\Prob. 131} $p \neq 2$ dzieli $a$, to równanie ma nietrywialne rozwiązanie dokładnie wtedy, gdy $-b/c$ to kwadratowa reszta mod $p$.
 \end{lemat}
 
 \begin{proof}
