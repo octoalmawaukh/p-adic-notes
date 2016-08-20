@@ -1,5 +1,5 @@
 \section{Normowa niezależność}
-Zaprezentujemy teraz pogląd Casselsa na temat niezależności nierównoważnych norm.
+Zaprezentujemy \prawo{Cassels\\2.3} teraz pogląd Casselsa na temat niezależności nierównoważnych norm.
 Co dokładnie przez to rozumiemy, stanie się jasne natychmiast po udowodnieniu lematu.
 
 \begin{lemat}
@@ -12,7 +12,7 @@ Co dokładnie przez to rozumiemy, stanie się jasne natychmiast po udowodnieniu 
 	Gdy $m = 2$, istnieją $y, z \in \cialo$, takie że $|y|_1, |z|_2 < 1$ oraz $|y|_2, |z|_1 \ge 1$.
 	Poszukiwanym jest wtedy $x = zy^{-1}$.
 	
-	Jeżeli $m > 2$, to z założenia indukcyjnego mamy $y \in \cialo$, że $|y|_1 > 1$, $|y|_i < 1$ ($2 \le i \le m-1$).
+	Jeżeli $m > 2$, to z założenia indukcyjnego mamy $y \in \cialo$, że $|y|_1 > 1$, natomiast dla $2 \le i \le m-1$ zachodzi $|y|_i < 1$.
 	Z drugiej strony istnieje $z \in \cialo$, że $|z|_1 > 1$, $|z|_m < 1$.
 	Rozpatrujemy trzy przypadki.
 
@@ -41,20 +41,15 @@ Co dokładnie przez to rozumiemy, stanie się jasne natychmiast po udowodnieniu 
 \end{proof}
 
 Związane jest to z chińskim twierdzeniem o resztach.
-Mówi ono, że gdy $x_i \in \Z$ są dane, $p_i$ parami różne (i pierwsze), zaś $m_i$ naturalne, to układ ,,kongruencji''
-\[
-	|x - x_i|_i \le p_i^{-m(i)}
-\]
+Mówi ono, że gdy $x_i \in \Z$ są dane, $p_i$ parami różne (i pierwsze), zaś $m_i$ naturalne, to układ ,,kongruencji'' $|x - x_i|_i \le m_i$
 ma rozwiązanie nie tylko w $\Q$, ale także $\Z$.
 Nasz fakt można jednak wzmocnić, gdy $\cialo$ jest algebraicznym ciałem liczbowym (uczynimy to, ale jeszcze nie teraz).
 
 Przedstawimy teraz obrazowo niezależność.
 
 \begin{fakt}
-	Odwzorowanie przekątniowe ma gęsty obraz, kiedy $\cialo_i$ uzupełnia $\cialo$ względem nierównoważnych parami norm.
-	\[
-		\Delta: \cialo \hookrightarrow \prod_i \cialo_i
-	\]
+	Niech $\cialo_i$ będzie uzupełnieniem ciała $\cialo$ względem parami nierównoważnych norm.
+	Wtedy odwzorowanie przekątniowe $\Delta: \cialo \hookrightarrow \prod_i \cialo_i$ ma gęsty obraz.
 \end{fakt}
 
 \begin{proof}
