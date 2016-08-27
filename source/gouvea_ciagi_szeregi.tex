@@ -1,17 +1,28 @@
+Liczne podobieństwa między ciałami $\R$ oraz $\Q_p$ (lokalna zwartość, zupełność, algebraiczna niedomkniętość) sugerują, że tam, gdzie normalni ludzie korzystają z prostej rzeczywistej, my możemy wcisnąć $p$-adyczne obiekty.
+Należy pamiętać o tym, że chociaż ciało $\R$ jest uporządkowane i spójne, to $\Q_p$ stanowią całkowite jego przeciwieństwo -- w połowie z nich istnieje jednostka urojona, wszystkie zaś są całkowicie niespójne.
+
+Zaczniemy od najprostszych struktur znanych z analizy matematycznej: ciągów oraz funkcji, cały czas zwracając uwagę na to, ile twierdzeń jesteśmy w stanie uratować, a co jest skazane na zapomnienie.
+Absencja pochodnych jest początkowo szokująca.
+Zrozumienie, że naiwne twierdzenie o wartości średniej jest fałszywe, pozwoli przekonać się do szeregów potęgowych.
+Zupełnie inną parę kaloszy stanowią całki.
+Można wprawdzie się zająć nimi z podstawową wiedzą na temat liczb $p$-adycznych, jednak wstrzymamy się z tym.
+Będziemy ich potrzebować w trzech miejscach: w rozdziale poświęconym mechanice kwantowej, podczas interpolacji funkcji $\zeta$ Riemanna oraz po poznaniu trudniejszej analizy.
+Wygląda na to, że nie istnieje jednolita teoria obejmująca wszystkie trzy twory.
+
 \section{Ciągi oraz szeregi}
-W ciele $\Q_p$ marzenia stają się prawdziwe:
+Nawet, \prawo{Gouvea\\4.1} kiedy jasno tego nie zaznaczamy, pracujemy w $\Q_p$, właśnie tym ciele, gdzie marzenia stają się prawdziwe.
 
 \begin{fakt}
-	Ciąg $(x_n)$ o wyrazach w $\Q_p$ jest Cauchy'ego, wtedy i tylko wtedy gdy zachodzi $\lim_{n\to \infty}|x_{n+1} - x_n| = 0$.
+	Ciąg $(x_n)$ jest ciągiem Cauchy'ego, wtedy i tylko wtedy gdy jego pierwsza skończona różnica $x_{n+1} - x_n$ zbiega do zera.
 \end{fakt}
 
 \begin{proof}
-	Jeśli $m = n+r > n$, to $|x_m - x_n|$ można oszacować z góry,
-	$\left|\sum_{k = 1}^r x_{n+k} - x_{n+k-1}\right| \le \max_{1 \le k \le r} |x_{n+k}-x_{n+k-1}|$,
-	bo wartość bezwzględna jest niearchimedesowa.
+	Jeśli $m = n+r > n$, to $|x_m - x_n| \le \max_{1 \le k \le r} |x_{n+k}-x_{n+k-1}|$, jako że norma jest niearchimedesowa.
 \end{proof}
 
 Zbieżność absolutna szeregu pociąga jego zbieżność, w ciele liczb $p$-adycznych zachodzi jednak jeszcze mocniejszy fakt.
+
+Warto w tym miejscu nadmienić, iż wiele dowodów z analizy rzeczywistej przepisuje się bez zmieniania ani jednego znaku drukarskiego, toteż będziemy je (najczęściej) pomijać.
 
 \begin{fakt} \label{ingentis} %zielony
 	Zbieżność szeregu $\sum_n x_n$ o wyrazie ogólnym z $\Q_p$ jest równoważna zbieżności $x_n$ do $0$.
@@ -20,6 +31,7 @@ Zbieżność absolutna szeregu pociąga jego zbieżność, w ciele liczb $p$-ady
 
 \begin{proof}
 	Implikacja w prawo jest oczywista.
+	
 	Dla dowodu w lewo wynikania wystarczy zauważyć, że wyraz $x_n$ to różnica między dwoma sumami częściowymi i powołać się na poprzedni fakt.
 
 	Nierówność wynika z
@@ -39,32 +51,33 @@ Zbieżność absolutna szeregu pociąga jego zbieżność, w ciele liczb $p$-ady
 	Nałożenie normy zmusza do wysumowania $1 + 1 + 1 + \ldots$, ale zwykłą sumą graniczną jest odwrotność $1 - p^2$, żyjąca w każdym $\Q_p$.
 \end{proof}
 
-Aby zająć się podwójnymi sumami, potrzebujemy czegoś więcej niż tylko zbieżność do zera.
+Wynika stąd, iż sprawdzanie zbieżności ciągu jest naprawdę przyjemnym zajęciem i różne testy (Cauchy'ego, d'Alemberta, Raabego, całkowe i inne) nie mają racji bytu.
+Aby zająć się podwójnymi sumami, potrzebujemy jednak czegoś więcej niż tylko zbieżność do zera.
 
 \begin{definicja}
 	Jeśli dla każdej dodatniej liczby $\varepsilon$ istnieje całkowita $N$ niezależna od $k$, że $i \ge N$ pociąga $|x_{ik}| < \varepsilon$, to $\lim_{i \to \infty} x_{ik} = 0$ jednostajnie względem $k$.
 \end{definicja}
 
 \begin{lemat} \label{veteris}
-	Załóżmy, że $x_{ik} \in \Q_p$, $\lim_{k \to \infty} x_{ik} = 0$ (dla każdego $i$), $\lim_{i \to \infty} x_{ik} = 0$ jednostajnie względem $k$.
+	Załóżmy, że $\lim_{k \to \infty} x_{ik} = 0$ (dla każdego $i$) oraz $\lim_{i \to \infty} x_{ik} = 0$ jednostajnie względem $k$.
 	Wtedy każdemu $\varepsilon > 0$ odpowiada $N$, że $\max \{i, k\} \ge N$ pociąga $|x_{ik}| < \varepsilon$.
 \end{lemat}
 
 \begin{proof}
 	Ustalmy $\varepsilon$.
-	Drugi warunek zapewnia $N_0$ (zależne tylko od $\varepsilon$), że $|x_{ik}| < \varepsilon$ dla $i \ge N_0$.
+	Drugi warunek zapewnia $N_0$ (zależne od $\varepsilon$), że $|x_{ik}| < \varepsilon$ dla $i \ge N_0$.
+	
 	Pierwszy zaś dla każdego $i$ daje $N_1$, dla którego $k \ge N_1$ pociąga $|x_{ik}| < \varepsilon$.
 	Wystarczy przyjąć $N = \max\{N_0, N_1(0), N_1(1), \ldots, N_1(N_0-1)\}$.
 \end{proof}
 
 \begin{fakt} \label{caedis}
-	Przy założeniach z lematu \ref{veteris} poniższe szeregi zbiegają do tej samej liczby: $\sum_{i = 0}^\infty \sum_{k = 0}^\infty x_{ik} = \sum_{k = 0}^\infty \sum_{i = 0}^\infty x_{ik}$.
+	Przy założeniach z lematu \ref{veteris} poniższe szeregi zbiegają do tej samej liczby: \[\sum_{i = 0}^\infty \sum_{k = 0}^\infty x_{ik} = \sum_{k = 0}^\infty \sum_{i = 0}^\infty x_{ik}.\]
 \end{fakt}
 
 \begin{proof}
 	Lemat mówi, że każdemu $\varepsilon > 0$ odpowiada liczba $N$, dla której ,,$\max \{i, k\} \ge N$ pociąga $|x_{ik}| < \varepsilon$''.
 	Skoro ciąg $x_{ik}$ zbiega do zera po ustaleniu jednego z indeksów, to oba szeregi wewnętrzne są zbieżne.
-
 	Dla $i \ge N$ mamy $|\sum_{k \ge 0} x_{ik}| \le \max_k |x_{ik}| < \varepsilon$ na mocy faktu \ref{ingentis}, podobna nierówność prawdziwa jest dla $k \ge N$.
 	
 	Wnioskujemy stąd, że podwójne szeregi także zbiegają, bo
@@ -73,7 +86,6 @@ Aby zająć się podwójnymi sumami, potrzebujemy czegoś więcej niż tylko zbi
 	\]
 
 	Pozostało nam uzasadnić, że sumy są sobie równe.
-
 	Pozostańmy przy $N$, $\varepsilon$ wybranych wcześniej.
 	Oznacza to, że $|x_{ik}| < \varepsilon$, gdy $i \ge N$ lub $k \ge N$.
 	Zauważmy, że 
@@ -85,24 +97,25 @@ Aby zająć się podwójnymi sumami, potrzebujemy czegoś więcej niż tylko zbi
 \end{proof}
 
 \begin{fakt}
-	Załóżmy zbieżność szeregów $\sum_i x_i$, $\sum_i y_i$.
-	Zachodzi wtedy: $\sum_i x_i + y_i = \sum_i x_i + \sum_i y_i$, a także
+	Niech szeregi $\sum_i x_i$, $\sum_i y_i$ będą zbieżne.
+	Wtedy
 	\[
+		\sum_{i = 0}^\infty x_i + y_i = \sum_{i = 0}^\infty x_i + \sum_{i = 0}^\infty y_i \,\bullet\,
 		\sum_{i = 0}^\infty \sum_{k = 0}^i x_k y_{i-k} = \Bigr[\sum_{i = 0}^\infty x_i\Bigr] \cdot \Bigr[ \sum_{i = 0}^\infty y_i\Bigr].
 	\]
 \end{fakt}
 
-Wyznaczymy teraz wartość kilku szeregów $p$-adycznych.
+Wyznaczymy teraz wartość konkretnych szeregów $p$-adycznych.
 Fenomen związany z ich nieoczekiwanymi granicami wyjaśnić się może  po lekturze ostatniego ustępu w tym rozdziale, gdzie przytoczymy zaskakujący wynik Burgera i Struppecka.
 
 \begin{fakt}
-	Jeżeli $k > 0$, to $\sum_{n \ge 0} n^k p^n$ jest wymierne w $\Q_p$.
+	Jeżeli \prawo{Koblitz\\Ale gdzie?} $k > 0$, to $\sum_{n \ge 0} n^k p^n$ jest wymierne w $\Q_p$.
 \end{fakt}
 
 \begin{proof}
 	Wynika to z równości szeregów formalnych
 	\[
-		\sum_{n = 0}^\infty n^k x^n = \left(x \cdot \partial_x\right)^k \frac{1}{1-x}.
+		\sum_{n = 0}^\infty n^k x^n = \Bigl(x \cdot \frac {\textrm{d}}{\textrm{d}x} \Bigr)^k \frac{1}{1-x}.
 	\]
 	Szereg stojący po lewej stronie to specjalny przypadek funkcji $\zeta$ Hurwitza-Lercha, ale nam wystarczy wiedza o wielomianach Eulera. Okazuje się (skoro $|p| = 1 / p < 1$), że 
 	\[
@@ -111,28 +124,31 @@ Fenomen związany z ich nieoczekiwanymi granicami wyjaśnić się może  po lekt
 	gdzie $\{\cdot, \cdot\}$ to (nieznakowana) druga licza Stirlinga.
 \end{proof}
 
-Łatwo pokazać jest, że $\sum_{n \ge 0} n \cdot n! = -1$ w każdym z ciał $\Q_p$, gdyż suma ta jest ,,teleskopowa'': $n \cdot n! = (n+1)! - n!$.
-Nieco więcej wysiłku wymaga powtórzenie osiągnięć van Hamme'a, któremu Schikhof przypisuje równości:
-$\sum_{n \ge 1} n^2 (n+1)! = 2$, 
-$\sum_{n \ge 1} n^5 (n+1)! = 26$,
-$\sum_{n \ge 1} 4^{-n-1} \cdot n^2(n+1)! = -1$.
+Na mocy równości $n \cdot n! = (n+1)! - n!$ suma \[\sum_{n \ge 0} n \cdot n!\]
+jest teleskopowa w każdym z ciał $\Q_p$, łatwo tak pokazać, że jej wartość wynosi $-1$.
+Nieco więcej wysiłku wymaga powtórzenie osiągnięć van Hamme'a, któremu Schikhof przypisuje jeszcze trzy równości.
 
 \begin{fakt}
-	Wszystkie one są prawdziwe w $\Q_p$, przy czym ostatnia wymaga $p \neq 2$.
+	Poniższe \prawo{Schikhof\\Ex. 23.J} szeregi zbiegają w każdym z ciał $\Q_p$, aczkolwiek ostatni wymaga, by $p$ było nieparzyste: $a_n = n^2(n+1)!$, $b_n = n^5(n+1)!$, $c_n = n^2 (n+1)! 4^{-n-1}$.
+	 \[
+	 	\sum_{n=0}^\infty a_n = 2 \,\bullet\,
+	 	\sum_{n=0}^\infty b_n = 26 \,\bullet\,
+	 	\sum_{n=0}^\infty c_n = -1
+	 \]
 \end{fakt}
 
 \begin{proof}
-	Ostatnia równość jest fałszywa (u Schikhofa), musiała więc zostać delikatnie poprawiona.
+	Ostatnia równość jest fałszywa (w książce Schikhofa), musiała więc zostać delikatnie poprawiona.
 	Dla $p = 2$ szereg po lewej stronie nie jest nawet zbieżny.
-	Podamy jedynie sumy częściowe (do $n = m$), które uważny Czytelnik może zweryfikować:
+	Podamy jedynie sumy częściowe, które uważny Czytelnik może zweryfikować:
 	\begin{align*}
-	2 & + (m+2)! (m-1) \\
-	26 & + (m+2)! (m^4 - m^3 - 3m^2 +12m-13) \\
-	- 1 & + (m + 2)! (m + 2) : 4^{m+1}. \qedhere
+		a_1 + a_2 + \ldots + a_m &= (m+2)! (m-1) + 2\\
+		b_1 + b_2 + \ldots + b_m &= (m+2)! (m^4 - m^3 - 3m^2 +12m-13) + 26\\
+		c_1 + c_2 + \ldots + c_m &= (m + 2)! (m + 2) : 4^{m+1} - 1. \qedhere
 	\end{align*}
 \end{proof}
 
-Spróbujemy teraz związać dwa ostatnie szeregi ze światem poza-$p$-adycznym.
+Zwiążemy \prawo{OEIS} teraz dwa pierwsze szeregi ze światem poza-$p$-adycznym.
 Dla każdego $n$ istnieją (jedyne) liczby $a_n$, $b_n$ oraz wielomian $p_n(x)$, że (przy niefortunnej notacji!)
 \[
 	%\sum_{i = 1}^k (i^n - a_n) (i+1)! = (k+2)! \cdot p_n(k) + b_n.
@@ -143,11 +159,11 @@ Jeżeli $a_n = 0$, to lewa strona dąży do $b_n$ w $\Q_p$, ale niestety nie są
 Ciągi 074051 i 074052 w bazie danych OEIS zawierają więcej informacji.
 Wykładnicza tworząca $a_n$ to $\exp(1-2x-e^{-x})$.
 
-Problem wymierności liczby $x = \sum_n n!$ pozostaje otwarty w każdym ciele $\Q_p$.
-Wymierna wszędzie nie może jednak być: po pierwsze, nie zależałaby od $p$, po drugie, byłaby całkowita.
+Koblitz stwierdza, że problem \prawo{Koblitz?} wymierności liczby $x = \sum_n n!$ pozostaje otwarty w każdym ciele $\Q_p$.
+Wiemy jednak, iż nie może być wymierna w każdym z nich: po pierwsze, nie zależałaby od $p$, po drugie, byłaby całkowita.
 
 \begin{fakt}
-	Mamy $x_k := \sum_{n \ge 1} n^k \cdot n! = v_k - u_k x$, $v_k, u_k \in \Z$.
+	Mamy \prawo{Marty,\\Sumner} $x_k := \sum_{n \ge 1} n^k \cdot n! = v_k - u_k x$, $v_k, u_k \in \Z$.
 \end{fakt}
 
 \begin{lemat}
@@ -165,7 +181,7 @@ Teraz wystarczy zastosować indukcję.
 	Zachodzi $u_k = \sum_{i=1}^{k+1} (-1)^{k+i} \cdot \{k+1, i\}$.
 \end{fakt}
 
-Wzór ten pozwala szybciej wyznaczać współczynniki $u_k$, wcześniej Dragovich sugerował rozwiązanie układu liniowych $k+1$ równań.
+Wzór ten pozwala szybciej wyznaczać współczynniki $u_k$, wcześniej Dragovich sugerował rozwiązanie układu $k+1$ równań liniowych.
 
 \begin{fakt}
 	Jeśli $k \in 3\N + 1$, to $u_k \neq 0$, wtedy $x_k$ i $x$ są tak samo niewymierne.
