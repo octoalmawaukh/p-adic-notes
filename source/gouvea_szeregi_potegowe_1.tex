@@ -104,6 +104,17 @@ To intrygujące, jak zwykła analiza łatwiej radzi sobie z tym problemem: jeśl
 	Niestety, $h(1) \equiv 3 \pmod {4}$ i $h(1) \neq f(g(1))$.
 \end{przyklad}
 
+Nie rozwodziliśmy się nad pochodną, jednak współpracuje ona bardzo porządnie z podstawowymi operacjami na szeregach.
+Precyzuje to poniższy fakt.
+
+\begin{definicja}
+	Formalna pochodna szeregu potęgowego to liniowy operator
+	\[
+		\mathfrak D\Bigl[\sum_{n=0}^\infty a_n x^n\Bigr] = \sum_{n=0}^\infty n a_n x^{n-1}.
+	\]
+\end{definicja}
+
+
 \begin{fakt}
 	Formalna pochodna spełnia regułę Leibniza $\mathfrak D[fg] = \mathfrak D[f]g + f \mathfrak D[g]$, a także regułę łańcuchową: $\mathfrak D[f \circ g](x) = \mathfrak D [f](g(x)) \mathfrak D [g](x)$.
 \end{fakt}
