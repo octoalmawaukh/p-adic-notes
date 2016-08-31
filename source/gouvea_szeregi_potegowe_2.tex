@@ -1,18 +1,16 @@
+Dowód \prawo{Gouvea\\4.4} poniższego lematu jest analogiczny do przypadku ,,$\R$'', aczkolwiek cudownie dla nas, zachowanie na brzegu nie jest takie problematyczne, co delikatnie ułatwi definiowanie funkcji specjalnych szeregami potęgowymi.
 
-Przy pomocy szeregów potęgowych można zdefiniować na ich obszarze zbieżności funkcje.
-Dowód poniższego lematu jest analogiczny do przypadku ,,$\R$''.
 
 \begin{lemat}
 	Jeśli szereg potęgowy $f(x) \in \Q_p[[x]]$ jest zbieżny na $D \subseteq \Q_p$, to funcja $f \colon D \to \Q_p$, $x \mapsto f(x)$, jest ciągła.
 \end{lemat}
 
-Niestety, nie istnieje $p$-adyczny odpowiednik analitycznego przedłużania.
-Obszar zbieżności można zwiększyć (dla funkcji $\R \to \R$) przez rozwinięcie w innym miejscu; tutaj ta sztuczka się nie uda.
+Niestety, z $p$-adycznego punktu widzenia, analityczne przedłużanie nie ma sensu: tutaj sztuczka polegająca na rozwinięciu funkcji $\R \to \R$ w innym miejscu się nie uda.
 
 \begin{fakt}
-	Funkcje od szeregów potęgowych $f$ i $g$ mają ten sam obszar zbieżności, jeśli $f(x) = \sum_n a_n x^n \in \Q_p[[x]]$ istnieje dla $x = x_0$.
+	Jeśli $f(x) = \sum_n a_n x^n$ jest szeregiem potęgowym nad ciałem $\Q_p$ i $f(x_0)$ jest zbieżny, to szereg $g$ jest dobrze określony, zbiega dokładnie tam, gdzie $f$ i pokrywa się z nim wartościami.
 	\[
-		g(x) = \sum_{m \ge 0} \sum_{n \ge m} \underbrace{ C^n_m a_n x_0^{n-m}}_{b_m}\cdot (x-x_0)^m 
+		g(x) = \sum_{m \ge 0} b_m (x - x_0)^m := \sum_{m \ge 0} \sum_{n \ge m} {n \choose m} a_n x_0^{n-m} (x-x_0)^m
 	\]
 \end{fakt}
 
@@ -32,11 +30,9 @@ Obszar zbieżności można zwiększyć (dla funkcji $\R \to \R$) przez rozwinię
 
 	Niech $\beta_{n, m} = 0$ dla $m > n$ i $(n \textrm{ nad } m )a_n x_0^{n-m}(x - x_0)^m$ dla $m \le n$.
 	Trzeba ograniczyć $|a_n x_0^{n-m} (x - x_0)^m| \ge |\beta_{nm}|$.
-
 	Skoro $x, x_0$ leżą w kole zbieżności o jakimś promieniu $R$, to obszar ten zawiera domknięty dysk o promieniu $r$, równym co najmniej $\max \{|x|, |x_0|\}$.
 
-	Z konstrukcji wynika nierówność $|x_0|^{n-m} \le r^{n-m}$ oraz $|x - x_0|^m \le \max \{|x|, |x_0|\}^m \le r^m$.
-	Kluczową obserwacją jest niearchimedesowość ciała.
+	Z samej konstrukcji (oraz niearchimedesowskości ciała) wynikają dwie nierówności, $|x_0|^{n-m} \le r^{n-m}$ oraz $|x - x_0|^m \le \max \{|x|, |x_0|\}^m \le r^m$.
 
 	Podsumowując, $|\beta_{mn}| \le |a_n| r^n$, co nie zależy od $m$ i daje jednostajną zbieżność.
 \end{proof}
@@ -46,7 +42,7 @@ Indykator $\Z_p$ w $\Q_p$ jest lokalnie analityczny, jednak czujemy opory przed 
 Te i inne problemy można obejść, lecz wymaga to wiele wysiłku.
 Chodzi tu o podstawy \emph{sztywnej geometrii analitycznej}, której fundamenty wyłożył Tate.
 
-Zamiast tego zajmiemy się innymi, prostszymi rzeczami.
+Zamiast tego zajmiemy się czymś prostszym.
 Zbieżny ciąg nazwiemy {stacjonarnym}, jeśli jest od pewnego miejsca stały.
 Jeśli funkcja jest zadana rozwinięciem w szereg potęgowy, to przedstawienie jest jednoznaczne.
 
@@ -55,16 +51,16 @@ Jeśli funkcja jest zadana rozwinięciem w szereg potęgowy, to przedstawienie j
 \end{fakt}
 
 \begin{proof}
-	Bez straty ogólności $x_m \neq 0$.
-	Popatrzmy na różnicę, $h(x) = f(x) - g(x) = \sum_n a_nx^n$.
-	Wiemy, że $h(x_m) = 0$, ale czy $a_n = 0$?
-	Załóżmy, że nie, niech $r$ będzie najmniejszym indeksem, dla którego $a_r \neq 0$, by
-	$h(x) = x^r h_1(x)$.
-	Przy tym $h_1(0) = a_r \neq 0$ i funkcja $h_1$ jest ciągła, więc $h_1(x_m) \to a_r$ gdy $m \to \infty$, w szczególności $h_1(x_m)$ jest niezerem dla dużych $m$.
-Wtedy $h(x_m) = x_m^r h_1(x_m)$ nie jest zerem, sprzeczność.
+	Spójrzmy na różnicę, $h(x) = (f - g)(x) = \sum_n a_nx^n$.
+	Wiemy, że $h(x_m) = 0$.
+	Bez straty ogólności niechaj $x_m \neq 0$.
+
+	Załóżmy nie wprost, iż $a_n \not\equiv 0$, przy czym $r$ jest najmniejszym indeksem, dla którego $a_r \neq 0$ i połóżmy $h(x) = x^r h_1(x)$.
+	Skoro $h_1(0) = a_r \neq 0$ i funkcja $h_1$ jest ciągła, to dla $m$ uciekającego do nieskończoności wielkość $h_1(x_m)$ dąży do $a_r$, a przez to nie jest od pewnego miejsca zerem.
+	Wtedy $h(x_m)$ też nie jest zerem, sprzeczność.
 \end{proof}
 
-Jeżeli funkcja jest zdefiniowana jako szereg potęgowy, to niech lepiej jej pochodna odpowiada ,,formalnej'' pochodnej dla formalnego szeregu potęgowego.
+Byłoby miło, gdyby pochodne funkcji zdefiniowanych przez szeregi potęgowe były tym samym, co funkcje pochodzące od formalnych pochodnych tych szeregów, na szczęście tak właśnie jest.
 
 \begin{fakt} \label{maris}
 	Formalne zróżniczkowanie szeregu nie zmniejsza jego promienia zbieżności, a przy tym pokrywa się z ,,analityczną'' definicją pochodnej (jako granicy ilorazów): $f(x) = \sum_n a_nx^n$.
@@ -78,7 +74,7 @@ Jeżeli funkcja jest zdefiniowana jako szereg potęgowy, to niech lepiej jej poc
 	Gdy $x = 0$, to każde $h$ z $|h| < R $ jest w porządku. 
 	Jeżeli tak nie jest, to $|h| < |x|$ też nie będzie takie złe.
 
-	Załóżmy, że $f(x)$ zbiega, zatem $a_n x^n \to 0$.
+	Załóżmy, że $f(x)$ zbiega (do czegokolwiek), wtedy $a_n x^n$ też zbiega (do $0)$.
 	Jeżeli $x \neq 0$, to $|na_nx^{n-1}| \le |a_nx^{n-1}| = |a_nx^n|/|x| \to 0$, co wystarcza do zbieżności pochodnej.
 
 	Szereg $f(x)$ zbiega w domkniętej lub otwartej kuli $\mathcal B(0, R )$.
@@ -157,8 +153,9 @@ Dwa szeregi zbieżne w $p^m\Z_p$ i pokrywające się dla $\infty$-wielu wartośc
 	To daje nieskończenie wiele zer, więc różnica musi być zerem, czyli $f(x)$ jest stały.
 \end{proof}
 
-To zupełnie nie przypomina przypadku $\R$: sinus i kosinus są okresowe i entiére!
-Powodem jest to, że w $\R$ nie może być tak, że wszystkie wielokrotności okresu leżą w przedziale (ale w $\Q_p$ już tak).
+To zupełnie nie przypomina przypadku $\R$: sinus i kosinus są okresowe i całkowite (z francuskiego, entiére)!
+
+Powodem jest to, że w $\R$ wszystkie wielokrotności okresu nie mogą leżeć w jednym przedziale (ale w $\Q_p$ już tak).
 Chociaż okresowość w $\R$ nie pokrywa się z tą w $\Q_p$, to zera entiére są podobnie rozłożone.
 
 \begin{fakt}
