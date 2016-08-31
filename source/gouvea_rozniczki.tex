@@ -1,5 +1,5 @@
 \section{Bezmyślne różniczkowanie}	
-Metryka zadaje ciągłość.
+Metryka \prawo{Gouvea\\4.2} zadaje ciągłość.
 Niestety, w $\Q_p$ nie można pracować z przedziałami (bo ich nie ma); można jednak definiować funkcje na kulach (otwar...niętych). 
 Upośledzona definicja pozwoli nam udawać, że różniczkujemy, chociaż do przyszłego rozdziału nie będziemy tego potrafić.
 
@@ -10,9 +10,7 @@ Upośledzona definicja pozwoli nam udawać, że różniczkujemy, chociaż do prz
 
 %Jeżeli zbiór $U$ jest zwarty, to $f$ jest jednostajnie ciągła (dlaczego?).
 
-Pochodna takiej funkcji to granica ilorazów różnicowych, by zachować analogię z rzeczywistym przypadkiem.
-Użyteczność pochodnej jest jednak ograniczona.
-Wszystko przez fałszywość twierdzenia o wartości średniej w $\Q_p$.
+Użyteczność pochodnej (jako granicy ilorazów różnicowych) jest jednak ograniczona, jako że nie mamy do dyspozycji twierdzenia o wartości średniej, nawet dla wielomianów.
 
 \begin{fakt} [fałszywy]
 	Jeśli funkcja $f$ jest różniczkowalna na $\Q_p$ i ma ciągłą pochodną, zaś $x,y \in \Q_p$, to istnieje taka liczba $z \in \Q_p$ postaci $\lambda x + (1-\lambda)y$ z $|\lambda| \le 1$, że $f(y) - f(x) = f'(z) (y-x)$.
@@ -23,15 +21,9 @@ Wszystko przez fałszywość twierdzenia o wartości średniej w $\Q_p$.
 	Nie ma takiego $z_\lambda = 1 - \lambda$ z $\lambda \in \Z_p$, żeby $f'(z_\lambda) = 0$: w takiej stuacji pochodna się odwraca (!) i nie może być zerem.
 \end{proof}
 
-\begin{fakt}
-	Istnieje różniczkowalna funkcja $\Q_p \to \Q_p$ o pochodnej wszędzie równej zero, która nie jest lokalnie stała (,,prawie stała'').
-\end{fakt}
-
-Pewnym wyjaśnieniem tego, skąd biorą się takie funkcje jest poniższy fakt (w $\Q_p$ prawdziwa jest reguła łańcucha). % G114
-
-\begin{fakt}
-	Jeśli pochodna funkcji $f$ wszędzie znika, zaś $g$ jest ciągle różniczkowalna, to pochodne złożeń $f \circ g$, $g \circ f$ są zerem (wszędzie).
-	Funkcje o tej samej pochodnej \emph{nie muszą} różnić się o stałą.
-\end{fakt}
+Smutku wiele.
+Łańcuchowa reguła (o różniczkowaniu złożenia) pozostaje prawdziwa w nowym ciele.
+Jeżeli funkcja $f$ ma zerową pochodną, zaś $g$ jest ciągle różniczkowalna, to pochodna zarówno $f \circ g$, jak i $g \circ f$ zeruje się w całej dziedzinie.
+To tłumaczy, skąd bierze się całe multum funkcji $\Q_p \to \Q_p$, które mają zerową pochodną, ale nie są lokalnie stałe.
 
 Twierdzenie o wartości średniej uratujemy później, w ślad za Robertem (po delikatnym wzmocnieniu założeń).
