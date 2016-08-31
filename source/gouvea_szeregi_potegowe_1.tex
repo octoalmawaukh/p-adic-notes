@@ -20,10 +20,11 @@ Zbiór punktów, dla których tak właśnie jest, nazywamy dyskiem (obszarem) zb
 \end{fakt}
 
 \begin{proof}
-	Wiadomo dobrze, jaki zbiór jest obszarem zbieżności: $\{x \in \Q_p : \lim_{n \to \infty} |a_n x^n| = 0\}$.
-	Oczywiście $f(0)$ jest zbieżny.
+	Chcemy opisać kształt zbioru $\{x \in \Q_p : \lim_{n \to \infty} |a_n x^n| = 0\}$.
+	Oczywiście wartość $f(0)$ istnieje.
 	Jeśli $|x| < R $, to (rzeczywisty) szereg potęgowy $\sum_n |a_n| |x|^n$ jest zbieżny.
-	Jeśli zaś $|x| > R $, to $|a_n| |x|^n$ nie może zbiegać do zera przy $n$ dążącym do nieskończoności: nieskończenie często $|a_n|$ jest blisko $R ^{-n}$, więc $(|x|/R )^n$ może być dowolnie duże.
+	Jeśli zaś $|x| > R $, to $|a_n| |x|^n$ nie może zbiegać do zera przy $n$ uciekającym do nieskończoności: wtedy $|a_n|$ jest nieskończenie często blisko $R ^{-n}$, więc $(|x|/R )^n$ może być dowolnie duże.
+	
 	Przypadek $|x| = R $ jest konsekwencją faktu \ref{ingentis}.
 \end{proof}
 
