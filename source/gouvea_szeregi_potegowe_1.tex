@@ -30,14 +30,13 @@ Zbiór punktów, dla których tak właśnie jest, nazywamy dyskiem (obszarem) zb
 
 Szeregi $p$-adyczne szeregi zachowują się porządniej niż ich zespoleni koledzy.
 Tam zbieżność na brzegu dysku $\{|x| = R \}$ jest nieprzewidywalna, tutaj brzegu po prostu nie ma.
-
-Formalne szeregi potęgowe można dodawać i mnożyć.
+Formalne szeregi potęgowe można dodawać i mnożyć, jak w fakcie \ref{ludmori}.
 
 \begin{fakt}\label{decoris}
-	Jeżeli szeregi potęgowe $f, g$ nad $\Q_p$ zbiegają w punkcie $x$, to $f+g$ oraz $fg$ również -- odpowiednio do $f(x) + g(x)$ i $f(x)g(x)$.
+	Jeżeli szeregi potęgowe $f, g$ nad $\Q_p$ zbiegają w punkcie $x$, to $f+g$ oraz $fg$ również, odpowiednio do $f(x) + g(x)$ i $f(x)g(x)$.
 \end{fakt}
 
-Przyjrzymy się teraz formalnym złożeniom, które (o dziwo) zachowują się zaskakująco często gorzej niż źle.
+Przyjrzymy się formalnym złożeniom, które (o dziwo) zachowują się zaskakująco często gorzej niż źle.
 Będziemy więc pracować z szeregami: $f(x) = \sum_n a_n x^n$ i $g(x) = \sum_n b_n x^n$, przy czym $b_0 = 0$, by napis $f(g(x))$ miał sens (niezależnie od topologii).
 Przez formalne złożenie rozumiemy
 \[
@@ -47,17 +46,26 @@ Przez formalne złożenie rozumiemy
 Współczynniki $c_n$ są jawnie opisane przez wielomiany Bella, ale te akurat nie będą dla nas przesadnie przydatne.
 
 \begin{fakt}[złoty] \label{auctoris}
-	Jeśli $g(x)$ zbiega, $f(g(x))$ zbiega i dla każdego $n$ jest $|b_n x^n| \le |g(x)|$, to $h(x)$ też zbiega, do $f(g(x))$.
+	Niech $f(x) = \sum_n a_n x^n$, $g(x) = \sum_n b_n x^n$ będą formalnymi szeregami potęgowymi, $g(0) = 0$ i $h = f \circ g$ (jako formalne złożenie).
+	Załóżmy, że $g(x_0)$ oraz $f(g(x_0))$ są zbieżne, zaś dla każdego $n$ mamy $|b_n x_0^n| \le |g(x_0)|$.
+	Wtedy $h(x_0)$ także zbiega i przyjmuje wartość $f(g(x_0))$.
 \end{fakt}
 
 \begin{proof}
-	Podamy dowód za \cite{hasse80}, książką Hassego (rozdział 17).
-	Niech $g(x)^m = \sum_{n = m}^\infty d_{m, n} x^n$.
-	Pozwala to na napisanie $h(x)$ jawnie: $h(x) = a_0 + \sum_{n = 1}^\infty \sum_{m = 1}^n a_m d_{m, n} x^n$.
+	Podamy dowód za książką Hassego.
+	Niech
+	\[
+		g(x)^m = \sum_{n=m}^\infty d_{m, n} x^n = \sum_{n=m}^\infty \sum_{*} \prod_{k=1}^m b(i_k) x^n,
+	\]
 
-	Niestety, ale musimy: $d_{m, n} = \sum_{i_1 + \ldots + i_m = n} \prod_{k = 1}^m b(i_k)$.
+	gdzie wewnętrzna suma rozciąga się na te indeksy, dla których $i_1 + \ldots + i_m$ jest równe $n$.
+	Pozwala to na napisanie jawnego wzoru dla $h(x)$:
+	\[
+		h(x) = a_0 + \sum_{n = 1}^\infty \sum_{m = 1}^n a_m d_{m, n} x^n.
+	\]
 
-	Szereg $g(x)$ jest zbieżny, więc fakt  \ref{decoris} pozwala powiedzieć, że $g(x)^m$ zbiega do $g(x)^m$ (jeden szereg jest formalny, drugi nie!).
+	Pomyślmy o zbieżności.
+	Szereg $g(x_0)$ jest zbieżny, więc fakt \ref{decoris} pozwala powiedzieć, że $g(x)^m$ zbiega do $g(x_0)^m$ po odpowiednim podstawieniu (jeden szereg jest formalny, drugi nie!).
 	Co ciekawsze, dla każdego $n$ mamy $|d_{m,n}x^n| \le |g(x)^m|$.
 	Jeżeli $n \ge m$, to nierówność ultrametryczna daje
 	\[
