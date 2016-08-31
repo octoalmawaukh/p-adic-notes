@@ -90,15 +90,16 @@ Współczynniki $c_n$ są jawnie opisane przez wielomiany Bella, ale te akurat n
 	Z drugiej strony, dla każdego $m$ szereg $g(x)^m$ jest zbieżny, zatem jego wyraz ogólny zbiega do zera: $a_m d_{m,n}x^n \to 0$.
 \end{proof}
 
-Leniwi mogą nie sprawdzić założeń i nadepnąć na minę, co świetnie ilustruje poniższy przykład.
-To ciekawe, że zwykła analiza łatwiej radzi sobie z tym problemem: jeśli promieniem zbieżności $f(x)$ jest $R $ i $|g(x)| < R $, to $h(x)$ zbiega do $f(g(x))$.
+Leniwi mogą nie sprawdzić założeń i nadepnąć na minę.
+Zjawisko to świetnie ilustruje poniższy przykład.
+To intrygujące, jak zwykła analiza łatwiej radzi sobie z tym problemem: jeśli promieniem zbieżności $f(x)$ jest $R $ i $|g(x)| < R $, to $h(x)$ zbiega do $f(g(x))$.
 
 \begin{przyklad}\label{leniwy}
-	Niech $g(x) = 2x^2 - 2x$ i $h(x) = (f \circ g)(x)$, gdzie $f(x) = \sum_{k \ge 0} \frac{1}{k!} x^k$.
-	Można pokazać, że $f$ zbiega dokładnie na $4 \Z_2$, zaś $g$ wszędzie (gdyż jest wielomianem).
-	Mamy oczywiście $f(g(1)) = 1$.
+	Niech $g(x) = 2x^2 - 2x$ i $h = \exp_2 \circ g$.
+	Funkcja $g$ zbiega wszędzie, jako że jest wielomianem.
+	Pokażemy później, iż dyskiem zbieżności dla $\exp_2$ jest dokładnie $4\Z_2$.
+	Oczywiście $f(g(1)) = 1$.
 	Niech $h(x) = \sum_n a_n x^n$.
-	
 	Jeżeli $n \ge 2$, to $v_2(a_n)$ wynosi co najmniej $1 + n / 4$, czyli $h$ zbiega na $\Z_2$.
 	Niestety, $h(1) \equiv 3 \pmod {4}$ i $h(1) \neq f(g(1))$.
 \end{przyklad}
