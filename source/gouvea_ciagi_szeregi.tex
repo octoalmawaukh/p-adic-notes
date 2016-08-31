@@ -96,7 +96,7 @@ Aby zająć się podwójnymi sumami, potrzebujemy jednak czegoś więcej niż ty
 	Jeśli więc $k \ge N+1$, to $|x_{ik}| < \varepsilon$ dla każdego $i$, zatem pierwszy składnik pod wartością bezwzględną można (ultrametrycznie) oszacować z góry przez $\varepsilon$; podobnie szacuje się drugi składnik. Oczywiście zamiana $i, k$ miejscami nic nie psuje, więc możemy je przestawić i wywnioskować stąd równość sum.
 \end{proof}
 
-\begin{fakt}
+\begin{fakt} \label{ludmori}
 	Niech szeregi $\sum_i x_i$, $\sum_i y_i$ będą zbieżne.
 	Wtedy
 	\[
@@ -109,7 +109,7 @@ Wyznaczymy teraz wartość konkretnych szeregów $p$-adycznych.
 Fenomen związany z ich nieoczekiwanymi granicami wyjaśnić się może  po lekturze ostatniego ustępu w tym rozdziale, gdzie przytoczymy zaskakujący wynik Burgera i Struppecka.
 
 \begin{fakt}
-	Jeżeli \prawo{Koblitz\\Ale gdzie?} $k > 0$, to $\sum_{n \ge 0} n^k p^n$ jest wymierne w $\Q_p$.
+	Jeżeli \prawo{Koblitz\\Ex. 4.1.12} $k > 0$, to $\sum_{n \ge 0} n^k p^n$ jest wymierne w $\Q_p$.
 \end{fakt}
 
 \begin{proof}
@@ -159,7 +159,7 @@ Jeżeli $a_n = 0$, to lewa strona dąży do $b_n$ w $\Q_p$, ale niestety nie są
 Ciągi 074051 i 074052 w bazie danych OEIS zawierają więcej informacji.
 Wykładnicza tworząca $a_n$ to $\exp(1-2x-e^{-x})$.
 
-Koblitz stwierdza, że problem \prawo{Koblitz?} wymierności liczby $x = \sum_n n!$ pozostaje otwarty w każdym ciele $\Q_p$.
+Schikhof stwierdza, że problem \prawo{Schikhof\\Ex. 7.D} wymierności liczby $x = \sum_n n!$ pozostaje otwarty w każdym ciele $\Q_p$.
 Wiemy jednak, iż nie może być wymierna w każdym z nich: po pierwsze, nie zależałaby od $p$, po drugie, byłaby całkowita.
 
 \begin{fakt}
@@ -169,8 +169,6 @@ Wiemy jednak, iż nie może być wymierna w każdym z nich: po pierwsze, nie zal
 \begin{lemat}
 	$\sum_{n \ge 1} (n+k)! - n! = - \sum_{n\le k} n!$.
 \end{lemat}
-
-Wykorzystamy notację Murty'ego i Sumner.
 
 \begin{proof}
 Rozwinięcie obu stron lematu daje $\sum_n n^2 \cdot n! = -x$ (dla $k = 2$), przypadek $k = 1$ rozważaliśmy wcześniej.
@@ -187,9 +185,12 @@ Wzór ten pozwala szybciej wyznaczać współczynniki $u_k$, wcześniej Dragovic
 	Jeśli $k \in 3\N + 1$, to $u_k \neq 0$, wtedy $x_k$ i $x$ są tak samo niewymierne.
 \end{fakt}
 
+Zachęcamy do sięgnięcia po długi na dziewięć stron artykuł (wspominamy go w ostatnim rozdziale) Murty'ego i Sumner, zachowaliśmy ich notację.
+Tam znaleźć można kompletne dowody powyższych stwierdzeń, dalsze odnośniki oraz opis, co tu się właściwie dzieje.
+
 Wrócimy teraz do rzeczy przyziemnych i $p$-adycznej analizy ,,numerycznej''.
 
 \begin{fakt}
-	Niech $x \in \Z$ nie dzieli się przez $p$, zaś $x_0 \in \Z$ będzie takie, że $|1 - x_0x|_p < 1$.
+	Niech \prawo{Schikhof\\Ex. 3.K} $x \in \Z$ nie dzieli się przez $p$, zaś $x_0 \in \Z$ będzie takie, że $|1 - x_0x|_p < 1$.
 	Formuła $1 - x_{n+1} x = (1 - x_n x)^2$, to znaczy $x_{n+1} = x_n (2 - x_nx)$ zadaje ciąg liczb $x_n$, które szybko zbiegają do odwrotności $x$: $v_p(x_n - 1 : x) \ge 2^n$.
 \end{fakt}
