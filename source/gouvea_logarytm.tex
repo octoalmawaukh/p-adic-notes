@@ -1,41 +1,49 @@
-W analizie nad $\R$ funkcje specjalne można definiować na wiele sposobów, przez rozwinięcia w szereg, równania różniczkowe, całki parametryczne, równania funkcyjne i tak dalej.
-%W $\C_p$ do zdefiniowania logarytmu i eksponensa najlepiej użyć szeregu potęgowego.
-
-Inną metodą jest wzięcie zwykłej funkcji $f$ określonej na $[a, \infty) \subset \R$ o wymiernych wartościach dla całkowitych $n \ge a$ i patrzenie na ciągłą funkcję $\Z_p \to \C_p$ przedłużającą $n \mapsto f(n)$.
-$\Z \cap [a, \infty)$ jest gęste w $\Z_p$, więc nie może być dwóch przedłużeń.
+Rzeczywiści analitycy znają różne sposoby, by zdefiniować potrzebne im funkcje specjalne: mają do dyspozycji rozwijanie w szereg potęgowy, równania różniczkowe, parametryczne całki, równania funkcyjne i inne.
+W analizie $p$-adycznej można użyć innej sztuczki: wziąć zwykłą funkcję $f \colon [a, \infty) \to \R$, która przyjmuje tylko wymierne wartości dla całkowitych argumentów i popatrzeć na jej ciągłe przedłużenie do $\Z_p \to \C_p$.
+Liczby całkowite leżą gęsto w $\Z_p$, nie ma więc mowy o tym, by przedłużenie nie było jednoznaczne.
 
 Poszukiwanie $p$-adycznych wariantów funkcji określanych normalnie na podzbiorach $\C$ zaczniemy właśnie od logarytmu i eksponensa.
 
 \section{Logarytm ($\Q_p$)}
-\begin{definicja}
-	Logarytm \prawo{Gouv\\4.5} to formalny szereg
-	\[
-		f(x) = \log(1+x) = \sum_{n = 1}^\infty - \frac{(-x)^n}{n}.
-	\]
-\end{definicja}
+Klasyczny \prawo{Gouv\\4.5}  logarytm rozwija się w szereg potęgowy wokół $x = 1$:
+\begin{equation}
+		\label{eq:plogarytm}
+	f(x) = \log(1+x) = \sum_{n = 1}^\infty - \frac{(-x)^n}{n}.
+\end{equation}
 
-Logarytm zbiega ,,gorzej'' niż funkcja $\log \colon \R_+ \to \R$.
+Ze względu na wymierność wszystkich współczynników jest sens myśleć o szeregu, jakby żył w $\Q_p$.
+Pierwszym krokiem do jego zrozumienia jest wyznaczenie dysku zbieżności.
+Zanim przejdziemy do rachunków, należy podkreślić kontrast między analizą klasyczną i $p$-adyczną: dla nas rosnące mianowniki stanowią utrudnienie, kiedy nie dzielą się przez $p$.
 
-Wypadałoby znać jego promień zbieżności: współczynniki tutaj nie maleją w normie.
+Logarytm $p$-adyczny zbiega ,,gorzej'' niż jego odpowiednik $\log \colon \R_+ \to \R$, ale wciąż dużo lepiej od eksponensa.
+Żywimy przy tym nadzieję, że logarytm $p$-adyczny nie zostanie nigdy pomylony ze zwykłym, przy podstawie $p$, rzeczywistym.
 
 \begin{fakt}
-	Logarytm ma sens dla $x \in 1 + p\Z_p = \kula(1,1)$.
+	Logarytm jest dobrze określoną funkcją na dysku $1 + p\Z_p = \kula(1,1)$.
 \end{fakt}
 
 \begin{proof}
-Skoro $0 \le \frac 1 n v_p (n) \le \frac 1 n \log_p n \to 0$ i $|a_n| = p^{v_p(n)}$, to $p^{-0} = 1$ jest szukanym promieniem.
-Łatwo widać, że nie ma dla $|x| = 1$ zbieżności.
+		Skoro $0 \le v_p(n) \le \log_p (n)$ i $|a_n| = p^{v_p(n)}$, wykorzystamy wzór Cauchy'ego-Hadamarda.
+		Powie nam, że promieniem zbieżności jest $1$.
+
+		Aby zadecydować, co dzieje się dla $|x| = 1$, wystarczy zauważyć, że $|a_nx^n| = |1/n|$ nie zbiega do zera.
 \end{proof}
 
-Mamy nadzieję, że logarytm $p$-adyczny nie zostanie nigdy pomylony ze zwykłym, przy podstawie $p$, rzeczywistym.
+\begin{definicja}
+	Logarytm $p$-adyczny to funkcja $1 + p\Z_p \to \Q_p$ zadana wzorem \ref{eq:plogarytm}.
+\end{definicja}
 
-By funkcja $\log_p \colon \mathcal B \to \Q_p$ zasługiwała na bycie logarytmem, musi mieć jego własności. Tak rzeczywiście jest.
+By funkcja $\log_p \colon \mathcal B \to \Q_p$ zasługiwała na bycie logarytmem, musi mieć jego własności, czyli zachowywać się jak homomorfizm.
+Tak rzeczywiście jest.
 
 \begin{fakt}
 	Dla $a, b \in 1+p\Z_p$ jest $\log_p ab = \log_p a + \log_p b$.
 \end{fakt}
 
 \begin{proof}
+	W literaturze często dowodzi się tego stwierdzenia przez zauważenie stosownej tożsamości dla szeregów potęgowych.
+	Problem w tym, iż sprawdzenie założeń złotego faktu jest naprawdę bolesne, przedstawimy więc bezpośrednie uzasadnienie udające klasyczny dowód.
+
 	Przyjmijmy $f(x) = \log_p(1+x)$ dla $x \in \Z_p$.
 	Z naszą wiedzą o pochodnych szeregów potęgowych piszemy
 	\[
@@ -44,12 +52,10 @@ By funkcja $\log_p \colon \mathcal B \to \Q_p$ zasługiwała na bycie logarytmem
 	Ustalmy $y \in p\Z_p$ i określmy $g(x) = f(y + (1+y)x)$.
 	Jest to szereg potęgowy zbieżny dla $|x| < 1$.
 	Reguła łańcucha pozwala policzyć pochodną:
-	\begin{align*}
-		g'(x) & = (1+y) f'(y + (1+y)x) = \frac{(1+y)}{1+y + (1+y)x}  = \frac{1}{1+x} = f'(x) \\
-		g(x)& = f(x) + C.
-	\end{align*}
-	%To oznacza, że $g(x), f(x)$ różnią się o stałą.
-	Widać, że $g(0) = f(y)$, zatem $g(x) = f(x) + f(y)$, wystarczy przetłumaczyć to na język logarytmów.
+	\[
+		g'(x) = (1+y) f'(y + (1+y)x) = \frac{(1+y)}{1+y + (1+y)x}  = \frac{1}{1+x} = f'(x)
+	\]
+	To oznacza, że $g(x), f(x)$ różnią się o stałą, a skoro $g(0) = f(y)$, przekonujemy się do równości $g(x) = f(x) + f(y)$, którą wystarczy przetłumaczyć na język logarytmów.
 \end{proof}
 
 Jeśli $p = 2$, to $-1 \in \mathcal B$, a to umożliwia obliczenie $\log_p(-1)$, $0$, co nie powinno szokować.
@@ -58,16 +64,13 @@ Lemat Hensela pozwalał określić, dla jakich $m$ istnieją $m$-te pierwiastki 
 W $\Q_p$ nie ma takich dla $m = p^n$, co można pokazać w trzech krokach (poza patologicznym przypadkiem $p = 2$ i $n = 1$).
 
 \begin{fakt}
-	Logarytm $p$-adyczny ma dokładnie jedno ($x = 1$ jeśli $p > 2$) lub dwa ($x = \pm 1$ dla $p = 2$) miejsca zerowe.
+	Logarytm \prawo{Gouvea\\Prob. 161}$p$-adyczny ma dokładnie jedno lub dwa miejsca zerowe: $1$, jeśli $p > 2$, $\pm 1$ w przeciwnym razie.
+	Wynika stąd, że pierwiastki $p$-tego (czwartego) stopnia nie istnieją w $\Q_p$.
 \end{fakt}
 
 \begin{proof}
 	Twierdzenie Strassmana dla $\log(1+px)$.
 \end{proof}
-
-\begin{wniosek}
-	Dla $x \in 1 + p\Z_p$ oraz $p \neq 2$ ($p = 2$), które spełnia $x^p = 1$ ($x^4 = 1$), mamy $x = 1$ ($x = \pm 1$) -- zatem $p$-te (czwarte) pierwiastki jedności w $\Q_p$ nie istnieją.
-\end{wniosek}
 
 \begin{wniosek}
 	W $\Q_p$ żyje $\max\{2, p - 1\}$ pierwiastków jedności.
