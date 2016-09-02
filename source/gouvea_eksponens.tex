@@ -1,6 +1,13 @@
 \section{Eksponens (klasyczny)}
-W \prawo{Gouv\\4.5} $\R$ szereg $\exp(x) = \sum_{n = 0}^\infty x^n/n!$ zbiega wszędzie, bo $1/n!$ bardzo szybko maleje: ale nie w $\Q_p$.
-Trzeba więc określić tempo wzrostu tych współczynników.
+Naturalnym \prawo{Gouv\\4.5} obiektem do zbadania po uzyskaniu logarytmu jest eksponens:
+\[
+		\exp x = \sum_{n=0}^\infty \frac{x^n}{n!}
+\]
+
+Rzeczywista funkcja wykładnicza jest określona na całej prostej: silnie z mianowników dominują nad wielomianami z liczników, a przez to poszczególne składniki szybko zbiegają do zera.
+Sytuacja zmienia się drastycznie po przejściu do ciała $\Q_p$, jako że wysoce podzielne mianowniki nie są niczym dobrym.
+
+Zacznijmy od wyznaczenia przedziału zbieżności.
 
 \begin{lemat}
 	Zachodzi $(p-1) v_p(n!) < n$.
@@ -13,8 +20,24 @@ Trzeba więc określić tempo wzrostu tych współczynników.
 	\]
 \end{proof}
 
+Warto wspomnieć w tym miejscu o twierdzeniu z 1808 roku, które dokładniej opisuje waluację silnii.
+
+\begin{twierdzenie}[Legendre]
+	Jeśli rozwinięcie $p$-adyczne $n$ wynosi $a_k p^k + \ldots + a_1 p + a_0$, to
+	\[
+		v_p(n!) = \frac{n - (a_k + \ldots + a_1 + a_0)}{p-1}
+	\]
+\end{twierdzenie}
+
+\begin{proof}
+	Mamy
+	\begin{align*}
+	v_p(n!) & = \sum_{i=1}^r \Bigl \lfloor \frac n{p^i} \Bigr \rfloor = \sum_{i=1}^k \sum_{j=i}^k a_j p^{j-i} = \sum_{i=1}^k a_i(p^{i-1} + p^{i-2}+ \ldots + 1) \\
+	& = \sum_{i=1}^k \frac {a_i (p^i-1)}{p-1} = \frac{n - s_p(n)}{p-1}. \qedhere
+	\end{align*}
+\end{proof}
+
 \begin{lemat}
-	Szeregowy protoplasta eksponensa zbiega, wtedy i tylko wtedy gdy $v_p(x) > 1 / (p-1)$. 
  	Protoplasta eksponensa zbiega, wtedy i tylko wtedy gdy $v_p(x) > 1 / (p-1)$. 
 \end{lemat}
 
@@ -40,10 +63,10 @@ Lemat nie jest jednak bezsensowny, w szczególności dla rozszerzeń $\Q_p$ taki
 \begin{proof}
 	Dowód to po prostu formalna manipulacja szeregów.
 	\begin{align*}
-		L & = \exp_p(x+y) = \sum_{n \ge 0} \frac{(x+y)^n}{n!} 
+		\exp_p(x+y) & = \sum_{n \ge 0} \frac{(x+y)^n}{n!} 
 		% & = \sum_{n = 0}^\infty \frac{1}{n!} \sum_{k = 0}^n C^n_k x^{n-k} y^k \\
 		 = \sum_{n \ge 0} \sum_{k \le n} \frac{1}{n!} \frac{n!}{k!(n-k)!} x^{n-k}y^k \\
-		& = \sum_{n \ge 0} \sum_{k \le n} \frac{x^{n-k}}{(n-k)!} \frac{y^k}{k!} = \sum_{m \ge 0} \frac{x^m}{m!} \cdot \sum_{k \ge 0} \frac{y^k}{k!} = \exp_p(x) \exp_p(y) = R\qedhere
+		& = \sum_{n \ge 0} \sum_{k \le n} \frac{x^{n-k}}{(n-k)!} \frac{y^k}{k!} = \sum_{m \ge 0} \frac{x^m}{m!} \cdot \sum_{k \ge 0} \frac{y^k}{k!} = \exp_p(x) \exp_p(y) \qedhere
 	\end{align*}
 \end{proof}
 
