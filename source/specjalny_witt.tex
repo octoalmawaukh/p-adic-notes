@@ -2,45 +2,139 @@
 Ernst Witt pokazał w 1936 jak zadać strukturę pierścienia na zbiorze nieskończonych ciągów o wyrazach z przemiennego pierścienia $\pierscien$, by z $\pierscien = \mathbb F_p$ otrzymać liczby $p$-adyczne, $\Z_p$.
 
 Dodawanie liczb $p$-adycznych jako szeregów potęgowych sprawia ból przez problemy podczas przenoszenia klasycznych cyfr $\{0, 1, \ldots, p-1\}$.
-Teichmüller proponował, by zastąpić je rozwiązaniami $x^p = x$ w $\Z_p$ (które można opuszczać do $\mathbb F_p$ i podnosić charakterem $\omega \colon \mathbb F_p^\times \to \Z_p^\times$).
+Teichmüller zaproponował, żeby zastąpić je rozwiązaniami $x^p = x$ w $\Z_p$ (które można opuszczać do $\mathbb F_p$, a podnosić jego charakterem $\omega \colon \mathbb F_p^\times \to \Z_p^\times$).
 To zmienia elementy $\Z_p$ w nieskończone ciągi o wyrazach z $\omega(\mathbb{F}_p^\times) \cup \{0\}$.
 
 Chociaż z punktu widzenia teorii mnogości, $\Z_p$ to $\prod_\N \mathbb F_p$, zbiory te różnią się jako pierścienie.
-Przypomnijmy, że $\omega$ nie jest addytywny, ale pomimo to $\omega(k) = \omega(i) + \omega(j)$ mod $p$ w $\Z_p$ pociąga $i + j = k$ w $\mathbb F_p$.
+Przypomnijmy, że $\omega$ nie jest addytywny, ale pomimo to $\omega(k) = \omega(i) + \omega(j)$ mod $p$ w $\Z_p$ pociąga $i + j = k$ w $\mathbb F_p$ (brak nam przy tym pewności, czy ktokolwiek to wcześniej wiedział).
 Skrótowo zapisujemy to jako $m \circ \omega = \mathrm{id}_{\mathbb F_p}$, gdzie $m \colon \Z_p \to \Z_p / p \Z_p \cong \mathbb F_p$.
 
-Każdy element $\Z_p$ zapisuje się jako szereg potęgowy od $p$ ze współczynnikami od Teichmüllera.
-Teraz $a_j^p = a_j$ i możemy po drętwych rachunkach (patrz: Wikipedia) dojść do
+Zdefiniujemy teraz wektory Witta, przyjrzymy się, dlaczego dobrze uogólniają liczby $p$-adyczne oraz zrozumiemy, że też tworzą pierścień.
+Wrócimy do charakteru Teichmüllera i pokażemy wzór de Moivre'a dla wektorów Witta, na koniec zastosujemy uzyskane rezultaty do znalezienia kontrprzykładu do Wielkiego Twierdzenia Fermata.
+
+\begin{definicja}
+	Wektor Witta nad przemiennym pierścieniem $\pierscien$ to ciąg jego elementów.
+\end{definicja}
+
+\begin{przyklad}
+	Jeśli $\pierscien = \mathbb F_p$, wektor Witta jest po prostu liczbą $p$-adyczną, jeśli utożsamimy jej rozwinięcie $a_0 + a_1p +  a_2 p^2\ldots$ z ciągiem współczynników $(a_0, a_1, a_2, \ldots)$.
+\end{przyklad}
+
+Choć szeregowa notacja jest bardzo sugestywna dla tych, którzy poszukują analitycznych inspiracji, jest niezmiernie niewygodna przy konkretnych rachunkach.
+Nasza (notacja) pochodzi od Teichmüllera.
+
+\begin{definicja}
+	Dla $n \ge 0$, pierwszej $p$ i nieoznaczonych $X_0, \ldots, X_n, \ldots$, $n$-ty wielomian Witta $W_n$ to
+	\[
+		W_n = \sum_{i = 0}^n p^i X_i^{p^{n-i}}
+	\]
+\end{definicja}
+
+Twierdzenie, które teraz przytoczymy bez dowodu z książki Serre'a, stanowić będzie klucz do sukcesu w mnożeniu i dodawaniu wektorów.
+
+\begin{fakt}
+	Dla każdej wielomianowej funkcji $\Phi \in \Z[X, Y]$ istnieje jednoznaczny ciąg $(\phi_0, \ldots)$ elementów $\Z[X_0, \ldots, Y_0, \ldots]$, taki że $W_n(\phi_0, \ldots) = \Phi(W_n(X_0, \ldots), W_n(Y_0, \ldots))$.
+\end{fakt}
+
+Zastosujemy ten fakt dwa razy: do funkcji $X+Y$ (zyskując ciąg $S_i$) oraz $XY$ (ciąg $P_i$).
+Wtedy $A + B = (S_0(A,B), S_1(A,B), \ldots)$ oraz $A \cdot B = (P_0(A,B), P_1(A,B), \ldots)$, gdzie $A$ i $B$ są wektorami Witta nad dowolnym pierścieniem $\pierscien$.
+
+\begin{wniosek}
+	Wektory Witta z tak zdefiniowanymi operacjami tworzą przemienny pierścień, który będziemy oznaczać. $W(\pierscien)$.
+\end{wniosek}
+
+Podamy teraz garść przykładów, by lepiej poczuć, że powyższy wysiłek wcale nie jest nadaremny.
+
+\begin{przyklad}
+	Jeśli $p$ jest odwracalny w $\pierscien$, to $W(\pierscien) = \pierscien^\N$.
+	Dokładniej, wektory Witta zawsze zadają homomorfizm $W(\pierscien) \to \pierscien^\N$, tutaj jest on nawet bijekcją.
+\end{przyklad}
+
+\begin{przyklad}
+	$W(\mathbb F_p) = \Z_p$.
+\end{przyklad}
+
+\begin{przyklad}
+	Pierścień Witta skończonego ciała rzędu $p^n$ to nierozgałęzione rozszerzenie $\Z_p$.
+\end{przyklad}
+
+Funkcje $P_k$ i $S_k$ zależą jedynie od pierwszych $k$ wyrazów własnych argumentów, więc nawet jeżeli przytniemy wektory (za $k$-tym wyrazem), wciąż możemy je dodawać i mnożyć.
+Definiujemy zatem $W_k(\pierscien) = \{(a_0, a_1, \ldots, a_{k-1}) : a_i \in \pierscien\}$.
+
+Na przykład $W_k(\mathbb F_p) = \Z/p^k\Z$.
+
+\begin{definicja}
+	Funkcja $V \colon W(\pierscien) \to W(\pierscien)$ dana wzorem $V(a_0, a_1, \ldots) = (0, a_0, a_1, \ldots)$ to przesuwka.
+	Dla pierścieni $\pierscien$ charakterystyki $p$ kładziemy jeszcze $F(a_0, a_1, \ldots) = (a_0^p, a_1^p, \ldots)$.
+\end{definicja}
+
+Łatwo widać (przynajmniej dla $\pierscien = \mathbb F_p$), że $VF = FV$ to dokładnie mnożenie wektora przez $p$.
+
+\begin{definicja}
+	Jeżeli $\overline a$ to redukcja $a$ modulo $p$, element $(\overline a, 0, 0, \ldots) \in W(\mathbb F_p)$ oznaczamy przez $a^\tau$ i nazywamy reprezentantem Teichmüllera dla $a$.
+\end{definicja}
+
+Zauważmy, że $(a^\tau)^p = a^\tau$, gdyż $\overline a^p = \overline a$ w $\mathbb F_p$.
+Odwzorowanie pochodzące od $1 \mapsto 1^\tau$ jest naturalną injekcją $\mathbb Z \to W(\mathbb F_p)$.
+Dokładniejszy opis reprezentantów $n \in \N$ w $W(\mathbb F_p)$ znajdziemy poniżej, choć bez dowodu.
+
+\begin{fakt}
+	Ustalmy $n \in \N$.
+	Dla $k \ge 0$ niech $a_0, \ldots, a_k \in \Q$ będą takimi elementami, że $W_k(a_0, \ldots a_k) = n$.
+	Wtedy $a_0 = n$, $n \cdot ^\tau = (\overline{a_0}, \overline{a_1}, \ldots)$, gdy $p$ nie dzieli $n$, to $n$ dzieli wszystkie $a_k$, a przede wszystkim
+	\[
+		a_{k+1} = \sum_{i=0}^k \frac{a_i^{p^{k-i}} - a_i^{p^{k-i+1}}}{p^{k-i+1}}
+	\]
+\end{fakt}
+
+Każdy wektor $(a_0, a_1, \ldots)$ z $a_0 \neq 0$ mod $p$ jest produktem $a_0^\tau$ oraz $(1, a_1/a_0, a_2/a_0, \ldots)$.
+Odwracalne elementy $W(\mathbb F_p)$ to właśnie te, dla których $a_0 \neq 0$ mod $p$, zatem elementy ciała ułamków tego pierścienia są postaci $p^z a_0^\tau (1, a_1/a_0, a_2/a_0, \ldots)$.
+
+Gapienie się odpowiednio długo sprawia, że dostrzegamy podobieństwo z notacją dla liczb zespolonych, $z = |z| \exp i \theta$.
+Wprowadzimy pojęcia modułu i argumentu dla wektorów Witta tak, by mnożenie stało się prostsze, potrzebne do tego celu będą nowe odwzorowania logarytmiczne i wykładnicze.
+
+\begin{definicja}
+	Niech $p > 2$.
+	Dla ustalonego wektora Witta $A \in W_k(\mathbb F_p)$ mamy dwie funkcje,
+	\begin{align*}
+	\log(1 + pA) & = pA - \frac{p^2A^2}{2} + \frac{p^3A^3}{3} - \ldots \\
+	\exp pA & = 1 + pA + \frac{p^2A^2}{2} + \frac{p^3A^3}{6} + \ldots
+	\end{align*}
+\end{definicja}
+
+Jeśli $A$ jest obciętym wektorem Witta nad $\mathbb F_p$, to zarówno $\log (1 + pA)$, jak i $\exp pA$ są skończonymi wielomianami w $W_k(\mathbb F_p)$, gdyż $p^k A = 0$.
+Jako że oba odwzorowania mają sens dla każdego $k$, możemy przedłużyć je do $1 + pW(\mathbb F_p)$ i $pW(\mathbb F_p)$ (odpowiednio), są wtedy wzajemnymi odwrotnościami.
+
+Umówmy się zatem, że modułem $A = p^z a_0^\tau(1, a_1/a_0, a_2/a_0, \ldots)$ jest $\rho = p^z a_0^\tau$, zaś argumentem: $\theta = \log(1, a_1/a_0, a_2/a_0, \ldots)$.
+To pozwala na napisanie $A = \rho \exp \theta$.
+
+\begin{fakt}[wzór de Moivre'a]
+	Mamy $\rho_{AB} = \rho_A \rho_B$, $\theta_{AB} = \theta_A+\theta_B$.
+\end{fakt}
+
+Uzbrojenie po zęby w różne cuda możemy wyznaczyć, które liczby $p$-adyczne są $p$-tymi potęgami.
+Niech $p > 2$ (jak wyżej), ustalmy dowolny $A \in W(\mathbb F_p)$, taki że (pierwszy człon) $x_0 \neq 0$ mod $p$.
+Korzystając ze wzoru de Moivre'a, mamy
 \[
-		\sum_{j=0}^m c_j^{p^{m-j}} \cdot p^j \equiv \sum_{j=0}^m (a_j^{p^{m-j}} + b_j^{p^{m-j}}) \cdot p^j \mod p^{m+1}
+	A^{p^k} = (\rho_A \exp \theta_A)^{p^k} = (p^z a_0^\tau)^{p^k} \exp (p^k \theta_A) = p^{zp^k} a_0^\tau (1, 0, \ldots, 0, a_1/a_0, \ldots),
 \]
 
-To jakoś motywuje nasze postępowanie.
-Ustalmy pierwszą liczbę $p$.
+przy czym zer jest $k$ sztuk, natomiast drugi wielokropek kryje w sobie wyrazy o zbyt skomplikowanej budowie, byśmy się nimi zafascynowali.
+Jest jasnym jak słońce na niebie, że warunek $x_i \equiv 0$ dla $i = 1, \ldots, k$ jest koniecznym dla bycia $p^k$-tą potęgą.
+Mniej jasna jest jego wystarczającość.
+Niech $A = \rho_A \exp \theta_A = p^z a_0^\tau(1, a_1/a_0, a_2/a_0, \ldots)$ będzie takie, że $p^k$ dzieli $z$ i $a_1 \equiv 0$ mod $p$ dla $i = 1, 2, \ldots, k$.
+Wtedy widzimy wprost, że
+\[
+	A^{p^{-k}} = p^{zp^{-k}} a_0^\tau \exp \Bigl(\frac{1}{p^k} \log(1, 0, \ldots, 0, a_{k+1}/a_0, \ldots)).
+\]
 
-\begin{definicja}
-	Wektor Witta nad przemiennym pierścieniem $\pierscien$ to ciąg z $\pierscien^{\N}$.
-\end{definicja}
+Łatwo się przekonać, że argument logarytmu leży tam, gdzie trzeba (w $pW(\mathbb F_p)$).
+Stąd wynika, że niespodziewanie pokazaliśmy:
 
-\begin{definicja}
-	Wielomian Witta $W_n$ to $\sum_j p^j x_j^{p^{n-j}}$.
-\end{definicja}
+\begin{fakt}
+	Wektor Witta $p^z a_0^\tau(1, a_1/a_0, a_2/a_0, \ldots)$ nad $\mathbb F_p$ ma $p^k$-ty pierwiastek wtedy i tylko wtedy, gdy $p^k$ dzieli $z$ i $a_i = 0$ dla $1 \le i \le k$.
+\end{fakt}
 
-\begin{definicja}
-	Ciąg $(W_0, W_1, \ldots)$ to składowa-duch wektora Witta, oznacza zazwyczaj przez $(x^{(0)},x^{(1)},x^{(2)}, \ldots)$
-\end{definicja}
-
-Na zbiorze wektorów (Witta) jest dokładnie jedna struktura pierścienia, tak by suma i produkt były zadane wielomianami o całkowitych współczynnikach (niezależnych od $\pierscien$), zaś każdy wielomian (Witta) był homomorfizmem w $\pierscien$:
-\begin{enumx}
-\item $X^{(i)}+Y^{(i)}=(X+Y)^{(i)}$,
-\item $X^{(i)}Y^{(i)}=(XY)^{(i)}$.
-\end{enumx}
-
-Jeżeli $p$ w $\pierscien$ jest odwracalne, to dostajemy $\pierscien^\N$, dla $\mathbb F_n$ -- liczby $p$-adyczne, zaś dla $\mathbb F(p^n)$ -- nierozgałęzione rozszerzenie stopnia $n$ dla $\Z_p$.
-
-\begin{definicja}
-	Uniwersalny wielomian Witta to $W_n = \sum_{d \mid n} d x_d^{n : d}$.
-\end{definicja}
-
-
-% - niemiecka wiki - Wittvektor
+Finkel sugeruje następujące zastosowanie dla tego odkrycia.
+Aby znaleźć rozwiązanie równania $a^p + b^p = c^p$, wystarczy przyjrzeć się trzem obciętym wektorom Witta z $W_2(\mathbb F_p)$, $A$, $B$ i $C$, że $A = (a_0, 0)$, $B = (b_0, 0)$, $C = A+B = (c_0, 0)$.
+Przykładowo dla $p = 7$, $a_0 = 1$, $b_0 = 2$ są dobre, gdyż $129 = 1 + 2^7$ posiada pierwiastek siódmego stopnia.
