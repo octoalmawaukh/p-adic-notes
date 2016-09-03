@@ -1,24 +1,22 @@
 \section{Analiza}
-Wiele z dotychczasowych osiągnięć przenosi się bez problemów na ogólny przypadek, bo nie korzystaliśmy z magicznych własności $\Q_p$.
+Wiele \prawo{Gouvea\\5.5} z dotychczasowych osiągnięć przenosi się bez problemów na ogólny przypadek, bo nie korzystaliśmy z magicznych własności $\Q_p$.
 Jedyne zmiany, o których trzeba pamiętać, mają związek z rozgałęzieniem: być może trzeba będzie użyć jednolitości $\pi$ zamiast $p$. Oto lista:
-\begin{enumx}
-	\item Ciąg $(a_n)$ w $\cialo$ jest Cauchy'ego, wtedy i tylko wtedy gdy $|a_{n+1} - a_n| \to 0$.
-	\item Jeśli ciąg zbiega, ale nie do zera, to jest stacjonarny.
-	\item Szereg $\sum_n a_n$ w $\cialo$ zbiega, wtedy i tylko wtedy, gdy $a_n$ zbiega do zera.
-	\item \emph{\color{black}Fakt 4.1.4 zachodzi dla podwójnych szeregów w $\cialo$.} [X]
-	\item Szereg potęgowy $\sum_n  a_n X^n$ z $a_n \in \cialo$ jest ciągły w kuli otwartej o promieniu równym $1/\limsup |a_n|^{1/n}$ i przedłuża się do domkniętej, jeśli $|a_n| \rho^n \to 0$.
-	\item \emph{\color{black} Fakt 4.3.2 i twierdzenie 4.3.3 są prawdziwe dla szeregów z $\cialo[x]$.}
-	\item Szeregi potęgowe są różniczkowalne. [X]
-	\item Jeśli $f$ i $g$ są szeregami potęgowymi (współczynniki są z $\cialo$), $x_m$ jest zbieżny, leży w przecięciu ich obszarów zbieżności i $f(x_m) = g(x_m)$, to $f \equiv g$.
-	\item Twierdzenie Strassmana działa dla $K$ zamiast $\Q_p$ i $\mathcal O_k$ zamiast $\Z_p$.
+
+\begin{fakt}
+	[\ref{reginald}, \ref{ingentis}, \ref{caedis}, \ref{decoris}, \ref{auctoris}, \ref{causeahriot}, \ref{stummeschreie}] Prawdziwy dla każdego ciała $\cialo$, a nie tylko $\Q_p$.
+\end{fakt}
+
+\begin{fakt}
+	Twierdzenie Strassmana działa dla $\Q_p$, $\Z_p$ zastąpionego przez $\cialo$, $\mathcal O$.
 	Wnioski z niego zachowują sens.
-	\item Zwykły szereg potęgowy definiuje $p$-adyczny logarytm, $\log_p \colon 1 + \pi \mathcal O_k \to K$.
-	Ten spełnia nadal $\log_p(xy) = \log_p(x) + \log_p(y)$ dla $x, y \in B$.
-	\item Zwykły szereg potęgowy definiuje $p$-adyczną eksponensę, $\exp_p \colon D \to K$, gdzie $D$ to te $x \in \mathcal O_k$, że $|x| < p^{1/(1-p)}$.
-	Ta spełnia $\exp_p(x+y) = \exp_p(x) \exp_p(y)$ dla $x, y \in D$.
-	\item Jeśli $X \in D$, to $\exp_p(x) \in B$ i $\log_p(\exp_p(x)) = x$.
-	\item Jeśli $x \in 1+D$, to $\log_p(x) \in D$ i $\exp_p(\log_p(x)) = x$.
-	\item Logarytm $p$-adyczny to homomorfizm z $B=1+\pi \mathcal O_\cialo$ z mnożeniem w $\mathcal P_\cialo = \pi \mathcal O_\cialo$ z dodawaniem, a przy tym $\log_p \colon 1 + D \cong D$ (ta grupa jest izo-kopią $\mathcal O_{\cialo}$).
-	\item Dla każdego $\alpha \in \Z_p$ i $|x| < 1$ szereg $(1+x)^\alpha$ zbiega.
-	\item Numeracja trochę kłamie!
-\end{enumx}
+\end{fakt}
+
+\begin{fakt}
+	Logarytm $p$-adyczny jest homomorfizmem $1 + \pi \mathcal O \to \cialo$.
+	Eksponens to homomorfizm $\kula(0, p^{1/(1-p)}) \to \cialo$.
+	Obie funkcje są do siebie wzajemnie odwrotne.
+\end{fakt}
+
+\begin{fakt}
+	Dla każdego $\alpha \in \Z_p$ i $|x| < 1$ szereg $(1+x)^\alpha$ zbiega.
+\end{fakt}
