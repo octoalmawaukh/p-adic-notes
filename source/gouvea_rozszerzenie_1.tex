@@ -1,7 +1,18 @@
-\section{Przestrzenie unormowane}
-Przyjmujemy, że mamy jakieś ciało $\cialo$ z wartością bezwzględną, z którą (to ciało $\cialo$) jest zupełne.
-Dla świętego spokoju do listy założeń dopisujemy ,,charakterystyka ciała to zero''.
-Weźmy przestrzeń wektorową $\liniowa$ nad $\cialo$.
+\section{Rozszerzenia jako przestrzenie wektorowe z normą}
+Dotychczas \prawo{Gouvea\\5.1} byliśmy skupieni na ciele $\Q$ i jego uzupełnieniach.
+Czasami odczuwaliśmy jednak potrzebę, by rozważyć inne ciała: tak było na przykład wtedy, kiedy polowaliśmy na zera szeregów potęgowych.
+Wiemy, że ciało liczb rzeczywistych można algebraicznie domknąć do ciała liczb zespolonych, przeprowadzimy podobną konstrukcję.
+Okaże się, iż będzie to dużo zabawniejsze niż można było przypuszczać, jako że dołożenie jednego elementu nie wystarczy ($\C \cong \mathbb R[i]$).
+
+Zaczniemy od przestrzeni wektorowych oraz norm, następnie wykorzystamy mocniej teorię ciał i przejdziemy od rozszerzeń skończonych do algebraicznego domykania.
+
+Wybraliśmy jedną z dwóch dróg: zamiast rozszerzać $\Q_p$, można postąpić tak samo z ciałem $\Q$, jednak wymaga to więcej teorii Galois.
+Nie zrobimy tego, natomiast ciekawego czytelnika odeślemy do książek poświęconych algebraicznej teorii liczb.
+Przyjmujemy ściśle lokalną perspektywę, choć być może któregoś dnia to się zmieni.
+
+Niech ciało $\cialo$ z wartością bezwzględną będzie zupełne.
+Wprawdzie można zajmować się także ciałami charakterystyki $p$, dla świętego spokoju załóżmy jednak, że $\operatorname{char} \cialo = 0$.
+Niech $\liniowa$ będzie przestrzenią wektorową nad ciałem $\cialo$.
 
 \begin{definicja}
 	Norma to funkcja $\|\cdot\| \colon \liniowa \to \R_+$ spełniająca:
@@ -13,11 +24,10 @@ Weźmy przestrzeń wektorową $\liniowa$ nad $\cialo$.
 \end{definicja}
 
 Nie wprowadzamy pojęcia niearchimedesowej przestrzeni liniowej, gdyż taka definicja byłaby równie skomplikowana co bezużyteczna.
-
-Każda $\liniowa$ przestrzeń nad niearchimedesowym ciałem $\cialo$ sama taka jest.
+Przestrzeń nad niearchimedesowym ciałem $\cialo$ sama po prostu też taka jest.
 
 \begin{definicja}
-	Dwie normy na jednej przestrzeni są równoważne, gdy istnieją rzeczywiste stałe $C$ i $D$, że $\|v\|_1 \le C\|v\|_2 \le CD \|v\|_1$.
+	Dwie normy na jednej przestrzeni są równoważne, gdy istnieją rzeczywiste stałe $C$ i $D$, obie większe od zera, że $\|v\|_1 \le C\|v\|_2 \le CD \|v\|_1$.
 \end{definicja}
 
 \begin{fakt}
@@ -46,13 +56,13 @@ Każda $\liniowa$ przestrzeń nad niearchimedesowym ciałem $\cialo$ sama taka j
 \end{proof}
 
 \begin{fakt}
-	Weźmy $\liniowa = \Q_p[X]$ i ustalmy rzeczywiste $c > 0$.
+	Weźmy $\liniowa = \Q_p[x]$ i ustalmy rzeczywiste $c > 0$.
 	Wtedy $\|\cdot\|$ jest (multiplikatywną) normą na $\liniowa$, z którą ta jest zupełna.
 	\[
-		\left\|\sum_{k=0}^n a_k X^k \right\| = \max_{0 \le i \le n} |a_i| c^i
+		\left\|\sum_{k=0}^n a_k x^k \right\| = \max_{0 \le i \le n} |a_i| c^i
 	\]
 \end{fakt}
 
 \begin{proof}
-	,,Ciało $\C_p$''.
+	Ciało $\C_p$ zna odpowiedź na wszystkie pytania.
 \end{proof}
