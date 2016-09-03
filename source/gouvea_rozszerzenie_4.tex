@@ -1,12 +1,16 @@
-\section{Własności skończonych rozszerzeń}
-Tutaj $\mathcal K$ jest skończonym rozszerzeniem stopnia $n$ dla $\Q_p$.
+%\section{Własności skończonych rozszerzeń}
+Zbierzemy informacje dotyczące skończonych rozszerzeń w jednym miejscu.
+Chcemy przez to powiedzieć, że wiele z już udowodnionych przenosi się bez żadnych zmian do większych ciał, ale i tak pomoże nam w lepszym zrozumieniu nowych obiektów.
+
+Tutaj \prawo{Gouvea\\5.4} $\mathcal K$ jest skończonym rozszerzeniem stopnia $n$ dla $\Q_p$.
 W $\Q_p$ wartość bezwzględna niezerowego elementu była postaci $p^v$, $v \in \Z$.
 Teraz widzimy (gdyż norma to pierwiastek ,,normy''), że dla $x \in \cialo \setminus \{0\}$, wartość bezwzględna jest postaci $p^v$, gdzie $v \in \frac 1 n \Z$.
+
 To naprowadza nas na definicję.
 
 \begin{definicja}
 	Waluacja $p$-adyczna dla $x \in \cialo^\times$ jest jedyną liczbą wymierną, która spełnia $|x| = p^{-v_p(x)}$.
-	Oprócz tego $v_p(0) = + \infty$ ($\cialo$ to skończone rozszerzenie $\Q_p$).
+	Oprócz tego $v_p(0) = + \infty$. % ($\cialo$ to skończone rozszerzenie $\Q_p$).
 \end{definicja}
 
 Jej znajomość wymaga tylko ,,normy'', gdyż 
@@ -36,8 +40,7 @@ Pora to zmienić.
 	Skoro $e$ było największe z możliwych, to obrazem jest dokładnie $\frac 1 e \Z$.
 \end{proof}
 
-Liczba $e$ (wyznaczona przez $v_p(\mathcal K^\times) = \textstyle \frac 1 e \Z$) jest na tyle ważna, że ma specjalną nazwę.
-Do tego określamy $f = n/e$.
+Liczba $e$ (wyznaczona przez $v_p(\mathcal K^\times) = \textstyle \frac 1 e \Z$) jest tak fascynująca, że ma specjalną nazwę.
 
 \begin{definicja}
 	Liczba $e$ to indeks rozgałęzienia $\mathcal K$ nad $\Q_p$.
@@ -46,29 +49,30 @@ Do tego określamy $f = n/e$.
 Rozszerzenie może być rozgałęzione (gdy $e > 1$, dla $e = n$: całkowicie) lub nie ($e = 1$).
 
 W ciele $\Q_p$ liczba $p$ była ważna, gdyż jej waluacja $v_p(p) = 1$ była najmniejszą spośród dodatnich.
-Elementy $x \in \Z_p$, które spełniają $v_p(x) > 0$, są podzielne przez $p$.
-Zatem waluacja to ,,krotność'': każdy $y \in \Q_p$ zapisuje się jako $p^{v_p(y)} u$, gdzie $v_p(u) = 0$.
+Elementy $x \in \Z_p$ spełniające $v_p(x) > 0$ są podzielne przez $p$.
+Waluacja opisuje ,,krotność'': elementy $\Q_p$ zapisują się jako $p^v \cdot u$, gdzie $v_p(u) = 0$.
+
 Znowu potrzeba nam czegoś takiego.
 
 \begin{definicja}
-	Jeżeli $\mathcal K/\Q_p$ jest skończonym rozszerzeniem, to $\pi \in \mathcal K$ jest jednolitością, jeżeli $ev_p(\pi) = 1$.
+	Jednolitość to element $\pi$ skończonego rozszerzenia $\cialo / \Q_p$, że $v_p(\pi) = 1/e$.
 \end{definicja}
 
-Jest wiele jednolitości, tak jak jest wiele liczb w $\Z_p$, których waluacja to $1$.
-Ustalmy jedną z nich (możemy wybrać $\pi = p$ w nierozgałęzionym przypadku).
+Do tego określamy $f = n/e$.
+
+Tak jak waluacja wielu liczb $p$-adycznych wynosi jeden, tak i nasza jednolitość nie jest jednoznacznie określona.
+Ustalmy jedną z nich (w nierozgałęzionym przypadku możemy wybrać $\pi = p$).
 Mamy wszystko, co chcieliśmy mieć, by opisać algebraiczną strukturę $\cialo$.
+
 Przypomnienie: $\mathcal O$ to pierścień waluacji z ideałem maksymalnym $\mathfrak m$, $\mathfrak K = \mathcal O / \mathfrak m$ to ciało residuów.
 
 \begin{fakt}
-	Ustalmy jednolitość $\pi$ w $\cialo$ i powyższe oznaczenia.
-	\begin{enumx}
-		\item Ideał $\mathfrak m \subseteq \mathcal O$ jest główny, generuje go $\pi$.
-		\item Każdy element $x \in \cialo$ można zapisać w postaci $u\pi^{ev_p(x)}$, gdzie $u \in \mathcal O^\times$ to jedność ($v_p(u) = 0$); więc $\mathcal K = \mathcal O[1/\pi]$.
-		\item Ciało residuów $\mathfrak K$ to skończone rozszerzenie $\mathbb F_p$, którego stopień to co najwyżej $[\cialo : \Q_p]$.
-		\item Elementy $\mathcal O$ to dokładnie $x \in \mathcal K$, zerujące (jakiś) unormowany wielomian o współczynnikach z $\Z_p$.
-		\item $\mathcal O$ to zwarty pierścień topologiczny. Zbiory $\pi^n \mathcal O$, $n \in \Z$, to fundamentalny układ otoczeń zera w $\cialo$ (które jest $\mathcal T_2$ całkowicie niespójną i lokalnie zwartą p. topologiczną).
-		\item Dla ustalonego zbioru reprezentantów $A$, $\{0, c_1, \dots, c_f\}$, warstw $\mathfrak m$ w $\mathcal O$, każdy $x \in \cialo$ jednoznacznie zapisuje się jako $\pi^{-m} \sum_{0}^\infty a_i \pi^i$ ($a_i \in A$).
-	\end{enumx}
+	Dla jednolitości $\pi$ w ciele $\cialo$, ideał (główny) $\mathfrak m \subseteq \mathcal O$ jest generowany przez $\pi$.
+	Każdy element $x \in \cialo$ jest postaci $u\pi^{ev}$, gdzie $u \in \mathcal O^\times$ to jedność, więc $\cialo = \mathcal O[1 / \pi]$.
+	Ciało $\mathfrak K$ jest skończonym rozszerzeniem $\mathbb F_p$, stopnia co najwyżej $[\cialo : \Q_p]$.
+	Zwarty pierścień topologiczny $\mathcal O$ składa się z elementów $\cialo$ zerujących unormowany wielomian nad $\Z_p$.
+	Zbiory $\pi^n \mathcal O$ są fundamentalnym układem otoczeń zera w $\cialo$, całkowicie niespójnej, lokalnie zwartej przestrzeni Hausdorffa.
+	%\item Dla ustalonego zbioru reprezentantów $A$, $\{0, c_1, \dots, c_f\}$, warstw $\mathfrak m$ w $\mathcal O$, każdy $x \in \cialo$ jednoznacznie zapisuje się jako $\pi^{-m} \sum_{0}^\infty a_i \pi^i$ ($a_i \in A$).
 \end{fakt}
 
 \begin{proof}(3)
@@ -76,10 +80,10 @@ Przypomnienie: $\mathcal O$ to pierścień waluacji z ideałem maksymalnym $\mat
 Następne punkty są oczywiste dla każdego, kto zna konstrukcję wartości bezwzględnej oraz $\Q_p$.
 \end{proof}
 
-Okazuje się, że liczba $f$ ma naturalną interpretację.
+Okazuje się, że liczba $f = n/e$ ma naturalną interpretację.
 
 \begin{fakt}
-	Mamy $[\mathfrak K : \mathbb F_p] = n/e$, więc $|\mathfrak K| = p^f$.
+	Mamy $[\mathfrak K : \mathbb F_p] = f$, więc $|\mathfrak K| = p^f$.
 \end{fakt}
 
 \begin{proof}
@@ -123,12 +127,12 @@ Teoria ciał dostarcza nam tej wiedzy.
 Jaki dokładnie jest to wielomian, można powiedzieć na przykład w całkowicie rozgałęzionym przypadku.
 
 \begin{fakt}
-	Jeżeli $\cialo / \Q_p$ jest rozszerzeniem skończonym dla $\Q_p$, zaś $e = n = [\cialo : \Q_p]$ (całkowite rozgałęzienie), to $\cialo = \Q_p(\pi)$, gdzie $\pi$ jest jednolitością.
-	Jednolitość $\pi$ jest pierwiastkiem $f(X)$, wielomianu $X^n + a_{n-1} X^{n-1} + \ldots + a_1 X + a_0$, który spełnia założenia dla kryterium Eisensteina (\ref{einstein}).
+	Jeżeli rozszerzenie $\cialo / \Q_p$ ma skończony stopień i $e = n = [\cialo : \Q_p]$ (całkowite rozgałęzienie), to $\cialo = \Q_p(\pi)$, gdzie $\pi$ jest jednolitością.
+	Jednolitość $\pi$ jest pierwiastkiem $f(x)$, wielomianu $x^n + a_{n-1} x^{n-1} + \ldots + a_1 x + a_0$ spełniającego założenia  kryterium Eisensteina.
 \end{fakt}
 
 \begin{proof}
-	Niech $f(X)$ będzie minimalnym wielomianem dla $\pi$, jednolitości ($v_p(\pi) = 1/n$, $|\pi| = p^{-1/n}$) nad $\Q_p$.
+	Niech $f(x)$ będzie minimalnym wielomianem dla $\pi$, jednolitości ($v_p(\pi) = 1/n$, $|\pi| = p^{-1/n}$) nad $\Q_p$.
 	Bezwzględną wartość $\pi$ można wyznaczyć na podstawie jej normy.
 	Jeżeli stopień $f$ to $s$ (musi być $s \mid n$), zaś ostatni współczynnik to $a_0$, to normą $\pi$ jest $(-1)^n a_0^r$, gdzie $r = n/s$.
 	Z tą wiedzą piszemy:
@@ -141,10 +145,10 @@ Jaki dokładnie jest to wielomian, można powiedzieć na przykład w całkowicie
 	Stopień $f$ to $n$, zatem $\cialo = \Q_p(\pi)$.
 	Fakt, że $|a_0| = p^{-1}$ mówi nam, że $p^2$ nie dzieli $a_0$.
 	Pozostało pokazać, że $p \mid a_i$ dla $1 \le i < n$.
-	Przez $\pi_1 = \pi, \pi_2, \dots, \pi_n$ oznaczmy pierwiastki $f(X)$.
+	Przez $\pi_1 = \pi, \pi_2, \dots, \pi_n$ oznaczmy pierwiastki $f(x)$.
 	Wszystkie mają ten sam wielomian minimalny, zatem także tę samą normę (i wartość bezwzględną).
 	Oznacza to, że $|\pi_i| < 1$.
-	Współczynniki $f(X)$ to kombinacje pierwiastków, zatem $|a_i| < 1$ dla $1 \le i \le n$ i po wszystkim.
+	Współczynniki $f(x)$ to kombinacje pierwiastków, zatem $|a_i| < 1$ dla $1 \le i \le n$ i po wszystkim.
 \end{proof}
 
 To całkiem ciekawy wynik, bo daje precyzyjny opis pewnej klasy rozszerzeń.
@@ -152,7 +156,7 @@ Chcemy udowodnić coś podobnego, ale dla rozszerzeń nierozgałęzionych.
 Okazuje się, że to jeszcze prostsze, lecz wymaga dodatkowego narzędzia.
 
 \begin{twierdzenie}[lemat Hensela]
-	Dane są: skończone rozszerzenie $\cialo/\Q_p$ z jednolitością $\pi$, a także wielomian $F(X) \in \mathcal O[X]$.
+	Dane są: skończone rozszerzenie $\cialo/\Q_p$ z jednolitością $\pi$, a także wielomian $F(x) \in \mathcal O[x]$.
 	Gdy istnieje taka ,,całkowita'' $\alpha_1 \in \mathcal O$, że $F(\alpha_1) \equiv 0 \pmod \pi$, zaś $F'(\alpha_1) \not\equiv 0 \pmod \pi$ (gdzie $F'$ to formalna pochodna), to istnieje $\alpha \in \mathcal O$, że $\alpha \equiv \alpha_1$ i $F(\alpha) = 0$.
 \end{twierdzenie}
 
@@ -162,10 +166,10 @@ Okazuje się, że to jeszcze prostsze, lecz wymaga dodatkowego narzędzia.
 
 Lemat Hensela pozwala uzyskać pierwiastki jedności w $\cialo$.
 Niezerowe elementy ciała residuów $\mathfrak K$ (jest ich $p^f -1$) tworzą grupę cykliczną.
-Oznacza to, że gdy $m$ dzieli $p^f-1$, wielomian $F_(X) = X^m-1$ ma dokładnie $m$ pierwiastków w $\mathfrak K^\times$.
+Oznacza to, że gdy $m$ dzieli $p^f-1$, wielomian $F_(x) = x^m-1$ ma dokładnie $m$ pierwiastków w $\mathfrak K^\times$.
 
 Wybór dowolnego podniesienia tychże do $\mathcal O^\times$ daje $m$ nieprzystających ,,przybliżonych pierwiastków''.
-Pochodna $F_m'(X) = mX^{m-1}$ nie jest zerem, jak w lemacie; daje on więc $m$ różnych (bo nieprzystających) $m$-tych pierwiastków z jedności w $\mathcal O^\times$.
+Pochodna $F_m'(x) = mx^{m-1}$ nie jest zerem, jak w lemacie; daje on więc $m$ różnych (bo nieprzystających) $m$-tych pierwiastków z jedności w $\mathcal O^\times$.
 To prawda dla dowolnego $m$ dzielącego $p^f-1$, udowodniliśmy więc
 
 \begin{fakt} \label{vergisst}
@@ -228,12 +232,12 @@ Wracamy do nierozgałęzionych rozszerzeń $\Q_p$, naszego pierwotnego celu.
 	Gdy $\overline \alpha$ generuje cykliczną grupę $\mathbb F ^\times_q$, to $\mathbb F_q = \mathbb F_p(\overline \alpha)$ jest rozszerzeniem stopnia $f$.
 	Niech
 	\[
-		\overline g(X) = X^f + \overline{a}_{f-1} X^{f-1} + \ldots + \overline{a}_1 X + \overline{a}_0
+		\overline g(x) = x^f + \overline{a}_{f-1} x^{f-1} + \ldots + \overline{a}_1 x + \overline{a}_0
 	\]
 	będzie minimalnym wielomianem dla $\overline \alpha$ nad $\mathbb F_p$.
-	Podnosząc $\overline g(X)$ do $g(X) \in \Z_p[X]$ w taki sposób, w jaki się nam podoba, dostajemy nierozkładalny wielomian nad $\Q_p$.
-	Jeżeli $\alpha$ zeruje $g(X)$, to $\mathcal K = \Q_p(\alpha)$ jest rozszerzeniem stopnia $f$.
-	Residuów ciało $\mathfrak K$ dla $\mathcal K$ musi zawierać pierwiastek $\overline g(X)$ (redukcja $\alpha$ mod $\mathfrak P$), zatem $[\mathfrak K : \mathbb F_p] \ge f$.
+	Podnosząc $\overline g(x)$ do $g(x) \in \Z_p[x]$ w taki sposób, w jaki się nam podoba, dostajemy nierozkładalny wielomian nad $\Q_p$.
+	Jeżeli $\alpha$ zeruje $g(x)$, to $\mathcal K = \Q_p(\alpha)$ jest rozszerzeniem stopnia $f$.
+	Residuów ciało $\mathfrak K$ dla $\mathcal K$ musi zawierać pierwiastek $\overline g(x)$ (redukcja $\alpha$ mod $\mathfrak P$), zatem $[\mathfrak K : \mathbb F_p] \ge f$.
 	Z drugiej strony stopień $\mathfrak K$ nad $\mathbb F_p$ nie przekracza stopnia $\mathcal K$ nad $\Q_p$, $f$, więc jest równy dokładnie $f$.
 	Ciało $\mathcal K / \Q_p$ jest nierozgałęzione i $\mathfrak K = \mathbb F_{p^f}$.
 
@@ -293,7 +297,7 @@ Koblitz twierdzi, że wszystkie rozszerzenia powstają w dwóch krokach: przez w
 \end{proof}
 
 \begin{fakt} % Robert, 125
-	Niech $X$ będzie p. ultrametryczną, dla której każdy ze zbiorów $\{d(x,y) : y \in X\}$ jest gęsty w $\R_+$.
+	Niech $x$ będzie p. ultrametryczną, dla której każdy ze zbiorów $\{d(x,y) : y \in x\}$ jest gęsty w $\R_+$.
 	Rodzina domkniętych kul zamienia się w drzewo z częściowym porządkiem od zawierania.
-	Dla ośrodkowej $X$, funkcja ,,średnica'' ma przeliczalne włókna.
+	Dla ośrodkowej $x$, funkcja ,,średnica'' ma przeliczalne włókna.
 \end{fakt}
