@@ -1,24 +1,25 @@
-\section{Przestrzenie skończonego wymiaru}
-Pokażemy, że w pewnym sensie jeżeli przestrzeń wektorowa ma skończony wymiar, to wiemy o niej wszystko, co tylko można wiedzieć.
+%\section{Przestrzenie skończonego wymiaru}
+Po \prawo{Gouvea\\5.2} zapoznaniu się z analizą funkcjonalną będziemy wiedzieć, że w przestrzeni ciągów $\liniowa = \{(a_n) : \lim_n a_n = 0\}$ z normą supremum żyje podprzestrzeń $\{(a_n) : \sum_n |a_n| < \infty\}$, na której można określić dwie normy: supremum lub normę $\ell^1$.
+W poprzednim problemie też wystąpiły rzeczy, które się filozofom nie śniły.
+Pokażemy jednak, że w pewnym sensie jeżeli przestrzeń wektorowa ma skończony wymiar, to wiemy o niej wszystko, co tylko można wiedzieć.
 
 \begin{fakt}
 	Wszystkie normy na $\liniowa$, przestrzeni wektorowej nad zupełnym ciałem z normą skończonego wymiaru, są równoważne, a sama przestrzeń jest zupełna z metryką supremum.
 \end{fakt}
 
 To nie takie proste w dowodzie, więc podzielimy go na kilka części.
-Niechaj $v_1, \dots, v_n$ będzie bazą dla $\liniowa$, $\|\cdot\|_0$ supremum normą, zaś $\|\cdot\|_1$ jakąś inną normą.
+Niechaj $v_1, \dots, v_n$ będzie bazą dla $\liniowa$, $\|\cdot\|_0$ normą supremum, zaś $\|\cdot\|_1$ jakąś inną normą.
 Chcemy pokazać istnienie $C, D$, że $\|v\|_1 \le C \|v\|_0$ oraz $\|v\|_0 \le D \|v\|_1$.
 
 \begin{lemat}
-	Gdy $C = n \max_{1 \le i \le n} \|v_i\|_1$, to $\|v\|_1 \le C \| v \|_0$ dla każdego $v \in V$.
+	Gdy $C = n \max_{1 \le i \le n} \|v_i\|_1$, to $\|v\|_1 \le C \| v \|_0$ dla każdego wektora $v \in \liniowa$.
 \end{lemat}
 
 \begin{proof}
-	Ustalmy wektor $v \in V$ i zapiszmy go w bazie:
-	\begin{align*}
-	\|v\|_1 & = \left\| \sum_{k=1}^n a_i v_i \right\|_1 \le  \sum_{k=1}^n \left\| a_i v_i \right\|_1 =  \sum_{k=1}^n |a_i|  \left\|  v_i \right\|_1 \\
-	& \le n \max |a_i| \max \|v_i\|_1 = C \|v\|_0 \qedhere
-	\end{align*}
+	Ustalmy wektor $v \in \liniowa$ i zapiszmy go w bazie:
+	\[
+	\|v\|_1 = \left\| \sum_{k=1}^n a_i v_i \right\|_1 \le  \sum_{k=1}^n \left\| a_i v_i \right\|_1 =  \sum_{k=1}^n |a_i|  \left\|  v_i \right\|_1 \le n \max |a_i| \max \|v_i\|_1 \qedhere %= C \|v\|_0 \qedhere
+	\]
 \end{proof}
 
 Druga nierówność jest trudniejsza.
@@ -45,7 +46,7 @@ Będziemy indukować po wymiarze $\liniowa$.
 		\|u_k + v_n\| = |\beta_k|^{-1} \|w_{m_k}\|_1 = \frac{\|w_{m_k}\|_1}{\|w_{m_k}\|_0} < \frac 1 {m_k}.
 	\]
 	Dostaliśmy ciąg wektorów $u_k$ takich, że normy $\|u_k + v_n\|_1$ dążą do zera.
-	Oczywiście tworzą ciąg Cauchy'ego (w $\mathcal W$, które jest zupełne), więc istnieje $u \in W$, że $u_k \to u$.
+	Oczywiście tworzą ciąg Cauchy'ego (w $\mathcal W$, które jest zupełne), więc istnieje $u \in \mathcal W$, że $u_k \to u$.
 	Problem w tym, że wtedy $\|u_k + v_n\|_1 \to \|u + v_n\|_1 = 0$, więc $u = -v_n \not \in \mathcal W$.
 \end{proof}
 
@@ -65,6 +66,7 @@ Będziemy indukować po wymiarze $\liniowa$.
 \end{proof}
 
 Udowodnimy twierdzenie częściowo do powyższego faktu odwrotne (za Robertem, a nie Gouveą).
+Jednocześnie zwracamy uwagę na to, że klasyczne dowody (dla $\mathbb R^n$ i $\mathbb C^n$) nie uogólniają się do $p$-adycznego przypadku, gdyż wykorzystują za dużo zwartości.
 
 \begin{fakt}
 	Lokalnie \prawo{Rbrt\\2.3.2} zwarta p. unormowana $\liniowa$ nad $\Q_p$ ma skończony wymiar.
